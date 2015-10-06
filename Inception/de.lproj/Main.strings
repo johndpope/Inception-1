@@ -1,0 +1,63 @@
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2dO-oA-ORT"; */
+"2dO-oA-ORT.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "39B-in-kEO"; */
+"39B-in-kEO.text" = "Label";
+
+/* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "7A5-Dc-f3w"; */
+"7A5-Dc-f3w.placeholder" = "Suchen";
+
+/* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[0] = "Popular"; ObjectID = "7RO-2o-dZJ"; */
+"7RO-2o-dZJ.segmentTitles[0]" = "Neu";
+
+/* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[1] = "Genre"; ObjectID = "7RO-2o-dZJ"; */
+"7RO-2o-dZJ.segmentTitles[1]" = "Genre";
+
+/* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[2] = "Top Rated"; ObjectID = "7RO-2o-dZJ"; */
+"7RO-2o-dZJ.segmentTitles[2]" = "Top Wertung";
+
+/* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[3] = "In Cinema"; ObjectID = "7RO-2o-dZJ"; */
+"7RO-2o-dZJ.segmentTitles[3]" = "Im Kino";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "8mt-FI-KAq"; */
+"8mt-FI-KAq.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "C6a-no-BuE"; */
+"C6a-no-BuE.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "CBU-ij-feI"; */
+"CBU-ij-feI.text" = "Label";
+
+/* Class = "UISegmentedControl"; Et8-yg-83i.segmentTitles[0] = "Info"; ObjectID = "Et8-yg-83i"; */
+"Et8-yg-83i.segmentTitles[0]" = "Info";
+
+/* Class = "UISegmentedControl"; Et8-yg-83i.segmentTitles[1] = "Known For"; ObjectID = "Et8-yg-83i"; */
+"Et8-yg-83i.segmentTitles[1]" = "Filmographie";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "G51-Nb-QGH"; */
+"G51-Nb-QGH.text" = "Title";
+
+/* Class = "UITabBarItem"; title = "Settings"; ObjectID = "IaM-OR-9yv"; */
+"IaM-OR-9yv.title" = "Einstellungen";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Ohk-g4-ukn"; */
+"Ohk-g4-ukn.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "RyI-IZ-de5"; */
+"RyI-IZ-de5.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Discover"; ObjectID = "UMJ-Bd-Jj2"; */
+"UMJ-Bd-Jj2.title" = "Entdecken";
+
+/* Class = "UITabBarItem"; title = "Watchlist"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Deine Liste";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cuF-1d-OCK"; */
+"cuF-1d-OCK.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Statistics"; ObjectID = "d72-RU-GRP"; */
+"d72-RU-GRP.title" = "Statistiken";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eK5-NB-Tqj"; */
+"eK5-NB-Tqj.text" = "Label";

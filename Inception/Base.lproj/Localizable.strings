@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Inception
+
+  Created by David Ehlen on 19.09.15.
+  Copyright © 2015 David Ehlen. All rights reserved.
+*/
+
+"search" = "Search";
+"discover" = "Discover";
+"stats" = "Statistics";
+"settings" = "Settings";
+"watchlist" = "Watchlist";
+"addwatchlist" = "Add to Watchlist";
+"errorTitle" = "Error";
+"networkErrorMessage" = "Could not load the data. You might want to check your network connection.";
+"budget" = "Budget";
+"releaseDate" = "Release Date";
+"revenue" = "Revenue";
+"runtime" = "Runtime";
+"status" = "Status";
+"tagline" = "Tagline";
+"voteAverage" = "Rating";
+"productionCompanies" = "Prod. Companies";
+"productionCountries" = "Prod. Countries";
+"biography" = "Biography";
+"birthday" = "Birthday";
+"deathday" = "Deathday";
+"placeofbirth" = "Place of Birth";
+"yes" = "Yes";
+"no" = "No";
+"createdBy" = "Created By";
+"firstAirDate" = "First Air Date";
+"lastAirDate" = "Last Air Date";
+"episodeRuntime" = "Episode Runtime";
+"inProduction" = "In Production";
+"networks" = "Networks";
+"numberOfEpisodes" = "Number of Episodes";
+"numberOfSeasons" = "Number of Seasons";
+"originCountries" = "Origin Countries";
+"type" = "Type";
+"overview" = "Overview";
+"nodata" = "No data available";

@@ -1,0 +1,43 @@
+/* 
+  Localizable.strings
+  Inception
+
+  Created by David Ehlen on 19.09.15.
+  Copyright © 2015 David Ehlen. All rights reserved.
+*/
+
+"search" = "Suchen";
+"discover" = "Entdecken";
+"stats" = "Statistiken";
+"settings" = "Einstellungen";
+"watchlist" = "Deine Liste";
+"addwatchlist" = "Hinzufügen zur Liste";
+"errorTitle" = "Error";
+"networkErrorMessage" = "Die Daten konnte nicht geladen werden. Schaue nach ob eine Netzwerkverbindung besteht.";
+"budget" = "Budget";
+"releaseDate" = "Veröffentlichung";
+"revenue" = "Einnahmen";
+"runtime" = "Laufzeit";
+"status" = "Status";
+"tagline" = "Zitat";
+"voteAverage" = "Bewertung";
+"productionCompanies" = "Prod. Unternehmen";
+"productionCountries" = "Prod. Länder";
+"biography" = "Biographie";
+"birthday" = "Geburtstag";
+"deathday" = "Todestag";
+"placeofbirth" = "Geburtsort";
+"yes" = "Ja";
+"no" = "Nein";
+"createdBy" = "Erstellt von";
+"firstAirDate" = "Erste Veröffentlichung";
+"lastAirDate" = "Letzte Veröffentlichung";
+"episodeRuntime" = "Episoden Laufzeit";
+"inProduction" = "In Produktion";
+"networks" = "Netzwerke";
+"numberOfEpisodes" = "Anzahl an Episoden";
+"numberOfSeasons" = "Anzahl an Staffeln";
+"originCountries" = "Herkunftsland";
+"type" = "Typ";
+"overview" = "Übersicht";
+"nodata" = "Keine Daten verfügbar";

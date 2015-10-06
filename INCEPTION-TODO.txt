@@ -1,0 +1,46 @@
+see todos in code
+watchlist bauen (model etc)
+personen und similar collectionviews (todes hässlicher code => auf jeden fall ändern)
+loading indicator (als ui element und in statusbar)
+collectionviews => 2 rows in tableview (similar, cast) => zu neuen viewcontrollern, nicht anzeigen falls keine daten
+refactor code
+	jsonparser andere lösung finden vllt direkt in model klassen oder methoden verbessern
+	detailviews extrem refactoren (tableview reusable machen, computeTableData Methode ist 	ein witz, collectionviews)
+
+//views
+discover:
+
+genre
+1 column -- picture of recommended movie of this genre (see todomovies app)
+=> detail 3 columns with movies/tv via section divided
+
+popular 3 columns divivded tv and movies via section
+
+in cinema:
+only movies 1 column
+
+top rated
+top 250 tv
+top 250 movie
+
+
+preferences:
+empty cache, video and image preferences,account management, probably a lot more...
+
+stats: see watched.li and other platforms for possible stats
+
+login:
+register,login,forgot password, keep me logged in
+
+watchlist:
+seen, want to see, calendar (next airing)
+
+detailview:
+for movies:
+rating, name, year, trailer, cover picture, released, director, language, runtime, genres, plot, actors, seen button, add to watchlist, similiar
+
+for tv shows:
+status(ended, airing), rating, name, year, trailer, picture, first aired, next episode air date, network, country, language, runtime per episode, genres, plot, actors, add to watchlist, completely seen buttons
+seasons -> episodes, similiar
+
+for persons:
