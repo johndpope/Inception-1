@@ -25,4 +25,8 @@ enum APIEndpoints {
     case SimilarShows(Int)
     case ShowCredits(Int)
     case CinemaMovies
+    case PopularMovies
+    case PopularShows
+    case TopRatedMovies
+    case TopRatedShows
 }

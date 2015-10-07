@@ -22,6 +22,10 @@ extension APIEndpoints : APIRoute {
             case .SimilarShows(let showId) : return "/tv/\(showId)/similar"
             case .ShowCredits(let showId) : return "/tv/\(showId)/credits"
             case .CinemaMovies : return "/movie/now_playing"
+            case .PopularMovies : return "/movie/popular"
+            case .PopularShows : return "/tv/popular"
+            case .TopRatedMovies: return "/movie/top_rated"
+            case .TopRatedShows: return "/tv/top_rated"
         }
     }
     
@@ -39,6 +43,10 @@ extension APIEndpoints : APIRoute {
         case .SimilarShows(_) : return ["api_key":APIKEY]
         case .ShowCredits(_) : return ["api_key":APIKEY]
         case .CinemaMovies : return ["api_key":APIKEY]
+        case .PopularMovies : return ["api_key":APIKEY]
+        case .PopularShows : return ["api_key":APIKEY]
+        case .TopRatedMovies : return ["api_key":APIKEY]
+        case .TopRatedShows : return ["api_key":APIKEY]
         }
     }
 
