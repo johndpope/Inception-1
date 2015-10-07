@@ -121,17 +121,21 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
         
     }
     
+    func removeCollectionViewFromFooter(collectionView:UICollectionView) {
+        let collectionViewHeight = collectionView.frame.size.height
+        collectionView.removeFromSuperview()
+        let frame = CGRectMake(self.footerView.frame.origin.x, self.footerView.frame.origin.y, self.footerView.frame.size.width, self.footerView.frame.size.height-collectionViewHeight)
+        self.footerView.frame = frame
+        let effectiveHeight = kTableHeaderHeight - kTableHeaderCutAway/2
+        tableView.contentInset = UIEdgeInsets(top:effectiveHeight, left:0, bottom:-collectionViewHeight, right:0)
+    }
+    
     func addSimilarShows() -> Void {
         if self.similarShows.count != 0 {
             self.similarShowsCollectionView.reloadData()
         }
         else {
-            self.similarShowsCollectionView.removeFromSuperview()
-            let frame = CGRectMake(self.footerView.frame.origin.x, self.footerView.frame.origin.y, self.footerView.frame.size.height, self.footerView.frame.size.height-114.0)
-            self.footerView.frame = frame
-            let effectiveHeight = kTableHeaderHeight - kTableHeaderCutAway/2
-            tableView.contentInset = UIEdgeInsets(top:effectiveHeight, left:0, bottom:-114.0, right:0)
-
+           self.removeCollectionViewFromFooter(self.similarShowsCollectionView)
         }
     }
     
@@ -140,12 +144,7 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
             self.personCreditsCollectionView.reloadData()
         }
         else {
-            self.personCreditsCollectionView.removeFromSuperview()
-            let frame = CGRectMake(self.footerView.frame.origin.x, self.footerView.frame.origin.y, self.footerView.frame.size.height, self.footerView.frame.size.height-126.0)
-            self.footerView.frame = frame
-            let effectiveHeight = kTableHeaderHeight - kTableHeaderCutAway/2
-            tableView.contentInset = UIEdgeInsets(top:effectiveHeight, left:0, bottom:-126.0, right:0)
-
+           self.removeCollectionViewFromFooter(self.personCreditsCollectionView)
         }
     }
 

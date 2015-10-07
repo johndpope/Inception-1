@@ -32,29 +32,20 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
     @IBOutlet weak var personCreditsCollectionView:UICollectionView!
     @IBOutlet weak var footerView:UIView!
 
-
     var videoIdentifier:String?
     //TODO: add to watchlist to uibarbuttonitem, check if already in watchlist => toggle tintcolor on add watchlist button
     //TODO: Make genre clickable, show all trailers, show all media(images)
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         
         self.tableView.estimatedRowHeight = 44.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         self.view.backgroundColor = UIColor.darkTextColor()
         
         headerView = tableView.tableHeaderView
-        
         headerMaskLayer =   CAShapeLayer()
         headerMaskLayer.fillColor = UIColor.blackColor().CGColor
         headerView.layer.mask = headerMaskLayer
-        
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)
                 
@@ -63,7 +54,6 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         tableView.contentOffset = CGPoint(x:0,y:-effectiveHeight)
         updateHeaderView()
      
-        
         APIController.request(APIEndpoints.Movie(id)) { (data:AnyObject?, error:NSError?) in
             if (error != nil) {
                 self.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage")
@@ -130,18 +120,22 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         
     }
     
+    func removeCollectionViewFromFooter(collectionView:UICollectionView) {
+        let collectionViewHeight = collectionView.frame.size.height
+        collectionView.removeFromSuperview()
+        let frame = CGRectMake(self.footerView.frame.origin.x, self.footerView.frame.origin.y, self.footerView.frame.size.width, self.footerView.frame.size.height-collectionViewHeight)
+        self.footerView.frame = frame
+        let effectiveHeight = kTableHeaderHeight - kTableHeaderCutAway/2
+        tableView.contentInset = UIEdgeInsets(top:effectiveHeight, left:0, bottom:-collectionViewHeight, right:0)
+    }
+    
     func addSimilarMovies() -> Void {
         if self.similarMovies.count != 0 {
             self.similarMoviesCollectionView.reloadData()
         }
         else {
-            self.similarMoviesCollectionView.removeFromSuperview()
-            let frame = CGRectMake(self.footerView.frame.origin.x, self.footerView.frame.origin.y, self.footerView.frame.size.width, self.footerView.frame.size.height-114.0)
-            self.footerView.frame = frame
-            let effectiveHeight = kTableHeaderHeight - kTableHeaderCutAway/2
-            tableView.contentInset = UIEdgeInsets(top:effectiveHeight, left:0, bottom:-114.0, right:0)
+            self.removeCollectionViewFromFooter(self.similarMoviesCollectionView)
         }
-      
     }
     
     func addPersonCredits() {
@@ -149,14 +143,8 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
             self.personCreditsCollectionView.reloadData()
         }
         else {
-            self.personCreditsCollectionView.removeFromSuperview()
-            let frame = CGRectMake(self.footerView.frame.origin.x, self.footerView.frame.origin.y, self.footerView.frame.size.width, self.footerView.frame.size.height-126.0)
-            self.footerView.frame = frame
-            let effectiveHeight = kTableHeaderHeight - kTableHeaderCutAway/2
-            tableView.contentInset = UIEdgeInsets(top:effectiveHeight, left:0, bottom:-126.0, right:0)
-            
+            self.removeCollectionViewFromFooter(self.personCreditsCollectionView)
         }
-        
     }
     
     func updateUI() {
@@ -196,9 +184,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
                     print(error)
                 } else {
                     self.similarMovies = JSONParser.similarMovies(data)
-                    self.addSimilarMovies()
-                    self.tableView.setNeedsLayout()
-                   
+                    self.addSimilarMovies()                   
                 }
             }
             
