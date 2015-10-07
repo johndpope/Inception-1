@@ -1,27 +1,39 @@
 see todos in code
 watchlist bauen (model etc)
-personen und similar collectionviews (todes hässlicher code => auf jeden fall ändern)
-loading indicator (als ui element und in statusbar)
-collectionviews => 2 rows in tableview (similar, cast) => zu neuen viewcontrollern, nicht anzeigen falls keine daten
+loading indicator (als ui element in den viewcontrollern)
+detail : genre clickbar, alle trailer anzeigen, alle bilder anzeigen
+language hinzufügen zu api calls evtl
+search/multi page berücksichtigen um alle results anzuzeigen (siehe iphone github lib, array mit total_count und pagesize)
+evtl discover kategorien auch mit pages austatten
 refactor code
+	bessere namen vergeben vor allem für cells
 	jsonparser andere lösung finden vllt direkt in model klassen oder methoden verbessern
-	detailviews extrem refactoren (tableview reusable machen, computeTableData Methode ist 	ein witz, collectionviews)
+	detailviews extrem refactoren (tableview reusable machen, computeTableData Methode ist 	ein witz, collectionviews, removefromfooter)
 
+
+todo movies macht es wie folgt: mehere pages antriggern (page=x)
+und liste erstellen und dann per /movie/list holen
 //views
 discover:
-
+pages => show more than page 1
 genre
 1 column -- picture of recommended movie of this genre (see todomovies app)
 => detail 3 columns with movies/tv via section divided
 
 popular 3 columns divivded tv and movies via section
 
-in cinema:
-only movies 1 column
-
 top rated
 top 250 tv
 top 250 movie
+
+func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+    if indexPath.item == (data.count-1) {
+        loadData()
+    }
+}
+
+http://api.themoviedb.org/3/discover/tv?api_key=###&sort_by=popularity.desc&with_genres=18
+
 
 
 preferences:
@@ -29,18 +41,13 @@ empty cache, video and image preferences,account management, probably a lot more
 
 stats: see watched.li and other platforms for possible stats
 
-login:
-register,login,forgot password, keep me logged in
-
 watchlist:
 seen, want to see, calendar (next airing)
 
 detailview:
 for movies:
-rating, name, year, trailer, cover picture, released, director, language, runtime, genres, plot, actors, seen button, add to watchlist, similiar
+seen button, add to watchlist
 
 for tv shows:
-status(ended, airing), rating, name, year, trailer, picture, first aired, next episode air date, network, country, language, runtime per episode, genres, plot, actors, add to watchlist, completely seen buttons
+actors, add to watchlist, completely seen buttons
 seasons -> episodes, similiar
-
-for persons:
