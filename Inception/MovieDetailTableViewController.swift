@@ -59,7 +59,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
                 self.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage")
                 print(error)
             } else {
-                self.movie = JSONParser.parseMovie(data)
+                self.movie = Movie(data: data!)
                 self.updateUI()
             }
         }
@@ -69,6 +69,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        CacheFactory.clearAllCaches()
     }
     
     func showAlert(localizeTitleKey:String, localizeMessageKey:String) {

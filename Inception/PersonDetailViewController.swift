@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MapKit
 
 class PersonDetailViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var id:Int = 0
@@ -63,6 +62,7 @@ class PersonDetailViewController: UIViewController,UITableViewDelegate,UITableVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        CacheFactory.clearAllCaches()
     }
     
     func updateUI() {

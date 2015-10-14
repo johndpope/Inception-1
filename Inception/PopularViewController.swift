@@ -43,8 +43,8 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        CacheFactory.clearAllCaches()
     }
-    
     
     //MARK: - UICollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

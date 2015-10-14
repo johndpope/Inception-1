@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
@@ -19,19 +19,14 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "search".localized
-        
-        self.tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
-        let tblView =  UIView(frame: CGRectZero)
-        self.tableView.tableFooterView = tblView
-        self.tableView.tableFooterView?.hidden = true
-        self.tableView.backgroundView = UIView()
-        self.tableView.backgroundView?.backgroundColor = UIColor.darkTextColor()
+                
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        CacheFactory.clearAllCaches()
     }
     
     /* UITableView Delegate & Datasource */
@@ -42,10 +37,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
-    }
-    
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        cell.backgroundColor = UIColor.darkTextColor()
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -106,39 +97,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell  = tableView.cellForRowAtIndexPath(indexPath)
         cell!.contentView.backgroundColor = .darkTextColor()
         cell!.backgroundColor = .darkTextColor()
-
-    }
-    
-    /* UISearchBar Delegate */
-    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        self.searchBar.text = ""
-        self.results.removeAll()
-        self.searchBar.resignFirstResponder()
-        self.tableView.reloadData()
-    }
-    
-    func searchBarSearchButtonClicked(searchBar: UISearchBar) {
-        if let searchText = searchBar.text {
-            APIController.request(APIEndpoints.MultiSearch(searchText)) { (data:AnyObject?, error:NSError?) in
-                    if (error != nil) {
-                        self.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage")
-                        self.searchBar.resignFirstResponder()
-                    } else {
-                        self.results = JSONParser.mutliSearchResults(data)
-                        self.tableView.reloadData()
-                    }
-                }
-        }
-    }
-    
-    func showAlert(localizeTitleKey:String, localizeMessageKey:String) {
-        let alertController = UIAlertController(title: localizeTitleKey.localized, message: localizeMessageKey.localized, preferredStyle:.Alert)
-        let dismissAction = UIAlertAction(title: "OK", style: .Default) { (_) in
-        }
-        alertController.addAction(dismissAction)
-        dispatch_async(dispatch_get_main_queue(), {
-            self.presentViewController(alertController, animated: true, completion: nil)
-        })
     }
 }
 

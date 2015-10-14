@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Movie {
     var backdropPath:String?
@@ -25,27 +26,64 @@ class Movie {
     var title:String?
     var voteAverage:Double?
     
-    init(backdropPath:String?, budget:Int?, genres:[Genre]?, id:Int?, overview:String?, posterPath:String?, productionCompanies:[String]?,productionCountries:[String]?, releaseDate:String?, revenue:Int?, runtime:Int?, status:String?, tagline:String?, title:String?, voteAverage:Double?) {
-        self.backdropPath = backdropPath
-        self.budget = budget
-        self.genres = genres
-        self.id = id
-        self.overview = overview
-        self.posterPath = posterPath
-        self.productionCompanies = productionCompanies
-        self.productionCountries = productionCountries
-        self.releaseDate = releaseDate
-        self.revenue = revenue
-        self.runtime = runtime
-        self.status = status
-        self.tagline = tagline
-        self.title = title
-        self.voteAverage = voteAverage
-    }
     
     init(id:Int?, title:String?, posterPath:String?) {
         self.id = id
         self.title = title
         self.posterPath = posterPath
+    }
+    
+    init(data:AnyObject) {
+        let json = JSON(data)
+        var genres:[Genre] = []
+        var productionCompanies:[String] = []
+        var productionCountries:[String] = []
+        
+        if let items = json["genres"].array {
+            for item in items {
+                var genreName = ""
+                var genreId = 0
+                
+                if let name = item["name"].string {
+                    genreName = name
+                }
+                if let id = item["id"].int {
+                    genreId = id
+                }
+                genres.append(Genre(name: genreName, id: genreId))
+            }
+        }
+        
+        if let items = json["production_companies"].array {
+            for item in items {
+                if let name = item["name"].string {
+                   productionCompanies.append(name)
+                }
+            }
+        }
+        
+        if let items = json["production_countries"].array {
+            for item in items {
+                if let name = item["name"].string {
+                    productionCountries.append(name)
+                }
+            }
+        }
+        
+        self.backdropPath = json["backdrop_path"].string
+        self.budget = json["budget"].int
+        self.genres = genres
+        self.id = json["id"].int
+        self.overview = json["overview"].string
+        self.posterPath = json["poster_path"].string
+        self.productionCompanies = productionCompanies
+        self.productionCountries = productionCountries
+        self.releaseDate = json["release_date"].string
+        self.revenue = json["revenue"].int
+        self.runtime = json["runtime"].int
+        self.status = json["status"].string
+        self.tagline = json["tagline"].string
+        self.title = json["title"].string
+        self.voteAverage = json["vote_average"].double
     }
 }

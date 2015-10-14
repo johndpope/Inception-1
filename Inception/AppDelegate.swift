@@ -13,6 +13,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        CacheFactory.setMaxImageCacheSize(200*1024*1024)
+        SettingsFactory.registerDefaults()
+        
         return true
     }
 

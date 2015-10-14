@@ -57,61 +57,6 @@ class JSONParser {
         return parsedResults
     }
     
-    class func parseMovie(data:AnyObject?) -> Movie {
-        let json = JSON(data!)
-        var genres:[Genre]? = nil
-        var productionCompanies:[String]? = nil
-        var productionCountries:[String]? = nil
-        
-        if let genreArray = json["genres"].array {
-            for i in 0..<genreArray.count {
-                var genreName:String?
-                var genreId:Int?
-                if let jsonGenreName = json["genres"][i]["name"].string {
-                   genreName = jsonGenreName
-                }
-                if let jsonGenreId = json["genres"][i]["id"].int {
-                    genreId = jsonGenreId
-                }
-                let genre = Genre(name:genreName,id:genreId)
-                if genres != nil {
-                    genres?.append(genre)
-                }
-                else {
-                    genres = [genre]
-                }
-            }
-        }
-        
-        if let productionCompaniesArray = json["production_companies"].array {
-            for j in 0..<productionCompaniesArray.count {
-                if let productionCompanyName = json["production_companies"][j]["name"].string {
-                    if productionCompanies != nil {
-                        productionCompanies?.append(productionCompanyName)
-                    }
-                    else {
-                        productionCompanies = [productionCompanyName]
-                    }
-                }
-            }
-        }
-        
-        if let productionCountriesArray = json["production_countries"].array {
-            for k in 0..<productionCountriesArray.count {
-                if let productionCountryName = json["production_countries"][k]["name"].string {
-                    if productionCountries != nil {
-                        productionCountries?.append(productionCountryName)
-                    }
-                    else {
-                        productionCountries = [productionCountryName]
-                    }
-                }
-            }
-        }
-        
-        return Movie(backdropPath:json["backdrop_path"].string,budget:json["budget"].int,genres:genres,id:json["id"].int,overview:json["overview"].string,posterPath:json["poster_path"].string ,productionCompanies:productionCompanies,productionCountries:productionCountries,releaseDate: json["release_date"].string,revenue:json["revenue"].int,runtime:json["runtime"].int,status:json["status"].string,tagline:json["tagline"].string,title:json["title"].string,voteAverage:json["vote_average"].double)
-    }
-    
     class func parseTrailerKey(data:AnyObject?) -> String? {
         let json = JSON(data!)
         if let resultsArray = json["results"].array {

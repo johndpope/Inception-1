@@ -81,8 +81,9 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        CacheFactory.clearAllCaches()
     }
-
+    
     @IBAction func playTrailer(sender:UIButton) {
         if videoIdentifier != nil {
             let playerViewController = AVPlayerViewController()

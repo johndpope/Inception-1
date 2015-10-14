@@ -51,6 +51,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+        CacheFactory.clearAllCaches()
     }
     
     
