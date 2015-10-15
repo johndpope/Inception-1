@@ -24,37 +24,38 @@
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="90" id="DxN-3g-9gV" customClass="SearchCell" customModule="Inception" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SearchCell" rowHeight="90" id="DxN-3g-9gV" customClass="SearchCell" customModule="Inception" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DxN-3g-9gV" id="o0k-ex-ywn">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="90"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Bt-ek-Oni">
-                                                    <rect key="frame" x="8" y="8" width="57" height="74"/>
-                                                    <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="57" id="D90-uP-MnW"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mt-FI-KAq">
-                                                    <rect key="frame" x="84" y="34" width="475" height="21"/>
+                                                    <rect key="frame" x="73" y="34" width="486" height="21"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Bt-ek-Oni">
+                                                    <rect key="frame" x="8" y="3" width="57" height="84"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="57" id="yMw-H5-rJL"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
-                                                <constraint firstItem="8mt-FI-KAq" firstAttribute="centerY" secondItem="o0k-ex-ywn" secondAttribute="centerY" id="2Gl-dC-0TS"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="1Bt-ek-Oni" secondAttribute="bottom" id="JCE-sx-bGi"/>
-                                                <constraint firstAttribute="leadingMargin" secondItem="1Bt-ek-Oni" secondAttribute="leading" id="XQb-eP-bys"/>
-                                                <constraint firstItem="8mt-FI-KAq" firstAttribute="leading" secondItem="1Bt-ek-Oni" secondAttribute="trailing" constant="19" id="dhp-dO-VGF"/>
-                                                <constraint firstItem="1Bt-ek-Oni" firstAttribute="top" secondItem="o0k-ex-ywn" secondAttribute="topMargin" id="hYz-qj-Z2S"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="8mt-FI-KAq" secondAttribute="trailing" id="ygN-NE-M6s"/>
+                                                <constraint firstAttribute="bottom" secondItem="1Bt-ek-Oni" secondAttribute="bottom" constant="3" id="3W1-Nc-FbO"/>
+                                                <constraint firstItem="1Bt-ek-Oni" firstAttribute="leading" secondItem="o0k-ex-ywn" secondAttribute="leading" constant="8" id="FuE-Py-33a"/>
+                                                <constraint firstAttribute="trailing" secondItem="8mt-FI-KAq" secondAttribute="trailing" constant="8" id="Knh-uA-Z4I"/>
+                                                <constraint firstItem="8mt-FI-KAq" firstAttribute="leading" secondItem="1Bt-ek-Oni" secondAttribute="trailing" constant="8" id="NCJ-KL-Iax"/>
+                                                <constraint firstAttribute="bottom" secondItem="8mt-FI-KAq" secondAttribute="bottom" constant="35" id="SBX-4Z-wlV"/>
+                                                <constraint firstItem="8mt-FI-KAq" firstAttribute="top" secondItem="o0k-ex-ywn" secondAttribute="top" constant="34" id="lYp-4l-ai2"/>
+                                                <constraint firstItem="1Bt-ek-Oni" firstAttribute="top" secondItem="o0k-ex-ywn" secondAttribute="top" constant="3" id="m1T-lt-KJY"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
@@ -1402,7 +1403,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Disk Space" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="xN5-7U-vqa">
-                                                    <rect key="frame" x="15" y="12" width="32" height="20"/>
+                                                    <rect key="frame" x="15" y="12" width="81" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
