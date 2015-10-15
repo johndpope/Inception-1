@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Person {
     var biography:String?
@@ -17,13 +18,13 @@ class Person {
     var placeOfBirth:String?
     var profilePath:String?
     
-    init(biography:String?, birthday:String?, deathday:String?, id:Int?, name:String?, placeOfBirth:String?, profilePath:String?) {
-        self.biography = biography
-        self.birthday = birthday
-        self.deathday = deathday
-        self.id = id
-        self.name = name
-        self.placeOfBirth = placeOfBirth
-        self.profilePath = profilePath
+    init(json:JSON) {
+        self.biography = json["biography"].string
+        self.birthday = json["birthday"].string
+        self.deathday = json["deathday"].string
+        self.id = json["id"].int
+        self.name = json["name"].string
+        self.placeOfBirth = json["place_of_birth"].string
+        self.profilePath = json["profile_path"].string
     }
 }

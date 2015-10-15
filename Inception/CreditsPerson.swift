@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class CreditsPerson {
     var id:Int?
@@ -14,10 +15,10 @@ class CreditsPerson {
     var name:String?
     var profilePath:String?
 
-    init(id:Int?, character:String?, name:String?, profilePath:String?) {
-        self.id = id
-        self.character = character
-        self.name = name
-        self.profilePath = profilePath
+    init(json:JSON) {
+        self.id = json["id"].int
+        self.character = json["character"].string
+        self.name = json["name"].string
+        self.profilePath = json["profile_path"].string
     }
 }

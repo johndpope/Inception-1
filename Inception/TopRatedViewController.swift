@@ -17,14 +17,12 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //TODO: richtige daten laden
         APIController.request(APIEndpoints.TopRatedMovies) { (data:AnyObject?, error:NSError?) in
             if (error != nil) {
                 //TODO: error handling
                 print(error)
             } else {
-                //TODO: Methodenname passt nicht
-                self.movies = JSONParser.similarMovies(data)
+                self.movies = JSONParser.parseMovieResults(data)
                 self.collectionView.reloadData()
             }
         }
@@ -34,8 +32,7 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
                 //TODO: error handling
                 print(error)
             } else {
-                //TODO: Methodenname passt nicht
-                self.shows = JSONParser.similarShows(data)
+                self.shows = JSONParser.parseShowResults(data)
                 self.collectionView.reloadData()
             }
         }

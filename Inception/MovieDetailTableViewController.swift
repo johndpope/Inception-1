@@ -9,6 +9,7 @@
 import UIKit
 import XCDYouTubeKit
 import AVKit
+import SwiftyJSON
 
 class MovieDetailTableViewController: UITableViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
@@ -59,7 +60,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
                 self.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage")
                 print(error)
             } else {
-                self.movie = Movie(data: data!)
+                self.movie = Movie(json: JSON(data!))
                 self.updateUI()
             }
         }
@@ -184,7 +185,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
                 if (error != nil) {
                     print(error)
                 } else {
-                    self.similarMovies = JSONParser.similarMovies(data)
+                    self.similarMovies = JSONParser.parseMovieResults(data)
                     self.addSimilarMovies()                   
                 }
             }

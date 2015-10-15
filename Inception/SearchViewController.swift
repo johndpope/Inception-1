@@ -41,9 +41,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
-        
-        let imageURL =  imageBaseURL.URLByAppendingPathComponent(self.results[indexPath.row].imagePath)
-        cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+        if let imagePath = self.results[indexPath.row].imagePath {
+            let imageURL =  imageBaseURL.URLByAppendingPathComponent(imagePath)
+            cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+        }
+        else {
+            cell.coverImageView.image = UIImage(named: "placeholder-dark")
+        }
         cell.headingLabel.text = self.results[indexPath.row].name
         
         return cell
@@ -51,27 +55,29 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch self.results[indexPath.row].mediaType {
-        case "movie":
-            let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
-            vc.id = self.results[indexPath.row].id
-            dispatch_async(dispatch_get_main_queue(), {
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-        case "tv":
-            let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
-            vc.id = self.results[indexPath.row].id
-            dispatch_async(dispatch_get_main_queue(), {
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-        case "person":
-            let vc : PersonDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("PersonDetailViewController") as! PersonDetailViewController
-            vc.id = self.results[indexPath.row].id
-            dispatch_async(dispatch_get_main_queue(), {
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
-        default:
-            break
+        if let id = self.results[indexPath.row].id {
+            switch self.results[indexPath.row].mediaType {
+            case "movie":
+                let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
+                vc.id = id
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            case "tv":
+                let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
+                vc.id = id
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            case "person":
+                let vc : PersonDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("PersonDetailViewController") as! PersonDetailViewController
+                vc.id = id
+                dispatch_async(dispatch_get_main_queue(), {
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            default:
+                break
+            }
         }
     }
     
@@ -84,19 +90,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         watchlistAction.backgroundColor = UIColor(red: 227.0/255.0, green: 187.0/255.0, blue: 55.0/255.0, alpha: 1.0)
         
         return [watchlistAction]
-    }
-    
-    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        cell!.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-
-    }
-    
-    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = .darkTextColor()
-        cell!.backgroundColor = .darkTextColor()
     }
 }
 

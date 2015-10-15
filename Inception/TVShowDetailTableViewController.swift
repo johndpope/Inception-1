@@ -9,6 +9,7 @@
 import UIKit
 import XCDYouTubeKit
 import AVKit
+import SwiftyJSON
 
 class TVShowDetailTableViewController: UITableViewController,UICollectionViewDataSource, UICollectionViewDelegate {
     var id:Int = 0
@@ -62,7 +63,7 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
                 self.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage")
                 print(error)
             } else {
-                self.show = JSONParser.parseShow(data)
+                self.show = Show(json: JSON(data!))
                 self.updateUI()
             }
         }
@@ -185,7 +186,7 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
                 if (error != nil) {
                     print(error)
                 } else {
-                    self.similarShows = JSONParser.similarShows(data)
+                    self.similarShows = JSONParser.parseShowResults(data)
                     self.addSimilarShows()
                     self.tableView.setNeedsLayout()
                     

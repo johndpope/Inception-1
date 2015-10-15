@@ -27,8 +27,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
                         //TODO: error handling
                         print(error)
                     } else {
-                        //TODO: Methodenname passt nicht
-                        self.shows = JSONParser.similarShows(data)
+                        self.shows = JSONParser.parseShowResults(data)
                         self.collectionView.reloadData()
                     }
                 }
@@ -39,8 +38,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
                         //TODO: error handling
                         print(error)
                     } else {
-                        //TODO: Methodenname passt nicht
-                        self.movies = JSONParser.similarMovies(data)
+                        self.movies = JSONParser.parseMovieResults(data)
                         self.collectionView.reloadData()
                     }
                 }

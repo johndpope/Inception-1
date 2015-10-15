@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Season {
     
@@ -16,11 +17,12 @@ class Season {
     var posterPath:String?
     var seasonNumber:Int?
     
-    init(airDate:String?, episodeCount:Int?, id:Int?, posterPath:String?, seasonNumber:Int?) {
-        self.airDate = airDate
-        self.episodeCount = episodeCount
-        self.id = id
-        self.posterPath = posterPath
-        self.seasonNumber = seasonNumber
+    init(json:JSON) {
+        self.airDate = json["air_date"].string
+        self.episodeCount = json["episode_count"].int
+        self.id = json["id"].int
+        self.posterPath = json["poster_path"].string
+        self.seasonNumber = json["season_number"].int
+        
     }
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Show {
     var backdropPath:String?
@@ -30,33 +31,81 @@ class Show {
     var type:String?
     var seasons:[Season]?
     
-    init(backdropPath:String?, genres:[Genre]?, id:Int?, overview:String?, posterPath:String?, productionCompanies:[String]?,status:String?,title:String?, voteAverage:Double?, createdBy:[String]?, episodeRunTime:[Int]?, firstAirDate:String?, inProduction:Bool?, lastAirDate:String?, networks:[String]?, numberOfEpisodes:Int?, numberOfSeasons:Int?, originCountries:[String]?, type:String?, seasons:[Season]?) {
-        self.backdropPath = backdropPath
-        self.genres = genres
-        self.id = id
-        self.overview = overview
-        self.posterPath = posterPath
-        self.productionCompanies = productionCompanies
-        self.status = status
-        self.title = title
-        self.voteAverage = voteAverage
+    init(json:JSON) {
+        var genres:[Genre] = []
+        var productionCompanies:[String] = []
+        var createdBy:[String] = []
+        var episodeRunTime:[Int] = []
+        var networks:[String] = []
+        var originCountries:[String] = []
+        var seasons:[Season] = []
         
+        if let items = json["genres"].array {
+            for item in items {
+                let genre = Genre(json:item)
+                genres.append(genre)
+            }
+        }
+        
+        if let items = json["production_companies"].array {
+            for item in items {
+                if let name = item["name"].string {
+                    productionCompanies.append(name)
+                }
+            }
+        }
+        
+        if let items = json["created_by"].array {
+            for item in items {
+                if let name = item["name"].string {
+                    createdBy.append(name)
+                }
+            }
+        }
+
+        
+        episodeRunTime = json["episode_run_time"].arrayValue.map{$0.int!}
+        
+        if let items = json["networks"].array {
+            for item in items {
+                if let name = item["name"].string {
+                    networks.append(name)
+                }
+            }
+        }
+
+        
+        originCountries = json["origin_countries"].arrayValue.map{$0.string!}
+
+        
+        if let seasonsArray = json["seasons"].array {
+            for s in 0..<seasonsArray.count {
+                let seasonObj = Season(json: json["seasons"][s])
+                seasons.append(seasonObj)
+            }
+        }
+        
+        self.backdropPath = json["backdrop_path"].string
+        self.genres = genres
+        self.id = json["id"].int
+        self.overview = json["overview"].string
+        self.posterPath = json["poster_path"].string
+        self.productionCompanies = productionCompanies
+        self.status = json["status"].string
+        self.title = json["title"].string
+        self.voteAverage = json["vote_average"].double
+
         self.createdBy = createdBy
         self.episodeRunTime = episodeRunTime
-        self.firstAirDate = firstAirDate
-        self.inProduction = inProduction
-        self.lastAirDate = lastAirDate
+        self.firstAirDate = json["first_air_date"].string
+        self.inProduction = json["in_production"].bool
+        self.lastAirDate = json["last_air_date"].string
         self.networks = networks
-        self.numberOfEpisodes = numberOfEpisodes
-        self.numberOfSeasons = numberOfSeasons
+        self.numberOfEpisodes = json["number_of_episodes"].int
+        self.numberOfSeasons = json["number_of_seasons"].int
         self.originCountries = originCountries
-        self.type = type
+        self.type = json["type"].string
         self.seasons = seasons
-    }
-    
-    init(id:Int?, title:String?, posterPath:String?) {
-        self.id = id
-        self.title = title
-        self.posterPath = posterPath
+        
     }
 }

@@ -149,8 +149,10 @@ class PersonDetailViewController: UIViewController,UITableViewDelegate,UITableVi
             let cell = tableView.dequeueReusableCellWithIdentifier("KnownForCell", forIndexPath: indexPath)
             
             cell.textLabel?.text = self.knownFor[indexPath.row].name
-            let imageURL =  imageBaseURL.URLByAppendingPathComponent(self.knownFor[indexPath.row].imagePath)
-            cell.imageView?.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+            if let imagePath = self.knownFor[indexPath.row].imagePath {
+                let imageURL =  imageBaseURL.URLByAppendingPathComponent(imagePath)
+                cell.imageView?.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+            }
             return cell
         }
     }
@@ -171,21 +173,23 @@ class PersonDetailViewController: UIViewController,UITableViewDelegate,UITableVi
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if self.selectedSegmentIndex == 1 {
             let element = self.knownFor[indexPath.row]
-            if element.mediaType == "movie" {
-                let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
-                vc.id = element.id
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+            if element.id != nil {
+                if element.mediaType == "movie" {
+                    let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
+                    vc.id = element.id!
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
 
-            }
-            else {
-                let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
-                vc.id = element.id
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                }
+                else {
+                    let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
+                    vc.id = element.id!
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
 
+                }
             }
         }
     }

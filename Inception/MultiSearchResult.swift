@@ -7,17 +7,26 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class MultiSearchResult {
     var mediaType:String
-    var name:String
-    var imagePath:String
-    var id:Int
+    var name:String?
+    var imagePath:String?
+    var id:Int?
 
-    init(mediaType:String, name:String, imagePath: String, id:Int) {
+    init(mediaType:String, json:JSON) {
         self.mediaType = mediaType
-        self.name = name
-        self.imagePath = imagePath
-        self.id = id
+        
+        switch(mediaType) {
+            case "movie":
+                self.name = json["title"].string
+            case "tv", "person":
+                self.name = json["name"].string
+        default: ()
+        }
+        
+        self.imagePath = json["poster_path"].string
+        self.id = json["id"].int
     }
 }

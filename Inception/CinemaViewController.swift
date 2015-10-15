@@ -19,8 +19,7 @@ class CinemaViewController: UIViewController,UICollectionViewDelegate,UICollecti
             if (error != nil) {
                 print(error)
             } else {
-                //TODO: methodennamen passt nicht
-                self.movies = JSONParser.similarMovies(data)
+                self.movies = JSONParser.parseMovieResults(data)
                 self.collectionView.reloadData()
             }
         }

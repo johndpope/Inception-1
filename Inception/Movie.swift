@@ -27,30 +27,15 @@ class Movie {
     var voteAverage:Double?
     
     
-    init(id:Int?, title:String?, posterPath:String?) {
-        self.id = id
-        self.title = title
-        self.posterPath = posterPath
-    }
-    
-    init(data:AnyObject) {
-        let json = JSON(data)
+    init(json:JSON) {
         var genres:[Genre] = []
         var productionCompanies:[String] = []
         var productionCountries:[String] = []
         
         if let items = json["genres"].array {
             for item in items {
-                var genreName = ""
-                var genreId = 0
-                
-                if let name = item["name"].string {
-                    genreName = name
-                }
-                if let id = item["id"].int {
-                    genreId = id
-                }
-                genres.append(Genre(name: genreName, id: genreId))
+                let genre = Genre(json:item)
+                genres.append(genre)
             }
         }
         
