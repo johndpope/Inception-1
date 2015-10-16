@@ -30,28 +30,26 @@ class DiscoverViewControler : UIViewController {
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex) {
         case 0:
-            self.genreViewContainer.hidden = true
-            self.topRatedViewContainner.hidden = true
-            self.inCinemaViewContainer.hidden = true
-            self.popularViewContainer.hidden = false
+            self.showViewContainer(true, topRatedHidden: true, inCinemaHidden: true, popularHidden: false)
         case 1:
-            self.genreViewContainer.hidden = false
-            self.topRatedViewContainner.hidden = true
-            self.inCinemaViewContainer.hidden = true
-            self.popularViewContainer.hidden = true
+            self.showViewContainer(false, topRatedHidden: true, inCinemaHidden: true, popularHidden: true)
+
         case 2:
-            self.genreViewContainer.hidden = true
-            self.topRatedViewContainner.hidden = false
-            self.inCinemaViewContainer.hidden = true
-            self.popularViewContainer.hidden = true
+            self.showViewContainer(true, topRatedHidden: false, inCinemaHidden: true, popularHidden: true)
+
         case 3:
-            self.genreViewContainer.hidden = true
-            self.topRatedViewContainner.hidden = true
-            self.inCinemaViewContainer.hidden = false
-            self.popularViewContainer.hidden = true
+            self.showViewContainer(true, topRatedHidden: true, inCinemaHidden: false, popularHidden: true)
+
         default:
             break;
         }
+    }
+    
+    func showViewContainer(genreHidden:Bool, topRatedHidden:Bool, inCinemaHidden:Bool, popularHidden:Bool) {
+        self.genreViewContainer.hidden = genreHidden
+        self.topRatedViewContainner.hidden = topRatedHidden
+        self.inCinemaViewContainer.hidden = inCinemaHidden
+        self.popularViewContainer.hidden = popularHidden
     }
 
 }
