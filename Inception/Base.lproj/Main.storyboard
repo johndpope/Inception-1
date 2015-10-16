@@ -299,7 +299,7 @@
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieDetailCell" id="rZk-Fj-vXi" customClass="MovieDetailCell" customModule="Inception" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieDetailCell" rowHeight="44" id="rZk-Fj-vXi" customClass="MovieDetailCell" customModule="Inception" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="228" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rZk-Fj-vXi" id="XI5-rb-jCN">
@@ -343,7 +343,7 @@
                                     <outlet property="valueLabel" destination="2dO-oA-ORT" id="Yo9-aT-gJs"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OverviewCell" id="aio-Ll-0zh" customClass="OverviewCell" customModule="Inception" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OverviewCell" rowHeight="44" id="aio-Ll-0zh" customClass="OverviewCell" customModule="Inception" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="272" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aio-Ll-0zh" id="tz6-Yw-1KU">
@@ -388,13 +388,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icD-z3-GsC" customClass="JCTagListView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icD-z3-GsC" customClass="SKTagView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <animations/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="B2Y-CV-3WE"/>
-                                            </constraints>
                                         </view>
                                     </subviews>
                                     <animations/>
@@ -410,7 +407,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="tintColor" red="1" green="0.87058823529999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="tagListView" destination="icD-z3-GsC" id="QYj-vy-BMn"/>
+                                    <outlet property="tagView" destination="icD-z3-GsC" id="2Ag-ee-JIX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -714,13 +711,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qus-ZC-ip8" customClass="JCTagListView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qus-ZC-ip8" customClass="SKTagView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <animations/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="44" id="U7Y-1N-U8w"/>
-                                            </constraints>
                                         </view>
                                     </subviews>
                                     <animations/>
@@ -734,7 +728,7 @@
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="tagListView" destination="qus-ZC-ip8" id="oqT-zR-BS2"/>
+                                    <outlet property="tagView" destination="qus-ZC-ip8" id="Cn7-jX-Yp9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

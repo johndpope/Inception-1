@@ -10,6 +10,7 @@ import UIKit
 import XCDYouTubeKit
 import AVKit
 import SwiftyJSON
+import SKTagView
 
 class MovieDetailTableViewController: UITableViewController,UICollectionViewDataSource,UICollectionViewDelegate {
 
@@ -38,9 +39,9 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
     //TODO: Make genre clickable, show all trailers, show all media(images)
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.tableView.estimatedRowHeight = 44.0;
+        self.tableView.estimatedRowHeight = 100.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
         self.view.backgroundColor = UIColor.darkTextColor()
         
         headerView = tableView.tableHeaderView
@@ -73,23 +74,45 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         CacheFactory.clearAllCaches()
     }
     
-    func setupTagListView(genreTagCell:GenreTagCell) {
-        genreTagCell.tagListView.canSelectTags = false
-        genreTagCell.tagListView.tagColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
-        genreTagCell.tagListView.tagCornerRadius = 5.0
-        genreTagCell.tagListView.setCompletionBlockWithSeleted {(index:NSInteger) in
-        genreTagCell.tagListView.backgroundColor = UIColor.darkTextColor()
+    func setupTagListView(cell:GenreTagCell) {
+        cell.tagView.preferredMaxLayoutWidth = UIScreen.mainScreen().bounds.size.width
+        cell.tagView.padding    = UIEdgeInsetsMake(2, 5, 2, 5);
+        cell.tagView.insets    = 5;
+        cell.tagView.lineSpace = 10;
+        
+        cell.tagView.removeAllTags()
+        
+        cell.tagView.didClickTagAtIndex = ({(index:UInt) in
             if let movie = self.movie {
                 if let genres = movie.genres {
                     let vc : GenreDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GenreDetailViewController") as! GenreDetailViewController
                     vc.isShowGenre = false
-                    vc.genre = genres[index]
+                    vc.genre = genres[Int(index)]
                     dispatch_async(dispatch_get_main_queue(), {
                         self.navigationController?.pushViewController(vc, animated: true)
                     })
                 }
             }
-            
+        })
+        
+        if let movie = self.movie {
+            if let genres = movie.genres {
+                for item in genres {
+                    if let name = item.name {
+                        let tag = SKTag(text:name)
+                        tag.textColor = UIColor.whiteColor()
+                        tag.fontSize = 14
+                        tag.padding = UIEdgeInsetsMake(6, 5, 6, 5)
+                        tag.bgColor = UIColor.clearColor()
+                        tag.borderWidth = 1.0
+                        tag.borderColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+                        tag.cornerRadius = 10
+                        tag.enable = true
+                        
+                        cell.tagView.addTag(tag)
+                    }
+                }
+            }
         }
 
     }
@@ -293,17 +316,17 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
                 }
             }
             
-            if movie!.overview != nil {
-                if !movie!.overview!.isEmpty {
-                    self.tableData.append(movie!.overview!)
-                    self.tableDataKeys.append("overview".localized)
-                }
-            }
-            
             if movie!.genres != nil {
                 if !movie!.genres!.isEmpty {
                     self.tableData.append(movie!.genres!.map{$0.name!}.joinWithSeparator(", "))
                     self.tableDataKeys.append("genres".localized)
+                }
+            }
+            
+            if movie!.overview != nil {
+                if !movie!.overview!.isEmpty {
+                    self.tableData.append(movie!.overview!)
+                    self.tableDataKeys.append("overview".localized)
                 }
             }
             
@@ -322,7 +345,6 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         return self.tableData.count
     }
     
-   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let key = self.tableDataKeys[indexPath.row]
         if key == "overview".localized {
@@ -333,18 +355,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         }
         else if key == "genres".localized {
             let cell = tableView.dequeueReusableCellWithIdentifier("GenreTagCell", forIndexPath: indexPath) as! GenreTagCell
-            var genreStrings:[String] = []
-            if let movie = self.movie {
-                if let genres = movie.genres {
-                    for item in genres {
-                        if let name = item.name {
-                            genreStrings.append(name)
-                        }
-                    }
-                    self.setupTagListView(cell)
-                    cell.tagListView.tags.addObjectsFromArray(genreStrings)
-                }
-            }
+            self.setupTagListView(cell)
             return cell
  
         }

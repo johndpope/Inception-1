@@ -9,12 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>JCTagListView-JCTagListView.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>JCTagListView.xcscheme</key>
+		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -25,6 +20,11 @@
 			<false/>
 		</dict>
 		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>SKTagView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -42,12 +42,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>2086FDDD1F54DF7327F277FD299A0860</key>
+		<key>01C8036FB566611ADA7D4334D46454AD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3560B847B6B586EE9B13E628743E8286</key>
+		<key>1B964A5F8050F1C40A4042D9D4EF8392</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,22 +57,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>712A2573D438801F43A8174FB8BEE7A5</key>
+		<key>58B03C33AA91395D8C99F9BE9E4C9ECD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>90CE3297E53404ACCB7F6FF167727087</key>
+		<key>5C93F727139CAA54E56F7EE54C57D845</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CA4B01C5993C69E3CEDF418BDCE81338</key>
+		<key>A875174D65F786B7BEBEAA60001064F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EB341291717F50C9976F71913C3A68BF</key>
+		<key>A9A83F63385AA43314397B8DD375464B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

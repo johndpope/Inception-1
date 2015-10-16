@@ -85,15 +85,17 @@ strip_invalid_archs() {
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Inception/Alamofire.framework"
-  install_framework "Pods-Inception/JCTagListView.framework"
+  install_framework "Pods-Inception/Masonry.framework"
   install_framework "Pods-Inception/SDWebImage.framework"
+  install_framework "Pods-Inception/SKTagView.framework"
   install_framework "Pods-Inception/SwiftyJSON.framework"
   install_framework "Pods-Inception/XCDYouTubeKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Inception/Alamofire.framework"
-  install_framework "Pods-Inception/JCTagListView.framework"
+  install_framework "Pods-Inception/Masonry.framework"
   install_framework "Pods-Inception/SDWebImage.framework"
+  install_framework "Pods-Inception/SKTagView.framework"
   install_framework "Pods-Inception/SwiftyJSON.framework"
   install_framework "Pods-Inception/XCDYouTubeKit.framework"
 fi

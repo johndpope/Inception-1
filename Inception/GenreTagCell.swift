@@ -7,11 +7,11 @@
 //
 
 import UIKit
-import JCTagListView
+import SKTagView
 
 class GenreTagCell: UITableViewCell {
     
-    @IBOutlet weak var tagListView : JCTagListView!
+    @IBOutlet weak var tagView : SKTagView!
     
     
     override func awakeFromNib() {

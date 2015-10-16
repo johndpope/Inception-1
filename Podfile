@@ -7,7 +7,7 @@ pod 'Alamofire', '~> 2.0'
 pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'SDWebImage', '~>3.7'
 pod "XCDYouTubeKit", "~> 2.3.1"
-pod "JCTagListView", :git => 'https://github.com/dehlen/JCTagListView.git'
+pod "SKTagView"
 end
 
 target 'InceptionTests' do
