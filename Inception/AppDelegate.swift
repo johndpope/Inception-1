@@ -17,6 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CacheFactory.setMaxImageCacheSize(200*1024*1024)
         SettingsFactory.registerDefaults()
         
+        let colorView = UIView()
+        colorView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
+        UITableViewCell.appearance().selectedBackgroundView = colorView
+        
         return true
     }
 

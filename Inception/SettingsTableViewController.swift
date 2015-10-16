@@ -67,19 +67,6 @@ class SettingsTableViewController: UITableViewController {
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
     }
-
-    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        cell!.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-    }
-    
-    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = .darkTextColor()
-        cell!.backgroundColor = .darkTextColor()
-        
-    }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         let row = SettingsRow(indexPath: indexPath)

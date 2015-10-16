@@ -171,6 +171,8 @@ class PersonDetailViewController: UIViewController,UITableViewDelegate,UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+
         if self.selectedSegmentIndex == 1 {
             let element = self.knownFor[indexPath.row]
             if element.id != nil {
@@ -193,23 +195,4 @@ class PersonDetailViewController: UIViewController,UITableViewDelegate,UITableVi
             }
         }
     }
-    
-    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        if self.selectedSegmentIndex == 1 {
-            let cell  = tableView.cellForRowAtIndexPath(indexPath)
-            cell!.contentView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-            cell!.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        }
-        
-    }
-    
-    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        if self.selectedSegmentIndex == 1 {
-            let cell  = tableView.cellForRowAtIndexPath(indexPath)
-            cell!.contentView.backgroundColor = .darkTextColor()
-            cell!.backgroundColor = .darkTextColor()
-        }
-        
-    }
-
 }

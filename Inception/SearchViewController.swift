@@ -55,6 +55,8 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         if let id = self.results[indexPath.row].id {
             switch self.results[indexPath.row].mediaType {
             case "movie":

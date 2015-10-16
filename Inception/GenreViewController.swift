@@ -58,6 +58,8 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
         var genre:Genre?
         if indexPath.section == 0 {
             genre = self.movieGenres[indexPath.row]
@@ -73,21 +75,4 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
             self.navigationController?.pushViewController(vc, animated: true)
         })
     }
-    
-    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        cell!.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        
-    }
-    
-    func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = .darkTextColor()
-        cell!.backgroundColor = .darkTextColor()
-        
-    }
-    
-    
-    
 }
