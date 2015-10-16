@@ -284,13 +284,6 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
                 }
             }
             
-            if show!.genres != nil {
-                if !show!.genres!.isEmpty {
-                    self.tableData.append(show!.genres!.map{$0.name!}.joinWithSeparator(", "))
-                    self.tableDataKeys.append("Genre")
-                }
-            }
-            
             if show!.networks != nil {
                 if show!.networks!.count != 0 {
                     self.tableData.append(show!.networks!.joinWithSeparator(","))
@@ -326,26 +319,40 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
                 }
             }
             
+            if show!.genres != nil {
+                if !show!.genres!.isEmpty {
+                    self.tableData.append(show!.genres!.map{$0.name!}.joinWithSeparator(", "))
+                    self.tableDataKeys.append("genres".localized)
+                }
+            }
+            
             self.tableView.reloadData()
         }
         
     }
+    
+    func setupTagListView(genreTagCell:GenreTagCell) {
+        genreTagCell.tagListView.canSelectTags = false
+        genreTagCell.tagListView.tagColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+        genreTagCell.tagListView.tagCornerRadius = 5.0
+        genreTagCell.tagListView.setCompletionBlockWithSeleted {(index:NSInteger) in
+            genreTagCell.tagListView.backgroundColor = UIColor.darkTextColor()
+            if let show = self.show {
+                if let genres = show.genres {
+                    let vc : GenreDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GenreDetailViewController") as! GenreDetailViewController
+                    vc.isShowGenre = true
+                    vc.genre = genres[index]
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
+                }
+            }
+            
+        }
+        
+    }
 
-    
-    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        cell!.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        
-    }
-    
-    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = .darkTextColor()
-        cell!.backgroundColor = .darkTextColor()
-        
-    }
-    
+
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -356,6 +363,10 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
         return self.tableData.count
     }
     
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    }
+    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let key = self.tableDataKeys[indexPath.row]
         if key == "overview".localized {
@@ -363,6 +374,25 @@ class TVShowDetailTableViewController: UITableViewController,UICollectionViewDat
             cell.overviewLabel.text = self.tableData[indexPath.row]
             return cell
         }
+            
+        else if key == "genres".localized {
+            let cell = tableView.dequeueReusableCellWithIdentifier("GenreTagCell", forIndexPath: indexPath) as! GenreTagCell
+            var genreStrings:[String] = []
+            if let show = self.show {
+                if let genres = show.genres {
+                    for item in genres {
+                        if let name = item.name {
+                            genreStrings.append(name)
+                        }
+                    }
+                    self.setupTagListView(cell)
+                    cell.tagListView.tags.addObjectsFromArray(genreStrings)
+                }
+            }
+            return cell
+            
+        }
+
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("TVShowDetailCell", forIndexPath: indexPath) as! MovieDetailCell
         

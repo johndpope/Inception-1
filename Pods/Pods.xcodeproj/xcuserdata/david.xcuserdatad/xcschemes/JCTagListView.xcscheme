@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '67E1F6E88551004890E3FE3F'
-               BlueprintName = 'Pods-Inception'
+               BlueprintIdentifier = '469C7D089DDC537F9BA22DD6'
+               BlueprintName = 'JCTagListView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Pods_Inception.framework'>
+               BuildableName = 'JCTagListView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

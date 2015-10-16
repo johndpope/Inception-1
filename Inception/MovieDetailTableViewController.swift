@@ -20,7 +20,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
     var similarMovies:[Movie] = []
     var crew:[CreditsCrew] = []
     var cast:[CreditsPerson] = []
-
+    
     private let kTableHeaderHeight:CGFloat = 200.0
     private let kTableHeaderCutAway:CGFloat = 30.0
     
@@ -54,7 +54,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         tableView.contentInset = UIEdgeInsets(top:effectiveHeight, left:0, bottom:0, right:0)
         tableView.contentOffset = CGPoint(x:0,y:-effectiveHeight)
         updateHeaderView()
-     
+        
         APIController.request(APIEndpoints.Movie(id)) { (data:AnyObject?, error:NSError?) in
             if (error != nil) {
                 self.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage")
@@ -71,6 +71,27 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         CacheFactory.clearAllCaches()
+    }
+    
+    func setupTagListView(genreTagCell:GenreTagCell) {
+        genreTagCell.tagListView.canSelectTags = false
+        genreTagCell.tagListView.tagColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+        genreTagCell.tagListView.tagCornerRadius = 5.0
+        genreTagCell.tagListView.setCompletionBlockWithSeleted {(index:NSInteger) in
+        genreTagCell.tagListView.backgroundColor = UIColor.darkTextColor()
+            if let movie = self.movie {
+                if let genres = movie.genres {
+                    let vc : GenreDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("GenreDetailViewController") as! GenreDetailViewController
+                    vc.isShowGenre = false
+                    vc.genre = genres[index]
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
+                }
+            }
+            
+        }
+
     }
     
     func showAlert(localizeTitleKey:String, localizeMessageKey:String) {
@@ -236,15 +257,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
                     self.tableDataKeys.append("releaseDate".localized)
                 }
             }
-            
-            if movie!.genres != nil {
-                if !movie!.genres!.isEmpty {
-                    self.tableData.append(movie!.genres!.map{$0.name!}.joinWithSeparator(", "))
-                    self.tableDataKeys.append("Genre")
-                }
-            }
-            
-            
+        
             if movie!.budget != nil {
                 if movie!.budget! != 0 {
                     self.tableData.append("\(movie!.budget!.addSeparator) $")
@@ -287,22 +300,15 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
                 }
             }
             
+            if movie!.genres != nil {
+                if !movie!.genres!.isEmpty {
+                    self.tableData.append(movie!.genres!.map{$0.name!}.joinWithSeparator(", "))
+                    self.tableDataKeys.append("genres".localized)
+                }
+            }
+            
             self.tableView.reloadData()
         }
-        
-    }
-    
-    override func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        cell!.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        
-    }
-    
-    override func tableView(tableView: UITableView, didUnhighlightRowAtIndexPath indexPath: NSIndexPath) {
-        let cell  = tableView.cellForRowAtIndexPath(indexPath)
-        cell!.contentView.backgroundColor = .darkTextColor()
-        cell!.backgroundColor = .darkTextColor()
         
     }
     
@@ -316,6 +322,7 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
         return self.tableData.count
     }
     
+   
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let key = self.tableDataKeys[indexPath.row]
         if key == "overview".localized {
@@ -324,6 +331,23 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
             cell.overviewLabel.text = self.tableData[indexPath.row]
             return cell
         }
+        else if key == "genres".localized {
+            let cell = tableView.dequeueReusableCellWithIdentifier("GenreTagCell", forIndexPath: indexPath) as! GenreTagCell
+            var genreStrings:[String] = []
+            if let movie = self.movie {
+                if let genres = movie.genres {
+                    for item in genres {
+                        if let name = item.name {
+                            genreStrings.append(name)
+                        }
+                    }
+                    self.setupTagListView(cell)
+                    cell.tagListView.tags.addObjectsFromArray(genreStrings)
+                }
+            }
+            return cell
+ 
+        }
         else {
             let cell = tableView.dequeueReusableCellWithIdentifier("MovieDetailCell", forIndexPath: indexPath) as! MovieDetailCell
 
@@ -331,6 +355,10 @@ class MovieDetailTableViewController: UITableViewController,UICollectionViewData
             cell.valueLabel.text = self.tableData[indexPath.row]
             return cell
         }
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
     
     //MARK: - UIScrollView

@@ -112,7 +112,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="4GZ-dn-aKl">
@@ -149,7 +149,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="ycP-H7-Nog">
-                            <rect key="frame" x="0.0" y="316" width="600" height="281"/>
+                            <rect key="frame" x="0.0" y="360" width="600" height="281"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IUI-hu-XQJ">
@@ -299,7 +299,7 @@
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="MovieDetailCell" id="rZk-Fj-vXi" customClass="MovieDetailCell" customModule="Inception" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieDetailCell" id="rZk-Fj-vXi" customClass="MovieDetailCell" customModule="Inception" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="228" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rZk-Fj-vXi" id="XI5-rb-jCN">
@@ -343,7 +343,7 @@
                                     <outlet property="valueLabel" destination="2dO-oA-ORT" id="Yo9-aT-gJs"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OverviewCell" id="aio-Ll-0zh" customClass="OverviewCell" customModule="Inception" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OverviewCell" id="aio-Ll-0zh" customClass="OverviewCell" customModule="Inception" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="272" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aio-Ll-0zh" id="tz6-Yw-1KU">
@@ -379,6 +379,38 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="overviewLabel" destination="beN-oX-cDU" id="o0U-e2-Wuz"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenreTagCell" rowHeight="44" id="5yt-OF-eQO" customClass="GenreTagCell" customModule="Inception" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="316" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5yt-OF-eQO" id="lbx-sI-RZf">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icD-z3-GsC" customClass="JCTagListView">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <animations/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="B2Y-CV-3WE"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="icD-z3-GsC" secondAttribute="trailing" id="6A7-UQ-p5V"/>
+                                        <constraint firstItem="icD-z3-GsC" firstAttribute="leading" secondItem="lbx-sI-RZf" secondAttribute="leading" id="9io-cM-0Ai"/>
+                                        <constraint firstAttribute="bottom" secondItem="icD-z3-GsC" secondAttribute="bottom" id="ZAe-yW-cxA"/>
+                                        <constraint firstItem="icD-z3-GsC" firstAttribute="top" secondItem="lbx-sI-RZf" secondAttribute="top" id="c7g-Ra-cXh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="tintColor" red="1" green="0.87058823529999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="tagListView" destination="icD-z3-GsC" id="QYj-vy-BMn"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -444,7 +476,7 @@
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="6dC-ZZ-fIC">
-                            <rect key="frame" x="0.0" y="316" width="600" height="281"/>
+                            <rect key="frame" x="0.0" y="360" width="600" height="281"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gCx-2Z-aCo">
@@ -595,7 +627,7 @@
                             </variation>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="TVShowDetailCell" id="i6u-CL-Dyp" customClass="MovieDetailCell" customModule="Inception" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TVShowDetailCell" id="i6u-CL-Dyp" customClass="MovieDetailCell" customModule="Inception" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="228" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i6u-CL-Dyp" id="Tr3-Iu-Pq8">
@@ -638,7 +670,7 @@
                                     <outlet property="valueLabel" destination="e9o-n6-26z" id="3jW-At-PbW"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="OverviewCell" id="sil-PV-Xbd" customClass="OverviewCell" customModule="Inception" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="OverviewCell" id="sil-PV-Xbd" customClass="OverviewCell" customModule="Inception" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="272" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sil-PV-Xbd" id="vex-jj-K6t">
@@ -673,6 +705,36 @@
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="overviewLabel" destination="3Ed-md-Go4" id="GNE-r5-HJl"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GenreTagCell" rowHeight="44" id="WBw-Gv-8mh" customClass="GenreTagCell" customModule="Inception" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="316" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WBw-Gv-8mh" id="iW1-rt-pVF">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qus-ZC-ip8" customClass="JCTagListView">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <animations/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="44" id="U7Y-1N-U8w"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="qus-ZC-ip8" firstAttribute="leading" secondItem="iW1-rt-pVF" secondAttribute="leading" id="1Jr-uU-abw"/>
+                                        <constraint firstItem="qus-ZC-ip8" firstAttribute="top" secondItem="iW1-rt-pVF" secondAttribute="top" id="5Ft-FZ-puk"/>
+                                        <constraint firstAttribute="bottom" secondItem="qus-ZC-ip8" secondAttribute="bottom" id="aXm-1s-k3g"/>
+                                        <constraint firstAttribute="trailing" secondItem="qus-ZC-ip8" secondAttribute="trailing" id="otE-BL-892"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="tagListView" destination="qus-ZC-ip8" id="oqT-zR-BS2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -746,7 +808,7 @@
                                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonDetailCell" id="FH6-dt-Tbe" customClass="PersonDetailCell" customModule="Inception" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonDetailCell" id="FH6-dt-Tbe" customClass="PersonDetailCell" customModule="Inception" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FH6-dt-Tbe" id="tqc-HT-Awl">
@@ -796,7 +858,7 @@
                                                     <outlet property="textLbl" destination="cuF-1d-OCK" id="uC6-qz-GBd"/>
                                                 </connections>
                                             </tableViewCell>
-                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="KnownForCell" textLabel="G51-Nb-QGH" style="IBUITableViewCellStyleDefault" id="Mgu-ZX-Zwo" customClass="PersonDetailCell" customModule="Inception" customModuleProvider="target">
+                                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="KnownForCell" textLabel="G51-Nb-QGH" style="IBUITableViewCellStyleDefault" id="Mgu-ZX-Zwo" customClass="PersonDetailCell" customModule="Inception" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Mgu-ZX-Zwo" id="0XP-bl-wgk">
@@ -1192,7 +1254,7 @@
                         <sections>
                             <tableViewSection headerTitle="General" footerTitle="If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing" id="Xr2-8A-ErL">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" id="5nm-X5-tSM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="5nm-X5-tSM">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5nm-X5-tSM" id="WZH-gV-Njt">
@@ -1240,7 +1302,7 @@
                                         <animations/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="0cC-Fg-ym6" detailTextLabel="lJ7-gT-mab" style="IBUITableViewCellStyleValue1" id="Phd-ty-CN9">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="0cC-Fg-ym6" detailTextLabel="lJ7-gT-mab" style="IBUITableViewCellStyleValue1" id="Phd-ty-CN9">
                                         <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Phd-ty-CN9" id="HfG-T2-9ec">
@@ -1270,7 +1332,7 @@
                                         <animations/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="134" id="sBe-gn-TFc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="134" id="sBe-gn-TFc">
                                         <rect key="frame" x="0.0" y="202" width="600" height="134"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sBe-gn-TFc" id="mbz-rj-hil">
@@ -1316,7 +1378,7 @@
                             <tableViewSection headerTitle="Disk Space" id="5dx-8U-xIu">
                                 <string key="footerTitle">Loaded data and images are saved in order to give you quicker results when searching the same data again. You can always delete this saved information to clear your disk space.</string>
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="s89-Mc-3kA" style="IBUITableViewCellStyleDefault" id="dvd-fl-dJG">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="s89-Mc-3kA" style="IBUITableViewCellStyleDefault" id="dvd-fl-dJG">
                                         <rect key="frame" x="0.0" y="419" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dvd-fl-dJG" id="Qjw-4x-2fa">
@@ -1339,7 +1401,7 @@
                                         <animations/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="GUx-sK-50X" style="IBUITableViewCellStyleDefault" id="0LZ-MV-8mC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="GUx-sK-50X" style="IBUITableViewCellStyleDefault" id="0LZ-MV-8mC">
                                         <rect key="frame" x="0.0" y="463" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0LZ-MV-8mC" id="E0x-vR-Qpg">
@@ -1604,7 +1666,7 @@
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GenreCell" textLabel="1yH-1r-Iic" style="IBUITableViewCellStyleDefault" id="x5S-p5-kmK">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="GenreCell" textLabel="1yH-1r-Iic" style="IBUITableViewCellStyleDefault" id="x5S-p5-kmK">
                                         <rect key="frame" x="0.0" y="50" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x5S-p5-kmK" id="pai-D1-ebE">
