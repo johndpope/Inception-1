@@ -49,6 +49,8 @@
 		638197BB1BC6B03A00C736CA /* Episode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638197BA1BC6B03A00C736CA /* Episode.swift */; settings = {ASSET_TAGS = (); }; };
 		6391C7891BB4212200AAA429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391C7881BB4212200AAA429 /* APIController.swift */; };
 		63BB36E91BC5366800DD0543 /* TopRatedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB36E81BC5366800DD0543 /* TopRatedViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		63CD8FE51BD0E0B900B26CCE /* showgenres.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CD8FE31BD0E0B900B26CCE /* showgenres.json */; settings = {ASSET_TAGS = (); }; };
+		63CD8FE61BD0E0B900B26CCE /* moviegenres.json in Resources */ = {isa = PBXBuildFile; fileRef = 63CD8FE41BD0E0B900B26CCE /* moviegenres.json */; settings = {ASSET_TAGS = (); }; };
 		63D84D781BB56DAE0018B0B6 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D84D771BB56DAE0018B0B6 /* StatsViewController.swift */; };
 		63D84D7A1BB56DB80018B0B6 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D84D791BB56DB80018B0B6 /* DiscoverViewController.swift */; };
 		63E375921BB765B200232F18 /* MovieCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E375911BB765B200232F18 /* MovieCollectionCell.swift */; };
@@ -132,6 +134,8 @@
 		638197BA1BC6B03A00C736CA /* Episode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Episode.swift; sourceTree = "<group>"; };
 		6391C7881BB4212200AAA429 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		63BB36E81BC5366800DD0543 /* TopRatedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRatedViewController.swift; sourceTree = "<group>"; };
+		63CD8FE31BD0E0B900B26CCE /* showgenres.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = showgenres.json; sourceTree = "<group>"; };
+		63CD8FE41BD0E0B900B26CCE /* moviegenres.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = moviegenres.json; sourceTree = "<group>"; };
 		63D84D771BB56DAE0018B0B6 /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
 		63D84D791BB56DB80018B0B6 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		63E375911BB765B200232F18 /* MovieCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieCollectionCell.swift; sourceTree = "<group>"; };
@@ -229,6 +233,7 @@
 				63E375911BB765B200232F18 /* MovieCollectionCell.swift */,
 				63672E101BB6FC52005480D8 /* MovieDetailCell.swift */,
 				63672E0A1BB6DB28005480D8 /* MovieDetailTableViewController.swift */,
+				63CD8FE41BD0E0B900B26CCE /* moviegenres.json */,
 				632F7CA71BB43515001CF2C9 /* MultiSearchResult.swift */,
 				634FA4E61BCE93E2002B977D /* NSDateExtension.swift */,
 				6301BDB71BBC1FB4002D606E /* OverviewCell.swift */,
@@ -244,6 +249,7 @@
 				634FA4E21BCE820A002B977D /* SettingsRow.swift */,
 				6349D7AF1BCD7096008086D7 /* SettingsTableViewController.swift */,
 				63EE07281BBA8F1F0049292B /* Show.swift */,
+				63CD8FE31BD0E0B900B26CCE /* showgenres.json */,
 				63D84D771BB56DAE0018B0B6 /* StatsViewController.swift */,
 				63BB36E81BC5366800DD0543 /* TopRatedViewController.swift */,
 				6369D0A01BB5BA800004E05D /* TVShowDetailTableViewController.swift */,
@@ -395,10 +401,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63CD8FE61BD0E0B900B26CCE /* moviegenres.json in Resources */,
 				63535E3C1BAD83B700D7B77F /* LaunchScreen.storyboard in Resources */,
 				63535E6F1BAD9C6900D7B77F /* Localizable.strings in Resources */,
 				63535E391BAD83B700D7B77F /* Assets.xcassets in Resources */,
 				63535E371BAD83B700D7B77F /* Main.storyboard in Resources */,
+				63CD8FE51BD0E0B900B26CCE /* showgenres.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

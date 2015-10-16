@@ -17,9 +17,4 @@ class Genre {
         self.name = json["name"].string
         self.id = json["id"].int
     }
-    
-    init(name:String, id:Int) {
-        self.name = name
-        self.id = id
-    }
 }

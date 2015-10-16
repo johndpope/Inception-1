@@ -3,21 +3,20 @@ watchlist bauen (model etc, shows, movies, airing calendar)
 stats für watchlist bauen siehe watched.li
 preferences(caching, image video,...)
 loading indicator (als ui element in den viewcontrollern)
-detail : genre clickbar, alle trailer anzeigen, alle bilder anzeigen
+detail : genre clickbar
 alle videos/trailers/bilder anzeigen per media button auf dem cover bei klick neuer viecontroller mit tableview ! anstatt playbutton für den trailer
 language hinzufügen zu api calls evtl
 search/multi page berücksichtigen um alle results anzuzeigen (siehe iphone github lib, array mit total_count und pagesize)
 http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
 evtl discover kategorien auch mit pages austatten
 alles neu lokalisieren (neu hinzugekommene texte in storyboard, nicht verwendete keys in der localizable.strings entfernen)
+falls kein bild placeholder-dark in known for anzeigen
 
 refactor code
-	bessere namen vergeben vor allem für cells, parsing methoden
-	models mit parser => inits sparen
+	bessere namen vergeben vor allem für cells
 	cells nur wenn sie gebraucht werden (klassen)
 	extremes refactoren für detailviews (evtl nur 1 viewcontroller ? sinnvoller ?)
+	(tableview reusable machen, computeTableData Methode ist 	ein witz, collectionviews, removefromfooter)
 	containerviewcontroller(discover) refactoren => evtl nur 1 viecontroller ?
 	tableview highlighting in uitableviewcontroller extension evtl auch theming hier
-	jsonparser andere lösung finden vllt direkt in model klassen oder methoden verbessern
-	detailviews extrem refactoren (tableview reusable machen, computeTableData Methode ist 	ein witz, collectionviews, removefromfooter)
 

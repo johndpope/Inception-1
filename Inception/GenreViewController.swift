@@ -12,45 +12,9 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var tableView:UITableView!
     
-    var movieGenres:[Genre] = [Genre(name: "Action", id: 28),
-    Genre(name: "Adventure", id: 12),
-    Genre(name: "Animation", id: 16),
-    Genre(name: "Comedy", id: 35),
-    Genre(name: "Crime", id: 80),
-    Genre(name: "Documentary", id: 99),
-    Genre(name: "Drama", id: 18),
-    Genre(name: "Family", id: 10751),
-    Genre(name: "Fantasy", id: 14),
-    Genre(name: "Foreign", id: 10769),
-    Genre(name: "History", id: 36),
-    Genre(name: "Horror", id: 27),
-    Genre(name: "Music", id: 10402),
-    Genre(name: "Mystery", id: 9648),
-    Genre(name: "Romance", id: 10749),
-    Genre(name: "Science Fiction", id: 878),
-    Genre(name: "TV Movie", id: 10770),
-    Genre(name: "Thriller", id: 53),
-    Genre(name: "War", id: 10752),
-    Genre(name: "Western", id: 37)]
+    var movieGenres:[Genre] = JSONParser.parseMovieGenres()
     
-    var showGenres:[Genre] = [
-        Genre(name: "Action & Adventure", id: 10759),
-        Genre(name: "Animation", id: 16),
-        Genre(name: "Comedy", id: 35),
-        Genre(name: "Documentary", id: 99),
-        Genre(name: "Drama", id: 18),
-        Genre(name: "Education", id:10761),
-        Genre(name: "Family", id: 10751),
-        Genre(name: "Kids", id: 10762),
-        Genre(name: "Mystery", id: 9648),
-        Genre(name: "News", id:10763),
-        Genre(name: "Reality", id:10764),
-        Genre(name: "Sci-Fi & Fantasy", id: 10765),
-        Genre(name: "Soap", id: 10766),
-        Genre(name: "Talk", id: 10767),
-        Genre(name: "War & Politics", id: 10768),
-        Genre(name: "Western", id: 37)
-    ]
+    var showGenres:[Genre] = JSONParser.parseShowGenres()
     
     override func viewDidLoad() {
         super.viewDidLoad()
