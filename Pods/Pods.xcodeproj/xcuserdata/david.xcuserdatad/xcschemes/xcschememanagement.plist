@@ -9,6 +9,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>JCTagListView-JCTagListView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>JCTagListView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Inception.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,27 +42,37 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0CF5AF67DFF724453798459518D7DDB5</key>
+		<key>2086FDDD1F54DF7327F277FD299A0860</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1735CBECB0A87400FD0261E473EF5B6F</key>
+		<key>3560B847B6B586EE9B13E628743E8286</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2A27C9C81196A3510B33D293A087B0ED</key>
+		<key>4B2F30D90D85A544E9EFE2A49D392C25</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9666688CB41B38A9914616144C9C7A3E</key>
+		<key>712A2573D438801F43A8174FB8BEE7A5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B9A04D3C9B208813656510FDA8ADAE02</key>
+		<key>90CE3297E53404ACCB7F6FF167727087</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CA4B01C5993C69E3CEDF418BDCE81338</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB341291717F50C9976F71913C3A68BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
