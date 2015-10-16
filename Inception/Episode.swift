@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import SwiftyJSON
 
 class Episode {
 
@@ -17,16 +18,16 @@ class Episode {
     var id:Int?
     var seasonNumber:Int?
     var stillPath:String?
-    var voteAverage:Int?
+    var voteAverage:Double?
     
-    init(airDate:String?, episodeNumber:Int?, title:String?, overview:String?, id:Int?, seasonNumber:Int?, stillPath:String?, voteAverage:Int?) {
-        self.airDate = airDate
-        self.episodeNumber = episodeNumber
-        self.title = title
-        self.overview = overview
-        self.id = id
-        self.seasonNumber = seasonNumber
-        self.stillPath = stillPath
-        self.voteAverage = voteAverage
+    init(json:JSON) {
+        self.airDate = json["air_date"].string
+        self.episodeNumber = json["episode_number"].int
+        self.title = json["title"].string
+        self.overview = json["overview"].string
+        self.id = json["id"].int
+        self.seasonNumber = json["season_number"].int
+        self.stillPath = json["still_path"].string
+        self.voteAverage = json["vote_average"].double
     }
 }
