@@ -170,7 +170,6 @@ class JSONParser {
                 let p = CreditsCrew(json:json["crew"][j])
                 returnCrewArray.append(p)
             }
-            
         }
         return returnCrewArray
 

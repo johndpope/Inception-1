@@ -33,13 +33,10 @@ class DiscoverViewControler : UIViewController {
             self.showViewContainer(true, topRatedHidden: true, inCinemaHidden: true, popularHidden: false)
         case 1:
             self.showViewContainer(false, topRatedHidden: true, inCinemaHidden: true, popularHidden: true)
-
         case 2:
             self.showViewContainer(true, topRatedHidden: false, inCinemaHidden: true, popularHidden: true)
-
         case 3:
             self.showViewContainer(true, topRatedHidden: true, inCinemaHidden: false, popularHidden: true)
-
         default:
             break;
         }
