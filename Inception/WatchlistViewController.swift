@@ -38,7 +38,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     /* UITableView Delegate & Datasource */
     //TODO: add integration with api and load data
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        return 2
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -50,8 +50,13 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("WatchlistCell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("WatchlistTableViewCell", forIndexPath: indexPath)
+        cell.textLabel?.text = "#\(indexPath.row)"
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
 }
