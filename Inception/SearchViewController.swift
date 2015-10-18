@@ -40,13 +40,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SearchCell", forIndexPath: indexPath) as! SearchCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("SearchTableViewCell", forIndexPath: indexPath) as! SearchTableViewCell
+        cell.yearLabel.text = ""
+        cell.headingLabel.text = ""
+        
         if let imagePath = self.results[indexPath.row].imagePath {
             let imageURL =  imageBaseURL.URLByAppendingPathComponent(imagePath)
             cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
         }
         else {
             cell.coverImageView.image = UIImage(named: "placeholder-dark")
+        }
+        if let year = self.results[indexPath.row].year {
+            cell.yearLabel.text = "\(year)"
         }
         cell.headingLabel.text = self.results[indexPath.row].name
         
@@ -62,23 +68,20 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             case "movie":
                 let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
                 vc.id = id
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             case "tv":
                 let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
                 vc.id = id
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             case "person":
                 let vc : PersonDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("PersonDetailViewController") as! PersonDetailViewController
                 vc.id = id
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             default:
-                break
+                assert(false, "Unexpected media type")
             }
         }
     }
