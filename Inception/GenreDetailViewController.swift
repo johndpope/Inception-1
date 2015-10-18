@@ -15,6 +15,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
     var shows:[Show] = []
     var isShowGenre = false
     var genre:Genre?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -70,8 +71,8 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GenreDetailCell",
-            forIndexPath: indexPath) as! MovieCollectionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("GenreDetailCollectionCell",
+            forIndexPath: indexPath) as! CoverImageCollectionCell
 
         if isShowGenre {
             if let pp = self.shows[indexPath.row].posterPath {
@@ -101,9 +102,8 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
             if movie.id != nil {
                 let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
                 vc.id = movie.id!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             }
         }
         else {
@@ -111,9 +111,8 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
             if show.id != nil {
                 let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
                 vc.id = show.id!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             }
         }
         

@@ -21,18 +21,18 @@ public enum SettingsRow: Int {
         var row = SettingsRow.Unknown
         
         switch (indexPath.section, indexPath.row) {
-        case (0, 0):
-            row = SettingsRow.NotificationSwitch
-        case (0, 1):
-            row = SettingsRow.Alarm
-        case (0, 2):
-            row = SettingsRow.DatePicker
-        case (1,0):
-            row = SettingsRow.Cache
-        case (1,1):
-            row = SettingsRow.ImageCache
-        default:
-            ()
+            case (0, 0):
+                row = SettingsRow.NotificationSwitch
+            case (0, 1):
+                row = SettingsRow.Alarm
+            case (0, 2):
+                row = SettingsRow.DatePicker
+            case (1,0):
+                row = SettingsRow.Cache
+            case (1,1):
+                row = SettingsRow.ImageCache
+            default:
+                ()
         }
         
         assert(row != SettingsRow.Unknown)

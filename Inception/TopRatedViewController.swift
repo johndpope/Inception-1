@@ -87,8 +87,8 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("RatedCell",
-            forIndexPath: indexPath) as! MovieCollectionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("TopRatedCollectionCell",
+            forIndexPath: indexPath) as! CoverImageCollectionCell
         if indexPath.section == 0 {
             let movie = self.movies![indexPath.row]
             if movie.posterPath != nil {
@@ -118,9 +118,8 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
             if movie.id != nil {
                 let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
                 vc.id = movie.id!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             }
         }
         else {
@@ -128,9 +127,8 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
             if show.id != nil {
                 let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
                 vc.id = show.id!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             }
         }
         

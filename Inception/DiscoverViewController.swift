@@ -38,7 +38,7 @@ class DiscoverViewControler : UIViewController {
         case 3:
             self.showViewContainer(true, topRatedHidden: true, inCinemaHidden: false, popularHidden: true)
         default:
-            break;
+            assert(false, "Unexpected segment index")
         }
     }
     

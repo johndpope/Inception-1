@@ -79,22 +79,20 @@ class SettingsTableViewController: UITableViewController {
         let row = SettingsRow(indexPath: indexPath)
         
         switch (row) {
-        case .Alarm:
-            toggleDatePicker()
-        case .Cache :
-            let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
-            vc.showsImageCache = false
-            dispatch_async(dispatch_get_main_queue(), {
+            case .Alarm:
+                toggleDatePicker()
+            case .Cache :
+                let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
+                vc.showsImageCache = false
                 self.navigationController?.pushViewController(vc, animated: true)
-            })
-        case .ImageCache :
-            let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
-            vc.showsImageCache = true
-            dispatch_async(dispatch_get_main_queue(), {
+                
+            case .ImageCache :
+                let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
+                vc.showsImageCache = true
                 self.navigationController?.pushViewController(vc, animated: true)
-            })
-        default:
-            ()
-        }
+                
+            default:
+                ()
+            }
     }
 }

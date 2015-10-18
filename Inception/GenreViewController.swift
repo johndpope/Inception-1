@@ -13,7 +13,6 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var tableView:UITableView!
     
     var movieGenres:[Genre] = JSONParser.parseMovieGenres()
-    
     var showGenres:[Genre] = JSONParser.parseShowGenres()
     
     override func viewDidLoad() {
@@ -47,7 +46,7 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-         let cell = tableView.dequeueReusableCellWithIdentifier("GenreCell", forIndexPath: indexPath)
+         let cell = tableView.dequeueReusableCellWithIdentifier("GenreTableViewCell", forIndexPath: indexPath)
         if indexPath.section == 0 {
             cell.textLabel?.text = self.movieGenres[indexPath.row].name
         }
@@ -71,8 +70,6 @@ class GenreViewController : UIViewController, UITableViewDelegate, UITableViewDa
         let vc : GenreDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("GenreDetailViewController") as! GenreDetailViewController
         vc.isShowGenre = indexPath.section == 1
         vc.genre = genre
-        dispatch_async(dispatch_get_main_queue(), {
-            self.navigationController?.pushViewController(vc, animated: true)
-        })
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

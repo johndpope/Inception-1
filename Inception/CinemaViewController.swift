@@ -46,8 +46,8 @@ class CinemaViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
 
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CinemaMoviesCell",
-                forIndexPath: indexPath) as! MovieCollectionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CinemaMoviesCollectionCell",
+                forIndexPath: indexPath) as! CoverImageCollectionCell
             let movie = self.movies![indexPath.row]
             if movie.posterPath != nil {
                 let imageURL =  imageBaseURL.URLByAppendingPathComponent(movie.posterPath!)
@@ -64,9 +64,8 @@ class CinemaViewController: UIViewController,UICollectionViewDelegate,UICollecti
         if movie.id != nil {
             let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
             vc.id = movie.id!
-            dispatch_async(dispatch_get_main_queue(), {
-                self.navigationController?.pushViewController(vc, animated: true)
-            })
+            self.navigationController?.pushViewController(vc, animated: true)
+            
         }
     }
     

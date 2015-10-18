@@ -11,7 +11,7 @@ import SwiftyJSON
 
 class JSONParser {
     
-    //MARK: media_type results
+    //MARK: Multi Searches
     class func mutliSearchResults(data:AnyObject?) -> [MultiSearchResult] {
         var parsedResults:[MultiSearchResult] = []
         

@@ -22,7 +22,6 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
                 //TODO: error handling
                 print(error)
             } else {
-                //TODO: Methodenname passt nicht
                 self.movies = JSONParser.parseMovieResults(data)
                 self.collectionView.reloadData()
             }
@@ -33,7 +32,6 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
                 //TODO: error handling
                 print(error)
             } else {
-                //TODO: Methodenname passt nicht
                 self.shows = JSONParser.parseShowResults(data)
                 self.collectionView.reloadData()
             }
@@ -88,8 +86,8 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PopularCell",
-            forIndexPath: indexPath) as! MovieCollectionCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PopularCollectionCell",
+            forIndexPath: indexPath) as! CoverImageCollectionCell
         if indexPath.section == 0 {
             let movie = self.movies![indexPath.row]
             if movie.posterPath != nil {
@@ -119,9 +117,8 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
             if movie.id != nil {
                 let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
                 vc.id = movie.id!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             }
         }
         else {
@@ -129,9 +126,8 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
             if show.id != nil {
                 let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
                 vc.id = show.id!
-                dispatch_async(dispatch_get_main_queue(), {
-                    self.navigationController?.pushViewController(vc, animated: true)
-                })
+                self.navigationController?.pushViewController(vc, animated: true)
+                
             }
         }
        
