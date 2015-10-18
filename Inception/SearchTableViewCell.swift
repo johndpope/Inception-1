@@ -1,5 +1,5 @@
 //
-//  DiscoverCell.swift
+//  SearchTableViewCell.swift
 //  Inception
 //
 //  Created by David Ehlen on 19.09.15.
@@ -8,10 +8,11 @@
 
 import UIKit
 
-class SearchCell: UITableViewCell {
+class SearchTableViewCell: UITableViewCell {
     
     @IBOutlet weak var headingLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var yearLabel: UILabel!
 
     
     override func awakeFromNib() {

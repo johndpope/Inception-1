@@ -1,5 +1,5 @@
 //
-//  OverviewCell.swift
+//  OverviewTableViewCell.swift
 //  Inception
 //
 //  Created by David Ehlen on 30.09.15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class OverviewCell: UITableViewCell {
+class OverviewTableViewCell: UITableViewCell {
     
     @IBOutlet weak var overviewLabel: UILabel!    
     

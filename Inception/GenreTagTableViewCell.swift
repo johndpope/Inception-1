@@ -1,17 +1,17 @@
 //
-//  PersonDetailCell.swift
+//  GenreTagTableViewCell.swift
 //  Inception
 //
-//  Created by David Ehlen on 27.09.15.
+//  Created by David Ehlen on 16.10.15.
 //  Copyright © 2015 David Ehlen. All rights reserved.
 //
 
 import UIKit
+import SKTagView
 
-class PersonDetailCell: UITableViewCell {
+class GenreTagTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var textLbl: UILabel!
-    @IBOutlet weak var detailTextLbl: UILabel!
+    @IBOutlet weak var tagView : SKTagView!
     
     
     override func awakeFromNib() {
@@ -23,3 +23,4 @@ class PersonDetailCell: UITableViewCell {
     }
     
 }
+

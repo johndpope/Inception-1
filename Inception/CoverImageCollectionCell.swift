@@ -8,6 +8,6 @@
 
 import UIKit
 
-class MovieCollectionCell: UICollectionViewCell {
+class CoverImageCollectionCell: UICollectionViewCell {
     @IBOutlet weak var coverImageView:UIImageView!
 }

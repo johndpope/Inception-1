@@ -1,17 +1,17 @@
 //
-//  MovieDetailCell.swift
+//  PersonDetailTableViewCell.swift
 //  Inception
 //
-//  Created by David Ehlen on 26.09.15.
+//  Created by David Ehlen on 27.09.15.
 //  Copyright © 2015 David Ehlen. All rights reserved.
 //
 
 import UIKit
 
-class MovieDetailCell: UITableViewCell {
+class PersonDetailTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var keyLabel: UILabel!
-    @IBOutlet weak var valueLabel: UILabel!
+    @IBOutlet weak var textLbl: UILabel!
+    @IBOutlet weak var detailTextLbl: UILabel!
     
     
     override func awakeFromNib() {
@@ -23,4 +23,3 @@ class MovieDetailCell: UITableViewCell {
     }
     
 }
-

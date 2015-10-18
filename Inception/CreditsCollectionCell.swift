@@ -1,5 +1,5 @@
 //
-//  CreditsCell.swift
+//  CreditsCollectionCell.swift
 //  Inception
 //
 //  Created by David Ehlen on 27.09.15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreditsCell: UICollectionViewCell {
+class CreditsCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var coverImageView:UIImageView!
     @IBOutlet weak var textLabel:UILabel!
