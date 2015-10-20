@@ -15,6 +15,7 @@ class APIController {
     
     class func request(endpoint:APIEndpoints, onCompletion:(APIResponse)) -> Void {
         let url = baseURL.URLByAppendingPathComponent(endpoint.path)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
         Alamofire.request(.GET, url,parameters: endpoint.GETParameters).responseJSON { (request, response, result) in
             UIApplication.sharedApplication().networkActivityIndicatorVisible = false
             switch result {
