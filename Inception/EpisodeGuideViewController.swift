@@ -9,16 +9,19 @@
 import UIKit
 import SwiftyJSON
 
-class EpisodeGuideViewController : UIViewController {
+class EpisodeGuideViewController : UIViewController,SeasonNavigatorDelegate {
     var seasons:[Season]!
     var showId:Int!
     
+    @IBOutlet weak var seasonNavigator:SeasonNavigatorScrollView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "showSeasons".localized
+        seasonNavigator.seasonNavigatorDelegate = self
+        seasonNavigator.setup(seasons.count)
         self.loadEpisodes()
     }
     
@@ -52,5 +55,10 @@ class EpisodeGuideViewController : UIViewController {
             self.activityIndicator.stopAnimating()
             //TODO: Update UI
         }
+    }
+    
+    //MARK: SeasonNavigatorDelegate
+    func didClickIndex(index:Int) {
+        print("Did Click Index: #\(index)")
     }
 }

@@ -1027,6 +1027,11 @@
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                                 <animations/>
                             </activityIndicatorView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="CKc-vw-klo" customClass="SeasonNavigatorScrollView" customModule="Inception" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1035,8 +1040,10 @@
                             <constraint firstItem="Mt8-Ve-F8B" firstAttribute="centerY" secondItem="dm3-nf-3Bd" secondAttribute="centerY" id="jXR-cc-JaS"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Mt8-Ve-F8B" id="Xnf-7n-cS9"/>
+                        <outlet property="seasonNavigator" destination="CKc-vw-klo" id="MoL-w8-45J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdc-H7-v32" userLabel="First Responder" sceneMemberID="firstResponder"/>
