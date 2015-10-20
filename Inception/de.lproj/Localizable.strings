@@ -44,3 +44,6 @@
 "movies" = "Filme";
 "shows" = "TV Serien";
 "genres" = "Genres";
+"cancel" = "Abbrechen";
+"chooseTrailer" = "Wähle das abzuspielende Video.";
+"trailer" = "Trailer";

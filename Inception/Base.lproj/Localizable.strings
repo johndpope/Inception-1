@@ -44,3 +44,6 @@
 "movies" = "Movies";
 "shows" = "TV Shows";
 "genres" = "Genres";
+"cancel" = "Cancel";
+"chooseTrailer" = "Choose the video you want to play";
+"trailer" = "Trailer";

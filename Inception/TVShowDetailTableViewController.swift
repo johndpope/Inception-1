@@ -7,8 +7,6 @@
 //
 
 import UIKit
-import XCDYouTubeKit
-import AVKit
 import SwiftyJSON
 
 class TVShowDetailTableViewController: UITableViewController {
@@ -19,7 +17,7 @@ class TVShowDetailTableViewController: UITableViewController {
     var similarShows:[Show] = []
     var crew:[CreditsCrew] = []
     var cast:[CreditsPerson] = []
-    var videoIdentifier:String?
+    var videos:[Video]?
 
     internal let kTableHeaderHeight:CGFloat = 200.0
     internal let kTableHeaderCutAway:CGFloat = 30.0
@@ -58,20 +56,14 @@ class TVShowDetailTableViewController: UITableViewController {
     }
     
     @IBAction func playTrailer(sender:UIButton) {
-        if videoIdentifier != nil {
-            let playerViewController = AVPlayerViewController()
-            self.presentViewController(playerViewController, animated: true, completion: nil)
-            
-            XCDYouTubeClient.defaultClient().getVideoWithIdentifier(videoIdentifier) { [weak playerViewController] (video: XCDYouTubeVideo?, error: NSError?) in
-                if let streamURL = video?.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] as? NSURL ??
-                    video?.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] as? NSURL ??
-                    video?.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] as? NSURL ??
-                    video?.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue] as? NSURL {
-                        playerViewController?.player = AVPlayer(URL: streamURL)
-                        playerViewController?.player?.play()
-                } else {
-                    self.dismissViewControllerAnimated(true, completion: nil)
+        if let videos = self.videos {
+            if videos.count == 1 {
+                if let key = videos[0].key {
+                    TrailerFunctions.playVideoWithIdentifier(key,from:self)
                 }
+            }
+            else {
+                TrailerFunctions.showTrailerActionSheet(videos,from:self)
             }
         }
     }
@@ -108,9 +100,9 @@ class TVShowDetailTableViewController: UITableViewController {
                 if (error != nil) {
                     print(error)
                 } else {
-                    let videoIdentifier = JSONParser.parseTrailerKey(data)
-                    if videoIdentifier != nil {
-                        self.videoIdentifier = videoIdentifier!
+                    let videos = JSONParser.parseTrailerKey(data)
+                    self.videos = videos
+                    if videos.count > 0 {
                         self.playTrailerButton.hidden = false
                     }
                 }

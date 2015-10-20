@@ -19,7 +19,6 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "search".localized
-                
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
     }
 
@@ -65,23 +64,26 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if let id = self.results[indexPath.row].id {
             switch self.results[indexPath.row].mediaType {
-            case "movie":
-                let vc : MovieDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
-                vc.id = id
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case "tv":
-                let vc : TVShowDetailTableViewController = storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
-                vc.id = id
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case "person":
-                let vc : PersonDetailViewController = storyboard?.instantiateViewControllerWithIdentifier("PersonDetailViewController") as! PersonDetailViewController
-                vc.id = id
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            default:
-                assert(false, "Unexpected media type")
+                case "movie":
+                    dispatch_async(dispatch_get_main_queue(),{
+                        let vc : MovieDetailTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
+                        vc.id = id
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
+                case "tv":
+                    dispatch_async(dispatch_get_main_queue(),{
+                        let vc : TVShowDetailTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
+                        vc.id = id
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
+                case "person":
+                    dispatch_async(dispatch_get_main_queue(),{
+                        let vc : PersonDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PersonDetailViewController") as! PersonDetailViewController
+                        vc.id = id
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    })
+                default:
+                    assert(false, "Unexpected media type")
             }
         }
     }

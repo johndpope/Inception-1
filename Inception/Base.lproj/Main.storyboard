@@ -20,7 +20,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Dqf-jo-use">
                                 <rect key="frame" x="0.0" y="108" width="600" height="443"/>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -132,7 +132,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="4GZ-dn-aKl">
@@ -140,7 +140,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="saQ-Ii-Oor">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
                                     <animations/>
                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </imageView>
@@ -161,8 +161,8 @@
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstItem="saQ-Ii-Oor" firstAttribute="leading" secondItem="4GZ-dn-aKl" secondAttribute="leading" id="8iW-Wu-qfY"/>
-                                <constraint firstAttribute="bottom" secondItem="saQ-Ii-Oor" secondAttribute="bottom" constant="-50" id="TPh-ro-oWg"/>
-                                <constraint firstItem="FtP-TL-2Im" firstAttribute="centerY" secondItem="saQ-Ii-Oor" secondAttribute="centerY" constant="-25.5" id="gdl-5c-8Fj"/>
+                                <constraint firstAttribute="bottom" secondItem="saQ-Ii-Oor" secondAttribute="bottom" id="TPh-ro-oWg"/>
+                                <constraint firstItem="FtP-TL-2Im" firstAttribute="centerY" secondItem="saQ-Ii-Oor" secondAttribute="centerY" id="gdl-5c-8Fj"/>
                                 <constraint firstItem="saQ-Ii-Oor" firstAttribute="top" secondItem="4GZ-dn-aKl" secondAttribute="top" id="iRl-Kf-Kg3"/>
                                 <constraint firstItem="FtP-TL-2Im" firstAttribute="centerX" secondItem="saQ-Ii-Oor" secondAttribute="centerX" id="kwp-Kd-VUu"/>
                                 <constraint firstAttribute="trailing" secondItem="saQ-Ii-Oor" secondAttribute="trailing" id="wPJ-kG-Zrv"/>
@@ -411,11 +411,11 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="icD-z3-GsC" customClass="SKTagView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
                                     <animations/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="icD-z3-GsC" secondAttribute="trailing" id="6A7-UQ-p5V"/>
                                         <constraint firstItem="icD-z3-GsC" firstAttribute="leading" secondItem="lbx-sI-RZf" secondAttribute="leading" id="9io-cM-0Ai"/>
@@ -424,7 +424,7 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="tintColor" red="1" green="0.87058823529999996" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="tagView" destination="icD-z3-GsC" id="2Ag-ee-JIX"/>
@@ -457,7 +457,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xh8-CI-tHL">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
@@ -475,7 +475,7 @@
                                         <constraint firstAttribute="height" constant="40" id="SFe-o9-P7Y"/>
                                         <constraint firstAttribute="width" constant="40" id="kAV-al-C7d"/>
                                     </constraints>
-                                    <state key="normal" title="Button" image="playButton"/>
+                                    <state key="normal" image="playButton"/>
                                     <connections>
                                         <action selector="playTrailer:" destination="K7N-b1-jl0" eventType="touchUpInside" id="kWh-5z-zdN"/>
                                     </connections>
@@ -734,7 +734,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qus-ZC-ip8" customClass="SKTagView">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </view>
                                     </subviews>
                                     <animations/>
@@ -818,7 +818,7 @@
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZFy-Ty-BeQ">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <prototypes>
@@ -980,7 +980,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UMS-Ih-9MI">
                                 <rect key="frame" x="0.0" y="64" width="600" height="487"/>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1001,10 +1001,10 @@
                                                 </label>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1286,9 +1286,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection headerTitle="General" footerTitle="If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing" id="Xr2-8A-ErL">
                                 <cells>
@@ -1319,7 +1319,7 @@
                                                 </switch>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="hgN-P3-Ub4" firstAttribute="leading" secondItem="DS1-nQ-sYN" secondAttribute="trailing" constant="19" id="01P-5J-p7z"/>
                                                 <constraint firstItem="hgN-P3-Ub4" firstAttribute="leading" secondItem="DS1-nQ-sYN" secondAttribute="trailing" constant="19" id="0Q3-c3-3Rj"/>
@@ -1338,7 +1338,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="0cC-Fg-ym6" detailTextLabel="lJ7-gT-mab" style="IBUITableViewCellStyleValue1" id="Phd-ty-CN9">
                                         <rect key="frame" x="0.0" y="158" width="600" height="44"/>
@@ -1365,10 +1365,10 @@
                                                 </label>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DatePickerCell" rowHeight="134" id="sBe-gn-TFc">
                                         <rect key="frame" x="0.0" y="202" width="600" height="134"/>
@@ -1409,7 +1409,7 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1427,17 +1427,17 @@
                                                     <rect key="frame" x="15" y="0.0" width="550" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="GUx-sK-50X" style="IBUITableViewCellStyleDefault" id="0LZ-MV-8mC">
                                         <rect key="frame" x="0.0" y="463" width="600" height="44"/>
@@ -1450,17 +1450,17 @@
                                                     <rect key="frame" x="15" y="0.0" width="550" height="44"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
-                                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1489,9 +1489,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
                             <tableViewSection id="Jpf-34-eeh">
                                 <cells>
@@ -1520,10 +1520,10 @@
                                                 </label>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="CachingCell" textLabel="xqL-as-kMB" style="IBUITableViewCellStyleDefault" id="4nJ-ud-huk">
                                         <rect key="frame" x="0.0" y="79" width="600" height="44"/>
@@ -1542,10 +1542,10 @@
                                                 </label>
                                             </subviews>
                                             <animations/>
-                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         </tableViewCellContentView>
                                         <animations/>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>

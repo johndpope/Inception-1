@@ -100,21 +100,21 @@ class JSONParser {
     }
     
     //MARK: Trailer
-    //TODO: Alle Trailer zurückgeben, um alle anzuzeigen
-    class func parseTrailerKey(data:AnyObject?) -> String? {
+    class func parseTrailerKey(data:AnyObject?) -> [Video] {
         let json = JSON(data!)
+        var videos:[Video] = []
+        
         if let resultsArray = json["results"].array {
             for i in 0..<resultsArray.count {
                 if let site = json["results"][i]["site"].string {
                     if site == "YouTube" {
-                        if let key=json["results"][i]["key"].string {
-                            return key
-                        }
+                        let video = Video(json:json["results"][i])
+                        videos.append(video)
                     }
                 }
             }
         }
-        return nil
+        return videos
     }
     
     //MARK: Results Array
