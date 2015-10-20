@@ -10,11 +10,13 @@ import UIKit
 
 class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var collectionView:UICollectionView!
     var movies:[Movie] = []
     var shows:[Show] = []
     var isShowGenre = false
     var genre:Genre?
+    
+    @IBOutlet weak var collectionView:UICollectionView!
+    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +25,10 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
             self.title = genre.name
             
             if isShowGenre {
+                self.activityIndicator.startAnimating()
+
                 APIController.request(APIEndpoints.ShowsForGenre(genre.id!)) { (data:AnyObject?, error:NSError?) in
+                    self.activityIndicator.stopAnimating()
                     if (error != nil) {
                         //TODO: error handling
                         print(error)
@@ -34,7 +39,10 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
             }
             else {
+                self.activityIndicator.startAnimating()
+
                 APIController.request(APIEndpoints.MoviesForGenre(genre.id!)) { (data:AnyObject?, error:NSError?) in
+                    self.activityIndicator.stopAnimating()
                     if (error != nil) {
                         //TODO: error handling
                         print(error)

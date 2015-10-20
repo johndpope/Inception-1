@@ -30,6 +30,8 @@ class MovieDetailTableViewController: UITableViewController {
     @IBOutlet weak var similarMoviesCollectionView:UICollectionView!
     @IBOutlet weak var personCreditsCollectionView:UICollectionView!
     @IBOutlet weak var footerView:UIView!
+    var activityIndicator:UIActivityIndicatorView!
+
 
     //TODO: add to watchlist to uibarbuttonitem, check if already in watchlist => toggle tintcolor on add watchlist button
     override func viewDidLoad() {
@@ -38,8 +40,11 @@ class MovieDetailTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
         self.setupHeaderView()
+        self.setupActivityIndicator()
+        self.activityIndicator.startAnimating()
         
         APIController.request(APIEndpoints.Movie(id)) { (data:AnyObject?, error:NSError?) in
+            self.activityIndicator.stopAnimating()
             if (error != nil) {
                  AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
                 print(error)
@@ -54,6 +59,20 @@ class MovieDetailTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         CacheFactory.clearAllCaches()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let viewBounds = self.view.bounds
+        self.activityIndicator.center = CGPointMake(CGRectGetMidX(viewBounds), CGRectGetMidY(viewBounds))
+    }
+    
+    func setupActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.hidden = true
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator = activityIndicator
     }
     
     @IBAction func playTrailer(sender:UIButton) {

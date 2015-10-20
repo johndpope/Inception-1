@@ -13,11 +13,18 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
     var shows:[Show]?
     
     @IBOutlet weak var collectionView:UICollectionView!
-    
+    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.activityIndicator.startAnimating()
+        
+        let group = dispatch_group_create()
+        
+        dispatch_group_enter(group)
         APIController.request(APIEndpoints.TopRatedMovies) { (data:AnyObject?, error:NSError?) in
+            dispatch_group_leave(group)
             if (error != nil) {
                 //TODO: error handling
                 print(error)
@@ -26,8 +33,10 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
                 self.collectionView.reloadData()
             }
         }
-        
+
+        dispatch_group_enter(group)
         APIController.request(APIEndpoints.TopRatedShows) { (data:AnyObject?, error:NSError?) in
+            dispatch_group_leave(group)
             if (error != nil) {
                 //TODO: error handling
                 print(error)
@@ -35,6 +44,10 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
                 self.shows = JSONParser.parseShowResults(data)
                 self.collectionView.reloadData()
             }
+        }
+        
+        dispatch_group_notify(group, dispatch_get_main_queue()) {
+            self.activityIndicator.stopAnimating()
         }
     }
     

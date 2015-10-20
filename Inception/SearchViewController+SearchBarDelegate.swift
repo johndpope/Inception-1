@@ -19,8 +19,11 @@ extension SearchViewController : UISearchBarDelegate {
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
+        self.activityIndicator.startAnimating()
+        
         if let searchText = searchBar.text {
             APIController.request(APIEndpoints.MultiSearch(searchText)) { (data:AnyObject?, error:NSError?) in
+                self.activityIndicator.stopAnimating()
                 if (error != nil) {
                     AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
                     self.searchBar.resignFirstResponder()
@@ -31,5 +34,5 @@ extension SearchViewController : UISearchBarDelegate {
             }
         }
     }
-
+    
 }

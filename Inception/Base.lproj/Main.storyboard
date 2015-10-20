@@ -99,16 +99,22 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="Ona-Wb-1Sx"/>
                                 </connections>
                             </searchBar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Xsh-UH-dVE">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="Xsh-UH-dVE" firstAttribute="centerX" secondItem="tsR-hK-woN" secondAttribute="centerX" id="1sI-ao-3oJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="7A5-Dc-f3w" secondAttribute="trailing" constant="-20" id="58z-hM-bVx"/>
                             <constraint firstItem="7A5-Dc-f3w" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="5L6-Ut-9k6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dqf-jo-use" secondAttribute="trailing" constant="-20" id="Bbt-sn-Jkd"/>
                             <constraint firstItem="7A5-Dc-f3w" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="S45-6w-nHz"/>
                             <constraint firstItem="Dqf-jo-use" firstAttribute="top" secondItem="7A5-Dc-f3w" secondAttribute="bottom" id="Uqz-ib-D3v"/>
                             <constraint firstItem="4ug-Mw-9AY" firstAttribute="top" secondItem="Dqf-jo-use" secondAttribute="bottom" id="V4r-Xt-YcG"/>
+                            <constraint firstItem="Xsh-UH-dVE" firstAttribute="centerY" secondItem="tsR-hK-woN" secondAttribute="centerY" id="YRS-kZ-b1T"/>
                             <constraint firstItem="Dqf-jo-use" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leadingMargin" constant="-20" id="fon-j7-Ysa"/>
                         </constraints>
                     </view>
@@ -116,6 +122,7 @@
                         <nil key="title"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="Xsh-UH-dVE" id="XIW-eR-5r8"/>
                         <outlet property="searchBar" destination="7A5-Dc-f3w" id="jhh-0K-YzR"/>
                         <outlet property="tableView" destination="Dqf-jo-use" id="YTN-64-ip7"/>
                     </connections>
@@ -926,10 +933,15 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="jTn-MA-bmv">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="jTn-MA-bmv" firstAttribute="centerY" secondItem="nWS-I6-KIj" secondAttribute="centerY" id="1OP-0k-Cbz"/>
                             <constraint firstItem="h7l-lr-hEr" firstAttribute="top" secondItem="Et8-yg-83i" secondAttribute="bottom" constant="8" id="2YP-Qu-0Gs"/>
                             <constraint firstItem="Et8-yg-83i" firstAttribute="top" secondItem="AfL-N2-qGT" secondAttribute="bottom" constant="8" id="5i7-LQ-BWr"/>
                             <constraint firstItem="Et8-yg-83i" firstAttribute="centerX" secondItem="nWS-I6-KIj" secondAttribute="centerX" id="AFc-ZI-lmN"/>
@@ -937,6 +949,7 @@
                             <constraint firstItem="C6a-no-BuE" firstAttribute="top" secondItem="cHa-cn-P24" secondAttribute="bottom" constant="31" id="DGj-to-8kw"/>
                             <constraint firstAttribute="trailingMargin" secondItem="h7l-lr-hEr" secondAttribute="trailing" constant="-20" id="KLh-Y3-eeB"/>
                             <constraint firstAttribute="trailingMargin" secondItem="AfL-N2-qGT" secondAttribute="trailing" constant="-20" id="MS9-Hb-tUU"/>
+                            <constraint firstItem="jTn-MA-bmv" firstAttribute="centerX" secondItem="nWS-I6-KIj" secondAttribute="centerX" id="Rfs-ih-tq3"/>
                             <constraint firstItem="C6a-no-BuE" firstAttribute="leading" secondItem="fEj-CI-krA" secondAttribute="trailing" constant="8" id="Vfe-Bd-D6f"/>
                             <constraint firstItem="AfL-N2-qGT" firstAttribute="top" secondItem="cHa-cn-P24" secondAttribute="bottom" constant="87" id="czd-nQ-7gJ"/>
                             <constraint firstItem="wbJ-7K-vWg" firstAttribute="top" secondItem="h7l-lr-hEr" secondAttribute="bottom" id="dXu-l7-WbM"/>
@@ -955,6 +968,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="jTn-MA-bmv" id="xUE-Em-sWx"/>
                         <outlet property="infoView" destination="h7l-lr-hEr" id="Iht-9q-YHR"/>
                         <outlet property="nameLabel" destination="C6a-no-BuE" id="T6Q-Er-zJP"/>
                         <outlet property="personImageView" destination="fEj-CI-krA" id="89n-lk-JzC"/>
@@ -1667,6 +1681,10 @@
                                     <outlet property="delegate" destination="hrz-g1-J8I" id="l41-l8-6sa"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="pDb-0y-fH6">
+                                <rect key="frame" x="290" y="234" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1674,10 +1692,13 @@
                             <constraint firstItem="OiJ-xu-kDS" firstAttribute="top" secondItem="vfx-ak-2tf" secondAttribute="bottom" id="075-Ct-Us6"/>
                             <constraint firstItem="vfx-ak-2tf" firstAttribute="top" secondItem="66r-lj-8FK" secondAttribute="bottom" id="GpF-Kr-z6e"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vfx-ak-2tf" secondAttribute="trailing" constant="-20" id="Nj2-ZD-GRm"/>
+                            <constraint firstItem="pDb-0y-fH6" firstAttribute="centerY" secondItem="cZT-6I-Nc1" secondAttribute="centerY" id="bjT-e9-fgH"/>
+                            <constraint firstItem="pDb-0y-fH6" firstAttribute="centerX" secondItem="cZT-6I-Nc1" secondAttribute="centerX" id="rLd-fk-tAX"/>
                             <constraint firstItem="vfx-ak-2tf" firstAttribute="leading" secondItem="cZT-6I-Nc1" secondAttribute="leadingMargin" constant="-20" id="yfM-Bn-d4b"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="pDb-0y-fH6" id="9Km-cL-Vqj"/>
                         <outlet property="collectionView" destination="vfx-ak-2tf" id="lmW-eQ-U92"/>
                     </connections>
                 </viewController>
@@ -1854,17 +1875,24 @@
                                     <outlet property="delegate" destination="EZD-n8-5oG" id="ZhR-Pi-MgE"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="kN7-bQ-A8t">
+                                <rect key="frame" x="290" y="234" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="32q-uP-KbW" secondAttribute="trailing" constant="-20" id="17n-Kh-axe"/>
                             <constraint firstItem="nVR-YK-CnW" firstAttribute="top" secondItem="32q-uP-KbW" secondAttribute="bottom" id="2oO-dB-7mH"/>
+                            <constraint firstItem="kN7-bQ-A8t" firstAttribute="centerX" secondItem="FPH-C9-r80" secondAttribute="centerX" id="OOF-Wk-onD"/>
                             <constraint firstItem="32q-uP-KbW" firstAttribute="top" secondItem="b9X-eP-QRB" secondAttribute="bottom" id="j1T-Tg-JRO"/>
+                            <constraint firstItem="kN7-bQ-A8t" firstAttribute="centerY" secondItem="FPH-C9-r80" secondAttribute="centerY" id="rP5-ic-BSx"/>
                             <constraint firstItem="32q-uP-KbW" firstAttribute="leading" secondItem="FPH-C9-r80" secondAttribute="leadingMargin" constant="-20" id="uYu-h8-W5k"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="kN7-bQ-A8t" id="uL4-a9-wZn"/>
                         <outlet property="collectionView" destination="32q-uP-KbW" id="lSz-Vm-m2I"/>
                     </connections>
                 </viewController>
@@ -1936,11 +1964,17 @@
                                     <outlet property="delegate" destination="q6S-9S-05E" id="R2D-l3-eV6"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="ECq-rI-5eH">
+                                <rect key="frame" x="290" y="234" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="ECq-rI-5eH" firstAttribute="centerX" secondItem="k1j-J0-Eke" secondAttribute="centerX" id="0xe-5i-zs5"/>
                             <constraint firstItem="1YL-ns-gJJ" firstAttribute="top" secondItem="NxI-Qx-V0L" secondAttribute="bottom" id="5a5-3k-Njc"/>
+                            <constraint firstItem="ECq-rI-5eH" firstAttribute="centerY" secondItem="k1j-J0-Eke" secondAttribute="centerY" id="HKG-31-fLE"/>
                             <constraint firstAttribute="trailingMargin" secondItem="NxI-Qx-V0L" secondAttribute="trailing" constant="-20" id="LEG-cJ-pFX"/>
                             <constraint firstItem="NxI-Qx-V0L" firstAttribute="top" secondItem="mVv-Ch-2bF" secondAttribute="bottom" id="bSD-jj-LLp"/>
                             <constraint firstItem="NxI-Qx-V0L" firstAttribute="leading" secondItem="k1j-J0-Eke" secondAttribute="leadingMargin" constant="-20" id="ccT-dM-E7x"/>
@@ -1948,6 +1982,7 @@
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ECq-rI-5eH" id="Vm1-CM-1ny"/>
                         <outlet property="collectionView" destination="NxI-Qx-V0L" id="Sj3-EU-xPY"/>
                     </connections>
                 </viewController>
@@ -2019,17 +2054,24 @@
                                     <outlet property="delegate" destination="wUw-BH-tVD" id="i8K-lb-Btx"/>
                                 </connections>
                             </collectionView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="5Zz-74-9cR">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="5Zz-74-9cR" firstAttribute="centerX" secondItem="k2P-46-b9a" secondAttribute="centerX" id="1yQ-Nk-mIK"/>
                             <constraint firstItem="PuZ-sQ-9TT" firstAttribute="leading" secondItem="k2P-46-b9a" secondAttribute="leading" id="6gW-Nl-SAH"/>
                             <constraint firstItem="CrC-sd-oef" firstAttribute="top" secondItem="PuZ-sQ-9TT" secondAttribute="bottom" id="XKX-Gm-aei"/>
                             <constraint firstItem="PuZ-sQ-9TT" firstAttribute="top" secondItem="k2P-46-b9a" secondAttribute="top" id="f6k-SB-BsD"/>
+                            <constraint firstItem="5Zz-74-9cR" firstAttribute="centerY" secondItem="k2P-46-b9a" secondAttribute="centerY" id="hFn-HZ-Gvq"/>
                             <constraint firstAttribute="trailing" secondItem="PuZ-sQ-9TT" secondAttribute="trailing" id="y0M-9S-bEj"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="5Zz-74-9cR" id="P1Z-a6-dNp"/>
                         <outlet property="collectionView" destination="PuZ-sQ-9TT" id="kcD-BA-QIY"/>
                     </connections>
                 </viewController>

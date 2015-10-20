@@ -29,6 +29,7 @@ class TVShowDetailTableViewController: UITableViewController {
     @IBOutlet weak var similarShowsCollectionView:UICollectionView!
     @IBOutlet weak var personCreditsCollectionView:UICollectionView!
     @IBOutlet weak var footerView:UIView!
+    var activityIndicator:UIActivityIndicatorView!
     
     //TODO: Show seasons from show.seasons to next viewcontroller
     override func viewDidLoad() {
@@ -38,8 +39,11 @@ class TVShowDetailTableViewController: UITableViewController {
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
         self.setupHeaderView()
+        self.setupActivityIndicator()
+        self.activityIndicator.startAnimating()
         
         APIController.request(APIEndpoints.Show(id)) { (data:AnyObject?, error:NSError?) in
+            self.activityIndicator.stopAnimating()
             if (error != nil) {
                  AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
                 print(error)
@@ -53,6 +57,20 @@ class TVShowDetailTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         CacheFactory.clearAllCaches()
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        let viewBounds = self.view.bounds
+        self.activityIndicator.center = CGPointMake(CGRectGetMidX(viewBounds), CGRectGetMidY(viewBounds))
+    }
+    
+    func setupActivityIndicator() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .White)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.hidden = true
+        self.view.addSubview(activityIndicator)
+        self.activityIndicator = activityIndicator
     }
     
     @IBAction func playTrailer(sender:UIButton) {

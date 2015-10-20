@@ -12,7 +12,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     var results:[MultiSearchResult] = []
     
     override func viewDidLoad() {

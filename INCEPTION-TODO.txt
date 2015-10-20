@@ -1,12 +1,11 @@
 - see todos in code
-- watchlist bauen (model etc, shows, movies, airing calendar)
-- stats für watchlist bauen siehe watched.li
-- preferences(caching, image video,...)
-- loading indicator (als ui element in den viewcontrollern)
-- language hinzufügen zu api calls evtl
-- search/multi page berücksichtigen um alle results anzuzeigen (siehe iphone github lib, array mit total_count und pagesize)
-http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
-- evtl discover kategorien auch mit pages austatten (dafür anderes layout ?)
-- alles neu lokalisieren (neu hinzugekommene texte in storyboard, nicht verwendete keys in der localizable.strings entfernen)
-- falls kein bild placeholder-dark in known for anzeigen
-- 3d touch ?
+- watchlist bauen (model, shows, movies, airing calendar, add from searchviewcontroller, add from detailviewcontrollers)
+- stats for watchlist f.e: watched.li
+- preferences(caching, image video, notifications,...)
+- maybe use language parameter in api calls
+- consider search/multi page to show all search results
+	http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
+- consider pages for discover categories (to show more results) (maybe different layout ?)
+- update localizable.strings and storyboard localizables
+- if no picture: show placeholder-dark in knownFor
+- implement 3d touch ?

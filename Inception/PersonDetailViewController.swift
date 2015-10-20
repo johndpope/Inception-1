@@ -20,6 +20,7 @@ class PersonDetailViewController: UIViewController {
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var nameLabel:UILabel!
     @IBOutlet weak var personImageView:UIImageView!
+    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,10 @@ class PersonDetailViewController: UIViewController {
         self.tableView.estimatedRowHeight = 44.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
         
+        self.activityIndicator.startAnimating()
+        
         APIController.request(APIEndpoints.Person(id)) { (data:AnyObject?, error:NSError?) in
+            self.activityIndicator.stopAnimating()
             if (error != nil) {
                 AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
                 print(error)

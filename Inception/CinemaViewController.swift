@@ -11,11 +11,14 @@ import UIKit
 class CinemaViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource {
     var movies:[Movie]?
     @IBOutlet weak var collectionView:UICollectionView!
-
+    @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.activityIndicator.startAnimating()
+
         APIController.request(APIEndpoints.CinemaMovies) { (data:AnyObject?, error:NSError?) in
+            self.activityIndicator.stopAnimating()
             if (error != nil) {
                 print(error)
             } else {
