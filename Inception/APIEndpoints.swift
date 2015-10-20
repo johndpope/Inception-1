@@ -31,4 +31,5 @@ enum APIEndpoints {
     case TopRatedShows
     case MoviesForGenre(Int)
     case ShowsForGenre(Int)
+    case SeasonsForShow(Int, Int)
 }

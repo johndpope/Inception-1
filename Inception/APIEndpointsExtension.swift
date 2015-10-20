@@ -28,6 +28,7 @@ extension APIEndpoints : APIRoute {
             case .TopRatedShows: return "/tv/top_rated"
             case .MoviesForGenre(_) : return "/discover/movie"
             case .ShowsForGenre(_) : return "/discover/tv"
+            case .SeasonsForShow(let showId, let seasonNumber) : return "/tv/\(showId)/season/\(seasonNumber)"
         }
     }
     
@@ -51,6 +52,7 @@ extension APIEndpoints : APIRoute {
         case .TopRatedShows : return ["api_key":APIKEY]
         case .MoviesForGenre(let genreId) : return ["api_key":APIKEY,"sort_by":"popularity.desc","with_genres":"\(genreId)"]
         case .ShowsForGenre(let genreId) : return ["api_key":APIKEY,"sort_by":"popularity.desc","with_genres":"\(genreId)"]
+        case .SeasonsForShow(_, _) : return ["api_key": APIKEY]
         }
     }
 

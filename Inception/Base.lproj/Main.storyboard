@@ -467,7 +467,7 @@
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="xh8-CI-tHL">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="200"/>
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="201"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fOZ-UY-GB3">
@@ -493,14 +493,14 @@
                             <constraints>
                                 <constraint firstItem="CuC-nk-IVL" firstAttribute="centerY" secondItem="fOZ-UY-GB3" secondAttribute="centerY" id="5OE-9N-q2J"/>
                                 <constraint firstItem="fOZ-UY-GB3" firstAttribute="leading" secondItem="xh8-CI-tHL" secondAttribute="leading" id="LRc-be-pIN"/>
-                                <constraint firstAttribute="bottom" secondItem="fOZ-UY-GB3" secondAttribute="bottom" id="TTM-tc-fl1"/>
+                                <constraint firstAttribute="bottom" secondItem="fOZ-UY-GB3" secondAttribute="bottom" constant="1" id="TTM-tc-fl1"/>
                                 <constraint firstAttribute="trailing" secondItem="fOZ-UY-GB3" secondAttribute="trailing" id="eF2-oe-VII"/>
                                 <constraint firstItem="CuC-nk-IVL" firstAttribute="centerX" secondItem="fOZ-UY-GB3" secondAttribute="centerX" id="oxe-YC-pxU"/>
                                 <constraint firstItem="fOZ-UY-GB3" firstAttribute="top" secondItem="xh8-CI-tHL" secondAttribute="top" id="xpD-tZ-9rq"/>
                             </constraints>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="6dC-ZZ-fIC">
-                            <rect key="frame" x="0.0" y="360" width="600" height="281"/>
+                            <rect key="frame" x="0.0" y="405" width="600" height="281"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gCx-2Z-aCo">
@@ -651,8 +651,40 @@
                             </variation>
                         </view>
                         <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TVShowSeasonsTableViewCell" rowHeight="44" id="cyO-dd-Q1k" customClass="EpisodeGuideTableViewCell" customModule="Inception" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="229" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cyO-dd-Q1k" id="S6f-HT-lFh">
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiP-eT-zcw">
+                                            <rect key="frame" x="8" y="11" width="551" height="21"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="1" green="0.86706631779999999" blue="0.3770228987" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <animations/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstItem="NiP-eT-zcw" firstAttribute="top" secondItem="S6f-HT-lFh" secondAttribute="topMargin" constant="3" id="fdb-1i-wpL"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="NiP-eT-zcw" secondAttribute="leading" id="ghf-0A-2JA"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="NiP-eT-zcw" secondAttribute="bottom" constant="4" id="jrB-ng-AeO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NiP-eT-zcw" secondAttribute="trailing" constant="41" id="su0-A6-WzV"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="mainTextLabel" destination="NiP-eT-zcw" id="rdo-mE-dfN"/>
+                                </connections>
+                            </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TVShowDetailTableViewCell" id="i6u-CL-Dyp" customClass="DetailTableViewCell" customModule="Inception" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="228" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="273" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="i6u-CL-Dyp" id="Tr3-Iu-Pq8">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -695,7 +727,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TVShowOverviewTableViewCell" id="sil-PV-Xbd" customClass="OverviewTableViewCell" customModule="Inception" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="272" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="317" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sil-PV-Xbd" id="vex-jj-K6t">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -732,7 +764,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TVShowGenreTagTableViewCell" rowHeight="44" id="WBw-Gv-8mh" customClass="GenreTagTableViewCell" customModule="Inception" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="316" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="361" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WBw-Gv-8mh" id="iW1-rt-pVF">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -978,6 +1010,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DZZ-nm-kRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1787" y="-1064"/>
+        </scene>
+        <!--Episode Guide View Controller-->
+        <scene sceneID="efl-cd-j8l">
+            <objects>
+                <viewController storyboardIdentifier="EpisodeGuideViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="1rK-RB-61p" customClass="EpisodeGuideViewController" customModule="Inception" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="tti-rF-vud"/>
+                        <viewControllerLayoutGuide type="bottom" id="2NO-XC-CUu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dm3-nf-3Bd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Mt8-Ve-F8B">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                                <animations/>
+                            </activityIndicatorView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="Mt8-Ve-F8B" firstAttribute="centerX" secondItem="dm3-nf-3Bd" secondAttribute="centerX" id="hNX-EZ-hxW"/>
+                            <constraint firstItem="Mt8-Ve-F8B" firstAttribute="centerY" secondItem="dm3-nf-3Bd" secondAttribute="centerY" id="jXR-cc-JaS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Mt8-Ve-F8B" id="Xnf-7n-cS9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdc-H7-v32" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2417" y="-1063"/>
         </scene>
         <!--Watchlist View Controller-->
         <scene sceneID="wg7-f3-ORb">

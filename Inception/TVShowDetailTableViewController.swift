@@ -31,7 +31,6 @@ class TVShowDetailTableViewController: UITableViewController {
     @IBOutlet weak var footerView:UIView!
     var activityIndicator:UIActivityIndicatorView!
     
-    //TODO: Show seasons from show.seasons to next viewcontroller
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -106,9 +105,9 @@ class TVShowDetailTableViewController: UITableViewController {
 
     
     func updateUI() {
-        if show != nil {
-            if show!.title != nil {
-                self.title = show!.title
+        if self.show != nil {
+            if let title = self.show!.title {
+                self.title = title
             }
             
             (self.tableDataKeys, self.tableData) = show!.tableData()
@@ -167,6 +166,16 @@ class TVShowDetailTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        if self.tableDataKeys[indexPath.row] == "showSeasons".localized {
+            if let show = self.show {
+                if let id = show.id {
+                    let vc : EpisodeGuideViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EpisodeGuideViewController") as! EpisodeGuideViewController
+                    vc.seasons = show.seasons
+                    vc.showId = id
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -182,6 +191,11 @@ class TVShowDetailTableViewController: UITableViewController {
             self.setupTagListView(cell)
             return cell
             
+        }
+        else if key == "showSeasons".localized {
+            let cell = tableView.dequeueReusableCellWithIdentifier("TVShowSeasonsTableViewCell",forIndexPath:indexPath) as! EpisodeGuideTableViewCell
+            cell.mainTextLabel.text = "showSeasons".localized
+            return cell
         }
 
         else {

@@ -92,7 +92,7 @@ class Show {
         self.posterPath = json["poster_path"].string
         self.productionCompanies = productionCompanies
         self.status = json["status"].string
-        self.title = json["title"].string
+        self.title = json["name"].string
         self.voteAverage = json["vote_average"].double
 
         self.createdBy = createdBy

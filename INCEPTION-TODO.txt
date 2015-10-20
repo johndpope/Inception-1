@@ -1,11 +1,15 @@
-- see todos in code
+Now:
+- seasons/episodes in tv detail view controller
 - watchlist bauen (model, shows, movies, airing calendar, add from searchviewcontroller, add from detailviewcontrollers)
-- stats for watchlist f.e: watched.li
 - preferences(caching, image video, notifications,...)
+- stats for watchlist f.e: watched.li
+- if no picture: show placeholder-dark in knownFor
+- see todos in code
+
+Later:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results
 	http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
 - consider pages for discover categories (to show more results) (maybe different layout ?)
 - update localizable.strings and storyboard localizables
-- if no picture: show placeholder-dark in knownFor
 - implement 3d touch ?

@@ -23,7 +23,7 @@ class Episode {
     init(json:JSON) {
         self.airDate = json["air_date"].string
         self.episodeNumber = json["episode_number"].int
-        self.title = json["title"].string
+        self.title = json["name"].string
         self.overview = json["overview"].string
         self.id = json["id"].int
         self.seasonNumber = json["season_number"].int

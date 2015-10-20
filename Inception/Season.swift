@@ -16,6 +16,7 @@ class Season {
     var id:Int?
     var posterPath:String?
     var seasonNumber:Int?
+    var episodes:[Episode]?
     
     init(json:JSON) {
         self.airDate = json["air_date"].string
@@ -23,6 +24,5 @@ class Season {
         self.id = json["id"].int
         self.posterPath = json["poster_path"].string
         self.seasonNumber = json["season_number"].int
-        
     }
 }

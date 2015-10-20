@@ -42,6 +42,13 @@ extension Show {
             }
         }
         
+        if self.seasons != nil {
+            if self.seasons!.count > 0 {
+                tableData.append("showSeasons".localized)
+                tableKeys.append("showSeasons".localized)
+            }
+        }
+        
         if self.firstAirDate != nil {
             if !self.firstAirDate!.isEmpty {
                 let dateFormatter = NSDateFormatter()

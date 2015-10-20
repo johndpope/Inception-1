@@ -11,6 +11,20 @@ import SwiftyJSON
 
 class JSONParser {
     
+    //MARK: Episodes & Seasons 
+    class func parseEpisodes(data:AnyObject?) -> [Episode] {
+        var episodes:[Episode] = []
+        
+        let json = JSON(data!)
+        if let jsonEpisodesArray = json["episodes"].array {
+            for i in 0..<jsonEpisodesArray.count {
+                let episode = Episode(json:json["episodes"][i])
+                episodes.append(episode)
+            }
+        }
+        return episodes
+    }
+    
     //MARK: Multi Searches
     class func mutliSearchResults(data:AnyObject?) -> [MultiSearchResult] {
         var parsedResults:[MultiSearchResult] = []
