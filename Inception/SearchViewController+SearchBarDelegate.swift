@@ -20,7 +20,9 @@ extension SearchViewController : UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
         self.activityIndicator.startAnimating()
-        
+        self.results.removeAll()
+        self.searchBar.resignFirstResponder()
+
         if let searchText = searchBar.text {
             APIController.request(APIEndpoints.MultiSearch(searchText)) { (data:AnyObject?, error:NSError?) in
                 self.activityIndicator.stopAnimating()
