@@ -13,3 +13,5 @@ Later:
 - consider pages for discover categories (to show more results) (maybe different layout ?)
 - update localizable.strings and storyboard localizables
 - implement 3d touch ?
+
+- search keyboard is not dark

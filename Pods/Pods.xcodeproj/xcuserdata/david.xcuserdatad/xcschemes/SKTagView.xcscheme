@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'F23C280B485FDDC61E7DD4A9'
+               BlueprintIdentifier = '500E7049F2AE5297B77AD57D'
                BlueprintName = 'SKTagView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'SKTagView.framework'>

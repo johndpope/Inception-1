@@ -1023,27 +1023,93 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="pjZ-D6-ZpN">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="a60-yX-itd"/>
+                                    <constraint firstAttribute="height" constant="50" id="bWS-Fi-7Sp"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3BC-FN-Gsf">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SeasonNavigatorCollectionViewCell" id="z9d-AX-Nmz" customClass="SeasonNavigatorCollectionViewCell" customModule="Inception" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2x4-K2-h7D">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T7z-fv-tLv">
+                                                    <rect key="frame" x="4" y="15" width="42" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="42" id="LNd-57-rpw"/>
+                                                        <constraint firstAttribute="height" constant="21" id="dHY-gv-DKF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstItem="T7z-fv-tLv" firstAttribute="centerY" secondItem="z9d-AX-Nmz" secondAttribute="centerY" id="5We-ve-xgz"/>
+                                            <constraint firstItem="2x4-K2-h7D" firstAttribute="leading" secondItem="z9d-AX-Nmz" secondAttribute="leadingMargin" constant="-8" id="Px2-dk-ATj"/>
+                                            <constraint firstAttribute="trailingMargin" secondItem="2x4-K2-h7D" secondAttribute="trailing" constant="-8" id="XnX-0b-ix0"/>
+                                            <constraint firstItem="2x4-K2-h7D" firstAttribute="top" secondItem="z9d-AX-Nmz" secondAttribute="topMargin" constant="-8" id="oEQ-9l-pDk"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="2x4-K2-h7D" secondAttribute="bottom" constant="-8" id="qQa-y1-enb"/>
+                                            <constraint firstItem="T7z-fv-tLv" firstAttribute="centerX" secondItem="z9d-AX-Nmz" secondAttribute="centerX" id="r7n-j8-zqt"/>
+                                        </constraints>
+                                        <connections>
+                                            <outlet property="roundedView" destination="2x4-K2-h7D" id="MzO-h2-yVt"/>
+                                            <outlet property="titleLabel" destination="T7z-fv-tLv" id="Gcs-LN-6io"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="bWS-Fi-7Sp"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="1rK-RB-61p" id="ELU-Ld-WLe"/>
+                                    <outlet property="delegate" destination="1rK-RB-61p" id="LAN-8O-UQD"/>
+                                </connections>
+                            </collectionView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Mt8-Ve-F8B">
                                 <rect key="frame" x="290" y="290" width="20" height="20"/>
                                 <animations/>
                             </activityIndicatorView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceHorizontal="YES" showsVerticalScrollIndicator="NO" indicatorStyle="white" translatesAutoresizingMaskIntoConstraints="NO" id="CKc-vw-klo" customClass="SeasonNavigatorScrollView" customModule="Inception" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="70"/>
-                                <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                            </scrollView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Mt8-Ve-F8B" firstAttribute="centerX" secondItem="dm3-nf-3Bd" secondAttribute="centerX" id="hNX-EZ-hxW"/>
                             <constraint firstItem="Mt8-Ve-F8B" firstAttribute="centerY" secondItem="dm3-nf-3Bd" secondAttribute="centerY" id="jXR-cc-JaS"/>
+                            <constraint firstItem="pjZ-D6-ZpN" firstAttribute="top" secondItem="dm3-nf-3Bd" secondAttribute="top" id="sHX-E0-PSb"/>
+                            <constraint firstItem="pjZ-D6-ZpN" firstAttribute="leading" secondItem="dm3-nf-3Bd" secondAttribute="leading" id="wYf-1o-yJ9"/>
+                            <constraint firstAttribute="trailing" secondItem="pjZ-D6-ZpN" secondAttribute="trailing" id="zDz-Ok-hwZ"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="activityIndicator" destination="Mt8-Ve-F8B" id="Xnf-7n-cS9"/>
-                        <outlet property="seasonNavigator" destination="CKc-vw-klo" id="MoL-w8-45J"/>
+                        <outlet property="seasonNavigator" destination="pjZ-D6-ZpN" id="L2U-ZT-XyW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hdc-H7-v32" userLabel="First Responder" sceneMemberID="firstResponder"/>
