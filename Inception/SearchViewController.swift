@@ -20,6 +20,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "search".localized
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        self.searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
     }
 
     override func didReceiveMemoryWarning() {
