@@ -12,18 +12,20 @@ import SwiftyJSON
 class EpisodeGuideViewController : UIViewController {
     var seasons:[Season]!
     var showId:Int!
-    var selectedSeason = 0
+    var selectedSeasonNumber = 1
     
     internal let kCellWidth:CGFloat = 50.0
     internal let kSpacingWidth:CGFloat = 10.0
     
     @IBOutlet weak var seasonNavigator:UICollectionView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
+    @IBOutlet weak var tableView:UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "showSeasons".localized
+        self.tableView.tableFooterView = UIView(frame:CGRectZero)
         self.loadEpisodes()
     }
     
@@ -38,16 +40,17 @@ class EpisodeGuideViewController : UIViewController {
 
         for season in self.seasons {
             if let seasonNumber = season.seasonNumber {
-                
-                dispatch_group_enter(group)
-                APIController.request(APIEndpoints.SeasonsForShow(self.showId, seasonNumber)) { (data:AnyObject?, error:NSError?) in
-                    dispatch_group_leave(group)
+                if seasonNumber > 0 {
+                    dispatch_group_enter(group)
+                    APIController.request(APIEndpoints.SeasonsForShow(self.showId, seasonNumber)) { (data:AnyObject?, error:NSError?) in
+                        dispatch_group_leave(group)
 
-                    if (error != nil) {
-                        //TODO: error handling
-                        print(error)
-                    } else {
-                        season.episodes = JSONParser.parseEpisodes(data)
+                        if (error != nil) {
+                            //TODO: error handling
+                            print(error)
+                        } else {
+                            season.episodes = JSONParser.parseEpisodes(data)
+                        }
                     }
                 }
             }
@@ -55,7 +58,7 @@ class EpisodeGuideViewController : UIViewController {
         
         dispatch_group_notify(group, dispatch_get_main_queue()) {
             self.activityIndicator.stopAnimating()
-            //TODO: Update UI
+            self.tableView.reloadData()
         }
     }
 }

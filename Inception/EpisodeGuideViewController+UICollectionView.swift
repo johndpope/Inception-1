@@ -14,7 +14,7 @@ extension EpisodeGuideViewController : UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.seasons.count
+        return self.seasons.seasonCount()
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -22,7 +22,7 @@ extension EpisodeGuideViewController : UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SeasonNavigatorCollectionViewCell",
             forIndexPath: indexPath) as! SeasonNavigatorCollectionViewCell
         cell.roundedView.backgroundColor = UIColor.clearColor()
-        if self.selectedSeason == indexPath.row {
+        if self.selectedSeasonNumber == indexPath.row+1 {
             self.animateCellSelection(cell)
         }
         let seasonNumber = indexPath.row+1
@@ -31,8 +31,10 @@ extension EpisodeGuideViewController : UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        self.selectedSeason = indexPath.row
+        self.selectedSeasonNumber = indexPath.row+1
         self.seasonNavigator.reloadData()
+        self.tableView.reloadData()
+        self.tableView.setContentOffset(CGPointZero, animated:true)
     }
     
     func collectionView(collectionView: UICollectionView,
@@ -41,7 +43,6 @@ extension EpisodeGuideViewController : UICollectionViewDelegate, UICollectionVie
             let totalCellWidth:CGFloat =  kCellWidth * CGFloat(self.seasons.count)
             let viewWidth:CGFloat = self.seasonNavigator.bounds.size.width
             let totalSpacingWidth:CGFloat = kSpacingWidth * (CGFloat(self.seasons.count)-1)
-            print(viewWidth)
             let leftInsets = (viewWidth - (totalCellWidth + totalSpacingWidth)) / 2
             let rightInsets = leftInsets
             

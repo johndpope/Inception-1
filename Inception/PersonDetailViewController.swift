@@ -29,7 +29,8 @@ class PersonDetailViewController: UIViewController {
         
         self.tableView.estimatedRowHeight = 44.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
-        
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+
         self.activityIndicator.startAnimating()
         
         APIController.request(APIEndpoints.Person(id)) { (data:AnyObject?, error:NSError?) in
