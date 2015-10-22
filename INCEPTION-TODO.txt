@@ -15,3 +15,6 @@ Later:
 - implement 3d touch ?
 
 - testen ob anzeige der seasons/episoden jetzt stimmt => mehrere beispiele durchgehen auch mal ein beispiel nehmen wo es keine seasonNumber = 0 gibt
+
+- episodes videos
+- episode rating

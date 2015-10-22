@@ -10,6 +10,7 @@
 		6301BDB81BBC1FB4002D606E /* OverviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6301BDB71BBC1FB4002D606E /* OverviewTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		6304BD031BD62DB3009125BB /* DOAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304BD021BD62DB3009125BB /* DOAlertController.swift */; settings = {ASSET_TAGS = (); }; };
 		6304BD071BD6370F009125BB /* TrailerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304BD061BD6370F009125BB /* TrailerFunctions.swift */; settings = {ASSET_TAGS = (); }; };
+		631766CD1BD9932500EE9165 /* UILabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631766CC1BD9932500EE9165 /* UILabelHelper.swift */; settings = {ASSET_TAGS = (); }; };
 		632A88541BC0AAD6001B9C5C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A88531BC0AAD6001B9C5C /* Config.swift */; settings = {ASSET_TAGS = (); }; };
 		632F7CA21BB42443001CF2C9 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F7CA11BB42443001CF2C9 /* APIEndpoints.swift */; };
 		632F7CA41BB42553001CF2C9 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F7CA31BB42553001CF2C9 /* APIRoute.swift */; };
@@ -109,6 +110,7 @@
 		6304BD021BD62DB3009125BB /* DOAlertController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DOAlertController.swift; sourceTree = "<group>"; };
 		6304BD061BD6370F009125BB /* TrailerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailerFunctions.swift; sourceTree = "<group>"; };
 		630BD4EC1BBA74CF00BA4275 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		631766CC1BD9932500EE9165 /* UILabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelHelper.swift; sourceTree = "<group>"; };
 		632A88531BC0AAD6001B9C5C /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		632F7CA11BB42443001CF2C9 /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		632F7CA31BB42553001CF2C9 /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				636246F31BD3EA1E0013988B /* TVShowDetailTableViewController+TagListView.swift */,
 				636246EF1BD3E9530013988B /* TVShowDetailTableViewController+UICollectionView.swift */,
 				636246F11BD3E9E20013988B /* TVShowDetailTableViewController+HeaderView.swift */,
+				631766CC1BD9932500EE9165 /* UILabelHelper.swift */,
 				638886D81BD56A100011BF40 /* Video.swift */,
 				63535E331BAD83B700D7B77F /* WatchlistViewController.swift */,
 			);
@@ -546,6 +549,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				638197BB1BC6B03A00C736CA /* Episode.swift in Sources */,
+				631766CD1BD9932500EE9165 /* UILabelHelper.swift in Sources */,
 				6304BD031BD62DB3009125BB /* DOAlertController.swift in Sources */,
 				63D30F7B1BD7D4DC00BFED9B /* SeasonExtension.swift in Sources */,
 				63EE7C651BB8473000BE2522 /* Person.swift in Sources */,

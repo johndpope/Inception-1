@@ -32,6 +32,7 @@ extension EpisodeGuideViewController : UICollectionViewDelegate, UICollectionVie
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         self.selectedSeasonNumber = indexPath.row+1
+        self.selectedIndexPath = nil
         self.seasonNavigator.reloadData()
         self.tableView.reloadData()
         self.tableView.setContentOffset(CGPointZero, animated:true)

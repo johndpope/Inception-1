@@ -13,7 +13,7 @@ class EpisodeGuideViewController : UIViewController {
     var seasons:[Season]!
     var showId:Int!
     var selectedSeasonNumber = 1
-    
+    var selectedIndexPath:NSIndexPath?
     internal let kCellWidth:CGFloat = 50.0
     internal let kSpacingWidth:CGFloat = 10.0
     
