@@ -44,8 +44,7 @@ class EpisodeGuideViewController : UIViewController {
                     APIController.request(APIEndpoints.SeasonsForShow(self.showId, seasonNumber)) { (data:AnyObject?, error:NSError?) in
                         dispatch_group_leave(group)
                         if (error != nil) {
-                            //TODO: error handling
-                            print(error)
+                             AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
                         } else {
                             season.episodes = JSONParser.parseEpisodes(data)
                         }

@@ -30,8 +30,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
                 APIController.request(APIEndpoints.ShowsForGenre(genre.id!)) { (data:AnyObject?, error:NSError?) in
                     self.activityIndicator.stopAnimating()
                     if (error != nil) {
-                        //TODO: error handling
-                        print(error)
+                         AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
                     } else {
                         self.shows = JSONParser.parseShowResults(data)
                         self.collectionView.reloadData()
@@ -44,8 +43,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
                 APIController.request(APIEndpoints.MoviesForGenre(genre.id!)) { (data:AnyObject?, error:NSError?) in
                     self.activityIndicator.stopAnimating()
                     if (error != nil) {
-                        //TODO: error handling
-                        print(error)
+                         AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
                     } else {
                         self.movies = JSONParser.parseMovieResults(data)
                         self.collectionView.reloadData()

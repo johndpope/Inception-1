@@ -2,13 +2,14 @@ Now:
 - build watchlist (model, shows, movies, airing calendar, add from searchviewcontroller, add from detailviewcontrollers(movie and episodeguide))
 - preferences(caching, image and video quality, notifications,...)
 - stats for watchlist f.e: watched.li
-- see todos in code
 
 Later:
+- update localizable.strings and storyboard localizables
+
+To Consider:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results
 	http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
 - consider pages for discover categories (to show more results) (maybe different layout ?)
-- update localizable.strings and storyboard localizables
 - implement 3d touch ?
 

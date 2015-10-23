@@ -41,8 +41,8 @@ class CinemaViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if movies != nil {
-            return movies!.count
+        if let movies = self.movies {
+            return movies.count
         }
         return 0
     }

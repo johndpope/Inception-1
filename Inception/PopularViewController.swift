@@ -20,13 +20,13 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
 
         self.activityIndicator.startAnimating()
         let group = dispatch_group_create()
+        var hadError = false
         
         dispatch_group_enter(group)
         APIController.request(APIEndpoints.PopularMovies) { (data:AnyObject?, error:NSError?) in
             dispatch_group_leave(group)
             if (error != nil) {
-                //TODO: error handling
-                print(error)
+                hadError = true
             } else {
                 self.movies = JSONParser.parseMovieResults(data)
                 self.collectionView.reloadData()
@@ -37,8 +37,7 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
         APIController.request(APIEndpoints.PopularShows) { (data:AnyObject?, error:NSError?) in
             dispatch_group_leave(group)
             if (error != nil) {
-                //TODO: error handling
-                print(error)
+                hadError = true
             } else {
                 self.shows = JSONParser.parseShowResults(data)
                 self.collectionView.reloadData()
@@ -46,6 +45,9 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
         }
         dispatch_group_notify(group, dispatch_get_main_queue()) {
             self.activityIndicator.stopAnimating()
+            if hadError {
+                 AlertFactory.showAlert("errorTitle",localizeMessageKey:"networkErrorMessage", from:self)
+            }
         }
     }
     
