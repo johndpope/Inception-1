@@ -829,9 +829,10 @@
                                     <constraint firstAttribute="height" constant="1" id="3y0-dC-yyf"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder-dark" translatesAutoresizingMaskIntoConstraints="NO" id="fEj-CI-krA">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fEj-CI-krA">
                                 <rect key="frame" x="20" y="24" width="75" height="75"/>
                                 <animations/>
+                                <color key="backgroundColor" red="1" green="0.86706631779999999" blue="0.3770228987" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="SGK-zD-Gyq"/>
                                     <constraint firstAttribute="height" constant="75" id="u3v-tP-Lhm"/>
@@ -2364,7 +2365,6 @@
     <resources>
         <image name="diagram" width="30" height="30"/>
         <image name="discover" width="30" height="30"/>
-        <image name="placeholder-dark" width="406" height="250"/>
         <image name="playButton" width="40" height="40"/>
         <image name="setting" width="30" height="30"/>
         <image name="watchlist" width="30" height="18"/>

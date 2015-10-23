@@ -84,7 +84,7 @@
 		63EE7C671BB8531A00BE2522 /* PersonDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE7C661BB8531A00BE2522 /* PersonDetailTableViewCell.swift */; };
 		63F9548F1BD7880F00D9B6F8 /* EpisodeGuideViewController+UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F9548E1BD7880F00D9B6F8 /* EpisodeGuideViewController+UICollectionView.swift */; settings = {ASSET_TAGS = (); }; };
 		63F954911BD7888C00D9B6F8 /* SeasonNavigatorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F954901BD7888C00D9B6F8 /* SeasonNavigatorCollectionViewCell.swift */; settings = {ASSET_TAGS = (); }; };
-		63FE3EFF1BC29D7800746A55 /* ImageFadeAndLoadExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE3EFE1BC29D7800746A55 /* ImageFadeAndLoadExtension.swift */; settings = {ASSET_TAGS = (); }; };
+		63FE3EFF1BC29D7800746A55 /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63FE3EFE1BC29D7800746A55 /* UIImageViewExtension.swift */; settings = {ASSET_TAGS = (); }; };
 		E953819B6B8B4D6FD43CD7AB /* Pods_Inception.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F71FE487A253D5AA018F40C2 /* Pods_Inception.framework */; };
 /* End PBXBuildFile section */
 
@@ -193,7 +193,7 @@
 		63EE7C661BB8531A00BE2522 /* PersonDetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersonDetailTableViewCell.swift; sourceTree = "<group>"; };
 		63F9548E1BD7880F00D9B6F8 /* EpisodeGuideViewController+UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EpisodeGuideViewController+UICollectionView.swift"; sourceTree = "<group>"; };
 		63F954901BD7888C00D9B6F8 /* SeasonNavigatorCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonNavigatorCollectionViewCell.swift; sourceTree = "<group>"; };
-		63FE3EFE1BC29D7800746A55 /* ImageFadeAndLoadExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageFadeAndLoadExtension.swift; sourceTree = "<group>"; };
+		63FE3EFE1BC29D7800746A55 /* UIImageViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		AA5258C2ADC2FA55EDB61D20 /* Pods-Inception.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Inception.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Inception/Pods-Inception.debug.xcconfig"; sourceTree = "<group>"; };
 		F71FE487A253D5AA018F40C2 /* Pods_Inception.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Inception.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -279,7 +279,6 @@
 				636522BC1BCC076700523B71 /* GenreDetailViewController.swift */,
 				63CD8FED1BD0FB5900B26CCE /* GenreTagTableViewCell.swift */,
 				636522BA1BCBFE9800523B71 /* GenreViewController.swift */,
-				63FE3EFE1BC29D7800746A55 /* ImageFadeAndLoadExtension.swift */,
 				63535E3D1BAD83B700D7B77F /* Info.plist */,
 				632F7CA91BB43DDE001CF2C9 /* JSONParser.swift */,
 				632A4FD81BDA29A300DFE9C0 /* KnownForTableViewCell.swift */,
@@ -323,6 +322,7 @@
 				636246F31BD3EA1E0013988B /* TVShowDetailTableViewController+TagListView.swift */,
 				636246EF1BD3E9530013988B /* TVShowDetailTableViewController+UICollectionView.swift */,
 				636246F11BD3E9E20013988B /* TVShowDetailTableViewController+HeaderView.swift */,
+				63FE3EFE1BC29D7800746A55 /* UIImageViewExtension.swift */,
 				631766CC1BD9932500EE9165 /* UILabelHelper.swift */,
 				638886D81BD56A100011BF40 /* Video.swift */,
 				63535E331BAD83B700D7B77F /* WatchlistViewController.swift */,
@@ -615,7 +615,7 @@
 				636522BD1BCC076700523B71 /* GenreDetailViewController.swift in Sources */,
 				632A88541BC0AAD6001B9C5C /* Config.swift in Sources */,
 				634FA4E91BCE9459002B977D /* CacheFactory.swift in Sources */,
-				63FE3EFF1BC29D7800746A55 /* ImageFadeAndLoadExtension.swift in Sources */,
+				63FE3EFF1BC29D7800746A55 /* UIImageViewExtension.swift in Sources */,
 				63A180471BD3003900AFBAFA /* StringToDateExtension.swift in Sources */,
 				6349D7B01BCD7096008086D7 /* SettingsTableViewController.swift in Sources */,
 				632F7CA41BB42553001CF2C9 /* APIRoute.swift in Sources */,

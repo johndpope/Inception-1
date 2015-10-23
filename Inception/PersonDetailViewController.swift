@@ -60,16 +60,18 @@ class PersonDetailViewController: UIViewController {
     
     func updateUI() {
         if person != nil {
+            var personName = ""
             if person!.name != nil {
-                self.nameLabel.text = person!.name
+                self.nameLabel.text = person!.name!
+                personName = person!.name!
             }
             
             if person!.profilePath != nil {
                 let imageURL =  imageBaseURL.URLByAppendingPathComponent(person!.profilePath!)
-                self.personImageView.loadAndFade(imageURL,placeholderImage:"placeholder-alpha")
+                self.personImageView.loadAndFadeWithImage(imageURL,placeholderImage:self.personImageView.imageWithString(personName, color: UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0), circular: true))
             }
             else {
-                self.personImageView.image = UIImage(named: "placeholder-dark")
+                self.personImageView.image = self.personImageView.imageWithString(personName, color: UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0), circular: true)
             }
             
             (self.tableDataKeys, self.tableData) = person!.tableData()
