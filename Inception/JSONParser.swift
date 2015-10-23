@@ -114,7 +114,7 @@ class JSONParser {
     }
     
     //MARK: Trailer
-    class func parseTrailerKey(data:AnyObject?) -> [Video] {
+    class func parseTrailerVideos(data:AnyObject?) -> [Video] {
         let json = JSON(data!)
         var videos:[Video] = []
         

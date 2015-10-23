@@ -127,7 +127,7 @@ class MovieDetailTableViewController: UITableViewController {
                 if (error != nil) {
                     print(error)
                 } else {
-                    let videos = JSONParser.parseTrailerKey(data)
+                    let videos = JSONParser.parseTrailerVideos(data)
                     self.videos = videos
                     if videos.count > 0 {
                         self.playTrailerButton.hidden = false
