@@ -23,7 +23,6 @@ class EpisodeGuideViewController : UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "showSeasons".localized
         self.tableView.tableFooterView = UIView(frame:CGRectZero)
         self.loadEpisodes()
@@ -44,7 +43,6 @@ class EpisodeGuideViewController : UIViewController {
                     dispatch_group_enter(group)
                     APIController.request(APIEndpoints.SeasonsForShow(self.showId, seasonNumber)) { (data:AnyObject?, error:NSError?) in
                         dispatch_group_leave(group)
-
                         if (error != nil) {
                             //TODO: error handling
                             print(error)

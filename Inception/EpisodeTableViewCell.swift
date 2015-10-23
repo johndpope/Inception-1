@@ -10,9 +10,10 @@ import UIKit
 
 class EpisodeTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel:UILabel!
+    @IBOutlet weak var votingLabel:UILabel!
     @IBOutlet weak var overviewLabel:UILabel!
     @IBOutlet weak var coverImageView:UIImageView!
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -23,5 +24,4 @@ class EpisodeTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
 }

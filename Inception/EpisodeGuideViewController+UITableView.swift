@@ -54,17 +54,23 @@ extension EpisodeGuideViewController : UITableViewDelegate, UITableViewDataSourc
                 let episode = episodes[indexPath.row]
                 cell.titleLabel.text = ""
                 cell.overviewLabel.text = ""
-
+                cell.votingLabel.text = ""
+               
                 if let title = episode.title {
                     if let episodeNumber = episode.episodeNumber {
                         cell.titleLabel.text = "\(episodeNumber). "+"\(title)"
                     }
                 }
 
+                if let voting = episode.voteAverage {
+                    let votingString = NSString(format: "%@: %.2f", "rating".localized, voting)
+                    cell.votingLabel.text = votingString as String
+                }
+                
                 if let overview = episode.overview {
                     cell.overviewLabel.text = overview
                 }
-
+                
                 if let stillPath = episode.stillPath {
                     let imageURL =  imageBaseURLW780.URLByAppendingPathComponent(stillPath)
                     cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
