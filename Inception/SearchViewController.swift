@@ -21,6 +21,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.title = "search".localized
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
+        self.searchBar.autocapitalizationType = .None
     }
 
     override func didReceiveMemoryWarning() {
