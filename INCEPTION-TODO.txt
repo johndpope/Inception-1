@@ -2,7 +2,6 @@ Now:
 - build watchlist (model, shows, movies, airing calendar, add from searchviewcontroller, add from detailviewcontrollers(movie and episodeguide))
 - preferences(caching, image video, notifications,...)
 - stats for watchlist f.e: watched.li
-- if no picture: show placeholder-dark in knownFor
 - see todos in code
 
 Later:

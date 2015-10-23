@@ -20,12 +20,18 @@ extension PersonDetailViewController: UITableViewDataSource, UITableViewDelegate
             return cell
         }
         else {
-            let cell = tableView.dequeueReusableCellWithIdentifier("KnownForTableViewCell", forIndexPath: indexPath)
-            
-            cell.textLabel?.text = self.knownFor[indexPath.row].name
+            let cell = tableView.dequeueReusableCellWithIdentifier("KnownForTableViewCell", forIndexPath: indexPath) as! KnownForTableViewCell
+            cell.nameLabel.text = ""
+
+            if let name = self.knownFor[indexPath.row].name {
+                cell.nameLabel.text = name
+            }
             if let imagePath = self.knownFor[indexPath.row].imagePath {
                 let imageURL =  imageBaseURL.URLByAppendingPathComponent(imagePath)
-                cell.imageView?.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+                cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+            }
+            else {
+                cell.coverImageView.image = UIImage(named: "placeholder-dark")
             }
             return cell
         }

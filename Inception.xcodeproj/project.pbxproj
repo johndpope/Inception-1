@@ -11,6 +11,7 @@
 		6304BD031BD62DB3009125BB /* DOAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304BD021BD62DB3009125BB /* DOAlertController.swift */; settings = {ASSET_TAGS = (); }; };
 		6304BD071BD6370F009125BB /* TrailerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304BD061BD6370F009125BB /* TrailerFunctions.swift */; settings = {ASSET_TAGS = (); }; };
 		631766CD1BD9932500EE9165 /* UILabelHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 631766CC1BD9932500EE9165 /* UILabelHelper.swift */; settings = {ASSET_TAGS = (); }; };
+		632A4FD91BDA29A300DFE9C0 /* KnownForTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A4FD81BDA29A300DFE9C0 /* KnownForTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
 		632A88541BC0AAD6001B9C5C /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632A88531BC0AAD6001B9C5C /* Config.swift */; settings = {ASSET_TAGS = (); }; };
 		632F7CA21BB42443001CF2C9 /* APIEndpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F7CA11BB42443001CF2C9 /* APIEndpoints.swift */; };
 		632F7CA41BB42553001CF2C9 /* APIRoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632F7CA31BB42553001CF2C9 /* APIRoute.swift */; };
@@ -111,6 +112,7 @@
 		6304BD061BD6370F009125BB /* TrailerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailerFunctions.swift; sourceTree = "<group>"; };
 		630BD4EC1BBA74CF00BA4275 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		631766CC1BD9932500EE9165 /* UILabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelHelper.swift; sourceTree = "<group>"; };
+		632A4FD81BDA29A300DFE9C0 /* KnownForTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnownForTableViewCell.swift; sourceTree = "<group>"; };
 		632A88531BC0AAD6001B9C5C /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		632F7CA11BB42443001CF2C9 /* APIEndpoints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIEndpoints.swift; sourceTree = "<group>"; };
 		632F7CA31BB42553001CF2C9 /* APIRoute.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRoute.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				63FE3EFE1BC29D7800746A55 /* ImageFadeAndLoadExtension.swift */,
 				63535E3D1BAD83B700D7B77F /* Info.plist */,
 				632F7CA91BB43DDE001CF2C9 /* JSONParser.swift */,
+				632A4FD81BDA29A300DFE9C0 /* KnownForTableViewCell.swift */,
 				63535E3A1BAD83B700D7B77F /* LaunchScreen.storyboard */,
 				63535E711BAD9C6900D7B77F /* Localizable.strings */,
 				63535E6B1BAD9C3700D7B77F /* LocalizableExtension.swift */,
@@ -569,6 +572,7 @@
 				63672E0B1BB6DB28005480D8 /* MovieDetailTableViewController.swift in Sources */,
 				63EE7C611BB81CF500BE2522 /* CreditsPerson.swift in Sources */,
 				636246EC1BD3E5B10013988B /* MovieDetailTableViewController+TagListView.swift in Sources */,
+				632A4FD91BDA29A300DFE9C0 /* KnownForTableViewCell.swift in Sources */,
 				632F7CAE1BB48BA1001CF2C9 /* SearchTableViewCell.swift in Sources */,
 				637CFB131BC65FAB002AE492 /* CinemaViewController.swift in Sources */,
 				63672E131BB73875005480D8 /* Genre.swift in Sources */,
