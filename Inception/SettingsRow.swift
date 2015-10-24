@@ -9,6 +9,7 @@
 import Foundation
 
 public enum SettingsRow: Int {
+    case Info
     case NotificationSwitch
     case Alarm
     case DatePicker
@@ -22,10 +23,12 @@ public enum SettingsRow: Int {
         
         switch (indexPath.section, indexPath.row) {
             case (0, 0):
-                row = SettingsRow.NotificationSwitch
+                row = SettingsRow.Info
             case (0, 1):
-                row = SettingsRow.Alarm
+                row = SettingsRow.NotificationSwitch
             case (0, 2):
+                row = SettingsRow.Alarm
+            case (0, 3):
                 row = SettingsRow.DatePicker
             case (1,0):
                 row = SettingsRow.Cache

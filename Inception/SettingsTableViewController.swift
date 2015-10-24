@@ -20,6 +20,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.title = "settings".localized;
+        self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
         datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         self.notificationSwitch.on = SettingsFactory.boolForKey(SettingsFactory.SettingKey.Notifications)!

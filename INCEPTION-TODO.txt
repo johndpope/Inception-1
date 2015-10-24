@@ -16,7 +16,6 @@ Now:
 
 Later:
 - update localizable.strings and storyboard localizables
-- add api-copyright notice from tmdb to preferences
 
 To Consider:
 - maybe use language parameter in api calls

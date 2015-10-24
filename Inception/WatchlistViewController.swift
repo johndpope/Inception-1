@@ -9,17 +9,18 @@
 import UIKit
 
 class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
-
-    @IBOutlet weak var tableView: UITableView!
+    
     var movies:[MovieWatchlistItem] = []
     let coreDateHelper = MovieWatchlistCoreDataHelper()
-    //TODO: implement shows
     
+    @IBOutlet weak var tableView: UITableView!
+    
+    //TODO: implement shows
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "watchlist".localized
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
+        tableView.tableFooterView  = UIView(frame:CGRectZero)
     }
     
     override func viewDidAppear(animated: Bool) {
