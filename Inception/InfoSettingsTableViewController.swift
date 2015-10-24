@@ -9,9 +9,13 @@
 import UIKit
 
 class InfoSettingsTableViewController: UITableViewController {
-
+    @IBOutlet weak var versionLabel:UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let version = NSBundle.mainBundle().infoDictionary?["CFBundleShortVersionString"] as? String {
+            self.versionLabel.text = version
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -19,16 +23,7 @@ class InfoSettingsTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
 
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-
+    // MARK: - Table view delegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         if indexPath.row == 1 {
