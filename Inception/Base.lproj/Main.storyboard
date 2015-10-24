@@ -1691,7 +1691,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS1-nQ-sYN">
-                                                    <rect key="frame" x="23" y="11" width="511" height="21"/>
+                                                    <rect key="frame" x="20" y="11" width="511" height="21"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="511" id="RgN-0w-Glj"/>
@@ -1716,7 +1716,7 @@
                                                 <constraint firstItem="hgN-P3-Ub4" firstAttribute="leading" secondItem="DS1-nQ-sYN" secondAttribute="trailing" constant="19" id="0Q3-c3-3Rj"/>
                                                 <constraint firstItem="DS1-nQ-sYN" firstAttribute="top" secondItem="WZH-gV-Njt" secondAttribute="topMargin" constant="3" id="KnE-F5-Y6f"/>
                                                 <constraint firstItem="hgN-P3-Ub4" firstAttribute="top" secondItem="WZH-gV-Njt" secondAttribute="topMargin" constant="-2" id="Ubf-5t-60f"/>
-                                                <constraint firstItem="DS1-nQ-sYN" firstAttribute="leading" secondItem="WZH-gV-Njt" secondAttribute="leadingMargin" constant="15" id="ZJz-z2-Xi0"/>
+                                                <constraint firstItem="DS1-nQ-sYN" firstAttribute="leading" secondItem="WZH-gV-Njt" secondAttribute="leadingMargin" constant="12" id="ZJz-z2-Xi0"/>
                                                 <constraint firstItem="hgN-P3-Ub4" firstAttribute="trailing" secondItem="WZH-gV-Njt" secondAttribute="trailingMargin" id="apv-hC-RE7"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="DS1-nQ-sYN" secondAttribute="bottom" constant="4" id="bCS-eG-wwC"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="hgN-P3-Ub4" secondAttribute="bottom" constant="-1" id="oGl-CS-MO0"/>
