@@ -11,7 +11,8 @@
 "stats" = "Statistiken";
 "settings" = "Einstellungen";
 "watchlist" = "Deine Liste";
-"addwatchlist" = "Hinzufügen zur Liste";
+"addToWatchlist" = "Hinzufügen zur Liste";
+"removeFromWatchlist" = "Von der Liste Löschen";
 "errorTitle" = "Error";
 "networkErrorMessage" = "Die Daten konnte nicht geladen werden. Schaue nach ob eine Netzwerkverbindung besteht.";
 "budget" = "Budget";

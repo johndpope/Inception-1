@@ -1,4 +1,5 @@
 PODS:
+  - AIFlatSwitch (0.0.3)
   - Alamofire (2.0.2)
   - Masonry (0.6.3)
   - SDWebImage (3.7.3):
@@ -10,6 +11,7 @@ PODS:
   - XCDYouTubeKit (2.3.1)
 
 DEPENDENCIES:
+  - AIFlatSwitch (from `https://github.com/dehlen/AIFlatSwitch.git`)
   - Alamofire (~> 2.0)
   - SDWebImage (~> 3.7)
   - SKTagView
@@ -17,15 +19,21 @@ DEPENDENCIES:
   - XCDYouTubeKit (~> 2.3.1)
 
 EXTERNAL SOURCES:
+  AIFlatSwitch:
+    :git: https://github.com/dehlen/AIFlatSwitch.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
+  AIFlatSwitch:
+    :commit: 20c746b86e65098e864fee71345bc564e3203872
+    :git: https://github.com/dehlen/AIFlatSwitch.git
   SwiftyJSON:
     :commit: 3b5d0d4e0c19173b1bf0dc823bde25ad870f70c0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
+  AIFlatSwitch: 624e829e8dc347fa41894376e4867cd4a2b9fa5c
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84

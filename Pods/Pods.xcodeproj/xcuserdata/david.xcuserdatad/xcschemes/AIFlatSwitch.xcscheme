@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '0447033E3E7336F641698AA0'
-               BlueprintName = 'Alamofire'
+               BlueprintIdentifier = 'EC8C32A868328C2358C0CF79'
+               BlueprintName = 'AIFlatSwitch'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Alamofire.framework'>
+               BuildableName = 'AIFlatSwitch.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

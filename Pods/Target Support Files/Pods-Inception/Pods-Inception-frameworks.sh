@@ -84,6 +84,7 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-Inception/AIFlatSwitch.framework"
   install_framework "Pods-Inception/Alamofire.framework"
   install_framework "Pods-Inception/Masonry.framework"
   install_framework "Pods-Inception/SDWebImage.framework"
@@ -92,6 +93,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Inception/XCDYouTubeKit.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-Inception/AIFlatSwitch.framework"
   install_framework "Pods-Inception/Alamofire.framework"
   install_framework "Pods-Inception/Masonry.framework"
   install_framework "Pods-Inception/SDWebImage.framework"

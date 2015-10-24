@@ -11,7 +11,8 @@
 "stats" = "Statistics";
 "settings" = "Settings";
 "watchlist" = "Watchlist";
-"addwatchlist" = "Add to Watchlist";
+"addToWatchlist" = "Add to Watchlist";
+"removeFromWatchlist" = "Remove from Watchlist";
 "errorTitle" = "Error";
 "networkErrorMessage" = "Could not load the data. You might want to check your network connection.";
 "budget" = "Budget";

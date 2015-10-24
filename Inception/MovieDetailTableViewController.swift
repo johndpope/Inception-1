@@ -25,6 +25,8 @@ class MovieDetailTableViewController: UITableViewController {
     var headerView:UIView!
     var headerMaskLayer:CAShapeLayer!
     
+    let movieCoreDataHelper = MovieWatchlistCoreDataHelper()
+    
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playTrailerButton:UIButton!
     @IBOutlet weak var similarMoviesCollectionView:UICollectionView!
@@ -50,6 +52,7 @@ class MovieDetailTableViewController: UITableViewController {
                 print(error)
             } else {
                 self.movie = Movie(json: JSON(data!))
+                self.setupBarButtonItem()
                 self.updateUI()
             }
         }
@@ -73,6 +76,35 @@ class MovieDetailTableViewController: UITableViewController {
         activityIndicator.hidden = true
         self.view.addSubview(activityIndicator)
         self.activityIndicator = activityIndicator
+    }
+    
+    func setupBarButtonItem() {
+        let image = UIImage(named: "watchlist")
+        let barButtonItem = UIBarButtonItem(image: image, style: .Plain, target: self, action: "updateWatchlist:")
+
+        self.navigationItem.rightBarButtonItem = barButtonItem
+        if self.movieCoreDataHelper.hasMovie(self.movie!.id!) {
+            barButtonItem.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+        }
+        else {
+            barButtonItem.tintColor = UIColor.whiteColor()
+        }
+    }
+    
+    func updateWatchlist(sender:UIBarButtonItem) {
+        let movie = self.movie!
+        if self.movieCoreDataHelper.hasMovie(movie.id!) {
+            self.movieCoreDataHelper.removeMovieWithId(movie.id!)
+            sender.tintColor = UIColor.whiteColor()
+        }
+        else {
+            var year:Int? = nil
+            if let releaseDate = movie.releaseDate {
+                year = releaseDate.year
+            }
+            self.movieCoreDataHelper.insertMovieItem(movie.id!, name: movie.title, year: year, posterPath: movie.posterPath, seen: false)
+            sender.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+        }
     }
     
     @IBAction func playTrailer(sender:UIButton) {

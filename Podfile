@@ -8,6 +8,7 @@ pod 'SwiftyJSON', :git => 'https://github.com/SwiftyJSON/SwiftyJSON.git'
 pod 'SDWebImage', '~>3.7'
 pod "XCDYouTubeKit", "~> 2.3.1"
 pod "SKTagView"
+pod 'AIFlatSwitch', :git => 'https://github.com/dehlen/AIFlatSwitch.git'
 end
 
 target 'InceptionTests' do

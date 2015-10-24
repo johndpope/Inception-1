@@ -1,10 +1,22 @@
 Now:
-- build watchlist (model, shows, movies, airing calendar, add from searchviewcontroller, add from detailviewcontrollers(movie and episodeguide))
+- watchlist:
+	- Show:
+		- create model
+		- show->seasons->episodes navigation in watchlistviewcontroller
+		- create coredatahelper for shows
+		- add/remove from detailviewcontroller
+		- add/remove from searchviewcontroller
+	- WatchlistViewController
+		- change watchlistviewcontroller to show movie and shows (segmented control)
+		- add new entries from watchlistviewcontroller
+		- load changes and update core data model (for shows => new episodes,seasons)
+
 - preferences(caching, image and video quality, notifications,...)
 - stats for watchlist f.e: watched.li
 
 Later:
 - update localizable.strings and storyboard localizables
+- add api-copyright notice from tmdb to preferences
 
 To Consider:
 - maybe use language parameter in api calls
