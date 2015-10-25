@@ -58,16 +58,21 @@ class MovieDetailTableViewController: UITableViewController {
         }
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        CacheFactory.clearAllCaches()
-    }
-    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         let viewBounds = self.view.bounds
         self.activityIndicator.center = CGPointMake(CGRectGetMidX(viewBounds), CGRectGetMidY(viewBounds))
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateBarButtonColor()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+        CacheFactory.clearAllCaches()
     }
     
     func setupActivityIndicator() {
@@ -83,11 +88,17 @@ class MovieDetailTableViewController: UITableViewController {
         let barButtonItem = UIBarButtonItem(image: image, style: .Plain, target: self, action: "updateWatchlist:")
 
         self.navigationItem.rightBarButtonItem = barButtonItem
-        if self.movieCoreDataHelper.hasMovie(self.movie!.id!) {
-            barButtonItem.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
-        }
-        else {
-            barButtonItem.tintColor = UIColor.whiteColor()
+        self.updateBarButtonColor()
+    }
+    
+    func updateBarButtonColor() {
+        if self.navigationItem.rightBarButtonItem != nil {
+            if self.movieCoreDataHelper.hasMovie(self.movie!.id!) {
+                self.navigationItem.rightBarButtonItem!.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+            }
+            else {
+                self.navigationItem.rightBarButtonItem!.tintColor = UIColor.whiteColor()
+            }
         }
     }
     
