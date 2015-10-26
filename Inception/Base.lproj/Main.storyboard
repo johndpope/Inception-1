@@ -1127,6 +1127,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
+                                    <outlet property="dataSource" destination="1rK-RB-61p" id="YOA-7i-lrl"/>
                                     <outlet property="delegate" destination="1rK-RB-61p" id="LAN-8O-UQD"/>
                                 </connections>
                             </collectionView>
