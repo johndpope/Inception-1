@@ -13,10 +13,11 @@ class SettingsFactory {
     enum SettingKey:String {
         case Notifications = "notifications"
         case NotificationAlarmDate = "notificationAlarmDate"
+        case DidShowNotificationsToday = "didShowNotificationsToday"
     }
     
     class func registerDefaults() {
-        NSUserDefaults.standardUserDefaults().registerDefaults([SettingKey.Notifications.rawValue:false,SettingKey.NotificationAlarmDate.rawValue:NSDate.dateWith(2015, month: 1, day: 1, hour: 12, minute: 0, second: 0)])
+        NSUserDefaults.standardUserDefaults().registerDefaults([SettingKey.Notifications.rawValue:false,SettingKey.DidShowNotificationsToday.rawValue:NSDate.dateWith(2014, month: 1, day: 1, hour: 1, minute: 1, second: 1), SettingKey.NotificationAlarmDate.rawValue:NSDate.dateWith(2015, month: 1, day: 1, hour: 12, minute: 0, second: 0)])
     }
     
     class func boolForKey(key:SettingKey) -> Bool? {

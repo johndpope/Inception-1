@@ -12,7 +12,7 @@ import CoreData
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         CacheFactory.setMaxImageCacheSize(200*1024*1024)
@@ -22,12 +22,56 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         colorView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
         UITableViewCell.appearance().selectedBackgroundView = colorView
         
+    if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
+            UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil))
+        }
+        application.applicationIconBadgeNumber = 0
+
         return true
+    }
+    
+    func application(application: UIApplication, didReceiveLocalNotification notification: UILocalNotification) {
+        application.applicationIconBadgeNumber = 0
+        SettingsFactory.setObjectForKey(SettingsFactory.SettingKey.DidShowNotificationsToday, value: NSDate())
     }
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+        if !NSCalendar.currentCalendar().isDateInToday(SettingsFactory.objectForKey(SettingsFactory.SettingKey.DidShowNotificationsToday) as! NSDate) {
+            let showCoreDataHelper = ShowWatchlistCoreDataHelper()
+            UIApplication.sharedApplication().cancelAllLocalNotifications()
+            if SettingsFactory.boolForKey(SettingsFactory.SettingKey.Notifications) == true {
+                let shows = showCoreDataHelper.showsFromStore()
+                for show in shows {
+                    if let seasonsSet = show.seasons {
+                        for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
+                            if let episodesSet = seasons.episodes {
+                                for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                                    if let airDate = episode.airDate {
+                                        if airDate.isInFutureOrToday {
+                                            print("scheduled")
+                                            let localNotification = UILocalNotification()
+                                            localNotification.fireDate = airDate.dateWithTime
+                                            if let showName = show.name {
+                                                localNotification.alertBody = "\(showName) " + "hasNewEpisode".localized
+                                            }
+                                            else {
+                                                localNotification.alertBody = "thereIsANewEpisode".localized
+                                            }
+                                            localNotification.timeZone = NSTimeZone.defaultTimeZone()
+                                            localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
+                                            
+                                            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
@@ -37,6 +81,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        SettingsFactory.setObjectForKey(SettingsFactory.SettingKey.DidShowNotificationsToday, value: NSDate())
+        application.applicationIconBadgeNumber = 0
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
@@ -48,7 +94,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
     }
-    
+        
     // MARK: - Core Data stack
     
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -68,6 +114,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Watchlist.sqlite")
+        print(url)
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)

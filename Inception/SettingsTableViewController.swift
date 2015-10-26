@@ -29,10 +29,15 @@ class SettingsTableViewController: UITableViewController {
         self.toggleDatePicker()
 
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    override func viewWillDisappear(animated: Bool) {
+        if !datePickerHidden {
+            self.toggleDatePicker()
+        }
     }
     
     @IBAction func didChangeDate() {
