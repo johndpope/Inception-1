@@ -52,3 +52,5 @@
 "rating" = "Rating";
 "country" = "Country";
 "language" = "Language";
+"hasNewEpisode" = "has a new episode !";
+"thereIsANewEpisode" = "There is a new episode available !";

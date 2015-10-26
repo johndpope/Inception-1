@@ -104,7 +104,7 @@ class TVShowDetailTableViewController: UITableViewController {
                 year = firstAirDate.year
             }
            
-            self.showCoreDataHelper.insertShowItem(show.id!, name: show.title, year: year, posterPath: show.posterPath, seasons:nil)
+            self.showCoreDataHelper.insertShowItem(show.id!, name: show.title, year: year, posterPath: show.posterPath)
             sender.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
         }
     }

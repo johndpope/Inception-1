@@ -26,6 +26,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
         self.searchBar.autocapitalizationType = .None
     }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.searchBar.text = ""
+        self.results.removeAll()
+        self.searchBar.resignFirstResponder()
+        self.tableView.reloadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -100,7 +107,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         switch result.mediaType {
             case "movie":
                 if let id = result.id {
-                    if movieCoreDataHelper.hasMovie(id) {
+                    if self.movieCoreDataHelper.hasMovie(id) {
                         let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
                             self.movieCoreDataHelper.removeMovieWithId(id)
                             tableView.setEditing(false, animated: true)
@@ -120,7 +127,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 }
             case "tv":
                 if let id = result.id {
-                    if showCoreDataHelper.hasShow(id) {
+                    if self.showCoreDataHelper.hasShow(id) {
                         let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
                             self.showCoreDataHelper.removeShowWithId(id)
                             tableView.setEditing(false, animated: true)
@@ -131,7 +138,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     else {
                         let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
                             
-                            self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath, seasons: nil)
+                            self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath)
                             tableView.setEditing(false, animated: true)
                         })
                         watchlistAction.backgroundColor = UIColor(red: 227.0/255.0, green: 187.0/255.0, blue: 55.0/255.0, alpha: 1.0)

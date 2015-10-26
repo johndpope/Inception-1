@@ -50,7 +50,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 for episode in episodesSet.array as! [EpisodeWatchlistItem] {
                                     if let airDate = episode.airDate {
                                         if airDate.isInFutureOrToday {
-                                            print("scheduled")
                                             let localNotification = UILocalNotification()
                                             localNotification.fireDate = airDate.dateWithTime
                                             if let showName = show.name {
@@ -114,7 +113,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("Watchlist.sqlite")
-        print(url)
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)

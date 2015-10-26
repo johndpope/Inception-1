@@ -52,3 +52,5 @@
 "rating" = "Bewertung";
 "country" = "Land";
 "language" = "Sprache";
+"hasNewEpisode" = "hat eine neue Episode !";
+"thereIsANewEpisode" = "Es ist eine neue Episode verfügbar !";
