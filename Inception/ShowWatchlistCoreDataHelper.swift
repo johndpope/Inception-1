@@ -180,7 +180,7 @@ class ShowWatchlistCoreDataHelper {
         }
 
     }
-    
+
     func updateShowSeenState(seen:Bool, id:Int) {
         let fetchRequest = NSFetchRequest(entityName: kShowWatchlistItemEntityName)
         fetchRequest.predicate = NSPredicate(format: "id = %i", id)
@@ -198,6 +198,26 @@ class ShowWatchlistCoreDataHelper {
             print("Fetch failed: \(error.localizedDescription)")
         }
 
+    }
+    
+    func showProgress(id:Int) -> Float {
+        var seenCount:Int = 0
+        var totalCount:Int = 0
+        if let show = self.showWithId(id) {
+            if let seasonsSet = show.seasons {
+                for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
+                    if let episodesSet = seasons.episodes {
+                        for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                            if episode.seen == true {
+                                seenCount += 1
+                            }
+                            totalCount += 1
+                        }
+                    }
+                }
+            }
+        }
+        return Float(seenCount)/Float(totalCount)
     }
     
     func removeShow(show:ShowWatchlistItem) {

@@ -14,12 +14,15 @@ class ShowWatchlistTableViewCell: UITableViewCell {
     @IBOutlet weak var yearLabel:UILabel!
     @IBOutlet weak var coverImageView:UIImageView!
     @IBOutlet weak var seenButton:AIFlatSwitch!
+    @IBOutlet weak var progressBar:UIProgressView!
     
     var delegate:ShowWatchlistTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.progressBar.layer.masksToBounds = true
+        self.progressBar.layer.cornerRadius = self.progressBar.bounds.size.height/2
     }
     
     override func setSelected(selected: Bool, animated: Bool) {

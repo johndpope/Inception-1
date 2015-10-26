@@ -14,7 +14,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     var shows:[ShowWatchlistItem] = []
     let coreDataHelper = MovieWatchlistCoreDataHelper()
     let showCoreDataHelper = ShowWatchlistCoreDataHelper()
-
+    
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl:UISegmentedControl!
     
@@ -31,7 +31,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         self.shows = showCoreDataHelper.showsFromStore()
         self.tableView.reloadData()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -40,7 +40,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     func didLoadSeasonsAndEpisodes() {
         self.shows = showCoreDataHelper.showsFromStore()
         self.tableView.reloadData()
-
+        
     }
     
     @IBAction func addItem() {
@@ -121,7 +121,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
             cell.nameLabel.text = ""
             cell.yearLabel.text = ""
             cell.delegate = self
-
+            
             if let name = self.shows[indexPath.row].name {
                 cell.nameLabel.text = name
             }
@@ -143,7 +143,15 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
                 cell.seenButton.setSelected(Bool(seen),animated:true)
             }
             
-
+            if seen == true {
+                cell.progressBar.setProgress(1.0, animated: true)
+            }
+            else {
+                if let id = self.shows[indexPath.row].id {
+                    let progress = showCoreDataHelper.showProgress(Int(id))
+                    cell.progressBar.setProgress(progress, animated: true)
+                }
+            }
             return cell
         }
     }
@@ -155,6 +163,6 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         vc.showWatchlistItem = self.shows[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
-
+    
 }
 

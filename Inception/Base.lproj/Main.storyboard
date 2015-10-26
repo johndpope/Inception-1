@@ -1431,17 +1431,25 @@
                                                         <action selector="toggleSeen:" destination="AaT-Z1-avB" eventType="valueChanged" id="75i-6P-vc3"/>
                                                     </connections>
                                                 </view>
+                                                <progressView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yPE-kv-rbU">
+                                                    <rect key="frame" x="73" y="85" width="448" height="2"/>
+                                                    <animations/>
+                                                </progressView>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="yPE-kv-rbU" secondAttribute="bottom" constant="3" id="2Jl-Je-KGq"/>
                                                 <constraint firstAttribute="bottom" secondItem="INy-Fh-8nE" secondAttribute="bottom" constant="8" id="3c5-9X-xRq"/>
+                                                <constraint firstItem="yPE-kv-rbU" firstAttribute="leading" secondItem="nXX-EW-cqV" secondAttribute="leading" constant="73" id="4oC-4f-ASz"/>
                                                 <constraint firstItem="247-CY-gyW" firstAttribute="leading" secondItem="INy-Fh-8nE" secondAttribute="trailing" constant="8" id="5YA-Ey-jPw"/>
                                                 <constraint firstAttribute="trailing" secondItem="QH8-4B-ige" secondAttribute="trailing" constant="8" id="Hhf-lp-p32"/>
                                                 <constraint firstItem="INy-Fh-8nE" firstAttribute="leading" secondItem="nXX-EW-cqV" secondAttribute="leading" constant="8" id="NyN-2S-NiF"/>
                                                 <constraint firstItem="QH8-4B-ige" firstAttribute="leading" secondItem="INy-Fh-8nE" secondAttribute="trailing" constant="8" id="eKO-sj-i4S"/>
                                                 <constraint firstAttribute="trailing" secondItem="eUe-7P-jD3" secondAttribute="trailing" constant="8" id="gjY-8v-1Uw"/>
+                                                <constraint firstAttribute="trailing" secondItem="yPE-kv-rbU" secondAttribute="trailing" constant="46" id="h6s-Jy-em1"/>
                                                 <constraint firstItem="eUe-7P-jD3" firstAttribute="leading" secondItem="QH8-4B-ige" secondAttribute="trailing" constant="8" id="kbO-Z2-gYL"/>
+                                                <constraint firstItem="yPE-kv-rbU" firstAttribute="top" secondItem="INy-Fh-8nE" secondAttribute="bottom" constant="3" id="krC-BZ-sUM"/>
                                                 <constraint firstItem="INy-Fh-8nE" firstAttribute="top" secondItem="nXX-EW-cqV" secondAttribute="top" constant="8" id="lFY-Po-i6C"/>
                                                 <constraint firstAttribute="trailing" secondItem="247-CY-gyW" secondAttribute="trailing" constant="8" id="nQl-wa-c79"/>
                                                 <constraint firstItem="eUe-7P-jD3" firstAttribute="centerY" secondItem="nXX-EW-cqV" secondAttribute="centerY" id="rMI-hf-vJh"/>
@@ -1461,6 +1469,7 @@
                                         <connections>
                                             <outlet property="coverImageView" destination="INy-Fh-8nE" id="ee2-vf-mmz"/>
                                             <outlet property="nameLabel" destination="QH8-4B-ige" id="MYS-nR-QvS"/>
+                                            <outlet property="progressBar" destination="yPE-kv-rbU" id="pmt-LH-lyF"/>
                                             <outlet property="seenButton" destination="eUe-7P-jD3" id="dWW-fc-iG1"/>
                                             <outlet property="yearLabel" destination="247-CY-gyW" id="xve-By-B3Q"/>
                                         </connections>
