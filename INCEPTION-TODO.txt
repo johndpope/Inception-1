@@ -1,11 +1,9 @@
 Now:
 - watchlist:
 	- Show:
-		- progressbar für show in watchlist
+		- load changes and update core data model (for shows => new episodes,seasons)
 	- WatchlistViewController
 		- add new entries from watchlistviewcontroller
-		- load changes and update core data model (for shows => new episodes,seasons)
-
 - preferences(caching, image and video quality, notifications,...)
 - stats for watchlist f.e: watched.li
 
