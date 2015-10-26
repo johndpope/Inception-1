@@ -4,7 +4,8 @@ Now:
 		- load changes and update core data model (for shows => new episodes,seasons)
 	- WatchlistViewController
 		- add new entries from watchlistviewcontroller
-- preferences(caching, image and video quality, notifications,...)
+		- upcoming episodes calendar
+- preferences(image and video quality)
 - stats for watchlist f.e: watched.li
 
 Later:
