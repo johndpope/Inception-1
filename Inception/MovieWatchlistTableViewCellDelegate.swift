@@ -1,5 +1,5 @@
 //
-//  MovieWatchlistTableViewCellDelegate.swift
+//  WatchlistTableViewCellDelegate.swift
 //  Inception
 //
 //  Created by David Ehlen on 24.10.15.

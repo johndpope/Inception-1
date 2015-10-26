@@ -10,8 +10,10 @@ import UIKit
 import CoreData
 
 class MovieWatchlistCoreDataHelper {
+    
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let kMovieWatchlistItemEntityName = "MovieWatchlistItem"
+    
     func moviesFromStore() -> [MovieWatchlistItem] {
         let fetchRequest = NSFetchRequest(entityName: kMovieWatchlistItemEntityName)
         var movies:[MovieWatchlistItem] = []
@@ -61,8 +63,7 @@ class MovieWatchlistCoreDataHelper {
     
     func removeMovieWithId(id:Int) {
         if let movie = self.movieWithId(id) {
-            self.managedObjectContext.deleteObject(movie)
-            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+            self.removeMovie(movie)
         }
     }
     

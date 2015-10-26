@@ -34,8 +34,6 @@ class MovieDetailTableViewController: UITableViewController {
     @IBOutlet weak var footerView:UIView!
     var activityIndicator:UIActivityIndicatorView!
 
-
-    //TODO: add to watchlist to uibarbuttonitem, check if already in watchlist => toggle tintcolor on add watchlist button
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 100.0;

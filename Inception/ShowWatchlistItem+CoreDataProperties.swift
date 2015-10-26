@@ -18,6 +18,6 @@ extension ShowWatchlistItem {
     @NSManaged var name: String?
     @NSManaged var posterPath: String?
     @NSManaged var year: NSNumber?
-    @NSManaged var seasons: NSSet?
+    @NSManaged var seasons: NSOrderedSet?
 
 }

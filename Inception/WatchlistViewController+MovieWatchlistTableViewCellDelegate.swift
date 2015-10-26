@@ -17,10 +17,10 @@ extension WatchlistViewController : MovieWatchlistTableViewCellDelegate {
             let movie = self.movies[indexPathUnwrapped.row]
             if let id = movie.id {
                 if let seen = movie.seen {
-                    self.coreDateHelper.updateMovieSeenState(!Bool(seen), id:Int(id))
+                    self.coreDataHelper.updateMovieSeenState(!Bool(seen), id:Int(id))
                 }
                 else {
-                    self.coreDateHelper.updateMovieSeenState(true, id: Int(id))
+                    self.coreDataHelper.updateMovieSeenState(true, id: Int(id))
                 }
                 self.tableView.reloadData()
             }

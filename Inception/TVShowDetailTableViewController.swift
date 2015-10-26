@@ -31,7 +31,8 @@ class TVShowDetailTableViewController: UITableViewController {
     @IBOutlet weak var footerView:UIView!
     var activityIndicator:UIActivityIndicatorView!
     
-    //TODO: add to watchlist to uibarbuttonitem, check if already in watchlist => toggle tintcolor on add watchlist button
+    let showCoreDataHelper = ShowWatchlistCoreDataHelper()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,10 +50,17 @@ class TVShowDetailTableViewController: UITableViewController {
                 print(error)
             } else {
                 self.show = Show(json: JSON(data!))
+                self.setupBarButtonItem()
                 self.updateUI()
             }
         }
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateBarButtonColor()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -63,6 +71,42 @@ class TVShowDetailTableViewController: UITableViewController {
         super.viewWillLayoutSubviews()
         let viewBounds = self.view.bounds
         self.activityIndicator.center = CGPointMake(CGRectGetMidX(viewBounds), CGRectGetMidY(viewBounds))
+    }
+    
+    func setupBarButtonItem() {
+        let image = UIImage(named: "watchlist")
+        let barButtonItem = UIBarButtonItem(image: image, style: .Plain, target: self, action: "updateWatchlist:")
+        
+        self.navigationItem.rightBarButtonItem = barButtonItem
+        self.updateBarButtonColor()
+    }
+    
+    func updateBarButtonColor() {
+        if self.navigationItem.rightBarButtonItem != nil {
+            if self.showCoreDataHelper.hasShow(self.show!.id!) {
+                self.navigationItem.rightBarButtonItem!.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+            }
+            else {
+                self.navigationItem.rightBarButtonItem!.tintColor = UIColor.whiteColor()
+            }
+        }
+    }
+    
+    func updateWatchlist(sender:UIBarButtonItem) {
+        let show = self.show!
+        if self.showCoreDataHelper.hasShow(show.id!) {
+            self.showCoreDataHelper.removeShowWithId(show.id!)
+            sender.tintColor = UIColor.whiteColor()
+        }
+        else {
+            var year:Int? = nil
+            if let firstAirDate = show.firstAirDate {
+                year = firstAirDate.year
+            }
+           
+            self.showCoreDataHelper.insertShowItem(show.id!, name: show.title, year: year, posterPath: show.posterPath, seasons:nil)
+            sender.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+        }
     }
     
     func setupActivityIndicator() {

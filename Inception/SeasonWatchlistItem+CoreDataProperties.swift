@@ -17,6 +17,6 @@ extension SeasonWatchlistItem {
     @NSManaged var id: NSNumber?
     @NSManaged var seasonNumber: NSNumber?
     @NSManaged var show: NSManagedObject?
-    @NSManaged var episodes: NSSet?
+    @NSManaged var episodes: NSOrderedSet?
 
 }

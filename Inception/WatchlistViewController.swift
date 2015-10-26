@@ -8,23 +8,27 @@
 
 import UIKit
 
-class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource {
+class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,ShowWatchlistCoreDataHelperDelegate {
     
     var movies:[MovieWatchlistItem] = []
-    let coreDateHelper = MovieWatchlistCoreDataHelper()
-    
+    var shows:[ShowWatchlistItem] = []
+    let coreDataHelper = MovieWatchlistCoreDataHelper()
+    let showCoreDataHelper = ShowWatchlistCoreDataHelper()
+
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl:UISegmentedControl!
     
-    //TODO: implement shows
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "watchlist".localized
         tableView.tableFooterView  = UIView(frame:CGRectZero)
+        showCoreDataHelper.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.movies = coreDateHelper.moviesFromStore()
+        self.movies = coreDataHelper.moviesFromStore()
+        self.shows = showCoreDataHelper.showsFromStore()
         self.tableView.reloadData()
     }
 
@@ -33,13 +37,28 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         // Dispose of any resources that can be recreated.
     }
     
+    func didLoadSeasonsAndEpisodes() {
+        self.shows = showCoreDataHelper.showsFromStore()
+        self.tableView.reloadData()
+
+    }
+    
     @IBAction func addItem() {
         //TODO: add new item
     }
     
+    @IBAction func changedSegment() {
+        self.tableView.reloadData()
+    }
+    
     //MARK: UITableView Delegate & Datasource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.movies.count
+        if self.segmentedControl.selectedSegmentIndex == 0 {
+            return self.movies.count
+        }
+        else {
+            return self.shows.count
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -52,46 +71,89 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
-            coreDateHelper.removeMovie(self.movies[indexPath.row])
-            self.movies = coreDateHelper.moviesFromStore()
+            if self.segmentedControl.selectedSegmentIndex == 0 {
+                coreDataHelper.removeMovie(self.movies[indexPath.row])
+                self.movies = coreDataHelper.moviesFromStore()
+            }
+            else {
+                showCoreDataHelper.removeShow(self.shows[indexPath.row])
+                self.shows = showCoreDataHelper.showsFromStore()
+            }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("MovieWatchlistTableViewCell", forIndexPath: indexPath) as! MovieWatchlistTableViewCell
-
-        cell.delegate = self
-        cell.nameLabel.text = ""
-        cell.yearLabel.text = ""
-        
-        if let name = self.movies[indexPath.row].name {
-            cell.nameLabel.text = name
-        }
-        
-        if let year = self.movies[indexPath.row].year {
-            cell.yearLabel.text = "\(year)"
-        }
-        
-        if let imagePath = self.movies[indexPath.row].posterPath {
-            let imageURL =  imageBaseURL.URLByAppendingPathComponent(imagePath)
-            cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+        if self.segmentedControl.selectedSegmentIndex == 0 {
+            let cell = tableView.dequeueReusableCellWithIdentifier("MovieWatchlistTableViewCell", forIndexPath: indexPath) as! MovieWatchlistTableViewCell
+            
+            cell.delegate = self
+            cell.nameLabel.text = ""
+            cell.yearLabel.text = ""
+            
+            if let name = self.movies[indexPath.row].name {
+                cell.nameLabel.text = name
+            }
+            
+            if let year = self.movies[indexPath.row].year {
+                cell.yearLabel.text = "\(year)"
+            }
+            
+            if let imagePath = self.movies[indexPath.row].posterPath {
+                let imageURL =  imageBaseURL.URLByAppendingPathComponent(imagePath)
+                cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+            }
+            else {
+                cell.coverImageView.image = UIImage(named: "placeholder-dark")
+            }
+            
+            if let seen = self.movies[indexPath.row].seen {
+                if seen != cell.seenButton.selected {
+                    cell.seenButton.setSelected(Bool(seen),animated:true)
+                }
+            }
+            
+            return cell
         }
         else {
-            cell.coverImageView.image = UIImage(named: "placeholder-dark")
-        }
-        
-        if let seen = self.movies[indexPath.row].seen {
+            let cell = tableView.dequeueReusableCellWithIdentifier("ShowWatchlistTableViewCell", forIndexPath: indexPath) as! ShowWatchlistTableViewCell
+            
+            cell.nameLabel.text = ""
+            cell.yearLabel.text = ""
+            cell.delegate = self
+
+            if let name = self.shows[indexPath.row].name {
+                cell.nameLabel.text = name
+            }
+            
+            if let year = self.shows[indexPath.row].year {
+                cell.yearLabel.text = "\(year)"
+            }
+            
+            if let imagePath = self.shows[indexPath.row].posterPath {
+                let imageURL =  imageBaseURL.URLByAppendingPathComponent(imagePath)
+                cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
+            }
+            else {
+                cell.coverImageView.image = UIImage(named: "placeholder-dark")
+            }
+            
+            let seen = self.showCoreDataHelper.isShowSeen(self.shows[indexPath.row])
             if seen != cell.seenButton.selected {
                 cell.seenButton.setSelected(Bool(seen),animated:true)
             }
+            
+
+            return cell
         }
-    
-        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let vc : EpisodeGuideWatchlistViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EpisodeGuideWatchlistViewController") as! EpisodeGuideWatchlistViewController
+        vc.showWatchlistItem = self.shows[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 
 }

@@ -13,9 +13,11 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
+    
     var results:[MultiSearchResult] = []
     let movieCoreDataHelper = MovieWatchlistCoreDataHelper()
-    
+    let showCoreDataHelper = ShowWatchlistCoreDataHelper()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -116,8 +118,26 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                         actions.append(watchlistAction)
                     }
                 }
-            case "tv": break
-                //TODO:
+            case "tv":
+                if let id = result.id {
+                    if showCoreDataHelper.hasShow(id) {
+                        let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            self.showCoreDataHelper.removeShowWithId(id)
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = UIColor.redColor()
+                        actions.append(watchlistAction)
+                    }
+                    else {
+                        let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            
+                            self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath, seasons: nil)
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = UIColor(red: 227.0/255.0, green: 187.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+                        actions.append(watchlistAction)
+                    }
+                }
             default: ()
         }
     

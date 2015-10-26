@@ -1,13 +1,8 @@
 Now:
 - watchlist:
 	- Show:
-		- create model
-		- show->seasons->episodes navigation in watchlistviewcontroller
-		- create coredatahelper for shows
-		- add/remove from detailviewcontroller
-		- add/remove from searchviewcontroller
+		- progressbar für show in watchlist
 	- WatchlistViewController
-		- change watchlistviewcontroller to show movie and shows (segmented control)
 		- add new entries from watchlistviewcontroller
 		- load changes and update core data model (for shows => new episodes,seasons)
 
