@@ -41,11 +41,11 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        
+
         calendarView.commitCalendarViewUpdate()
         menuView.commitMenuViewUpdate()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

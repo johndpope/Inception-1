@@ -43,8 +43,11 @@ extension UpcomingEpisodesCalendarViewController : CVCalendarViewDelegate, CVCal
     func dotMarker(colorOnDayView dayView: CVCalendarDayView) -> [UIColor] {
         var colors:[UIColor] = []
         if let convertedDate = dayView.date.convertedDate() {
-            let numberOfDots = self.numberOfEpisodesForDate(convertedDate)
-            for _ in 0..<numberOfDots {
+            var numberOfEvents = self.numberOfEpisodesForDate(convertedDate)
+            if numberOfEvents > 3 {
+                numberOfEvents = 3
+            }
+            for _ in 0..<numberOfEvents {
                 colors.append(UIColor.whiteColor())
             }
         }
