@@ -3,8 +3,7 @@ Now:
 	- Show:
 		- load changes and update core data model (for shows => new episodes,seasons)
 	- WatchlistViewController
-		- add new entries from watchlistviewcontroller
-		- calendar fix warnings
+		- calendar fix warnings and add landscape support
 - preferences(image and video quality)
 - stats for watchlist f.e: watched.li
 
