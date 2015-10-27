@@ -1,5 +1,5 @@
 PODS:
-  - AIFlatSwitch (0.0.3)
+  - AIFlatSwitch (0.0.4)
   - Alamofire (2.0.2)
   - Charts (2.1.4)
   - CVCalendar (1.2.6)
@@ -13,7 +13,7 @@ PODS:
   - XCDYouTubeKit (2.3.1)
 
 DEPENDENCIES:
-  - AIFlatSwitch (from `https://github.com/dehlen/AIFlatSwitch.git`)
+  - AIFlatSwitch (~> 0.0.1)
   - Alamofire (~> 2.0)
   - Charts
   - CVCalendar (from `https://github.com/Mozharovsky/CVCalendar`, branch `master`)
@@ -23,8 +23,6 @@ DEPENDENCIES:
   - XCDYouTubeKit (~> 2.3.1)
 
 EXTERNAL SOURCES:
-  AIFlatSwitch:
-    :git: https://github.com/dehlen/AIFlatSwitch.git
   CVCalendar:
     :branch: master
     :git: https://github.com/Mozharovsky/CVCalendar
@@ -32,9 +30,6 @@ EXTERNAL SOURCES:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  AIFlatSwitch:
-    :commit: 20c746b86e65098e864fee71345bc564e3203872
-    :git: https://github.com/dehlen/AIFlatSwitch.git
   CVCalendar:
     :commit: 6c648f3a56334dbd6744d3362228cc23dc431d17
     :git: https://github.com/Mozharovsky/CVCalendar
@@ -43,7 +38,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 SPEC CHECKSUMS:
-  AIFlatSwitch: 624e829e8dc347fa41894376e4867cd4a2b9fa5c
+  AIFlatSwitch: 30b67439ed2d695fdb81ec5ae26f0b004fa83c66
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   Charts: 870589b6b4bf8468baacea8869c28983d71f602c
   CVCalendar: 284cf74f90f5d9e8d737f91055372b674e0ec027
