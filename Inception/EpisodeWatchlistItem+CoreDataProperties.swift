@@ -22,5 +22,4 @@ extension EpisodeWatchlistItem {
     @NSManaged var posterPath: String?
     @NSManaged var seen: NSNumber?
     @NSManaged var season: SeasonWatchlistItem?
-
 }

@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import SwiftyJSON
 
 class MovieWatchlistCoreDataHelper {
     
@@ -26,15 +27,29 @@ class MovieWatchlistCoreDataHelper {
         return movies
     }
     
-    func insertMovieItem(id:Int, name:String?, year:Int?, posterPath:String?, seen:Bool) {
+    func insertMovieItem(id:Int, name:String?, year:Int?, posterPath:String?,runtime:Int?, seen:Bool) {
         let newEntity = NSEntityDescription.insertNewObjectForEntityForName(kMovieWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! MovieWatchlistItem
         newEntity.id = id
         newEntity.name = name
         newEntity.year = year
         newEntity.posterPath = posterPath
         newEntity.seen = seen
-        
-        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+        if runtime != nil {
+            newEntity.runtime = runtime
+            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+
+        }
+        else {
+            APIController.request(APIEndpoints.Movie(id)) { (data:AnyObject?, error:NSError?) in
+                if (error != nil) {
+                    print(error)
+                } else {
+                    let movie = Movie(json: JSON(data!))
+                    newEntity.runtime = movie.runtime
+                }
+                (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+            }
+        }
     }
     
     func updateMovieSeenState(seen:Bool,id:Int) {

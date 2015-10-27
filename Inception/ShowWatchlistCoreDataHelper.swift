@@ -50,6 +50,42 @@ class ShowWatchlistCoreDataHelper {
         }
      }
     
+    private func loadSeasons(id:Int,watchlistShow:ShowWatchlistItem,completionClosure:[SeasonWatchlistItem] -> ()) {
+        APIController.request(APIEndpoints.Show(id)) { (data:AnyObject?, error:NSError?) in
+            if (error != nil) {
+                print(error)
+                completionClosure([])
+            } else {
+                let show = Show(json: JSON(data!))
+                if let episodeRunTime = show.episodeRunTime {
+                    if episodeRunTime.count > 0 {
+                        watchlistShow.episodeRuntime = episodeRunTime[0]
+                    }
+                }
+                if let seasons = show.seasons {
+                    var watchlistSeasons:[SeasonWatchlistItem] = []
+                    for i in 0..<seasons.count {
+                        let watchlistSeason = NSEntityDescription.insertNewObjectForEntityForName(self.kSeasonWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! SeasonWatchlistItem
+                        watchlistSeason.id = seasons[i].id
+                        watchlistSeason.seasonNumber = seasons[i].seasonNumber
+                        watchlistSeason.show = watchlistShow
+                        self.loadEpisodes(watchlistSeason, id: id, completionClosure: { (episodes:NSOrderedSet) in
+                            watchlistSeason.episodes = episodes
+                            watchlistSeasons.append(watchlistSeason)
+                            if i == seasons.count-1 {
+                                completionClosure(watchlistSeasons)
+                            }
+                        })
+                    }
+                }
+                else {
+                    completionClosure([])
+                }
+            }
+        }
+    }
+
+    
     private func loadEpisodes(season:SeasonWatchlistItem, id:Int, completionClosure:NSOrderedSet -> ()) {
         
         if let seasonNumber = season.seasonNumber {
@@ -75,36 +111,6 @@ class ShowWatchlistCoreDataHelper {
                         }
                         completionClosure(NSOrderedSet(array: watchlistEpisodes))
                     }
-                }
-            }
-        }
-    }
-    
-    private func loadSeasons(id:Int,watchlistShow:ShowWatchlistItem,completionClosure:[SeasonWatchlistItem] -> ()) {
-        APIController.request(APIEndpoints.Show(id)) { (data:AnyObject?, error:NSError?) in
-            if (error != nil) {
-                print(error)
-                completionClosure([])
-            } else {
-                let show = Show(json: JSON(data!))
-                if let seasons = show.seasons {
-                    var watchlistSeasons:[SeasonWatchlistItem] = []
-                    for i in 0..<seasons.count {
-                        let watchlistSeason = NSEntityDescription.insertNewObjectForEntityForName(self.kSeasonWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! SeasonWatchlistItem
-                        watchlistSeason.id = seasons[i].id
-                        watchlistSeason.seasonNumber = seasons[i].seasonNumber
-                        watchlistSeason.show = watchlistShow
-                        self.loadEpisodes(watchlistSeason, id: id, completionClosure: { (episodes:NSOrderedSet) in
-                            watchlistSeason.episodes = episodes
-                            watchlistSeasons.append(watchlistSeason)
-                            if i == seasons.count-1 {
-                                completionClosure(watchlistSeasons)
-                            }
-                        })
-                    }
-                }
-                else {
-                    completionClosure([])
                 }
             }
         }

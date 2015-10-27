@@ -17,6 +17,7 @@ extension MovieWatchlistItem {
     @NSManaged var id: NSNumber?
     @NSManaged var name: String?
     @NSManaged var posterPath: String?
+    @NSManaged var runtime:NSNumber?
     @NSManaged var seen: NSNumber?
     @NSManaged var year: NSNumber?
 

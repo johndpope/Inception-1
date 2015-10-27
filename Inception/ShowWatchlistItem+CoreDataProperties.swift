@@ -14,6 +14,7 @@ import CoreData
 
 extension ShowWatchlistItem {
 
+    @NSManaged var episodeRuntime:NSNumber?
     @NSManaged var id: NSNumber?
     @NSManaged var name: String?
     @NSManaged var posterPath: String?
