@@ -9,6 +9,7 @@ pod 'SDWebImage', '~>3.7'
 pod "XCDYouTubeKit", "~> 2.3.1"
 pod "SKTagView"
 pod 'AIFlatSwitch', :git => 'https://github.com/dehlen/AIFlatSwitch.git'
+pod 'CVCalendar', :git => 'https://github.com/Mozharovsky/CVCalendar', :branch => 'master'
 end
 
 target 'InceptionTests' do

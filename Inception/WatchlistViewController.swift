@@ -43,10 +43,6 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
-    @IBAction func addItem() {
-        //TODO: add new item
-    }
-    
     @IBAction func changedSegment() {
         self.tableView.reloadData()
     }

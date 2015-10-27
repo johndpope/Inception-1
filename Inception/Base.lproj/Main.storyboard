@@ -1511,9 +1511,9 @@
                         </variation>
                     </view>
                     <navigationItem key="navigationItem" id="RxX-3G-Ziv">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="q3P-WU-fhh">
+                        <barButtonItem key="rightBarButtonItem" image="calendar" id="q3P-WU-fhh">
                             <connections>
-                                <action selector="addItem" destination="8rJ-Kc-sve" id="wsn-3c-hdE"/>
+                                <segue destination="fxZ-hf-SO2" kind="show" id="2v6-9t-oQl"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -2228,6 +2228,136 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="406-Et-5Lk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2190" y="3069"/>
+        </scene>
+        <!--Calendar Appearance Delegate-->
+        <scene sceneID="eKs-xy-1Gf">
+            <objects>
+                <viewController storyboardIdentifier="UpcomingEpisodesCalendarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fxZ-hf-SO2" customClass="UpcomingEpisodesCalendarViewController" customModule="Inception" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="DSC-3K-O5v"/>
+                        <viewControllerLayoutGuide type="bottom" id="azF-iG-t6O"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="CeB-jU-0EL">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WtS-eV-Y5q" customClass="CVCalendarMenuView" customModule="CVCalendar">
+                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="RHf-w4-Evx"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="menuViewDelegate" destination="fxZ-hf-SO2" id="Nz8-PP-u2q"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOU-Pd-HCJ" customClass="CVCalendarView" customModule="CVCalendar">
+                                <rect key="frame" x="0.0" y="94" width="600" height="60"/>
+                                <animations/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="t5N-k8-Az6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="calendarAppearanceDelegate" destination="fxZ-hf-SO2" id="gFj-X8-AQu"/>
+                                    <outlet property="calendarDelegate" destination="fxZ-hf-SO2" id="wXP-IH-vqK"/>
+                                </connections>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="83" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WCj-4E-4f0">
+                                <rect key="frame" x="0.0" y="154" width="600" height="397"/>
+                                <animations/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="UpcomingEpisodesTableViewCell" rowHeight="83" id="uxq-VZ-w1A" customClass="UpcomingEpisodesTableViewCell" customModule="Inception" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="65" width="600" height="83"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uxq-VZ-w1A" id="igH-0c-Olq">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3x-wL-J7Y">
+                                                    <rect key="frame" x="8" y="31" width="584" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="fJA-z4-NLd"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t2Z-DP-7MW">
+                                                    <rect key="frame" x="8" y="54" width="584" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVJ-M9-8SW">
+                                                    <rect key="frame" x="8" y="8" width="584" height="21"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Q8U-hy-KoF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <constraints>
+                                                <constraint firstItem="jVJ-M9-8SW" firstAttribute="top" secondItem="igH-0c-Olq" secondAttribute="top" constant="8" id="38w-g2-8Wd"/>
+                                                <constraint firstItem="d3x-wL-J7Y" firstAttribute="leading" secondItem="igH-0c-Olq" secondAttribute="leading" constant="8" id="3sw-YY-rR4"/>
+                                                <constraint firstAttribute="trailing" secondItem="jVJ-M9-8SW" secondAttribute="trailing" constant="8" id="XoT-8N-oa3"/>
+                                                <constraint firstAttribute="trailing" secondItem="t2Z-DP-7MW" secondAttribute="trailing" constant="8" id="ZfM-0e-FSC"/>
+                                                <constraint firstItem="d3x-wL-J7Y" firstAttribute="top" secondItem="jVJ-M9-8SW" secondAttribute="bottom" constant="2" id="epN-qX-926"/>
+                                                <constraint firstItem="t2Z-DP-7MW" firstAttribute="leading" secondItem="igH-0c-Olq" secondAttribute="leading" constant="8" id="h31-Z6-ilJ"/>
+                                                <constraint firstItem="t2Z-DP-7MW" firstAttribute="top" secondItem="d3x-wL-J7Y" secondAttribute="bottom" constant="2" id="ydr-Ae-Dvl"/>
+                                                <constraint firstItem="jVJ-M9-8SW" firstAttribute="leading" secondItem="igH-0c-Olq" secondAttribute="leading" constant="8" id="z3g-mr-hKd"/>
+                                                <constraint firstAttribute="trailing" secondItem="d3x-wL-J7Y" secondAttribute="trailing" constant="8" id="zp7-se-ILb"/>
+                                                <constraint firstAttribute="bottom" secondItem="t2Z-DP-7MW" secondAttribute="bottom" constant="8" id="zwU-Ae-kJC"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <connections>
+                                            <outlet property="dateLabel" destination="t2Z-DP-7MW" id="cNd-Dt-0kT"/>
+                                            <outlet property="episodeNameLabel" destination="d3x-wL-J7Y" id="ImC-MI-WZa"/>
+                                            <outlet property="showNameLabel" destination="jVJ-M9-8SW" id="HDb-Su-LIJ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="fxZ-hf-SO2" id="j1C-I3-NRk"/>
+                                    <outlet property="delegate" destination="fxZ-hf-SO2" id="445-ZN-iWQ"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="WtS-eV-Y5q" firstAttribute="top" secondItem="DSC-3K-O5v" secondAttribute="bottom" id="Azc-U1-4ib"/>
+                            <constraint firstItem="WCj-4E-4f0" firstAttribute="top" secondItem="gOU-Pd-HCJ" secondAttribute="bottom" id="BKT-sg-ejA"/>
+                            <constraint firstAttribute="trailing" secondItem="gOU-Pd-HCJ" secondAttribute="trailing" id="GZZ-gm-dFC"/>
+                            <constraint firstItem="azF-iG-t6O" firstAttribute="top" secondItem="WCj-4E-4f0" secondAttribute="bottom" id="HGA-c5-fL2"/>
+                            <constraint firstItem="gOU-Pd-HCJ" firstAttribute="top" secondItem="WtS-eV-Y5q" secondAttribute="bottom" id="KKL-fo-Y13"/>
+                            <constraint firstAttribute="trailing" secondItem="WtS-eV-Y5q" secondAttribute="trailing" id="T3P-Ol-Etu"/>
+                            <constraint firstAttribute="trailing" secondItem="WCj-4E-4f0" secondAttribute="trailing" id="TBk-xw-A7O"/>
+                            <constraint firstItem="WCj-4E-4f0" firstAttribute="leading" secondItem="CeB-jU-0EL" secondAttribute="leading" id="Wne-4M-JkO"/>
+                            <constraint firstItem="WtS-eV-Y5q" firstAttribute="leading" secondItem="CeB-jU-0EL" secondAttribute="leading" id="hIc-6g-BUn"/>
+                            <constraint firstItem="gOU-Pd-HCJ" firstAttribute="leading" secondItem="CeB-jU-0EL" secondAttribute="leading" id="uzB-gh-6e3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendarView" destination="gOU-Pd-HCJ" id="4m0-0g-ilo"/>
+                        <outlet property="menuView" destination="WtS-eV-Y5q" id="LWa-bC-M4X"/>
+                        <outlet property="tableView" destination="WCj-4E-4f0" id="Aq3-5Z-wQC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cw6-bd-yPB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3137" y="-150"/>
         </scene>
         <!--Popular View Controller-->
         <scene sceneID="djv-OU-dhI">
@@ -2946,6 +3076,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="calendar" width="30" height="30"/>
         <image name="diagram" width="30" height="30"/>
         <image name="discover" width="30" height="30"/>
         <image name="playButton" width="40" height="40"/>

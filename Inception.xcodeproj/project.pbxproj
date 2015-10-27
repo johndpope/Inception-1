@@ -85,6 +85,9 @@
 		63887E8F1BDAF50D00810BA9 /* MovieWatchlistTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63887E8E1BDAF50D00810BA9 /* MovieWatchlistTableViewCellDelegate.swift */; };
 		63887E911BDAF64600810BA9 /* WatchlistViewController+MovieWatchlistTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63887E901BDAF64600810BA9 /* WatchlistViewController+MovieWatchlistTableViewCellDelegate.swift */; };
 		638886D91BD56A100011BF40 /* Video.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638886D81BD56A100011BF40 /* Video.swift */; };
+		639160FD1BDF67460031C3E3 /* UpcomingEpisodesCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639160FC1BDF67460031C3E3 /* UpcomingEpisodesCalendarViewController.swift */; };
+		639160FF1BDF74CD0031C3E3 /* UpcomingEpisodesCalendarViewController+CVCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639160FE1BDF74CD0031C3E3 /* UpcomingEpisodesCalendarViewController+CVCalendar.swift */; };
+		639161011BDF773D0031C3E3 /* UpcomingEpisodesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639161001BDF773D0031C3E3 /* UpcomingEpisodesTableViewCell.swift */; };
 		6391C7891BB4212200AAA429 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6391C7881BB4212200AAA429 /* APIController.swift */; };
 		63A180471BD3003900AFBAFA /* StringToDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A180461BD3003900AFBAFA /* StringToDateExtension.swift */; };
 		63A30E7A1BDC10A5009625D4 /* InfoSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A30E791BDC10A5009625D4 /* InfoSettingsTableViewController.swift */; };
@@ -220,6 +223,9 @@
 		63887E8E1BDAF50D00810BA9 /* MovieWatchlistTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieWatchlistTableViewCellDelegate.swift; sourceTree = "<group>"; };
 		63887E901BDAF64600810BA9 /* WatchlistViewController+MovieWatchlistTableViewCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "WatchlistViewController+MovieWatchlistTableViewCellDelegate.swift"; sourceTree = "<group>"; };
 		638886D81BD56A100011BF40 /* Video.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Video.swift; sourceTree = "<group>"; };
+		639160FC1BDF67460031C3E3 /* UpcomingEpisodesCalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingEpisodesCalendarViewController.swift; sourceTree = "<group>"; };
+		639160FE1BDF74CD0031C3E3 /* UpcomingEpisodesCalendarViewController+CVCalendar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UpcomingEpisodesCalendarViewController+CVCalendar.swift"; sourceTree = "<group>"; };
+		639161001BDF773D0031C3E3 /* UpcomingEpisodesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpcomingEpisodesTableViewCell.swift; sourceTree = "<group>"; };
 		6391C7881BB4212200AAA429 /* APIController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
 		63A180461BD3003900AFBAFA /* StringToDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToDateExtension.swift; sourceTree = "<group>"; };
 		63A30E791BDC10A5009625D4 /* InfoSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -399,6 +405,9 @@
 				636246EF1BD3E9530013988B /* TVShowDetailTableViewController+UICollectionView.swift */,
 				63FE3EFE1BC29D7800746A55 /* UIImageViewExtension.swift */,
 				631766CC1BD9932500EE9165 /* UILabelHelper.swift */,
+				639160FC1BDF67460031C3E3 /* UpcomingEpisodesCalendarViewController.swift */,
+				639160FE1BDF74CD0031C3E3 /* UpcomingEpisodesCalendarViewController+CVCalendar.swift */,
+				639161001BDF773D0031C3E3 /* UpcomingEpisodesTableViewCell.swift */,
 				638886D81BD56A100011BF40 /* Video.swift */,
 				63A6A3BE1BDA891400110681 /* Watchlist.xcdatamodeld */,
 				63535E331BAD83B700D7B77F /* WatchlistViewController.swift */,
@@ -687,6 +696,7 @@
 				63A6A3C01BDA891400110681 /* Watchlist.xcdatamodeld in Sources */,
 				632F7CA61BB42583001CF2C9 /* APIEndpointsExtension.swift in Sources */,
 				63EE07291BBA8F1F0049292B /* Show.swift in Sources */,
+				639160FF1BDF74CD0031C3E3 /* UpcomingEpisodesCalendarViewController+CVCalendar.swift in Sources */,
 				637E784F1BD6A31500F3C02D /* EpisodeGuideViewController.swift in Sources */,
 				63D84D781BB56DAE0018B0B6 /* StatsViewController.swift in Sources */,
 				63D30F771BD7D08000BFED9B /* EpisodeTableViewCell.swift in Sources */,
@@ -701,6 +711,7 @@
 				632F7CAA1BB43DDE001CF2C9 /* JSONParser.swift in Sources */,
 				634FA4E71BCE93E2002B977D /* NSDateExtension.swift in Sources */,
 				63535E301BAD83B700D7B77F /* AppDelegate.swift in Sources */,
+				639160FD1BDF67460031C3E3 /* UpcomingEpisodesCalendarViewController.swift in Sources */,
 				636A95761BDD0C930084A99C /* SeasonWatchlistItem+CoreDataProperties.swift in Sources */,
 				636246F81BD3EBED0013988B /* Person+UITableViewData.swift in Sources */,
 				637E15951BDE2BBA00EB04D6 /* SeasonWatchlistItemExtension.swift in Sources */,
@@ -710,6 +721,7 @@
 				636A95781BDD0C930084A99C /* ShowWatchlistItem+CoreDataProperties.swift in Sources */,
 				63EE072B1BBA90F10049292B /* Season.swift in Sources */,
 				63F9548F1BD7880F00D9B6F8 /* EpisodeGuideViewController+UICollectionView.swift in Sources */,
+				639161011BDF773D0031C3E3 /* UpcomingEpisodesTableViewCell.swift in Sources */,
 				637E158B1BDE25D900EB04D6 /* WatchlistViewController+ShowWatchlistTableViewCellDelegate.swift in Sources */,
 				636246F01BD3E9530013988B /* TVShowDetailTableViewController+UICollectionView.swift in Sources */,
 				634FA4E31BCE820A002B977D /* SettingsRow.swift in Sources */,

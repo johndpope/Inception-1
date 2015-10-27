@@ -19,4 +19,18 @@ extension NSDate {
         dayComponents.second = second
         return NSCalendar.currentCalendar().dateFromComponents(dayComponents)!
     }
+    
+    class func isSameDay(date1:NSDate,date2:NSDate) -> Bool {
+        let calendar = NSCalendar.currentCalendar()
+        let comps1 = calendar.components([.Month,.Year,.Day], fromDate: date1)
+        let comps2 = calendar.components([.Month,.Year,.Day], fromDate:date2)
+        
+        return (comps1.day == comps2.day) && (comps1.month == comps2.month) && (comps1.year == comps2.year)
+    }
+    
+    var string:String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        return dateFormatter.stringFromDate(self)
+    }
 }

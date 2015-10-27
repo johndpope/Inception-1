@@ -33,6 +33,15 @@ extension String {
         return false
     }
     
+    var date:NSDate? {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatter.dateFromString(self) {
+            return date
+        }
+        return nil
+    }
+    
     var dateWithTime:NSDate? {
         let alarmDate = SettingsFactory.objectForKey(SettingsFactory.SettingKey.NotificationAlarmDate) as! NSDate
         let dateFormatter = NSDateFormatter()
