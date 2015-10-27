@@ -23,13 +23,17 @@ extension UpcomingEpisodesCalendarViewController : CVCalendarViewDelegate, CVCal
         return true
     }
     
+    func shouldAnimateResizing() -> Bool {
+        return true
+    }
+    
     func didSelectDayView(dayView: DayView) {
         if let convertedDate = dayView.date.convertedDate() {
             self.loadEntriesForDate(convertedDate)
         }
     }
     
-    func topMarker(shouldDisplayOnDayView dayView: CVCalendarDayView) -> Bool {
+    func topMarker(shouldDisplayOnDayView dayView: DayView) -> Bool {
         return true
     }
     
@@ -54,7 +58,7 @@ extension UpcomingEpisodesCalendarViewController : CVCalendarViewDelegate, CVCal
         return colors
     }
     
-    func dotMarker(shouldMoveOnHighlightingOnDayView dayView: CVCalendarDayView) -> Bool {
+    func dotMarker(shouldMoveOnHighlightingOnDayView dayView: DayView) -> Bool {
         return true
     }
     
