@@ -154,10 +154,11 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        
-        let vc : EpisodeGuideWatchlistViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EpisodeGuideWatchlistViewController") as! EpisodeGuideWatchlistViewController
-        vc.showWatchlistItem = self.shows[indexPath.row]
-        self.navigationController?.pushViewController(vc, animated: true)
+        if self.segmentedControl.selectedSegmentIndex == 1 {
+            let vc : EpisodeGuideWatchlistViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EpisodeGuideWatchlistViewController") as! EpisodeGuideWatchlistViewController
+            vc.showWatchlistItem = self.shows[indexPath.row]
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
 }
