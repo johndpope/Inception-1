@@ -68,6 +68,7 @@
 		636A95771BDD0C930084A99C /* SeasonWatchlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A95711BDD0C930084A99C /* SeasonWatchlistItem.swift */; };
 		636A95781BDD0C930084A99C /* ShowWatchlistItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A95721BDD0C930084A99C /* ShowWatchlistItem+CoreDataProperties.swift */; };
 		636A95791BDD0C930084A99C /* ShowWatchlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636A95731BDD0C930084A99C /* ShowWatchlistItem.swift */; };
+		636BEEDE1BE0C84700464790 /* QualityTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636BEEDD1BE0C84700464790 /* QualityTableViewController.swift */; };
 		637CFB131BC65FAB002AE492 /* CinemaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637CFB121BC65FAB002AE492 /* CinemaViewController.swift */; };
 		637E15871BDE1C4A00EB04D6 /* EpisodeGuideWatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E15861BDE1C4A00EB04D6 /* EpisodeGuideWatchlistViewController.swift */; };
 		637E15891BDE1C8200EB04D6 /* EpisodeWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E15881BDE1C8200EB04D6 /* EpisodeWatchlistTableViewCell.swift */; };
@@ -208,6 +209,7 @@
 		636A95711BDD0C930084A99C /* SeasonWatchlistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonWatchlistItem.swift; sourceTree = "<group>"; };
 		636A95721BDD0C930084A99C /* ShowWatchlistItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ShowWatchlistItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		636A95731BDD0C930084A99C /* ShowWatchlistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowWatchlistItem.swift; sourceTree = "<group>"; };
+		636BEEDD1BE0C84700464790 /* QualityTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QualityTableViewController.swift; sourceTree = "<group>"; };
 		637CFB121BC65FAB002AE492 /* CinemaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CinemaViewController.swift; sourceTree = "<group>"; };
 		637E15861BDE1C4A00EB04D6 /* EpisodeGuideWatchlistViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeGuideWatchlistViewController.swift; sourceTree = "<group>"; };
 		637E15881BDE1C8200EB04D6 /* EpisodeWatchlistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EpisodeWatchlistTableViewCell.swift; sourceTree = "<group>"; };
@@ -378,6 +380,7 @@
 				6369D0A21BB5BA8B0004E05D /* PersonDetailViewController.swift */,
 				636246F91BD3EC980013988B /* PersonDetailViewController+UITableView.swift */,
 				636154B61BC503F500343207 /* PopularViewController.swift */,
+				636BEEDD1BE0C84700464790 /* QualityTableViewController.swift */,
 				632F7CAD1BB48BA1001CF2C9 /* SearchTableViewCell.swift */,
 				63535E311BAD83B700D7B77F /* SearchViewController.swift */,
 				634FA4F01BCEA1F6002B977D /* SearchViewController+SearchBarDelegate.swift */,
@@ -657,6 +660,7 @@
 				636246F61BD3EAB70013988B /* Show+UITableViewData.swift in Sources */,
 				638886D91BD56A100011BF40 /* Video.swift in Sources */,
 				63EE7C631BB82BDE00BE2522 /* CreditsCollectionCell.swift in Sources */,
+				636BEEDE1BE0C84700464790 /* QualityTableViewController.swift in Sources */,
 				633981061BC3A4CF00731058 /* CreditsCrew.swift in Sources */,
 				63887E911BDAF64600810BA9 /* WatchlistViewController+MovieWatchlistTableViewCellDelegate.swift in Sources */,
 				63672E0D1BB6EC4A005480D8 /* CurrencyExtension.swift in Sources */,

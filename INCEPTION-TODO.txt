@@ -2,7 +2,6 @@ Now:
 - watchlist:
 	- load changes and update core data model (for shows => new episodes,seasons)
 	- calendar fix warnings and add landscape support
-- preferences(image and video quality)
 
 Later:
 - update localizable.strings and storyboard localizables

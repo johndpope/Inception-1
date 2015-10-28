@@ -9,7 +9,17 @@
 import Foundation
 
 var baseURL: NSURL { return NSURL(string: "http://api.themoviedb.org/3")!}
-var imageBaseURL: NSURL { return NSURL(string: "https://image.tmdb.org/t/p/w185")!}
+var imageBaseURL: NSURL {
+    let imageQualityString = SettingsFactory.objectForKey(SettingsFactory.SettingKey.ImageQuality) as! String
+    if let imageQuality = SettingsFactory.ImageQuality(rawValue: imageQualityString) {
+        switch imageQuality {
+        case .Compressed : return NSURL(string: "https://image.tmdb.org/t/p/w185")!
+        case .Original: return NSURL(string: "https://image.tmdb.org/t/p/original")!
+        }
+    }
+    return NSURL(string: "https://image.tmdb.org/t/p/w185")!
+}
+
 var imageBaseURLW780: NSURL { return NSURL(string: "https://image.tmdb.org/t/p/w780")!}
 
 enum APIEndpoints {

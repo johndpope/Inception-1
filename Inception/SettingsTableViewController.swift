@@ -96,7 +96,15 @@ class SettingsTableViewController: UITableViewController {
                 let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
                 vc.showsImageCache = true
                 self.navigationController?.pushViewController(vc, animated: true)
-                
+            case .ImageQuality :
+                let vc : QualityTableViewController = storyboard?.instantiateViewControllerWithIdentifier("QualityTableViewController") as! QualityTableViewController
+                vc.showsImageQuality = true
+                self.navigationController?.pushViewController(vc, animated: true)
+            
+            case .VideoQuality :
+                let vc : QualityTableViewController = storyboard?.instantiateViewControllerWithIdentifier("QualityTableViewController") as! QualityTableViewController
+                vc.showsImageQuality = false
+                self.navigationController?.pushViewController(vc, animated: true)
             default:
                 ()
             }

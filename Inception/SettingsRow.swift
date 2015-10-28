@@ -13,6 +13,8 @@ public enum SettingsRow: Int {
     case NotificationSwitch
     case Alarm
     case DatePicker
+    case ImageQuality
+    case VideoQuality
     case Cache
     case ImageCache    
     case Unknown
@@ -31,8 +33,12 @@ public enum SettingsRow: Int {
             case (0, 3):
                 row = SettingsRow.DatePicker
             case (1,0):
-                row = SettingsRow.Cache
+                row = SettingsRow.ImageQuality
             case (1,1):
+                row = SettingsRow.VideoQuality
+            case (2,0):
+                row = SettingsRow.Cache
+            case (2,1):
                 row = SettingsRow.ImageCache
             default:
                 ()

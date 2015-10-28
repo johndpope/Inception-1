@@ -59,3 +59,11 @@
 "noSeenShows" = "Tracked TV Shows";
 "noSeenEpisodes" = "Seen Episodes";
 "timeSpent" = "Time Spent (min)";
+"quality" = "Quality";
+"imageQuality" = "Image Quality";
+"videoQuality" = "Video Quality";
+"good" = "Good";
+"better" = "Better";
+"best" = "Best";
+"compressed" = "Compressed";
+"original" = "Original";

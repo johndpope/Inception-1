@@ -59,4 +59,12 @@
 "noSeenShows" = "Gespeicherte TV Serien";
 "noSeenEpisodes" = "Gesehene Episoden";
 "timeSpent" = "Verbrachte Zeit (min)";
-
+"quality" = "Qualität";
+"imageQuality" = "Bild Qualität";
+"videoQuality" = "Video Qualität";
+"good" = "Gut";
+"better" = "Besser";
+"best" = "Am Besten";
+"hd" = "HD 720p";
+"medium" = "Medium 360p";
+"small" = "Small 240p";

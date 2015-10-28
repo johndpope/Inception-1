@@ -17,18 +17,40 @@ class TrailerFunctions {
         from.presentViewController(playerViewController, animated: true, completion: nil)
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(identifier) { [weak playerViewController] (video: XCDYouTubeVideo?, error: NSError?) in
-            if let streamURL = video?.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] as? NSURL ??
-                video?.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] as? NSURL ??
-                video?.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] as? NSURL ??
-                video?.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue] as? NSURL {
-                    playerViewController?.player = AVPlayer(URL: streamURL)
-                    playerViewController?.showsPlaybackControls = true
-                    playerViewController?.player?.play()
-            } else {
+            let videoURL = TrailerFunctions.streamURL(video)
+            if videoURL != nil {
+                print(videoURL)
+                playerViewController?.player = AVPlayer(URL: videoURL!)
+                playerViewController?.showsPlaybackControls = true
+                playerViewController?.player?.play()
+
+            }
+            else {
                 from.dismissViewControllerAnimated(true, completion: nil)
             }
         }
         
+    }
+    
+    private class func streamURL(video:XCDYouTubeVideo?) -> NSURL?{
+        var url:NSURL?
+        let videoQualityString = SettingsFactory.objectForKey(SettingsFactory.SettingKey.VideoQuality) as! String
+        if let videoQuality = SettingsFactory.VideoQuality(rawValue: videoQualityString) {
+            switch videoQuality {
+                case .HD : url = video?.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] as? NSURL
+                case .Medium: url = video?.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] as? NSURL
+                case .Small: url = video?.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue] as? NSURL
+            }
+        }
+        if url == nil {
+            if let streamURL = video?.streamURLs[XCDYouTubeVideoQualityHTTPLiveStreaming] as? NSURL ??
+                video?.streamURLs[XCDYouTubeVideoQuality.HD720.rawValue] as? NSURL ??
+                video?.streamURLs[XCDYouTubeVideoQuality.Medium360.rawValue] as? NSURL ??
+                video?.streamURLs[XCDYouTubeVideoQuality.Small240.rawValue] as? NSURL {
+                    url = streamURL
+            }
+        }
+        return url
     }
     
     class func showTrailerActionSheet(videos:[Video], from:UIViewController) {
