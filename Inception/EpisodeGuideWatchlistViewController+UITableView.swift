@@ -81,7 +81,7 @@ extension EpisodeGuideWatchlistViewController : UITableViewDelegate, UITableView
                         }
                         
                         if let stillPath = episode.posterPath {
-                            let imageURL =  imageBaseURLW780.URLByAppendingPathComponent(stillPath)
+                            let imageURL =  imageBaseURL.URLByAppendingPathComponent(stillPath)
                             cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
                         }
                         else {

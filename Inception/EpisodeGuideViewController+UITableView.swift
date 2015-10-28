@@ -72,7 +72,7 @@ extension EpisodeGuideViewController : UITableViewDelegate, UITableViewDataSourc
                 }
                 
                 if let stillPath = episode.stillPath {
-                    let imageURL =  imageBaseURLW780.URLByAppendingPathComponent(stillPath)
+                    let imageURL =  imageBaseURL.URLByAppendingPathComponent(stillPath)
                     cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
                 }
                 else {
