@@ -16,7 +16,7 @@
     "ios": "8.0"
   },
   "source": {
-    "git": "https://github.com/Mozharovsky/CVCalendar.git",
+    "git": "https://github.com/dehlen/CVCalendar.git",
     "tag": "1.2.6"
   },
   "source_files": "CVCalendar/*.swift",
