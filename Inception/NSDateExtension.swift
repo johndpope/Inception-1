@@ -30,7 +30,7 @@ extension NSDate {
     
     var string:String {
         let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
+        dateFormatter.dateFormat = "dd.MM.yyyy"
         return dateFormatter.stringFromDate(self)
     }
 }
