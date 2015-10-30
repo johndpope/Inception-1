@@ -144,7 +144,6 @@
 		6304BD061BD6370F009125BB /* TrailerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailerFunctions.swift; sourceTree = "<group>"; };
 		63053D811BDD93CA00DE4925 /* ShowWatchlistCoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowWatchlistCoreDataHelper.swift; sourceTree = "<group>"; };
 		63053D831BDD94EB00DE4925 /* ShowWatchlistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowWatchlistTableViewCell.swift; sourceTree = "<group>"; };
-		630BD4EC1BBA74CF00BA4275 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		631766CC1BD9932500EE9165 /* UILabelHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelHelper.swift; sourceTree = "<group>"; };
 		632A4FD81BDA29A300DFE9C0 /* KnownForTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KnownForTableViewCell.swift; sourceTree = "<group>"; };
 		632A88531BC0AAD6001B9C5C /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
@@ -199,6 +198,7 @@
 		63672E0C1BB6EC4A005480D8 /* CurrencyExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyExtension.swift; sourceTree = "<group>"; };
 		63672E101BB6FC52005480D8 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 		63672E121BB73875005480D8 /* Genre.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		63674DF91BE355D30046A662 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		636898EB1BDFF1E4004B5B05 /* StatsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewCell.swift; sourceTree = "<group>"; };
 		636898ED1BDFF95B004B5B05 /* StatsViewController+Charts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StatsViewController+Charts.swift"; sourceTree = "<group>"; };
 		6369D0A01BB5BA800004E05D /* TVShowDetailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TVShowDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -789,7 +789,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				63535E361BAD83B700D7B77F /* Base */,
-				630BD4EC1BBA74CF00BA4275 /* de */,
+				63674DF91BE355D30046A662 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

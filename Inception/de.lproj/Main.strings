@@ -1,63 +1,216 @@
 
+/* Class = "UILabel"; text = "Alarm Time"; ObjectID = "0cC-Fg-ym6"; */
+"0cC-Fg-ym6.text" = "Alarm Zeit";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "17Z-aC-98F"; */
+"17Z-aC-98F.text" = "12";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "1yH-1r-Iic"; */
+"1yH-1r-Iic.text" = "Titel";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "247-CY-gyW"; */
+"247-CY-gyW.text" = "Label";
+
+/* Class = "UILabel"; text = "Video Quality"; ObjectID = "2E2-MK-esZ"; */
+"2E2-MK-esZ.text" = "Video Qualität";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "2dI-yL-HBf"; */
+"2dI-yL-HBf.text" = "Label";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "2dO-oA-ORT"; */
 "2dO-oA-ORT.text" = "Label";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "39B-in-kEO"; */
 "39B-in-kEO.text" = "Label";
 
+/* Class = "UILabel"; text = "Label"; ObjectID = "3Ed-md-Go4"; */
+"3Ed-md-Go4.text" = "Label";
+
+/* Class = "UITableViewSection"; footerTitle = "Set the image quality for cover images or the quality preferred for trailer videos"; ObjectID = "5dx-8U-xIu"; */
+"5dx-8U-xIu.footerTitle" = "Stelle die Qualität ein mit der Bilder und Videos geladen werden sollen.";
+
+/* Class = "UITableViewSection"; headerTitle = "Qualities"; ObjectID = "5dx-8U-xIu"; */
+"5dx-8U-xIu.headerTitle" = "Qualität";
+
 /* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "7A5-Dc-f3w"; */
-"7A5-Dc-f3w.placeholder" = "Suchen";
+"7A5-Dc-f3w.placeholder" = "Suche";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "7No-m3-fa7"; */
+"7No-m3-fa7.text" = "Label";
 
 /* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[0] = "Popular"; ObjectID = "7RO-2o-dZJ"; */
-"7RO-2o-dZJ.segmentTitles[0]" = "Neu";
+"7RO-2o-dZJ.segmentTitles[0]" = "Bekannt";
 
 /* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[1] = "Genre"; ObjectID = "7RO-2o-dZJ"; */
 "7RO-2o-dZJ.segmentTitles[1]" = "Genre";
 
 /* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[2] = "Top Rated"; ObjectID = "7RO-2o-dZJ"; */
-"7RO-2o-dZJ.segmentTitles[2]" = "Top Wertung";
+"7RO-2o-dZJ.segmentTitles[2]" = "Top Bewertung";
 
 /* Class = "UISegmentedControl"; 7RO-2o-dZJ.segmentTitles[3] = "In Cinema"; ObjectID = "7RO-2o-dZJ"; */
 "7RO-2o-dZJ.segmentTitles[3]" = "Im Kino";
 
+/* Class = "UISegmentedControl"; 7dL-7y-laS.segmentTitles[0] = "Movies"; ObjectID = "7dL-7y-laS"; */
+"7dL-7y-laS.segmentTitles[0]" = "Filme";
+
+/* Class = "UISegmentedControl"; 7dL-7y-laS.segmentTitles[1] = "TV Shows"; ObjectID = "7dL-7y-laS"; */
+"7dL-7y-laS.segmentTitles[1]" = "TV Serien";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "8mt-FI-KAq"; */
 "8mt-FI-KAq.text" = "Label";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "C6a-no-BuE"; */
-"C6a-no-BuE.text" = "Label";
+/* Class = "UILabel"; text = "Label"; ObjectID = "AYd-iy-4Fx"; */
+"AYd-iy-4Fx.text" = "Label";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "CBU-ij-feI"; */
 "CBU-ij-feI.text" = "Label";
+
+/* Class = "UILabel"; text = "Notifications"; ObjectID = "DS1-nQ-sYN"; */
+"DS1-nQ-sYN.text" = "Benachrichtigungen";
+
+/* Class = "UILabel"; text = "dehlen@me.com"; ObjectID = "DaX-Py-TKK"; */
+"DaX-Py-TKK.text" = "dehlen@me.com";
 
 /* Class = "UISegmentedControl"; Et8-yg-83i.segmentTitles[0] = "Info"; ObjectID = "Et8-yg-83i"; */
 "Et8-yg-83i.segmentTitles[0]" = "Info";
 
 /* Class = "UISegmentedControl"; Et8-yg-83i.segmentTitles[1] = "Known For"; ObjectID = "Et8-yg-83i"; */
-"Et8-yg-83i.segmentTitles[1]" = "Filmographie";
-
-/* Class = "UILabel"; text = "Title"; ObjectID = "G51-Nb-QGH"; */
-"G51-Nb-QGH.text" = "Title";
+"Et8-yg-83i.segmentTitles[1]" = "Bekannt Für";
 
 /* Class = "UITabBarItem"; title = "Settings"; ObjectID = "IaM-OR-9yv"; */
 "IaM-OR-9yv.title" = "Einstellungen";
 
-/* Class = "UILabel"; text = "Label"; ObjectID = "Ohk-g4-ukn"; */
-"Ohk-g4-ukn.text" = "Label";
+/* Class = "UILabel"; text = "Label"; ObjectID = "NiP-eT-zcw"; */
+"NiP-eT-zcw.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Obb-g0-aNp"; */
+"Obb-g0-aNp.text" = "Label";
+
+/* Class = "UITableViewSection"; footerTitle = "Loaded data and images are saved in order to give you quicker results when searching the same data again. You can always delete this saved information to clear your disk space."; ObjectID = "PYf-lj-kgK"; */
+"PYf-lj-kgK.footerTitle" = "Geladene Daten und Bilder werden gespeichert, um bei erneuter Suche schneller Resultate zu liefern. Es ist immer möglich die gespeicherten Informationen von der Festplatte zu löschen.";
+
+/* Class = "UITableViewSection"; headerTitle = "Disk Space"; ObjectID = "PYf-lj-kgK"; */
+"PYf-lj-kgK.headerTitle" = "Speicher";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Q09-n9-daL"; */
+"Q09-n9-daL.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "QH8-4B-ige"; */
+"QH8-4B-ige.text" = "Label";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "RyI-IZ-de5"; */
 "RyI-IZ-de5.text" = "Label";
 
+/* Class = "UILabel"; text = "Label"; ObjectID = "Sae-4o-dH5"; */
+"Sae-4o-dH5.text" = "Label";
+
+/* Class = "UILabel"; text = "12"; ObjectID = "T7z-fv-tLv"; */
+"T7z-fv-tLv.text" = "12";
+
 /* Class = "UITabBarItem"; title = "Discover"; ObjectID = "UMJ-Bd-Jj2"; */
 "UMJ-Bd-Jj2.title" = "Entdecken";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "VSj-N5-S4V"; */
+"VSj-N5-S4V.text" = "Label";
+
+/* Class = "UITableViewSection"; footerTitle = "If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing"; ObjectID = "Xr2-8A-ErL"; */
+"Xr2-8A-ErL.footerTitle" = "Wenn die Benachrichtigungen eingeschaltet sind, bekommst du immer eine Nachricht wenn neue Episoden deiner TV Serien starten";
+
+/* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "Xr2-8A-ErL"; */
+"Xr2-8A-ErL.headerTitle" = "Allgemein";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Yj9-6E-dEX"; */
+"Yj9-6E-dEX.text" = "Label";
+
+/* Class = "UILabel"; text = "Author"; ObjectID = "bOB-IF-wTE"; */
+"bOB-IF-wTE.text" = "Autor";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "beN-oX-cDU"; */
+"beN-oX-cDU.text" = "Label";
 
 /* Class = "UITabBarItem"; title = "Watchlist"; ObjectID = "cPa-gy-q4n"; */
 "cPa-gy-q4n.title" = "Deine Liste";
 
+/* Class = "UILabel"; text = "Cache"; ObjectID = "coX-rn-ATg"; */
+"coX-rn-ATg.text" = "Cache";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "cuF-1d-OCK"; */
 "cuF-1d-OCK.text" = "Label";
 
+/* Class = "UILabel"; text = "Label"; ObjectID = "d3x-wL-J7Y"; */
+"d3x-wL-J7Y.text" = "Label";
+
 /* Class = "UITabBarItem"; title = "Statistics"; ObjectID = "d72-RU-GRP"; */
-"d72-RU-GRP.title" = "Statistiken";
+"d72-RU-GRP.title" = "Statistik";
+
+/* Class = "UILabel"; text = "Version"; ObjectID = "dPK-gG-rob"; */
+"dPK-gG-rob.text" = "Version";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "e1D-z3-UBT"; */
+"e1D-z3-UBT.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "e9o-n6-26z"; */
+"e9o-n6-26z.text" = "Label";
 
 /* Class = "UILabel"; text = "Label"; ObjectID = "eK5-NB-Tqj"; */
 "eK5-NB-Tqj.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "eaC-gG-khV"; */
+"eaC-gG-khV.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hIM-Qh-fUM"; */
+"hIM-Qh-fUM.text" = "Label";
+
+/* Class = "UILabel"; text = "David Ehlen"; ObjectID = "hZ4-0U-7XT"; */
+"hZ4-0U-7XT.text" = "David Ehlen";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "iiX-tP-vNT"; */
+"iiX-tP-vNT.text" = "Detail";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "j3S-7M-Zle"; */
+"j3S-7M-Zle.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jVJ-M9-8SW"; */
+"jVJ-M9-8SW.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "kLi-7f-bPY"; */
+"kLi-7f-bPY.text" = "Label";
+
+/* Class = "UILabel"; text = "Info"; ObjectID = "lFG-sP-PdI"; */
+"lFG-sP-PdI.text" = "Info";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "lJ7-gT-mab"; */
+"lJ7-gT-mab.text" = "Detail";
+
+/* Class = "UILabel"; text = "This product uses the TMDb API but is not endorsed or certified by TMDb."; ObjectID = "mkK-ae-SKo"; */
+"mkK-ae-SKo.text" = "This product uses the TMDb API but is not endorsed or certified by TMDb.";
+
+/* Class = "UILabel"; text = "Image Quality"; ObjectID = "sa3-Mn-fGY"; */
+"sa3-Mn-fGY.text" = "Bild Qualität";
+
+/* Class = "UILabel"; text = "E-Mail"; ObjectID = "sbT-bH-nTN"; */
+"sbT-bH-nTN.text" = "E-Mail";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "szz-qg-aNk"; */
+"szz-qg-aNk.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "t2Z-DP-7MW"; */
+"t2Z-DP-7MW.text" = "Label";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "w9S-iX-nem"; */
+"w9S-iX-nem.text" = "Title";
+
+/* Class = "UILabel"; text = "Image Cache"; ObjectID = "wjI-ix-c6j"; */
+"wjI-ix-c6j.text" = "Bilder Cache";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "x0i-hi-u41"; */
+"x0i-hi-u41.text" = "Label";
+
+/* Class = "UILabel"; text = "Disk Space"; ObjectID = "xN5-7U-vqa"; */
+"xN5-7U-vqa.text" = "Speicher";
+
+/* Class = "UILabel"; text = "Clear Cache"; ObjectID = "xqL-as-kMB"; */
+"xqL-as-kMB.text" = "Cache leeren";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "y2J-6G-1uc"; */
+"y2J-6G-1uc.text" = "Label";

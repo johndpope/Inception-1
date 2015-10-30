@@ -2019,7 +2019,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Qualities" footerTitle="Set the image quality for cover images or the quality preferred for trailer videos" id="5dx-8U-xIu">
+                            <tableViewSection headerTitle="Quality" footerTitle="Set the image quality for cover images or the quality preferred for trailer videos" id="5dx-8U-xIu">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="sa3-Mn-fGY" style="IBUITableViewCellStyleDefault" id="K7J-Xw-h0c">
                                         <rect key="frame" x="0.0" y="463" width="600" height="44"/>
