@@ -2,7 +2,7 @@ PODS:
   - AIFlatSwitch (0.0.4)
   - Alamofire (2.0.2)
   - Charts (2.1.4)
-  - CVCalendar (1.2.6)
+  - JTCalendar (2.1.4)
   - Masonry (0.6.3)
   - SDWebImage (3.7.3):
     - SDWebImage/Core (= 3.7.3)
@@ -16,22 +16,17 @@ DEPENDENCIES:
   - AIFlatSwitch (~> 0.0.1)
   - Alamofire (~> 2.0)
   - Charts
-  - CVCalendar (from `https://github.com/dehlen/CVCalendar.git`)
+  - JTCalendar (~> 2.0)
   - SDWebImage (~> 3.7)
   - SKTagView
   - SwiftyJSON (from `https://github.com/SwiftyJSON/SwiftyJSON.git`)
   - XCDYouTubeKit (~> 2.3.1)
 
 EXTERNAL SOURCES:
-  CVCalendar:
-    :git: https://github.com/dehlen/CVCalendar.git
   SwiftyJSON:
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
 
 CHECKOUT OPTIONS:
-  CVCalendar:
-    :commit: 4fca3a1be26f3a680b59a7eb4a3763c44985c398
-    :git: https://github.com/dehlen/CVCalendar.git
   SwiftyJSON:
     :commit: 3b5d0d4e0c19173b1bf0dc823bde25ad870f70c0
     :git: https://github.com/SwiftyJSON/SwiftyJSON.git
@@ -40,7 +35,7 @@ SPEC CHECKSUMS:
   AIFlatSwitch: 30b67439ed2d695fdb81ec5ae26f0b004fa83c66
   Alamofire: 8edbab00802a752bb5240cc2abe70e7e881488ad
   Charts: 870589b6b4bf8468baacea8869c28983d71f602c
-  CVCalendar: 5cbaab87b85d9f770f1f4aa02f7110a853e41b7f
+  JTCalendar: 9b1352c7ec41cc26b19c189d6608ba48060a53d9
   Masonry: ff105a956abcd19a618b2028b121cb638d7a8e2f
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   SKTagView: 1e89c1ce2292cf890610901d3621c55d1ed82379

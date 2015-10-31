@@ -2223,7 +2223,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QualityTableViewCell" textLabel="w9S-iX-nem" style="IBUITableViewCellStyleDefault" id="hLH-c0-59Y">
                                 <rect key="frame" x="0.0" y="50" width="600" height="44"/>
@@ -2242,10 +2242,10 @@
                                         </label>
                                     </subviews>
                                     <animations/>
-                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </tableViewCellContentView>
                                 <animations/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -2411,7 +2411,7 @@
             </objects>
             <point key="canvasLocation" x="2190" y="3069"/>
         </scene>
-        <!--Calendar Appearance Delegate-->
+        <!--Upcoming Episodes Calendar View Controller-->
         <scene sceneID="eKs-xy-1Gf">
             <objects>
                 <viewController storyboardIdentifier="UpcomingEpisodesCalendarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="fxZ-hf-SO2" customClass="UpcomingEpisodesCalendarViewController" customModule="Inception" customModuleProvider="target" sceneMemberID="viewController">
@@ -2423,31 +2423,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WtS-eV-Y5q" customClass="CVCalendarMenuView" customModule="CVCalendar">
-                                <rect key="frame" x="0.0" y="64" width="600" height="30"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOU-Pd-HCJ" customClass="JTHorizontalCalendarView">
+                                <rect key="frame" x="0.0" y="64" width="600" height="70"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="RHf-w4-Evx"/>
+                                    <constraint firstAttribute="height" constant="70" id="t5N-k8-Az6"/>
                                 </constraints>
-                                <connections>
-                                    <outlet property="menuViewDelegate" destination="fxZ-hf-SO2" id="Nz8-PP-u2q"/>
-                                </connections>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOU-Pd-HCJ" customClass="CVCalendarView" customModule="CVCalendar">
-                                <rect key="frame" x="0.0" y="94" width="600" height="60"/>
-                                <animations/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="t5N-k8-Az6"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="calendarAppearanceDelegate" destination="fxZ-hf-SO2" id="gFj-X8-AQu"/>
-                                    <outlet property="calendarDelegate" destination="fxZ-hf-SO2" id="wXP-IH-vqK"/>
-                                </connections>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="83" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="WCj-4E-4f0">
-                                <rect key="frame" x="0.0" y="154" width="600" height="397"/>
+                                <rect key="frame" x="0.0" y="134" width="600" height="417"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -2519,21 +2504,17 @@
                         <animations/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="WtS-eV-Y5q" firstAttribute="top" secondItem="DSC-3K-O5v" secondAttribute="bottom" id="Azc-U1-4ib"/>
                             <constraint firstItem="WCj-4E-4f0" firstAttribute="top" secondItem="gOU-Pd-HCJ" secondAttribute="bottom" id="BKT-sg-ejA"/>
+                            <constraint firstItem="gOU-Pd-HCJ" firstAttribute="top" secondItem="DSC-3K-O5v" secondAttribute="bottom" id="FDx-9R-Xw8"/>
                             <constraint firstAttribute="trailing" secondItem="gOU-Pd-HCJ" secondAttribute="trailing" id="GZZ-gm-dFC"/>
                             <constraint firstItem="azF-iG-t6O" firstAttribute="top" secondItem="WCj-4E-4f0" secondAttribute="bottom" id="HGA-c5-fL2"/>
-                            <constraint firstItem="gOU-Pd-HCJ" firstAttribute="top" secondItem="WtS-eV-Y5q" secondAttribute="bottom" id="KKL-fo-Y13"/>
-                            <constraint firstAttribute="trailing" secondItem="WtS-eV-Y5q" secondAttribute="trailing" id="T3P-Ol-Etu"/>
                             <constraint firstAttribute="trailing" secondItem="WCj-4E-4f0" secondAttribute="trailing" id="TBk-xw-A7O"/>
                             <constraint firstItem="WCj-4E-4f0" firstAttribute="leading" secondItem="CeB-jU-0EL" secondAttribute="leading" id="Wne-4M-JkO"/>
-                            <constraint firstItem="WtS-eV-Y5q" firstAttribute="leading" secondItem="CeB-jU-0EL" secondAttribute="leading" id="hIc-6g-BUn"/>
                             <constraint firstItem="gOU-Pd-HCJ" firstAttribute="leading" secondItem="CeB-jU-0EL" secondAttribute="leading" id="uzB-gh-6e3"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="calendarView" destination="gOU-Pd-HCJ" id="4m0-0g-ilo"/>
-                        <outlet property="menuView" destination="WtS-eV-Y5q" id="LWa-bC-M4X"/>
+                        <outlet property="calendarView" destination="gOU-Pd-HCJ" id="b6L-Tx-Knb"/>
                         <outlet property="tableView" destination="WCj-4E-4f0" id="Aq3-5Z-wQC"/>
                     </connections>
                 </viewController>

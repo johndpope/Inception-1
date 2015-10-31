@@ -14,12 +14,12 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CVCalendar.xcscheme</key>
+		<key>Charts.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Charts.xcscheme</key>
+		<key>JTCalendar.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,17 +57,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>3EF4536DA28A5A58708EAD02F7B5C530</key>
+		<key>06658F6983CF2165D42934BEC172B367</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3FD8B12989CB2472BB6ED2C06D8A4C31</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4580366111438C24BD84C4C3D6077C86</key>
+		<key>39B5CF86C5D5526023BFA614CD6D37DC</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,7 +72,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>97620DD8137AE275184A9DBB22543180</key>
+		<key>84A59BE6391260DA073834905A110BB5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -87,12 +82,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA14B622689766F6B8A4F42FD9DE552F</key>
+		<key>BA367D4FAFCCF41E77D7DBAFE08E3578</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>BA367D4FAFCCF41E77D7DBAFE08E3578</key>
+		<key>CE0AE99234319595D204C4EB9F654497</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -102,7 +97,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FCA3902C2D566A601AA0EA04DB76754B</key>
+		<key>F3E8A0551CEF0E7212D62D7F925F20AD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FC24457E716249720DF258F7FAAAA29C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

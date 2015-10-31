@@ -9,7 +9,7 @@ pod 'SDWebImage', '~>3.7'
 pod "XCDYouTubeKit", "~> 2.3.1"
 pod "SKTagView"
 pod 'AIFlatSwitch', '~> 0.0.1'
-pod 'CVCalendar', :git => 'https://github.com/dehlen/CVCalendar.git'
+pod 'JTCalendar', '~> 2.0'
 pod 'Charts'
 end
 

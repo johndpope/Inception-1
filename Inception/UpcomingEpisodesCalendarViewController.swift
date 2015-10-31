@@ -7,13 +7,15 @@
 //
 
 import UIKit
-import CVCalendar
+import JTCalendar
 
 class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var calendarView: CVCalendarView!
-    @IBOutlet weak var menuView: CVCalendarMenuView!
+    @IBOutlet weak var calendarView: JTHorizontalCalendarView!
+    
+    var calendarManager = JTCalendarManager()
+    var selectedDate = NSDate()
     
     struct UpcomingEpisode {
         var episodeName: String
@@ -34,16 +36,13 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.title = "upcomingEpisodes".localized
         self.loadAllData()
+        self.setupCalendar()
         self.loadEntriesForDate(NSDate())
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-
-        calendarView.commitCalendarViewUpdate()
-        menuView.commitMenuViewUpdate()
+    override func viewWillAppear(animated: Bool) {
+        self.updateMonthText()
     }
     
     override func didReceiveMemoryWarning() {

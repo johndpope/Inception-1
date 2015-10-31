@@ -1,7 +1,6 @@
 Now:
 - watchlist:
 	- load changes and update core data model (for shows => new episodes,seasons)
-	- calendar fix warnings and add landscape support
 
 To Consider:
 - maybe use language parameter in api calls
