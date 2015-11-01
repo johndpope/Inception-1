@@ -26,7 +26,6 @@ extension EpisodeGuideViewController : UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        let originalLabelHeight:CGFloat = 35.0
         let cellHeight:CGFloat = 80.0
         var text = ""
         if let season = self.seasons.seasonWithNumber(self.selectedSeasonNumber) {
@@ -40,7 +39,7 @@ extension EpisodeGuideViewController : UITableViewDelegate, UITableViewDataSourc
         if let selectedIndexPath = self.selectedIndexPath {
             if indexPath == selectedIndexPath && text.characters.count > 0 {
                 //120: 96 image width + 16 leading + 8 trailing space
-                return cellHeight-originalLabelHeight+UILabelHelper.heightForView(text, font: UIFont.systemFontOfSize(14), width: self.view.bounds.size.width-120)
+                return cellHeight+UILabelHelper.heightForView(text, font: UIFont.systemFontOfSize(14), width: self.view.bounds.size.width-120)
             }
         }
         return cellHeight
