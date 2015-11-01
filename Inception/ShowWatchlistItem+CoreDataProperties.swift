@@ -16,6 +16,7 @@ extension ShowWatchlistItem {
 
     @NSManaged var episodeRuntime:NSNumber?
     @NSManaged var id: NSNumber?
+    @NSManaged var lastUpdated:NSDate
     @NSManaged var name: String?
     @NSManaged var posterPath: String?
     @NSManaged var year: NSNumber?

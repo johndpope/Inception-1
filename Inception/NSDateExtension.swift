@@ -28,9 +28,18 @@ extension NSDate {
         return (comps1.day == comps2.day) && (comps1.month == comps2.month) && (comps1.year == comps2.year)
     }
     
+    var isToday:Bool {
+        return NSDate.isSameDay(self, date2: NSDate())
+    }
+    
     var string:String {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
         return dateFormatter.stringFromDate(self)
+    }
+    
+    var olderThan2Weeks:Bool {
+        let components = NSCalendar.currentCalendar().components(.Day, fromDate: self, toDate: NSDate(), options: [])
+        return components.day+1 > 14
     }
 }

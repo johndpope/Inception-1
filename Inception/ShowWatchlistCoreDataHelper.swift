@@ -30,13 +30,14 @@ class ShowWatchlistCoreDataHelper {
         return shows
     }
     
-    func insertShowItem(id:Int, name:String?, year:Int?, posterPath:String?) {
+    func insertShowItem(id:Int, name:String?, year:Int?, posterPath:String?, lastUpdated:NSDate) {
         
         let newEntity = NSEntityDescription.insertNewObjectForEntityForName(kShowWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! ShowWatchlistItem
         newEntity.id = id
         newEntity.name = name
         newEntity.year = year
         newEntity.posterPath = posterPath
+        newEntity.lastUpdated = lastUpdated
         newEntity.seasons = nil
         //save first to update all the states, later seasons will be loaded async
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
@@ -49,6 +50,50 @@ class ShowWatchlistCoreDataHelper {
             }
         }
      }
+    
+    func insertSeason(id:Int, seasonNumber:Int?, show:ShowWatchlistItem, episodes:[EpisodeWatchlistItem]?) {
+        
+        let watchlistSeason = NSEntityDescription.insertNewObjectForEntityForName(self.kSeasonWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! SeasonWatchlistItem
+        watchlistSeason.id = id
+        watchlistSeason.seasonNumber = seasonNumber
+        watchlistSeason.show = show
+        if episodes != nil {
+            watchlistSeason.episodes = NSOrderedSet(array:episodes!)
+        }
+        
+        if let seasons = show.seasons {
+            let mutableSeasons = seasons.mutableCopy() as! NSMutableOrderedSet
+            mutableSeasons.addObject(watchlistSeason)
+            show.seasons = mutableSeasons.copy() as? NSOrderedSet
+        }
+        else {
+            show.seasons = NSOrderedSet(array: [watchlistSeason])
+        }
+        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+    }
+    
+    func insertEpisode(season:SeasonWatchlistItem, id:Int, title:String?, stillPath:String?, episodeNumber:Int?, overview:String?, airDate:String?) {
+        
+        let watchlistEpisode = NSEntityDescription.insertNewObjectForEntityForName(self.kEpisodeWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! EpisodeWatchlistItem
+        watchlistEpisode.name = title
+        watchlistEpisode.id = id
+        watchlistEpisode.posterPath = stillPath
+        watchlistEpisode.episodeNumber = episodeNumber
+        watchlistEpisode.overview = overview
+        watchlistEpisode.airDate = airDate
+        watchlistEpisode.season = season
+        watchlistEpisode.seen = false
+        
+        if let episodes = season.episodes {
+            let mutableEpisodes = episodes.mutableCopy() as! NSMutableOrderedSet
+            mutableEpisodes.addObject(watchlistEpisode)
+            season.episodes = mutableEpisodes.copy() as? NSOrderedSet
+        }
+        else {
+            season.episodes = NSOrderedSet(array: [watchlistEpisode])
+        }
+        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+    }
     
     private func loadSeasons(id:Int,watchlistShow:ShowWatchlistItem,completionClosure:[SeasonWatchlistItem] -> ()) {
         APIController.request(APIEndpoints.Show(id)) { (data:AnyObject?, error:NSError?) in
