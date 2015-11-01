@@ -27,6 +27,7 @@
     <entity name="ShowWatchlistItem" representedClassName=".ShowWatchlistItem" syncable="YES">
         <attribute name="episodeRuntime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastUpdated" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -36,6 +37,6 @@
         <element name="EpisodeWatchlistItem" positionX="378" positionY="-18" width="128" height="163"/>
         <element name="MovieWatchlistItem" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="SeasonWatchlistItem" positionX="232" positionY="-18" width="128" height="103"/>
-        <element name="ShowWatchlistItem" positionX="79" positionY="-18" width="128" height="133"/>
+        <element name="ShowWatchlistItem" positionX="79" positionY="-18" width="128" height="148"/>
     </elements>
 </model>
