@@ -27,6 +27,11 @@ class EpisodeGuideWatchlistViewController: UIViewController {
         self.tableView.tableFooterView = UIView(frame:CGRectZero)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.seasonNavigator.reloadData()
+        self.tableView.reloadData()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         CacheFactory.clearAllCaches()
