@@ -51,7 +51,7 @@ class ShowWatchlistCoreDataHelper {
         }
      }
     
-    func insertSeason(id:Int, seasonNumber:Int?, show:ShowWatchlistItem, episodes:[EpisodeWatchlistItem]?) {
+    func insertSeason(id:Int, seasonNumber:Int?, show:ShowWatchlistItem, episodes:[EpisodeWatchlistItem]?) -> SeasonWatchlistItem {
         
         let watchlistSeason = NSEntityDescription.insertNewObjectForEntityForName(self.kSeasonWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! SeasonWatchlistItem
         watchlistSeason.id = id
@@ -70,6 +70,8 @@ class ShowWatchlistCoreDataHelper {
             show.seasons = NSOrderedSet(array: [watchlistSeason])
         }
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+        
+        return watchlistSeason
     }
     
     func insertEpisode(season:SeasonWatchlistItem, id:Int, title:String?, stillPath:String?, episodeNumber:Int?, overview:String?, airDate:String?) {

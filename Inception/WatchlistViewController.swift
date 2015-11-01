@@ -14,6 +14,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     var shows:[ShowWatchlistItem] = []
     let coreDataHelper = MovieWatchlistCoreDataHelper()
     let showCoreDataHelper = ShowWatchlistCoreDataHelper()
+    let showUpdater = ShowUpdater()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl:UISegmentedControl!
@@ -24,6 +25,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         self.title = "watchlist".localized
         tableView.tableFooterView  = UIView(frame:CGRectZero)
         showCoreDataHelper.delegate = self
+        self.showUpdater.updateFrom(self)
     }
     
     override func viewDidAppear(animated: Bool) {
