@@ -49,7 +49,13 @@ class JSONParser {
             for i in 0..<results.count {
                 if let mediaType = json["cast"][i]["media_type"].string {
                     let multiSearchResult = MultiSearchResult(mediaType: mediaType,json:json["cast"][i])
-                    parsedResults.append(multiSearchResult)
+                    if let id = multiSearchResult.id {
+                        let duplicates = parsedResults.filter { $0.id == id }
+                        if duplicates.isEmpty {
+                            parsedResults.append(multiSearchResult)
+                        }
+                    }
+                    
                 }
             }
         }
@@ -58,7 +64,12 @@ class JSONParser {
             for i in 0..<results.count {
                 if let mediaType = json["crew"][i]["media_type"].string {
                     let multiSearchResult = MultiSearchResult(mediaType: mediaType,json:json["crew"][i])
-                    parsedResults.append(multiSearchResult)
+                    if let id = multiSearchResult.id {
+                        let duplicates = parsedResults.filter { $0.id == id }
+                        if duplicates.isEmpty {
+                            parsedResults.append(multiSearchResult)
+                        }
+                    }
                 }
             }
         }
