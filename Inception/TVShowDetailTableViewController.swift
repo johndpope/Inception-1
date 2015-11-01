@@ -61,6 +61,12 @@ class TVShowDetailTableViewController: UITableViewController {
         self.updateBarButtonColor()
     }
     
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        coordinator.animateAlongsideTransition(nil, completion: { _ in
+            self.updateHeaderView()
+        })
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

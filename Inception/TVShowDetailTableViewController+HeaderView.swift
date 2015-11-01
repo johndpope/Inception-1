@@ -44,7 +44,6 @@ extension TVShowDetailTableViewController {
     }
     
     //MARK: - UIScrollView
-    
     override func scrollViewDidScroll(scrollView: UIScrollView) {
         updateHeaderView()
     }

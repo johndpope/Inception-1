@@ -497,7 +497,13 @@
                                 <constraint firstAttribute="trailing" secondItem="fOZ-UY-GB3" secondAttribute="trailing" id="eF2-oe-VII"/>
                                 <constraint firstItem="CuC-nk-IVL" firstAttribute="centerX" secondItem="fOZ-UY-GB3" secondAttribute="centerX" id="oxe-YC-pxU"/>
                                 <constraint firstItem="fOZ-UY-GB3" firstAttribute="top" secondItem="xh8-CI-tHL" secondAttribute="top" id="xpD-tZ-9rq"/>
+                                <constraint firstItem="fOZ-UY-GB3" firstAttribute="top" secondItem="xh8-CI-tHL" secondAttribute="top" id="xru-rd-PVO"/>
                             </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="xpD-tZ-9rq"/>
+                                </mask>
+                            </variation>
                         </view>
                         <view key="tableFooterView" contentMode="scaleToFill" id="6dC-ZZ-fIC">
                             <rect key="frame" x="0.0" y="405" width="600" height="281"/>
