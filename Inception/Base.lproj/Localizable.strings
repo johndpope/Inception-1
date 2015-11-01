@@ -62,8 +62,8 @@
 "quality" = "Quality";
 "imageQuality" = "Image Quality";
 "videoQuality" = "Video Quality";
-"good" = "Good";
-"better" = "Better";
-"best" = "Best";
+"hd" = "HD 720p";
+"medium" = "Medium 360p";
+"small" = "Small 240p";
 "compressed" = "Compressed";
 "original" = "Original";
