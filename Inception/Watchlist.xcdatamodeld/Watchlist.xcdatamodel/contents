@@ -3,7 +3,7 @@
     <entity name="EpisodeWatchlistItem" representedClassName=".EpisodeWatchlistItem" syncable="YES">
         <attribute name="airDate" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="episodeNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
@@ -19,14 +19,14 @@
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
     </entity>
     <entity name="SeasonWatchlistItem" representedClassName=".SeasonWatchlistItem" syncable="YES">
-        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="seasonNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EpisodeWatchlistItem" inverseName="season" inverseEntity="EpisodeWatchlistItem" syncable="YES"/>
         <relationship name="show" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShowWatchlistItem" inverseName="seasons" inverseEntity="ShowWatchlistItem" syncable="YES"/>
     </entity>
     <entity name="ShowWatchlistItem" representedClassName=".ShowWatchlistItem" syncable="YES">
         <attribute name="episodeRuntime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="lastUpdated" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>

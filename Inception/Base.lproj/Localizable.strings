@@ -67,3 +67,7 @@
 "small" = "Small 240p";
 "compressed" = "Compressed";
 "original" = "Original";
+"couldNotUpdateMessage" = "Could not update your tracked TV Shows. You might want to check your network connection.";
+"updatingShows" = "Updating TV Shows ...";
+"dark" = "Dark";
+"light" = "Light";
