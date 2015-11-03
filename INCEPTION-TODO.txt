@@ -1,13 +1,18 @@
 Now:
-- Themes
-	- set all colors in all viewcontrollers when they are loaded + barStyle in app delegate for navigationbar and tabbar
 - app icon : https://dribbble.com/shots/1989971-App-Icon
-
+- readme
+- fastlane
+- refactoring
+- swift linter
+- tests (with coverage)
+- season navigator top and bottom padding (in episodeguide not correctly positioned and missing padding + watchlist correctly positionend but missing padding)
+- flash episodes are not loading (see on iphone, also why not updating ?)
 To Consider:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results
 	http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
 - consider pages for discover categories (to show more results) (maybe different layout ?)
-- implement 3d touch ?
+- implement 3d touch
 - delta load for tv show changes
+- primary tint color in light theme might be not readable => change color
 
