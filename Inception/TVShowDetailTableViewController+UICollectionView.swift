@@ -46,7 +46,7 @@ extension TVShowDetailTableViewController : UICollectionViewDataSource, UICollec
                 cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
             }
             else {
-                cell.coverImageView.image = UIImage(named: "placeholder-dark")
+                cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
             return cell
             
@@ -75,7 +75,7 @@ extension TVShowDetailTableViewController : UICollectionViewDataSource, UICollec
                 cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
             }
             else {
-                cell.coverImageView.image = UIImage(named: "placeholder-dark")
+                cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
             cell.textLabel.text = name
             cell.detailTextLabel.text = detailText

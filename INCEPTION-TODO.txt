@@ -1,6 +1,7 @@
 Now:
-- watchlist:
-	- load changes and update core data model (for shows => new episodes,seasons)
+- Themes
+	- set all colors in all viewcontrollers when they are loaded + barStyle in app delegate for navigationbar and tabbar
+- app icon : https://dribbble.com/shots/1989971-App-Icon
 
 To Consider:
 - maybe use language parameter in api calls
@@ -8,4 +9,5 @@ To Consider:
 	http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
 - consider pages for discover categories (to show more results) (maybe different layout ?)
 - implement 3d touch ?
+- delta load for tv show changes
 

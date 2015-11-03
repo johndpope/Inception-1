@@ -28,6 +28,7 @@ class EpisodeGuideWatchlistViewController: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         self.seasonNavigator.reloadData()
         self.tableView.reloadData()
     }

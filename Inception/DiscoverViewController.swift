@@ -27,6 +27,17 @@ class DiscoverViewControler : UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.popularViewContainer.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.topRatedViewContainner.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.genreViewContainer.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.inCinemaViewContainer.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+    }
+    
     @IBAction func segmentedControlChanged(sender: UISegmentedControl) {
         switch(sender.selectedSegmentIndex) {
         case 0:

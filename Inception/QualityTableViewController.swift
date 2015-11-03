@@ -31,6 +31,8 @@ class QualityTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
         if self.showsImageQuality {
            let storedQualityString = SettingsFactory.objectForKey(SettingsFactory.SettingKey.ImageQuality) as! String
             if let storedQuality = SettingsFactory.ImageQuality(rawValue: storedQualityString) {

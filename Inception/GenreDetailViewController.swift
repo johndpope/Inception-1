@@ -59,6 +59,16 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
         CacheFactory.clearAllCaches()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.collectionView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.activityIndicator.color = ThemeManager.sharedInstance.currentTheme.textColor
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+
+    }
     
     //MARK: - UICollectionView
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
@@ -74,6 +84,10 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
         }
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -86,7 +100,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
                 cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
             }
             else {
-              cell.coverImageView.image = UIImage(named: "placeholder-dark")
+              cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
         }
         else {
@@ -95,7 +109,7 @@ class GenreDetailViewController: UIViewController, UICollectionViewDelegate, UIC
                 cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
             }
             else {
-               cell.coverImageView.image = UIImage(named: "placeholder-dark")
+               cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
         }
         

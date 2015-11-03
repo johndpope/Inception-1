@@ -34,6 +34,19 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.reloadData()
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.activityIndicator.color = ThemeManager.sharedInstance.currentTheme.textColor
+        self.searchBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.searchBar.searchBarStyle = ThemeManager.sharedInstance.currentTheme.searchBarSearchStyle
+        self.searchBar.keyboardAppearance = ThemeManager.sharedInstance.currentTheme.keyboardAppearance
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -50,6 +63,13 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         return 1
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        (cell as! SearchTableViewCell).yearLabel.textColor = ThemeManager.sharedInstance.currentTheme.lightTextColor
+        (cell as! SearchTableViewCell).headingLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("SearchTableViewCell", forIndexPath: indexPath) as! SearchTableViewCell
         cell.yearLabel.text = ""
@@ -60,7 +80,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
         }
         else {
-            cell.coverImageView.image = UIImage(named: "placeholder-dark")
+            cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
         }
         if let year = self.results[indexPath.row].year {
             cell.yearLabel.text = "\(year)"

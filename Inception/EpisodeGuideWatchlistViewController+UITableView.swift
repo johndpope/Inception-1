@@ -84,7 +84,7 @@ extension EpisodeGuideWatchlistViewController : UITableViewDelegate, UITableView
                             cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
                         }
                         else {
-                            cell.coverImageView.image = UIImage(named: "placeholder-dark")
+                            cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
                         }
                         if let id = episode.id {
                             let seen = self.showCoreDataHelper.isEpisodeSeen(Int(id))

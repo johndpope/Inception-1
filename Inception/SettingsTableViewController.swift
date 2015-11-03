@@ -40,6 +40,13 @@ class SettingsTableViewController: UITableViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+    }
+    
     @IBAction func didChangeDate() {
         alarmDateLabel.text = NSDateFormatter.localizedStringFromDate(datePicker.date, dateStyle: .NoStyle, timeStyle: .ShortStyle)
         SettingsFactory.setObjectForKey(SettingsFactory.SettingKey.NotificationAlarmDate, value: datePicker.date)
@@ -104,6 +111,9 @@ class SettingsTableViewController: UITableViewController {
             case .VideoQuality :
                 let vc : QualityTableViewController = storyboard?.instantiateViewControllerWithIdentifier("QualityTableViewController") as! QualityTableViewController
                 vc.showsImageQuality = false
+                self.navigationController?.pushViewController(vc, animated: true)
+            case .Theme :
+                let vc : ThemeTableViewController = storyboard?.instantiateViewControllerWithIdentifier("ThemeTableViewController") as! ThemeTableViewController
                 self.navigationController?.pushViewController(vc, animated: true)
             default:
                 ()

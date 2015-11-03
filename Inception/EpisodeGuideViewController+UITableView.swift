@@ -75,7 +75,7 @@ extension EpisodeGuideViewController : UITableViewDelegate, UITableViewDataSourc
                     cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
                 }
                 else {
-                    cell.coverImageView.image = UIImage(named: "placeholder-dark")
+                    cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
                 }
             }
         }

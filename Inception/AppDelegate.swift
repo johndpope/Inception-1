@@ -18,15 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CacheFactory.setMaxImageCacheSize(200*1024*1024)
         SettingsFactory.registerDefaults()
         
-        let colorView = UIView()
-        colorView.backgroundColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
-        UITableViewCell.appearance().selectedBackgroundView = colorView
+        self.setTableViewSelectionColor()
+        UITabBar.appearance().barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
         
-    if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
+        if(UIApplication.instancesRespondToSelector(Selector("registerUserNotificationSettings:"))) {
             UIApplication.sharedApplication().registerUserNotificationSettings(UIUserNotificationSettings(forTypes: [.Alert, .Badge], categories: nil))
         }
         application.applicationIconBadgeNumber = 0
-
+        
         return true
     }
     
@@ -155,5 +154,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 abort()
             }
         }
+    }
+    
+    func setTableViewSelectionColor() {
+        let colorView = UIView()
+        colorView.backgroundColor = ThemeManager.sharedInstance.currentTheme.tableViewSelectionColor
+        UITableViewCell.appearance().selectedBackgroundView = colorView
     }
 }
