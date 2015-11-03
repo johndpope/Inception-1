@@ -179,9 +179,8 @@ class ShowWatchlistCoreDataHelper {
                     }
                 }
             }
-            return true
         }
-        return false
+        return true
     }
     
     func setShowSeenState(show:ShowWatchlistItem,seen:Bool) {
