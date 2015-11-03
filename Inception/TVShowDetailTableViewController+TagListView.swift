@@ -15,7 +15,8 @@ extension TVShowDetailTableViewController {
         cell.tagView.padding    = UIEdgeInsetsMake(2, 5, 2, 5)
         cell.tagView.insets    = 5
         cell.tagView.lineSpace = 10
-        
+        cell.tagView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+
         cell.tagView.removeAllTags()
         
         cell.tagView.didClickTagAtIndex = ({(index:UInt) in
@@ -35,11 +36,11 @@ extension TVShowDetailTableViewController {
                 for item in genres {
                     if let name = item.name {
                         let tag = SKTag(text:name)
-                        tag.textColor = UIColor.whiteColor()
+                        tag.textColor = ThemeManager.sharedInstance.currentTheme.textColor
                         tag.fontSize = 14
                         tag.padding = UIEdgeInsetsMake(6, 5, 6, 5)
                         tag.bgColor = UIColor.clearColor()
-                        tag.borderColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+                        tag.borderColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
                         tag.borderWidth = 1.0
                         tag.cornerRadius = 10
                         tag.enable = true

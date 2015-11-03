@@ -47,9 +47,12 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.horizontalBarChart.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -121,6 +124,13 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         else {
             return "shows".localized
         }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! StatsTableViewCell).keyLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        (cell as! StatsTableViewCell).valueLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

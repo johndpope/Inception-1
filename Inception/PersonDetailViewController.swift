@@ -45,6 +45,21 @@ class PersonDetailViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateTheming()
+    }
+    
+    func updateTheming() {
+        self.infoView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.nameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        self.activityIndicator.color = ThemeManager.sharedInstance.currentTheme.textColor
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,7 +68,7 @@ class PersonDetailViewController: UIViewController {
     
     func setupPersonImageView() {
         self.personImageView.layer.borderWidth = 1.0
-        self.personImageView.layer.borderColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0).CGColor
+        self.personImageView.layer.borderColor = ThemeManager.sharedInstance.currentTheme.tableViewSelectionColor.CGColor
         self.personImageView.layer.cornerRadius = self.personImageView.frame.size.width / 2
         self.personImageView.clipsToBounds = true
     }
@@ -68,10 +83,10 @@ class PersonDetailViewController: UIViewController {
             
             if person!.profilePath != nil {
                 let imageURL =  imageBaseURL.URLByAppendingPathComponent(person!.profilePath!)
-                self.personImageView.loadAndFadeWithImage(imageURL,placeholderImage:self.personImageView.imageWithString(personName, color: UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0), circular: true))
+                self.personImageView.loadAndFadeWithImage(imageURL,placeholderImage:self.personImageView.imageWithString(personName, color: ThemeManager.sharedInstance.currentTheme.primaryTintColor, circular: true))
             }
             else {
-                self.personImageView.image = self.personImageView.imageWithString(personName, color: UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0), circular: true)
+                self.personImageView.image = self.personImageView.imageWithString(personName, color: ThemeManager.sharedInstance.currentTheme.primaryTintColor, circular: true)
             }
             
             (self.tableDataKeys, self.tableData) = person!.tableData()

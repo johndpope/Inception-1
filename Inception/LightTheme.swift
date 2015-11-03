@@ -19,4 +19,8 @@ class LightTheme : Theme {
     var placeholderImageString = "placeholder-white"
     var tableViewSelectionColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.0)
     var navBarTranslucent = false
+    var darkerTextColor = UIColor(red: 142.0/255.0, green: 142.0/255.0, blue: 147.0/255.0, alpha: 1.0)
+    var seasonNavigatorBackgroundColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.0)
+    var trailStrokeColor = UIColor(red: 0.93, green: 0.93, blue: 0.93, alpha: 1.0)
+    var copyrightImageString = "tmdb-dark"
 }

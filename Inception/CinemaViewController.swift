@@ -29,6 +29,8 @@ class CinemaViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
         self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         self.collectionView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         self.activityIndicator.color = ThemeManager.sharedInstance.currentTheme.textColor

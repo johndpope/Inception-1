@@ -29,8 +29,6 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
     }
     
     override func viewDidAppear(animated: Bool) {
-        self.viewDidAppear(animated)
-        
         self.movies = coreDataHelper.moviesFromStore()
         self.shows = showCoreDataHelper.showsFromStore()
         self.showUpdater.updateFrom(self)
@@ -42,6 +40,8 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
 
         self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
     override func didReceiveMemoryWarning() {
@@ -93,6 +93,22 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
                 self.shows = showCoreDataHelper.showsFromStore()
             }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        }
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+
+        if self.segmentedControl.selectedSegmentIndex == 0 {
+            (cell as! MovieWatchlistTableViewCell).nameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+            (cell as! MovieWatchlistTableViewCell).yearLabel.textColor = ThemeManager.sharedInstance.currentTheme.lightTextColor
+            (cell as! MovieWatchlistTableViewCell).seenButton.trailStrokeColor = ThemeManager.sharedInstance.currentTheme.trailStrokeColor
+        }
+        else {
+            (cell as! ShowWatchlistTableViewCell).nameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+            (cell as! ShowWatchlistTableViewCell).yearLabel.textColor = ThemeManager.sharedInstance.currentTheme.lightTextColor
+            (cell as! ShowWatchlistTableViewCell).seenButton.trailStrokeColor = ThemeManager.sharedInstance.currentTheme.trailStrokeColor
         }
     }
     

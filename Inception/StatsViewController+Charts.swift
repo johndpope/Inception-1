@@ -23,14 +23,14 @@ extension StatsViewController : ChartViewDelegate {
         let xAxis = self.horizontalBarChart.xAxis
         xAxis.labelPosition = .Bottom
         xAxis.labelFont = UIFont.systemFontOfSize(10)
-        xAxis.labelTextColor = UIColor.whiteColor()
+        xAxis.labelTextColor = ThemeManager.sharedInstance.currentTheme.textColor
         xAxis.drawAxisLineEnabled = true
         xAxis.drawGridLinesEnabled = false
         xAxis.gridLineWidth = 0.0
         
         let yAxis = self.horizontalBarChart.leftAxis
         yAxis.labelFont = UIFont.systemFontOfSize(10)
-        yAxis.labelTextColor = UIColor.whiteColor()
+        yAxis.labelTextColor = ThemeManager.sharedInstance.currentTheme.textColor
         yAxis.labelPosition = .OutsideChart
         yAxis.drawAxisLineEnabled = false
         yAxis.drawGridLinesEnabled = false
@@ -42,7 +42,7 @@ extension StatsViewController : ChartViewDelegate {
         self.horizontalBarChart.legend.position = .BelowChartLeft
         self.horizontalBarChart.legend.form = .Circle
         self.horizontalBarChart.legend.formSize = 8.0
-        self.horizontalBarChart.legend.textColor = UIColor.whiteColor()
+        self.horizontalBarChart.legend.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         self.horizontalBarChart.legend.font = UIFont.systemFontOfSize(11)
         self.horizontalBarChart.legend.xEntrySpace = 4.0
         
@@ -57,10 +57,10 @@ extension StatsViewController : ChartViewDelegate {
         }
         let set = BarChartDataSet(yVals: yVals, label: "timeSpent".localized)
         set.barSpace = 0.2
-        set.colors = [UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)]
+        set.colors = [ThemeManager.sharedInstance.currentTheme.primaryTintColor]
         
         let barChartData = BarChartData(xVals: keyLabels, dataSet: set)
-        barChartData.setValueTextColor(UIColor.whiteColor())
+        barChartData.setValueTextColor(ThemeManager.sharedInstance.currentTheme.textColor)
         barChartData.setValueFont(UIFont.systemFontOfSize(14))
         barChartData.setDrawValues(false)
         self.horizontalBarChart.data = barChartData

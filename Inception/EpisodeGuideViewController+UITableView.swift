@@ -45,6 +45,16 @@ extension EpisodeGuideViewController : UITableViewDelegate, UITableViewDataSourc
         return cellHeight
     }
     
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        (cell as! EpisodeTableViewCell).titleLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        (cell as! EpisodeTableViewCell).overviewLabel.textColor = ThemeManager.sharedInstance.currentTheme.darkerTextColor
+        (cell as! EpisodeTableViewCell).votingLabel.textColor = ThemeManager.sharedInstance.currentTheme.darkerTextColor
+
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+    }
      func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EpisodeTableViewCell", forIndexPath: indexPath) as! EpisodeTableViewCell
         

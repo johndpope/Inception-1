@@ -17,7 +17,7 @@ class CreditsCollectionCell: UICollectionViewCell {
     override func awakeFromNib() {
         self.coverImageView.layer.borderWidth = 1.0
         
-        self.coverImageView.layer.borderColor = UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0).CGColor
+        self.coverImageView.layer.borderColor = ThemeManager.sharedInstance.currentTheme.tableViewSelectionColor.CGColor
         self.coverImageView.layer.cornerRadius = self.coverImageView.frame.size.width / 2
         self.coverImageView.clipsToBounds = true
     }

@@ -59,6 +59,16 @@ class TVShowDetailTableViewController: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.updateBarButtonColor()
+        self.updateTheming()
+    }
+    
+    func updateTheming() {
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.similarShowsCollectionView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.personCreditsCollectionView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.activityIndicator.color = ThemeManager.sharedInstance.currentTheme.textColor
+        self.footerView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
@@ -90,10 +100,10 @@ class TVShowDetailTableViewController: UITableViewController {
     func updateBarButtonColor() {
         if self.navigationItem.rightBarButtonItem != nil {
             if self.showCoreDataHelper.hasShow(self.show!.id!) {
-                self.navigationItem.rightBarButtonItem!.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+                self.navigationItem.rightBarButtonItem!.tintColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
             }
             else {
-                self.navigationItem.rightBarButtonItem!.tintColor = UIColor.whiteColor()
+                self.navigationItem.rightBarButtonItem!.tintColor = ThemeManager.sharedInstance.currentTheme.textColor
             }
         }
     }
@@ -102,7 +112,7 @@ class TVShowDetailTableViewController: UITableViewController {
         let show = self.show!
         if self.showCoreDataHelper.hasShow(show.id!) {
             self.showCoreDataHelper.removeShowWithId(show.id!)
-            sender.tintColor = UIColor.whiteColor()
+            sender.tintColor = ThemeManager.sharedInstance.currentTheme.textColor
         }
         else {
             var year:Int? = nil
@@ -111,7 +121,7 @@ class TVShowDetailTableViewController: UITableViewController {
             }
            
             self.showCoreDataHelper.insertShowItem(show.id!, name: show.title, year: year, posterPath: show.posterPath,lastUpdated: NSDate())
-            sender.tintColor = UIColor(red: 1.0, green: 222.0/255.0, blue: 96.0/255.0, alpha: 1.0)
+            sender.tintColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         }
     }
     
@@ -225,6 +235,24 @@ class TVShowDetailTableViewController: UITableViewController {
                     vc.showId = id
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
+            }
+        }
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        let key = self.tableDataKeys[indexPath.row]
+        if key == "overview".localized {
+            (cell as! OverviewTableViewCell).overviewLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        }
+        else if key == "showSeasons".localized {
+            (cell as! EpisodeGuideTableViewCell).mainTextLabel.textColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+        }
+        else {
+            if key != "genres".localized {
+                (cell as! DetailTableViewCell).keyLabel.textColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+                (cell as! DetailTableViewCell).valueLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
             }
         }
     }

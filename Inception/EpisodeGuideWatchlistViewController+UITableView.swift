@@ -56,6 +56,15 @@ extension EpisodeGuideWatchlistViewController : UITableViewDelegate, UITableView
         return cellHeight
     }
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        (cell as! EpisodeWatchlistTableViewCell).titleLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        (cell as! EpisodeWatchlistTableViewCell).overviewLabel.textColor = ThemeManager.sharedInstance.currentTheme.darkerTextColor
+        (cell as! EpisodeWatchlistTableViewCell).seenButton.trailStrokeColor = ThemeManager.sharedInstance.currentTheme.trailStrokeColor
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("EpisodeWatchlistTableViewCell", forIndexPath: indexPath) as! EpisodeWatchlistTableViewCell
         if let show = self.showWatchlistItem {

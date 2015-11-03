@@ -22,7 +22,7 @@ class ShowUpdater {
         
         self.notification.notificationAnimationInStyle = CWNotificationAnimationStyle.Top
         self.notification.notificationAnimationOutStyle = CWNotificationAnimationStyle.Top
-        self.notification.notificationLabelBackgroundColor = UIColor(red:1.0,green:222.0/255.0,blue:96.0/255.0,alpha:1.0)
+        self.notification.notificationLabelBackgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         
         for show in showArray {
             if !show.lastUpdated.isToday {

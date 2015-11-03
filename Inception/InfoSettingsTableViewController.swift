@@ -11,6 +11,9 @@ import MessageUI
 
 class InfoSettingsTableViewController: UITableViewController,MFMailComposeViewControllerDelegate {
     @IBOutlet weak var versionLabel:UILabel!
+    @IBOutlet weak var footerView:UIView!
+    @IBOutlet weak var footerLabel:UILabel!
+    @IBOutlet weak var footerImageView:UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,28 @@ class InfoSettingsTableViewController: UITableViewController,MFMailComposeViewCo
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.updateTheming()
+    }
+    
+    func updateTheming() {
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.footerView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.footerLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        self.footerImageView.image = UIImage(named:ThemeManager.sharedInstance.currentTheme.copyrightImageString)
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.textLabel?.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
 
     // MARK: - Table view delegate

@@ -22,6 +22,11 @@ extension EpisodeGuideWatchlistViewController : UICollectionViewDelegate, UIColl
         return 0
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.seasonNavigatorBackgroundColor
+        cell.contentView.backgroundColor =  ThemeManager.sharedInstance.currentTheme.seasonNavigatorBackgroundColor
+    }
+    
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("SeasonNavigatorCollectionViewCell",
@@ -66,7 +71,7 @@ extension EpisodeGuideWatchlistViewController : UICollectionViewDelegate, UIColl
     
     func animateCellSelection(cell:SeasonNavigatorCollectionViewCell) {
         UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-            cell.roundedView.backgroundColor = UIColor(red:1.0,green:222.0/255.0,blue:96.0/255.0, alpha:1.0)
+            cell.roundedView.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
             }, completion: nil)
     }
 }

@@ -10,6 +10,20 @@ import UIKit
 
 extension PersonDetailViewController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        
+        if self.selectedSegmentIndex == 0 {
+            (cell as! PersonDetailTableViewCell).textLbl.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+            (cell as! PersonDetailTableViewCell).detailTextLbl.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+
+        }
+        else {
+            (cell as! KnownForTableViewCell).nameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        }
+    }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if self.selectedSegmentIndex == 0 {
             let cell = tableView.dequeueReusableCellWithIdentifier("PersonDetailTableViewCell", forIndexPath: indexPath) as! PersonDetailTableViewCell

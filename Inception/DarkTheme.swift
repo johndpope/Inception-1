@@ -19,4 +19,8 @@ class DarkTheme : Theme {
     var placeholderImageString = "placeholder-dark"
     var tableViewSelectionColor =  UIColor(red: 0.16, green: 0.16, blue: 0.16, alpha: 1.0)
     var navBarTranslucent = true
+    var darkerTextColor = UIColor.lightTextColor()
+    var seasonNavigatorBackgroundColor = UIColor.darkTextColor()
+    var trailStrokeColor = UIColor.whiteColor()
+    var copyrightImageString = "tmdb"
 }

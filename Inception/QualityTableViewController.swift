@@ -32,7 +32,7 @@ class QualityTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        self.updateTheming()
         if self.showsImageQuality {
            let storedQualityString = SettingsFactory.objectForKey(SettingsFactory.SettingKey.ImageQuality) as! String
             if let storedQuality = SettingsFactory.ImageQuality(rawValue: storedQualityString) {
@@ -50,6 +50,19 @@ class QualityTableViewController: UITableViewController {
             }
         }
         self.tableView.reloadData()
+    }
+        
+    func updateTheming() {
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.textLabel?.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
 
     override func didReceiveMemoryWarning() {

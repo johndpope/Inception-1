@@ -23,6 +23,15 @@ extension MovieDetailTableViewController : UICollectionViewDelegate, UICollectio
         }
     }
     
+    func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        
+        if collectionView == self.personCreditsCollectionView {
+            (cell as! CreditsCollectionCell).detailTextLabel.textColor = ThemeManager.sharedInstance.currentTheme.darkerTextColor
+            (cell as! CreditsCollectionCell).textLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        }
+    }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         

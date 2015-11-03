@@ -12,8 +12,9 @@ extension MovieDetailTableViewController {
 
     func setupHeaderView() {
         headerView = tableView.tableHeaderView
+        headerView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         headerMaskLayer =   CAShapeLayer()
-        headerMaskLayer.fillColor = UIColor.darkGrayColor().CGColor
+        headerMaskLayer.fillColor = ThemeManager.sharedInstance.currentTheme.backgroundColor.CGColor
         headerView.layer.mask = headerMaskLayer
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)

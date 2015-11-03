@@ -31,6 +31,15 @@ class EpisodeGuideWatchlistViewController: UIViewController {
         super.viewWillAppear(animated)
         self.seasonNavigator.reloadData()
         self.tableView.reloadData()
+        self.updateTheming()
+    }
+    
+    func updateTheming() {
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.seasonNavigator.backgroundColor = ThemeManager.sharedInstance.currentTheme.seasonNavigatorBackgroundColor
     }
     
     override func didReceiveMemoryWarning() {

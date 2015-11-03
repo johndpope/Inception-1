@@ -66,7 +66,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
-        (cell as! SearchTableViewCell).yearLabel.textColor = ThemeManager.sharedInstance.currentTheme.lightTextColor
+        (cell as! SearchTableViewCell).yearLabel.textColor = ThemeManager.sharedInstance.currentTheme.darkerTextColor
         (cell as! SearchTableViewCell).headingLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
     }
     
@@ -141,7 +141,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             self.movieCoreDataHelper.insertMovieItem(id, name: result.name, year: result.year, posterPath: result.imagePath,runtime:nil, seen: false)
                             tableView.setEditing(false, animated: true)
                         })
-                        watchlistAction.backgroundColor = UIColor(red: 227.0/255.0, green: 187.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+                        watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
                         actions.append(watchlistAction)
                     }
                 }
@@ -161,7 +161,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath,lastUpdated: NSDate())
                             tableView.setEditing(false, animated: true)
                         })
-                        watchlistAction.backgroundColor = UIColor(red: 227.0/255.0, green: 187.0/255.0, blue: 55.0/255.0, alpha: 1.0)
+                        watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
                         actions.append(watchlistAction)
                     }
                 }

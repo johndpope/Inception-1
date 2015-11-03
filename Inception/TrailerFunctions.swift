@@ -55,11 +55,12 @@ class TrailerFunctions {
     class func showTrailerActionSheet(videos:[Video], from:UIViewController) {
         let actionSheetController = DOAlertController(title: "trailer".localized, message: "chooseTrailer".localized, preferredStyle: .ActionSheet)
         
-        actionSheetController.alertViewBgColor = UIColor.darkTextColor()
-        actionSheetController.buttonTextColor[.Default] = UIColor(red:1.0, green:222.0/255.0, blue:96.0/255.0, alpha:1.0)
+        actionSheetController.alertViewBgColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        actionSheetController.buttonTextColor[.Default] = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         actionSheetController.buttonBgColor[.Default] = UIColor.clearColor()
         actionSheetController.buttonBgColorHighlighted[.Default] = UIColor.clearColor()
         actionSheetController.buttonBgColor[.Cancel] = UIColor.clearColor()
+        actionSheetController.buttonTextColor[.Cancel] = ThemeManager.sharedInstance.currentTheme.textColor
         actionSheetController.buttonBgColorHighlighted[.Cancel] = UIColor.clearColor()
         
         let cancelAction = DOAlertAction(title: "cancel".localized, style: .Cancel) { action -> Void in

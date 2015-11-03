@@ -43,13 +43,20 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        self.updateTheming()
         self.updateMonthText()
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func updateTheming() {
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
     func loadAllData() {
@@ -111,6 +118,14 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableEntries.count
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        (cell as! UpcomingEpisodesTableViewCell).episodeNameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        (cell as! UpcomingEpisodesTableViewCell).showNameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        (cell as! UpcomingEpisodesTableViewCell).dateLabel.textColor = ThemeManager.sharedInstance.currentTheme.darkerTextColor
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

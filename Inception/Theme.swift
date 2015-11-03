@@ -19,4 +19,8 @@ protocol Theme {
     var placeholderImageString:String {get}
     var tableViewSelectionColor:UIColor{get}
     var navBarTranslucent:Bool {get}
+    var darkerTextColor:UIColor {get}
+    var seasonNavigatorBackgroundColor:UIColor {get}
+    var trailStrokeColor:UIColor {get}
+    var copyrightImageString:String {get}
 }

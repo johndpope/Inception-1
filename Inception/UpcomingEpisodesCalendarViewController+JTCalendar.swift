@@ -44,21 +44,21 @@ extension UpcomingEpisodesCalendarViewController : JTCalendarDelegate {
         calDayView.hidden = false
        
         if calendarManager.dateHelper.date(NSDate(), isTheSameDayThan: calDayView.date) && !calendarManager.dateHelper.date(selectedDate, isTheSameDayThan: NSDate()){
-            calDayView.textLabel.textColor = UIColor(red:1.0, green:222.0/255.0, blue:96.0/255.0, alpha:1.0)
+            calDayView.textLabel.textColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
             calDayView.circleView.hidden = true
-            calDayView.dotView.backgroundColor = UIColor.whiteColor()
+            calDayView.dotView.backgroundColor = ThemeManager.sharedInstance.currentTheme.textColor
         }
         
        else if calendarManager.dateHelper.date(selectedDate, isTheSameDayThan: calDayView.date) {
             calDayView.circleView.hidden = false
-            calDayView.circleView.backgroundColor = UIColor(red:1.0, green:222.0/255.0, blue:96.0/255.0, alpha:1.0)
-            calDayView.dotView.backgroundColor = UIColor.whiteColor()
-            calDayView.textLabel.textColor = UIColor.whiteColor()
+            calDayView.circleView.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+            calDayView.dotView.backgroundColor = ThemeManager.sharedInstance.currentTheme.textColor
+            calDayView.textLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         }
        else {
             calDayView.circleView.hidden = true
-            calDayView.dotView.backgroundColor = UIColor.whiteColor()
-            calDayView.textLabel.textColor = UIColor.whiteColor()
+            calDayView.dotView.backgroundColor = ThemeManager.sharedInstance.currentTheme.textColor
+            calDayView.textLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         }
         
         if self.hasEntryForDate(calDayView.date) {
@@ -74,7 +74,7 @@ extension UpcomingEpisodesCalendarViewController : JTCalendarDelegate {
         let view = JTCalendarWeekDayView()
         for view in view.dayViews {
             let label = view as! UILabel
-            label.textColor = UIColor.darkGrayColor()
+            label.textColor = ThemeManager.sharedInstance.currentTheme.textColor
             label.font = UIFont(name: "Avenir", size: 10)
         }
         return view

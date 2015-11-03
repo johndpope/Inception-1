@@ -13,6 +13,7 @@ class SettingsTableViewController: UITableViewController {
     @IBOutlet weak var alarmDateLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notificationSwitch:UISwitch!
+    @IBOutlet weak var notificationLabel: UILabel!
     
     private var datePickerHidden = false
     
@@ -22,7 +23,6 @@ class SettingsTableViewController: UITableViewController {
         self.title = "settings".localized;
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         
-        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
         self.notificationSwitch.on = SettingsFactory.boolForKey(SettingsFactory.SettingKey.Notifications)!
         self.datePicker.date = SettingsFactory.objectForKey(SettingsFactory.SettingKey.NotificationAlarmDate) as! NSDate
         self.didChangeDate()
@@ -42,9 +42,14 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        self.tableView.reloadData()
+        
         self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+        self.alarmDateLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        datePicker.setValue(ThemeManager.sharedInstance.currentTheme.textColor, forKeyPath: "textColor")
+        self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
     @IBAction func didChangeDate() {
@@ -79,6 +84,19 @@ class SettingsTableViewController: UITableViewController {
     func triggerTableViewUpdate() {
         self.tableView.beginUpdates()
         self.tableView.endUpdates()
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        
+        let row = SettingsRow(indexPath: indexPath)
+        if row == SettingsRow.NotificationSwitch {
+            self.notificationLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        }
+        else {
+            cell.textLabel?.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        }
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
