@@ -19,7 +19,6 @@ class TrailerFunctions {
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(identifier) { [weak playerViewController] (video: XCDYouTubeVideo?, error: NSError?) in
             let videoURL = TrailerFunctions.streamURL(video)
             if videoURL != nil {
-                print(videoURL)
                 playerViewController?.player = AVPlayer(URL: videoURL!)
                 playerViewController?.showsPlaybackControls = true
                 playerViewController?.player?.play()
