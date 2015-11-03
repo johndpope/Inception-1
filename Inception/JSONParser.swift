@@ -73,8 +73,8 @@ class JSONParser {
                 }
             }
         }
-
-        return parsedResults
+        //Sort after year
+        return parsedResults.sort { $0.year > $1.year }
     }
     
     //MARK: Genres
