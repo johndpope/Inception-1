@@ -55,8 +55,8 @@
 "hasNewEpisode" = "hat eine neue Episode !";
 "thereIsANewEpisode" = "Es ist eine neue Episode verfügbar !";
 "upcomingEpisodes" = "Kommende Episoden";
-"noSeenMovies" = "Gespeicherte Filme";
-"noSeenShows" = "Gespeicherte TV Serien";
+"noTrackedMovies" = "Gespeicherte Filme";
+"noTrackedShows" = "Gespeicherte TV Serien";
 "noSeenEpisodes" = "Gesehene Episoden";
 "timeSpent" = "Verbrachte Zeit (min)";
 "quality" = "Qualität";

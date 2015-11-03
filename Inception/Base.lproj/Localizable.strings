@@ -55,8 +55,8 @@
 "hasNewEpisode" = "has a new episode !";
 "thereIsANewEpisode" = "There is a new episode available !";
 "upcomingEpisodes" = "Upcoming Episodes";
-"noSeenMovies" = "Tracked Movies";
-"noSeenShows" = "Tracked TV Shows";
+"noTrackedMovies" = "Tracked Movies";
+"noTrackedShows" = "Tracked TV Shows";
 "noSeenEpisodes" = "Seen Episodes";
 "timeSpent" = "Time Spent (min)";
 "quality" = "Quality";
