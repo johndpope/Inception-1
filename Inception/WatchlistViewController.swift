@@ -8,14 +8,14 @@
 
 import UIKit
 
-class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,ShowWatchlistCoreDataHelperDelegate {
+class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,ShowWatchlistCoreDataHelperDelegate, ShowUpdaterDelegate {
     
     var movies:[MovieWatchlistItem] = []
     var shows:[ShowWatchlistItem] = []
     let coreDataHelper = MovieWatchlistCoreDataHelper()
     let showCoreDataHelper = ShowWatchlistCoreDataHelper()
     let showUpdater = ShowUpdater()
-    
+
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl:UISegmentedControl!
     
@@ -25,13 +25,23 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         self.title = "watchlist".localized
         tableView.tableFooterView  = UIView(frame:CGRectZero)
         showCoreDataHelper.delegate = self
-        self.showUpdater.updateFrom(self)
+        showUpdater.delegate = self
     }
     
     override func viewDidAppear(animated: Bool) {
+        self.viewDidAppear(animated)
+        
         self.movies = coreDataHelper.moviesFromStore()
         self.shows = showCoreDataHelper.showsFromStore()
+        self.showUpdater.updateFrom(self)
         self.tableView.reloadData()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
     }
     
     override func didReceiveMemoryWarning() {
@@ -43,6 +53,11 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         self.shows = showCoreDataHelper.showsFromStore()
         self.tableView.reloadData()
         
+    }
+    
+    func didUpdateShows() {
+        self.shows = showCoreDataHelper.showsFromStore()
+        self.tableView.reloadData()
     }
     
     @IBAction func changedSegment() {
@@ -102,7 +117,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
                 cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
             }
             else {
-                cell.coverImageView.image = UIImage(named: "placeholder-dark")
+                cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
             
             if let seen = self.movies[indexPath.row].seen {
@@ -133,7 +148,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
                 cell.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
             }
             else {
-                cell.coverImageView.image = UIImage(named: "placeholder-dark")
+                cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
             
             let seen = self.showCoreDataHelper.isShowSeen(self.shows[indexPath.row])
