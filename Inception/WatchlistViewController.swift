@@ -104,11 +104,13 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
             (cell as! MovieWatchlistTableViewCell).nameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
             (cell as! MovieWatchlistTableViewCell).yearLabel.textColor = ThemeManager.sharedInstance.currentTheme.lightTextColor
             (cell as! MovieWatchlistTableViewCell).seenButton.trailStrokeColor = ThemeManager.sharedInstance.currentTheme.trailStrokeColor
+            (cell as! MovieWatchlistTableViewCell).seenButton.strokeColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         }
         else {
             (cell as! ShowWatchlistTableViewCell).nameLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
             (cell as! ShowWatchlistTableViewCell).yearLabel.textColor = ThemeManager.sharedInstance.currentTheme.lightTextColor
             (cell as! ShowWatchlistTableViewCell).seenButton.trailStrokeColor = ThemeManager.sharedInstance.currentTheme.trailStrokeColor
+            (cell as! ShowWatchlistTableViewCell).seenButton.strokeColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         }
     }
     

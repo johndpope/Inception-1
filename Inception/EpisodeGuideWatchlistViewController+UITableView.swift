@@ -61,6 +61,7 @@ extension EpisodeGuideWatchlistViewController : UITableViewDelegate, UITableView
         (cell as! EpisodeWatchlistTableViewCell).titleLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         (cell as! EpisodeWatchlistTableViewCell).overviewLabel.textColor = ThemeManager.sharedInstance.currentTheme.darkerTextColor
         (cell as! EpisodeWatchlistTableViewCell).seenButton.trailStrokeColor = ThemeManager.sharedInstance.currentTheme.trailStrokeColor
+        (cell as! EpisodeWatchlistTableViewCell).seenButton.strokeColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
