@@ -63,9 +63,9 @@ class MovieDetailTableViewController: UITableViewController {
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        coordinator.animateAlongsideTransition(nil, completion: { _ in
-            self.updateHeaderView()
-        })
+        coordinator.animateAlongsideTransition({ context in
+                self.updateHeaderView()
+            }, completion: nil)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -164,7 +164,7 @@ class MovieDetailTableViewController: UITableViewController {
                 self.coverImageView.loadAndFade(imageURL, placeholderImage: "placeholder-alpha")
             }
             else {
-                self.coverImageView.image = UIImage(named: "placeholder-dark")
+                self.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
             
             (self.tableDataKeys, self.tableData) = movie!.tableData()

@@ -13,7 +13,7 @@ extension TVShowDetailTableViewController {
     func setupHeaderView() {
         headerView = tableView.tableHeaderView
         headerMaskLayer =   CAShapeLayer()
-        headerMaskLayer.fillColor = UIColor.blackColor().CGColor
+        headerMaskLayer.fillColor = UIColor.darkGrayColor().CGColor
         headerView.layer.mask = headerMaskLayer
         tableView.tableHeaderView = nil
         tableView.addSubview(headerView)
