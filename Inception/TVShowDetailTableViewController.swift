@@ -33,6 +33,12 @@ class TVShowDetailTableViewController: UITableViewController {
     
     let showCoreDataHelper = ShowWatchlistCoreDataHelper()
     
+    enum Key:String {
+        case Overview = "overview"
+        case Genres = "genres"
+        case ShowSeasons = "showSeasons"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -227,7 +233,7 @@ class TVShowDetailTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        if self.tableDataKeys[indexPath.row] == "showSeasons".localized {
+        if self.tableDataKeys[indexPath.row] == Key.ShowSeasons.rawValue.localized {
             if let show = self.show {
                 if let id = show.id {
                     let vc : EpisodeGuideViewController = self.storyboard?.instantiateViewControllerWithIdentifier("EpisodeGuideViewController") as! EpisodeGuideViewController
@@ -243,14 +249,14 @@ class TVShowDetailTableViewController: UITableViewController {
         cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         let key = self.tableDataKeys[indexPath.row]
-        if key == "overview".localized {
+        if key ==  Key.Overview.rawValue.localized {
             (cell as! OverviewTableViewCell).overviewLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         }
-        else if key == "showSeasons".localized {
+        else if key ==  Key.ShowSeasons.rawValue.localized {
             (cell as! EpisodeGuideTableViewCell).mainTextLabel.textColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         }
         else {
-            if key != "genres".localized {
+            if key != Key.Genres.rawValue.localized {
                 (cell as! DetailTableViewCell).keyLabel.textColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
                 (cell as! DetailTableViewCell).valueLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
             }
@@ -259,21 +265,21 @@ class TVShowDetailTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let key = self.tableDataKeys[indexPath.row]
-        if key == "overview".localized {
+        if key ==  Key.Overview.rawValue.localized {
             let cell = tableView.dequeueReusableCellWithIdentifier("TVShowOverviewTableViewCell", forIndexPath: indexPath) as! OverviewTableViewCell
             cell.overviewLabel.text = self.tableData[indexPath.row]
             return cell
         }
             
-        else if key == "genres".localized {
+        else if key ==  Key.Genres.rawValue.localized {
             let cell = tableView.dequeueReusableCellWithIdentifier("TVShowGenreTagTableViewCell", forIndexPath: indexPath) as! GenreTagTableViewCell
             self.setupTagListView(cell)
             return cell
             
         }
-        else if key == "showSeasons".localized {
+        else if key ==  Key.ShowSeasons.rawValue.localized {
             let cell = tableView.dequeueReusableCellWithIdentifier("TVShowSeasonsTableViewCell",forIndexPath:indexPath) as! EpisodeGuideTableViewCell
-            cell.mainTextLabel.text = "showSeasons".localized
+            cell.mainTextLabel.text =  Key.ShowSeasons.rawValue.localized
             return cell
         }
 

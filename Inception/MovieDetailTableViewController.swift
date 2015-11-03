@@ -33,6 +33,11 @@ class MovieDetailTableViewController: UITableViewController {
     @IBOutlet weak var personCreditsCollectionView:UICollectionView!
     @IBOutlet weak var footerView:UIView!
     var activityIndicator:UIActivityIndicatorView!
+    
+    enum Key:String {
+        case Overview = "overview"
+        case Genres = "genres"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -228,10 +233,10 @@ class MovieDetailTableViewController: UITableViewController {
         cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         let key = self.tableDataKeys[indexPath.row]
-        if key == "overview".localized {
+        if key == Key.Overview.rawValue.localized {
             (cell as! OverviewTableViewCell).overviewLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         }
-        else if key != "genres".localized {
+        else if key != Key.Genres.rawValue.localized {
             (cell as! DetailTableViewCell).keyLabel.textColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
             (cell as! DetailTableViewCell).valueLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         }
@@ -239,13 +244,13 @@ class MovieDetailTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let key = self.tableDataKeys[indexPath.row]
-        if key == "overview".localized {
+        if key == Key.Overview.rawValue.localized {
             let cell = tableView.dequeueReusableCellWithIdentifier("MovieOverviewTableViewCell", forIndexPath: indexPath) as! OverviewTableViewCell
             
             cell.overviewLabel.text = self.tableData[indexPath.row]
             return cell
         }
-        else if key == "genres".localized {
+        else if key == Key.Genres.rawValue.localized {
             let cell = tableView.dequeueReusableCellWithIdentifier("MovieGenreTagTableViewCell", forIndexPath: indexPath) as! GenreTagTableViewCell
             self.setupTagListView(cell)
             return cell
