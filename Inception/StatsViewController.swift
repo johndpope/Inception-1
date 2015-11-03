@@ -45,6 +45,13 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.reloadData()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
+        self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,11 +77,11 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
                             if let seen = episode.seen {
                                 if seen == true {
                                     seenEpisodesCount += 1
+                                    if let episodeRuntime = show.episodeRuntime {
+                                        showTimeSpent += Int(episodeRuntime)
+                                    }
                                 }
                             }
-                        }
-                        if let episodeRuntime = show.episodeRuntime {
-                            showTimeSpent += Int(episodeRuntime) * seenEpisodesCount
                         }
                     }
                 }
