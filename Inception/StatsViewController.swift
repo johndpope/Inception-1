@@ -66,8 +66,8 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         
         let shows = showCoreDataHelper.showsFromStore()
         let movies = movieCoreDataHelper.moviesFromStore()
-        self.movieData.append(Stats(key: "noSeenMovies".localized, value: "\(movies.count)"))
-        self.showData.append(Stats(key: "noSeenShows".localized, value: "\(shows.count)"))
+        self.movieData.append(Stats(key: "noTrackedMovies".localized, value: "\(movies.count)"))
+        self.showData.append(Stats(key: "noTrackedShows".localized, value: "\(shows.count)"))
         
         var seenEpisodesCount = 0
         var showTimeSpent = 0
@@ -96,7 +96,11 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         var movieTimeSpent = 0
         for movie in movies {
             if let runtime = movie.runtime {
-                movieTimeSpent += Int(runtime)
+                if let seen = movie.seen {
+                    if Bool(seen) {
+                        movieTimeSpent += Int(runtime)
+                    }
+                }
             }
         }
         
