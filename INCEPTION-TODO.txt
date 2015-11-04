@@ -1,10 +1,8 @@
 Now:
 - app icon : https://dribbble.com/shots/1989971-App-Icon
-- readme
-- fastlane
+- readme (cocoapods, swiftlint, documentation)
+- fastlane (screenshots, deployment, tests, signing, test coverage, linter)
 - refactoring
-- swift linter
-- tests (with coverage)
 - season navigator top and bottom padding (in episodeguide not correctly positioned and missing padding + watchlist correctly positionend but missing padding)
 - flash episodes are not loading (see on iphone, also why not updating ?)
 To Consider:
