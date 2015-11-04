@@ -16,7 +16,6 @@ class ShowWatchlistCoreDataHelper {
     let kShowWatchlistItemEntityName = "ShowWatchlistItem"
     let kSeasonWatchlistItemEntityName = "SeasonWatchlistItem"
     let kEpisodeWatchlistItemEntityName = "EpisodeWatchlistItem"
-    var delegate:ShowWatchlistCoreDataHelperDelegate?
 
     func showsFromStore() -> [ShowWatchlistItem] {
         let fetchRequest = NSFetchRequest(entityName: kShowWatchlistItemEntityName)
@@ -45,9 +44,7 @@ class ShowWatchlistCoreDataHelper {
         self.loadSeasons(id,watchlistShow:newEntity) { (seasons:[SeasonWatchlistItem]) in
             newEntity.seasons = NSOrderedSet(array: seasons)
             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
-            if let delegate = self.delegate {
-                delegate.didLoadSeasonsAndEpisodes()
-            }
+            NSNotificationCenter.defaultCenter().postNotificationName("seasonsAndEpisodesDidLoad", object: nil, userInfo: nil)
         }
      }
     

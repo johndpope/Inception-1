@@ -1,7 +1,8 @@
 Now:
 - app icon : https://dribbble.com/shots/1989971-App-Icon
-- readme (cocoapods, swiftlint, documentation)
-- fastlane (screenshots, deployment, tests, signing, test coverage, linter)
+- readme (cocoapods, swiftlint, documentation, fastlane)
+- tests
+- fastlane (configure setup, create screenshots filled with data, etc.)
 - refactoring
 
 To Consider:

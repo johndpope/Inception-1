@@ -8,7 +8,7 @@
 
 import UIKit
 
-class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource,ShowWatchlistCoreDataHelperDelegate, ShowUpdaterDelegate {
+class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, ShowUpdaterDelegate {
     
     var movies:[MovieWatchlistItem] = []
     var shows:[ShowWatchlistItem] = []
@@ -24,8 +24,12 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "watchlist".localized
         tableView.tableFooterView  = UIView(frame:CGRectZero)
-        showCoreDataHelper.delegate = self
         showUpdater.delegate = self
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLoadSeasonsAndEpisodes", name: "seasonsAndEpisodesDidLoad", object: nil)
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func viewDidAppear(animated: Bool) {
