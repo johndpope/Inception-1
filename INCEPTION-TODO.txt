@@ -3,8 +3,7 @@ Now:
 - readme (cocoapods, swiftlint, documentation)
 - fastlane (screenshots, deployment, tests, signing, test coverage, linter)
 - refactoring
-- season navigator top and bottom padding (in episodeguide not correctly positioned and missing padding + watchlist correctly positionend but missing padding)
-- flash episodes are not loading (see on iphone, also why not updating ?)
+
 To Consider:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results
