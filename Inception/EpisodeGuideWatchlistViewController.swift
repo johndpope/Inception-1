@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EpisodeGuideWatchlistViewController: UIViewController {
+class EpisodeGuideWatchlistViewController: UIViewController,ShowWatchlistCoreDataHelperDelegate {
     
     var showWatchlistItem:ShowWatchlistItem?
     var selectedSeasonNumber = 1
@@ -29,9 +29,20 @@ class EpisodeGuideWatchlistViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
+        self.showCoreDataHelper.delegate = self
         self.seasonNavigator.reloadData()
         self.tableView.reloadData()
         self.updateTheming()
+    }
+    
+    func didLoadSeasonsAndEpisodes() {
+        if let show = self.showWatchlistItem {
+            if let id = show.id {
+                self.showWatchlistItem = self.showCoreDataHelper.showWithId(Int(id))
+                self.seasonNavigator.reloadData()
+                self.tableView.reloadData()
+            }
+        }
     }
     
     func updateTheming() {

@@ -111,6 +111,7 @@ class ShowWatchlistCoreDataHelper {
                 }
                 if let seasons = show.seasons {
                     var watchlistSeasons:[SeasonWatchlistItem] = []
+                    var requestCount = seasons.count
                     for i in 0..<seasons.count {
                         let watchlistSeason = NSEntityDescription.insertNewObjectForEntityForName(self.kSeasonWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! SeasonWatchlistItem
                         watchlistSeason.id = seasons[i].id
@@ -119,7 +120,8 @@ class ShowWatchlistCoreDataHelper {
                         self.loadEpisodes(watchlistSeason, id: id, completionClosure: { (episodes:NSOrderedSet) in
                             watchlistSeason.episodes = episodes
                             watchlistSeasons.append(watchlistSeason)
-                            if i == seasons.count-1 {
+                            requestCount--
+                            if requestCount == 1 {
                                 completionClosure(watchlistSeasons)
                             }
                         })
@@ -288,7 +290,7 @@ class ShowWatchlistCoreDataHelper {
         return self.showWithId(id) != nil
     }
     
-    private func showWithId(id:Int) -> ShowWatchlistItem? {
+    func showWithId(id:Int) -> ShowWatchlistItem? {
         let fetchRequest = NSFetchRequest(entityName: kShowWatchlistItemEntityName)
         fetchRequest.predicate = NSPredicate(format: "id = %i", id)
         
