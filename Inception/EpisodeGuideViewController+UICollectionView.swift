@@ -52,7 +52,7 @@ extension EpisodeGuideViewController : UICollectionViewDelegate, UICollectionVie
             let leftInsets = (viewWidth - (totalCellWidth + totalSpacingWidth)) / 2
             let rightInsets = leftInsets
             
-            return UIEdgeInsetsMake(0, max(leftInsets,kSpacingWidth), 0, max(rightInsets,kSpacingWidth))
+            return UIEdgeInsetsMake(5, max(leftInsets,kSpacingWidth), 5, max(rightInsets,kSpacingWidth))
     }
     
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
