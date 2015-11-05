@@ -521,6 +521,7 @@
 				63535E3E1BAD83B700D7B77F /* Sources */,
 				63535E3F1BAD83B700D7B77F /* Frameworks */,
 				63535E401BAD83B700D7B77F /* Resources */,
+				639C35A51BEB6F0500C6DECA /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -640,6 +641,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Inception/Pods-Inception-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		639C35A51BEB6F0500C6DECA /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"SwiftLint does not exist, download from https://github.com/realm/SwiftLint\"\nfi";
 		};
 		A09DCE60C8A25263BE7FE5DC /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
