@@ -1893,53 +1893,30 @@
                                             <segue destination="8XN-Pe-Iw7" kind="show" id="zFv-SG-K8D"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" id="5nm-X5-tSM">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="ABC-v5-oym" style="IBUITableViewCellStyleDefault" id="5nm-X5-tSM">
                                         <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5nm-X5-tSM" id="WZH-gV-Njt">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DS1-nQ-sYN">
-                                                    <rect key="frame" x="15" y="11" width="511" height="21"/>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ABC-v5-oym">
+                                                    <rect key="frame" x="15" y="0.0" width="570" height="44"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="511" id="RgN-0w-Glj"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="hgN-P3-Ub4">
-                                                    <rect key="frame" x="543" y="6" width="51" height="31"/>
-                                                    <animations/>
-                                                    <color key="onTintColor" red="1" green="0.86706631779999999" blue="0.3770228987" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <connections>
-                                                        <action selector="didChangeNotificationSwitch:" destination="Yp6-mK-21d" eventType="valueChanged" id="bx4-vK-uE4"/>
-                                                    </connections>
-                                                </switch>
                                             </subviews>
                                             <animations/>
                                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstItem="hgN-P3-Ub4" firstAttribute="leading" secondItem="DS1-nQ-sYN" secondAttribute="trailing" constant="19" id="01P-5J-p7z"/>
-                                                <constraint firstItem="hgN-P3-Ub4" firstAttribute="leading" secondItem="DS1-nQ-sYN" secondAttribute="trailing" constant="19" id="0Q3-c3-3Rj"/>
-                                                <constraint firstItem="DS1-nQ-sYN" firstAttribute="top" secondItem="WZH-gV-Njt" secondAttribute="topMargin" constant="3" id="KnE-F5-Y6f"/>
-                                                <constraint firstItem="hgN-P3-Ub4" firstAttribute="top" secondItem="WZH-gV-Njt" secondAttribute="topMargin" constant="-2" id="Ubf-5t-60f"/>
-                                                <constraint firstItem="DS1-nQ-sYN" firstAttribute="leading" secondItem="WZH-gV-Njt" secondAttribute="leadingMargin" constant="7" id="ZJz-z2-Xi0"/>
-                                                <constraint firstItem="hgN-P3-Ub4" firstAttribute="trailing" secondItem="WZH-gV-Njt" secondAttribute="trailingMargin" id="apv-hC-RE7"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="DS1-nQ-sYN" secondAttribute="bottom" constant="4" id="bCS-eG-wwC"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="hgN-P3-Ub4" secondAttribute="bottom" constant="-1" id="oGl-CS-MO0"/>
-                                            </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="01P-5J-p7z"/>
-                                                    <exclude reference="0Q3-c3-3Rj"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="accessoryView" destination="t2c-gC-Zqv" id="0Sz-O3-9mC"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="0cC-Fg-ym6" detailTextLabel="lJ7-gT-mab" style="IBUITableViewCellStyleValue1" id="Phd-ty-CN9">
                                         <rect key="frame" x="0.0" y="202" width="600" height="44"/>
@@ -2140,14 +2117,24 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="3De-cg-xGc"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="alarmDateLabel" destination="lJ7-gT-mab" id="vbv-j7-cWC"/>
                         <outlet property="datePicker" destination="uQC-Vl-Chd" id="ifB-Pe-blU"/>
-                        <outlet property="notificationLabel" destination="DS1-nQ-sYN" id="YCY-g8-Wgg"/>
-                        <outlet property="notificationSwitch" destination="hgN-P3-Ub4" id="BTk-Id-sg5"/>
+                        <outlet property="notificationSwitch" destination="t2c-gC-Zqv" id="8R1-mR-cIE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LmU-ZW-DBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="t2c-gC-Zqv">
+                    <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <animations/>
+                    <color key="onTintColor" red="1" green="0.86706631779999999" blue="0.3770228987" alpha="1" colorSpace="calibratedRGB"/>
+                    <connections>
+                        <action selector="didChangeNotificationSwitch:" destination="Yp6-mK-21d" eventType="valueChanged" id="Tqo-YZ-par"/>
+                    </connections>
+                </switch>
             </objects>
             <point key="canvasLocation" x="1554" y="2578"/>
         </scene>

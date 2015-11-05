@@ -89,14 +89,7 @@ class SettingsTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
-        
-        let row = SettingsRow(indexPath: indexPath)
-        if row == SettingsRow.NotificationSwitch {
-            self.notificationLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
-        }
-        else {
-            cell.textLabel?.textColor = ThemeManager.sharedInstance.currentTheme.textColor
-        }
+        cell.textLabel?.textColor = ThemeManager.sharedInstance.currentTheme.textColor
     }
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
