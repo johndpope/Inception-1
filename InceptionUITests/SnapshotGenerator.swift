@@ -20,30 +20,23 @@ class SnapshotGenerator : XCTestCase {
     
     func testExample()
     {
-        snapshot("0Launch")
-        let tabBar = XCUIApplication().tabBars
-        let secondButton = tabBar.buttons.elementBoundByIndex(1)
-        let thirdButton = tabBar.buttons.elementBoundByIndex(2)
-        let fourthButton = tabBar.buttons.elementBoundByIndex(3)
-        let fifthButton = tabBar.buttons.elementBoundByIndex(4)
-
         XCUIDevice().orientation = UIDeviceOrientation.Portrait
+        //There is a bug in snapshot which always triggers the last tab item
+				//see: https://github.com/fastlane/snapshot/issues/215
+        let tabBar = XCUIApplication().tabBars
+        tabBar.buttons.elementBoundByIndex(0).tap()
         snapshot("SearchPortrait")
         
-        secondButton.tap()
-        XCUIDevice().orientation = UIDeviceOrientation.Portrait
+        tabBar.buttons.elementBoundByIndex(1).tap()
         snapshot("DiscoverPortrait")
         
-        thirdButton.tap()
-        XCUIDevice().orientation = UIDeviceOrientation.Portrait
+        tabBar.buttons.elementBoundByIndex(2).tap()
         snapshot("WatchlistPortrait")
         
-        fourthButton.tap()
-        XCUIDevice().orientation = UIDeviceOrientation.Portrait
+        tabBar.buttons.elementBoundByIndex(3).tap()
         snapshot("StatsPortrait")
         
-        fifthButton.tap()
-        XCUIDevice().orientation = UIDeviceOrientation.Portrait
+        tabBar.buttons.elementBoundByIndex(4).tap()
         snapshot("SettingsPortrait")
     }
     

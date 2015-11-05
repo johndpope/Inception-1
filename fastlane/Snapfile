@@ -14,7 +14,7 @@ languages([
 ])
 
 # The name of the scheme which contains the UI Tests
-scheme "Inception"
+scheme "InceptionUITests"
 
 # Where should the resulting screenshots be stored?
 output_directory "./screenshots"
