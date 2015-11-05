@@ -44,6 +44,7 @@ class SettingsTableViewController: UITableViewController {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
         
+        self.notificationSwitch.tintColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
         self.alarmDateLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
