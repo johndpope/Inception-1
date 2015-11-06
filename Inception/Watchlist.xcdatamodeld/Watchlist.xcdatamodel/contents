@@ -8,7 +8,7 @@
         <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="seen" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
-        <relationship name="season" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SeasonWatchlistItem" inverseName="episodes" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
+        <relationship name="season" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SeasonWatchlistItem" inverseName="episodes" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
     </entity>
     <entity name="MovieWatchlistItem" representedClassName=".MovieWatchlistItem" syncable="YES">
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -21,8 +21,8 @@
     <entity name="SeasonWatchlistItem" representedClassName=".SeasonWatchlistItem" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="seasonNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="EpisodeWatchlistItem" inverseName="season" inverseEntity="EpisodeWatchlistItem" syncable="YES"/>
-        <relationship name="show" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShowWatchlistItem" inverseName="seasons" inverseEntity="ShowWatchlistItem" syncable="YES"/>
+        <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="EpisodeWatchlistItem" inverseName="season" inverseEntity="EpisodeWatchlistItem" syncable="YES"/>
+        <relationship name="show" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ShowWatchlistItem" inverseName="seasons" inverseEntity="ShowWatchlistItem" syncable="YES"/>
     </entity>
     <entity name="ShowWatchlistItem" representedClassName=".ShowWatchlistItem" syncable="YES">
         <attribute name="episodeRuntime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -31,7 +31,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="seasons" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="SeasonWatchlistItem" inverseName="show" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
+        <relationship name="seasons" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="SeasonWatchlistItem" inverseName="show" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
     </entity>
     <elements>
         <element name="EpisodeWatchlistItem" positionX="378" positionY="-18" width="128" height="163"/>

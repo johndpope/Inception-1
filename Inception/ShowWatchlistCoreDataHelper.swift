@@ -38,8 +38,6 @@ class ShowWatchlistCoreDataHelper {
         newEntity.posterPath = posterPath
         newEntity.lastUpdated = lastUpdated
         newEntity.seasons = nil
-        //save first to update all the states, later seasons will be loaded async
-        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
         self.loadSeasons(id,watchlistShow:newEntity) { (seasons:[SeasonWatchlistItem]) in
             newEntity.seasons = NSOrderedSet(array: seasons)
@@ -116,9 +114,10 @@ class ShowWatchlistCoreDataHelper {
                         watchlistSeason.show = watchlistShow
                         self.loadEpisodes(watchlistSeason, id: id, completionClosure: { (episodes:NSOrderedSet) in
                             watchlistSeason.episodes = episodes
+                            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
                             watchlistSeasons.append(watchlistSeason)
                             requestCount--
-                            if requestCount == 1 {
+                            if requestCount == 0 {
                                 completionClosure(watchlistSeasons)
                             }
                         })
@@ -160,6 +159,7 @@ class ShowWatchlistCoreDataHelper {
                 }
             }
         }
+        completionClosure(NSOrderedSet(array:[]))
     }
     
     func isShowSeen(show:ShowWatchlistItem) -> Bool {
