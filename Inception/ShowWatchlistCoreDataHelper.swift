@@ -158,8 +158,13 @@ class ShowWatchlistCoreDataHelper {
                     }
                 }
             }
+            else {
+                completionClosure(NSOrderedSet(array:[]))  
+            }
         }
-        completionClosure(NSOrderedSet(array:[]))
+        else {
+            completionClosure(NSOrderedSet(array:[]))
+        }
     }
     
     func isShowSeen(show:ShowWatchlistItem) -> Bool {
