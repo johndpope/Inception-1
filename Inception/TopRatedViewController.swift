@@ -99,10 +99,10 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
                 forIndexPath: indexPath)
                 as! CollectionviewSectionHeader
             if indexPath.section == 0 {
-                headerView.label.text = "movies".localized
+                headerView.label.text = "movies".localized.uppercaseString
             }
             else {
-                headerView.label.text = "shows".localized
+                headerView.label.text = "shows".localized.uppercaseString
             }
             return headerView
         default:
