@@ -9,7 +9,7 @@
 import UIKit
 import Charts
 
-extension StatsViewController : ChartViewDelegate {
+extension StatsTableViewController : ChartViewDelegate {
     
     func setupChart() {
         self.horizontalBarChart.delegate = self

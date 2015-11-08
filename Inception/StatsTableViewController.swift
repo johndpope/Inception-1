@@ -9,9 +9,8 @@
 import UIKit
 import Charts
 
-class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class StatsTableViewController : UITableViewController {
     
-    @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var horizontalBarChart:HorizontalBarChartView!
     
     struct Stats{
@@ -34,7 +33,6 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.title = "stats".localized
-        self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.setupChart()
     }
     
@@ -108,11 +106,11 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         self.setChartData(["Total","shows".localized, "movies".localized], yValues: [totalTimeSpent,showTimeSpent, movieTimeSpent])
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return self.movieData.count
         }
@@ -121,7 +119,7 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "movies".localized
         }
@@ -130,29 +128,29 @@ class StatsViewController : UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
-        (cell as! StatsTableViewCell).keyLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
-        (cell as! StatsTableViewCell).valueLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        cell.textLabel?.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        cell.detailTextLabel?.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         cell.contentView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         cell.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("StatsTableViewCell", forIndexPath: indexPath) as! StatsTableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("StatsTableViewCell", forIndexPath: indexPath)
         if indexPath.section == 0 {
-            cell.keyLabel.text = self.movieData[indexPath.row].key
-            cell.valueLabel.text = self.movieData[indexPath.row].value
+            cell.textLabel?.text = self.movieData[indexPath.row].key
+            cell.detailTextLabel?.text = self.movieData[indexPath.row].value
 
         }
         else {
-            cell.keyLabel.text = self.showData[indexPath.row].key
-            cell.valueLabel.text = self.showData[indexPath.row].value
+            cell.textLabel?.text = self.showData[indexPath.row].key
+            cell.detailTextLabel?.text = self.showData[indexPath.row].value
         }
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
     }
 
