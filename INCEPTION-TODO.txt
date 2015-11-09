@@ -4,7 +4,6 @@ Now:
 - tests
 - fastlane (configure setup, create screenshots filled with data, etc.)
 - refactoring
-- debug the following: can't unseen episodes (guess: multiple objects with same id in core data store due to update process)
 
 To Consider:
 - maybe use language parameter in api calls
