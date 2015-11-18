@@ -15,6 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        #if DEBUG
+            addSnapshotSwipeGuardView()
+        #endif
+        
         CacheFactory.setMaxImageCacheSize(200*1024*1024)
         SettingsFactory.registerDefaults()
         
@@ -91,6 +95,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
         self.saveContext()
+    }
+    
+    // Snapshot Hack
+    private func addSnapshotSwipeGuardView() {
+        if NSProcessInfo.processInfo().arguments.contains("-ui_testing") {
+            let swipeBlockView = UIView()
+            swipeBlockView.translatesAutoresizingMaskIntoConstraints = false
+            
+            window?.rootViewController?.view.addSubview(swipeBlockView)
+            
+            let horizontalConstraint = NSLayoutConstraint(item: swipeBlockView, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: window?.rootViewController?.view, attribute: NSLayoutAttribute.Right, multiplier: 1, constant: 0)
+            window?.rootViewController?.view.addConstraint(horizontalConstraint)
+            
+            let verticalConstraint = NSLayoutConstraint(item: swipeBlockView, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: window?.rootViewController?.view, attribute: NSLayoutAttribute.Bottom, multiplier: 1, constant: 0)
+            window?.rootViewController?.view.addConstraint(verticalConstraint)
+            
+            let widthConstraint = NSLayoutConstraint(item: swipeBlockView, attribute: NSLayoutAttribute.Width, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 1)
+            window?.rootViewController?.view.addConstraint(widthConstraint)
+            
+            let heightConstraint = NSLayoutConstraint(item: swipeBlockView, attribute: NSLayoutAttribute.Height, relatedBy: NSLayoutRelation.Equal, toItem: nil, attribute: NSLayoutAttribute.NotAnAttribute, multiplier: 1, constant: 1)
+            window?.rootViewController?.view.addConstraint(heightConstraint)
+            
+        }
     }
         
     // MARK: - Core Data stack
