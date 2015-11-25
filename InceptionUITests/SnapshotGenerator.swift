@@ -21,8 +21,6 @@ class SnapshotGenerator : XCTestCase {
     func testExample()
     {
         XCUIDevice().orientation = UIDeviceOrientation.Portrait
-        //There is a bug in snapshot which always triggers the last tab item
-				//see: https://github.com/fastlane/snapshot/issues/215
         let tabBar = XCUIApplication().tabBars
         tabBar.buttons.elementBoundByIndex(0).tap()
         snapshot("SearchPortrait")

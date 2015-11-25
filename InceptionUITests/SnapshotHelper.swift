@@ -16,10 +16,11 @@ func setLanguage(app: XCUIApplication)
     Snapshot.setLanguage(app)
 }
 
-func snapshot(name: String, waitForLoadingIndicator: Bool = true)
+func snapshot(name: String, waitForLoadingIndicator: Bool = false)
 {
     Snapshot.snapshot(name, waitForLoadingIndicator: waitForLoadingIndicator)
 }
+
 
 
 @objc class Snapshot: NSObject
@@ -27,11 +28,11 @@ func snapshot(name: String, waitForLoadingIndicator: Bool = true)
     class func setLanguage(app: XCUIApplication)
     {
         let path = "/tmp/language.txt"
-        
+
         do {
             let locale = try NSString(contentsOfFile: path, encoding: NSUTF8StringEncoding) as String
             deviceLanguage = locale.substringToIndex(locale.startIndex.advancedBy(2, limit:locale.endIndex))
-            app.launchArguments = ["-AppleLanguages", "(\(deviceLanguage))", "-AppleLocale", "\"\(locale)\"","-ui_testing"]
+            app.launchArguments += ["-AppleLanguages", "(\(deviceLanguage))", "-AppleLocale", "\"\(locale)\"","-ui_testing"]
         } catch {
             print("Couldn't detect/set language...")
         }
@@ -45,11 +46,8 @@ func snapshot(name: String, waitForLoadingIndicator: Bool = true)
         }
         print("snapshot: \(name)") // more information about this, check out https://github.com/krausefx/snapshot
         
-        let view = XCUIApplication()
-        let start = view.coordinateWithNormalizedOffset(CGVectorMake(32.10, 30000))
-        let finish = view.coordinateWithNormalizedOffset(CGVectorMake(31, 30000))
-        start.pressForDuration(0, thenDragToCoordinate: finish)
-        sleep(1)
+        sleep(1) // Waiting for the animation to be finished (kind of)
+        XCUIDevice.sharedDevice().orientation = .Unknown
     }
     
     class func waitForLoadingIndicatorToDisappear()
@@ -62,3 +60,7 @@ func snapshot(name: String, waitForLoadingIndicator: Bool = true)
         }
     }
 }
+
+// Please don't remove the lines below
+// They are used to detect outdated configuration files
+// SnapshotHelperVersion [[1.0]]
