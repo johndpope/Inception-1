@@ -196,6 +196,7 @@
 		63535E6B1BAD9C3700D7B77F /* LocalizableExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalizableExtension.swift; sourceTree = "<group>"; };
 		63535E701BAD9C6900D7B77F /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		63535E721BAD9C6C00D7B77F /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6355D32A1C31AF960098BDCA /* Inception.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = Inception.entitlements; sourceTree = "<group>"; };
 		635639F71BEA283000790743 /* SnapshotHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotHelper.swift; sourceTree = "<group>"; };
 		635639F91BEA28E100790743 /* SnapshotGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnapshotGenerator.swift; sourceTree = "<group>"; };
 		635FC7631BE402F7005A7DD6 /* ShowUpdater.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowUpdater.swift; sourceTree = "<group>"; };
@@ -331,6 +332,7 @@
 		63535E2E1BAD83B700D7B77F /* Inception */ = {
 			isa = PBXGroup;
 			children = (
+				6355D32A1C31AF960098BDCA /* Inception.entitlements */,
 				634FA4F21BCEA2A1002B977D /* AlertFactory.swift */,
 				6391C7881BB4212200AAA429 /* APIController.swift */,
 				632F7CA11BB42443001CF2C9 /* APIEndpoints.swift */,
@@ -561,6 +563,11 @@
 					63535E2B1BAD83B700D7B77F = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 6F7546N7G3;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					63535E411BAD83B700D7B77F = {
 						CreatedOnToolsVersion = 7.1;
@@ -954,6 +961,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inception/Inception.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Inception/Info.plist;
@@ -974,6 +982,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Inception/Inception.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Inception/Info.plist;

@@ -23,6 +23,7 @@ class ShowWatchlistCoreDataHelper {
         do {
             shows = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [ShowWatchlistItem]
             shows.sortInPlace(seenLexFilter)
+            self.sortSeasonsAndEpisodesFor(shows)
 			return shows
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
@@ -44,6 +45,46 @@ class ShowWatchlistCoreDataHelper {
 		}
 		return !thisSeen && thatSeen
 	}
+    
+    func sortSeasonsAndEpisodesFor(shows:[ShowWatchlistItem]) {
+        for show in shows {
+            if let seasons = show.seasons {
+                let mutableSeasons = seasons.mutableCopy() as! NSMutableOrderedSet
+    
+                mutableSeasons.sortUsingComparator {
+                    (obj1, obj2) -> NSComparisonResult in
+                    
+                    let p1 = obj1 as! SeasonWatchlistItem
+                    let p2 = obj2 as! SeasonWatchlistItem
+                    if let p1sn = p1.seasonNumber {
+                        if let p2sn = p2.seasonNumber {
+                            return p1sn.compare(p2sn)
+                        }
+                    }
+                    return NSComparisonResult.OrderedSame
+                }
+                show.seasons = mutableSeasons.copy() as? NSOrderedSet
+                for season in seasons.array as! [SeasonWatchlistItem] {
+                    if let episodes = season.episodes {
+                        let mutableEpisodes = episodes.mutableCopy() as! NSMutableOrderedSet
+                        mutableEpisodes.sortUsingComparator {
+                            (obj1, obj2) -> NSComparisonResult in
+                            
+                            let p1 = obj1 as! EpisodeWatchlistItem
+                            let p2 = obj2 as! EpisodeWatchlistItem
+                            if let p1sn = p1.episodeNumber {
+                                if let p2sn = p2.episodeNumber {
+                                    return p1sn.compare(p2sn)
+                                }
+                            }
+                            return NSComparisonResult.OrderedSame
+                        }
+                        season.episodes = mutableEpisodes.copy() as? NSOrderedSet
+                    }
+                }
+            }
+        }
+    }
     
     func insertShowItem(id:Int, name:String?, year:Int?, posterPath:String?, lastUpdated:NSDate) {
         

@@ -17,8 +17,6 @@ Now:
 - make hit area bigger for seen button
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 
-- sync via CloudKit and iCloud
-
 To Consider:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results

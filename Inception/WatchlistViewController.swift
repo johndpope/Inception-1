@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, ShowUpdaterDelegate {
     
@@ -46,6 +47,37 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
         self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "persistentStoreDidChange", name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "persistentStoreWillChange:", name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recieveICloudChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
+        
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
+    }
+    
+    func persistentStoreDidChange () {
+        self.movies = self.coreDataHelper.moviesFromStore()
+        self.shows = showCoreDataHelper.showsFromStore()
+        self.tableView.reloadData()
+    }
+    
+    func persistentStoreWillChange (notification:NSNotification) {
+      (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+    }
+    
+    func recieveICloudChanges (notification:NSNotification){
+        (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.performBlock { () -> Void in
+           (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+            self.movies = self.coreDataHelper.moviesFromStore()
+            self.shows = self.showCoreDataHelper.showsFromStore()
+            self.tableView.reloadData()
+        }
     }
     
     override func didReceiveMemoryWarning() {
