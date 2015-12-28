@@ -22,12 +22,28 @@ class ShowWatchlistCoreDataHelper {
         var shows:[ShowWatchlistItem] = []
         do {
             shows = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [ShowWatchlistItem]
-            return shows
+            shows.sortInPlace(seenLexFilter)
+			return shows
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
         return shows
     }
+	
+	func seenLexFilter(this:ShowWatchlistItem, that:ShowWatchlistItem) -> Bool {
+		let thisSeen = self.isShowSeen(this)
+		let thatSeen = self.isShowSeen(that)
+		
+		if (thisSeen == thatSeen) {
+			if let thisName = this.name {
+				if let thatName = that.name {
+					return thisName < thatName
+				}
+			}
+			return false
+		}
+		return !thisSeen && thatSeen
+	}
     
     func insertShowItem(id:Int, name:String?, year:Int?, posterPath:String?, lastUpdated:NSDate) {
         

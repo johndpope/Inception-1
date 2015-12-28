@@ -20,12 +20,31 @@ class MovieWatchlistCoreDataHelper {
         var movies:[MovieWatchlistItem] = []
         do {
             movies = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [MovieWatchlistItem]
-            return movies
+            movies.sortInPlace(seenLexFilter)
+			return movies
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
         return movies
     }
+	
+	func seenLexFilter(this:MovieWatchlistItem, that:MovieWatchlistItem) -> Bool {
+		if let thisSeen = this.seen {
+			if let thatSeen = that.seen {
+		  	  if (thisSeen == thatSeen) {
+				  if let thisName = this.name {
+					  if let thatName = that.name {
+		  		  	  	return thisName < thatName
+					  }
+				  }
+				  return false
+		  	  }
+		  	  return !thisSeen && thatSeen
+			}
+		}
+		return false
+	}
+	
     
     func insertMovieItem(id:Int, name:String?, year:Int?, posterPath:String?,runtime:Int?, seen:Bool) {
         let newEntity = NSEntityDescription.insertNewObjectForEntityForName(kMovieWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! MovieWatchlistItem
