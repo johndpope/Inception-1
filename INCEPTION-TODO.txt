@@ -18,7 +18,6 @@ Now:
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 
 - sync via CloudKit and iCloud
-- Test sorting in Watchlist
 
 To Consider:
 - maybe use language parameter in api calls
