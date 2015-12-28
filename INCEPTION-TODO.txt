@@ -1,9 +1,24 @@
 Now:
-- app icon : https://dribbble.com/shots/1989971-App-Icon
 - readme (cocoapods, swiftlint, documentation, fastlane)
 - tests
 - fastlane (configure setup, create screenshots filled with data, etc.)
+	- snapshots
+		- searchresults
+		- detailview of a movie
+		- watchlist of a tv-show
+		- statistic screen with values > 0
+	- for every device in english and german
 - refactoring
+- notifications not only on same day but
+	- same day
+	- one day before
+	- two days before
+
+- make hit area bigger for seen button
+- progressbar for tv shows in watchlist does not look good on iPad => think of a better design
+
+- sync via CloudKit and iCloud
+- Test sorting in Watchlist
 
 To Consider:
 - maybe use language parameter in api calls
