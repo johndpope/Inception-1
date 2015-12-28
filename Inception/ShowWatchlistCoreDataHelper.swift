@@ -197,6 +197,8 @@ class ShowWatchlistCoreDataHelper {
                 }
             }
         }
+		
+        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
     }
     
     func isEpisodeSeen(id:Int) -> Bool {
