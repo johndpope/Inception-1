@@ -31,7 +31,7 @@ class MovieWatchlistCoreDataHelper {
 	func seenLexFilter(this:MovieWatchlistItem, that:MovieWatchlistItem) -> Bool {
 		if let thisSeen = this.seen {
 			if let thatSeen = that.seen {
-		  	  if (thisSeen == thatSeen) {
+		  	  if (Bool(thisSeen) == Bool(thatSeen)) {
 				  if let thisName = this.name {
 					  if let thatName = that.name {
 		  		  	  	return thisName < thatName
@@ -39,7 +39,7 @@ class MovieWatchlistCoreDataHelper {
 				  }
 				  return false
 		  	  }
-		  	  return !thisSeen && thatSeen
+		  	  return !Bool(thisSeen) && Bool(thatSeen)
 			}
 		}
 		return false
