@@ -55,12 +55,6 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
-    }
-    
     func persistentStoreDidChange () {
         self.movies = self.coreDataHelper.moviesFromStore()
         self.shows = showCoreDataHelper.showsFromStore()
