@@ -11,9 +11,9 @@ import UIKit
 class SettingsTableViewController: UITableViewController {
 
     @IBOutlet weak var alarmDateLabel: UILabel!
+    @IBOutlet weak var alarmDayLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notificationSwitch:UISwitch!
-    @IBOutlet weak var notificationLabel: UILabel!
     
     private var datePickerHidden = false
     
@@ -51,6 +51,8 @@ class SettingsTableViewController: UITableViewController {
         datePicker.setValue(ThemeManager.sharedInstance.currentTheme.textColor, forKeyPath: "textColor")
         self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
+        
+        self.updateAlarmDayLabel();
     }
     
     @IBAction func didChangeDate() {
@@ -60,6 +62,11 @@ class SettingsTableViewController: UITableViewController {
     
     @IBAction func didChangeNotificationSwitch(sender:UISwitch) {
         SettingsFactory.setBoolForKey(SettingsFactory.SettingKey.Notifications, value: sender.on)
+    }
+    
+    private func updateAlarmDayLabel() {
+        let alarmDayKey = SettingsFactory.objectForKey(SettingsFactory.SettingKey.AlarmDay) as! String
+        alarmDayLabel.text = alarmDayKey.localized
     }
     
     private func toggleDatePicker() {
@@ -106,6 +113,9 @@ class SettingsTableViewController: UITableViewController {
         switch (row) {
             case .Alarm:
                 toggleDatePicker()
+            case .AlarmDay:
+                let vc : AlarmDayTableViewController = storyboard?.instantiateViewControllerWithIdentifier("AlarmDayTableViewController") as! AlarmDayTableViewController
+                self.navigationController?.pushViewController(vc, animated: true)
             case .Cache :
                 let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
                 vc.showsImageCache = false

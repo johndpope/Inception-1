@@ -116,6 +116,8 @@
 		63D30F7B1BD7D4DC00BFED9B /* SeasonExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D30F7A1BD7D4DC00BFED9B /* SeasonExtension.swift */; };
 		63D84D781BB56DAE0018B0B6 /* StatsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D84D771BB56DAE0018B0B6 /* StatsTableViewController.swift */; };
 		63D84D7A1BB56DB80018B0B6 /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D84D791BB56DB80018B0B6 /* DiscoverViewController.swift */; };
+		63DCEFD81C32CDF90065C6DB /* AlarmDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DCEFD71C32CDF90065C6DB /* AlarmDayTableViewController.swift */; };
+		63DCEFDA1C32D2C20065C6DB /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DCEFD91C32D2C20065C6DB /* NotificationScheduler.swift */; };
 		63E375921BB765B200232F18 /* CoverImageCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63E375911BB765B200232F18 /* CoverImageCollectionCell.swift */; };
 		63EE07291BBA8F1F0049292B /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE07281BBA8F1F0049292B /* Show.swift */; };
 		63EE072B1BBA90F10049292B /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63EE072A1BBA90F10049292B /* Season.swift */; };
@@ -267,6 +269,8 @@
 		63D30F7A1BD7D4DC00BFED9B /* SeasonExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeasonExtension.swift; sourceTree = "<group>"; };
 		63D84D771BB56DAE0018B0B6 /* StatsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsTableViewController.swift; sourceTree = "<group>"; };
 		63D84D791BB56DB80018B0B6 /* DiscoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		63DCEFD71C32CDF90065C6DB /* AlarmDayTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlarmDayTableViewController.swift; sourceTree = "<group>"; };
+		63DCEFD91C32D2C20065C6DB /* NotificationScheduler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		63E375911BB765B200232F18 /* CoverImageCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoverImageCollectionCell.swift; sourceTree = "<group>"; };
 		63EE07281BBA8F1F0049292B /* Show.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		63EE072A1BBA90F10049292B /* Season.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
@@ -332,7 +336,7 @@
 		63535E2E1BAD83B700D7B77F /* Inception */ = {
 			isa = PBXGroup;
 			children = (
-				6355D32A1C31AF960098BDCA /* Inception.entitlements */,
+				63DCEFD71C32CDF90065C6DB /* AlarmDayTableViewController.swift */,
 				634FA4F21BCEA2A1002B977D /* AlertFactory.swift */,
 				6391C7881BB4212200AAA429 /* APIController.swift */,
 				632F7CA11BB42443001CF2C9 /* APIEndpoints.swift */,
@@ -374,6 +378,7 @@
 				636522BC1BCC076700523B71 /* GenreDetailViewController.swift */,
 				63CD8FED1BD0FB5900B26CCE /* GenreTagTableViewCell.swift */,
 				636522BA1BCBFE9800523B71 /* GenreViewController.swift */,
+				6355D32A1C31AF960098BDCA /* Inception.entitlements */,
 				63535E3D1BAD83B700D7B77F /* Info.plist */,
 				63A30E791BDC10A5009625D4 /* InfoSettingsTableViewController.swift */,
 				632F7CA91BB43DDE001CF2C9 /* JSONParser.swift */,
@@ -396,6 +401,7 @@
 				63887E8C1BDAF3F200810BA9 /* MovieWatchlistTableViewCell.swift */,
 				63887E8E1BDAF50D00810BA9 /* MovieWatchlistTableViewCellDelegate.swift */,
 				632F7CA71BB43515001CF2C9 /* MultiSearchResult.swift */,
+				63DCEFD91C32D2C20065C6DB /* NotificationScheduler.swift */,
 				634FA4E61BCE93E2002B977D /* NSDateExtension.swift */,
 				6301BDB71BBC1FB4002D606E /* OverviewTableViewCell.swift */,
 				63EE7C641BB8473000BE2522 /* Person.swift */,
@@ -709,6 +715,7 @@
 				63EE7C631BB82BDE00BE2522 /* CreditsCollectionCell.swift in Sources */,
 				636BEEDE1BE0C84700464790 /* QualityTableViewController.swift in Sources */,
 				633981061BC3A4CF00731058 /* CreditsCrew.swift in Sources */,
+				63DCEFDA1C32D2C20065C6DB /* NotificationScheduler.swift in Sources */,
 				63887E911BDAF64600810BA9 /* WatchlistViewController+MovieWatchlistTableViewCellDelegate.swift in Sources */,
 				63672E0D1BB6EC4A005480D8 /* CurrencyExtension.swift in Sources */,
 				63535E6C1BAD9C3700D7B77F /* LocalizableExtension.swift in Sources */,
@@ -782,6 +789,7 @@
 				636246EA1BD3E3EA0013988B /* MovieDetailTableViewController+HeaderView.swift in Sources */,
 				637E158D1BDE267100EB04D6 /* ShowWatchlistTableViewCellDelegate.swift in Sources */,
 				637E15891BDE1C8200EB04D6 /* EpisodeWatchlistTableViewCell.swift in Sources */,
+				63DCEFD81C32CDF90065C6DB /* AlarmDayTableViewController.swift in Sources */,
 				636A95781BDD0C930084A99C /* ShowWatchlistItem+CoreDataProperties.swift in Sources */,
 				63165EFB1BE7A86D0095035E /* Theme.swift in Sources */,
 				63EE072B1BBA90F10049292B /* Season.swift in Sources */,

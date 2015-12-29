@@ -71,3 +71,7 @@
 "updatingShows" = "Updating TV Shows ...";
 "dark" = "Dark";
 "light" = "Light";
+"alarmday" = "Alarm Day";
+"twodaysbefore" = "2 Days before";
+"daybefore" = "1 Day before";
+"sameday" = "Same Day";
