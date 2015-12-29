@@ -41,39 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-        if !NSCalendar.currentCalendar().isDateInToday(SettingsFactory.objectForKey(SettingsFactory.SettingKey.DidShowNotificationsToday) as! NSDate) {
-            let showCoreDataHelper = ShowWatchlistCoreDataHelper()
-            UIApplication.sharedApplication().cancelAllLocalNotifications()
-            if SettingsFactory.boolForKey(SettingsFactory.SettingKey.Notifications) == true {
-                let shows = showCoreDataHelper.showsFromStore()
-                for show in shows {
-                    if let seasonsSet = show.seasons {
-                        for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
-                            if let episodesSet = seasons.episodes {
-                                for episode in episodesSet.array as! [EpisodeWatchlistItem] {
-                                    if let airDate = episode.airDate {
-                                        if airDate.isInFutureOrToday {
-                                            let localNotification = UILocalNotification()
-                                            localNotification.fireDate = airDate.dateWithTime
-                                            if let showName = show.name {
-                                                localNotification.alertBody = "\(showName) " + "hasNewEpisode".localized
-                                            }
-                                            else {
-                                                localNotification.alertBody = "thereIsANewEpisode".localized
-                                            }
-                                            localNotification.timeZone = NSTimeZone.defaultTimeZone()
-                                            localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
-                                            
-                                            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+        NotificationScheduler.scheduleLocalNotifications()
     }
 
     func applicationDidEnterBackground(application: UIApplication) {
