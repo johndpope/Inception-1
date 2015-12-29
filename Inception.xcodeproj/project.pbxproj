@@ -104,6 +104,9 @@
 		63A180471BD3003900AFBAFA /* StringToDateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A180461BD3003900AFBAFA /* StringToDateExtension.swift */; };
 		63A30E7A1BDC10A5009625D4 /* InfoSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A30E791BDC10A5009625D4 /* InfoSettingsTableViewController.swift */; };
 		63A6A3C01BDA891400110681 /* Watchlist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 63A6A3BE1BDA891400110681 /* Watchlist.xcdatamodeld */; };
+		63A70E9F1C32EE2F001A45D0 /* TVShowDetailTableViewController+PiP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A70E9E1C32EE2F001A45D0 /* TVShowDetailTableViewController+PiP.swift */; };
+		63A70EA11C32EE76001A45D0 /* MovieDetailTableViewController+PiP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A70EA01C32EE76001A45D0 /* MovieDetailTableViewController+PiP.swift */; };
+		63A70EA31C32FABC001A45D0 /* BackgroundAudio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A70EA21C32FABC001A45D0 /* BackgroundAudio.swift */; };
 		63BB33791BDA8AA1009D8407 /* MovieWatchlistItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB33771BDA8AA1009D8407 /* MovieWatchlistItem.swift */; };
 		63BB337A1BDA8AA1009D8407 /* MovieWatchlistItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB33781BDA8AA1009D8407 /* MovieWatchlistItem+CoreDataProperties.swift */; };
 		63BB337C1BDA8B81009D8407 /* MovieWatchlistCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BB337B1BDA8B81009D8407 /* MovieWatchlistCoreDataHelper.swift */; };
@@ -257,6 +260,9 @@
 		63A180461BD3003900AFBAFA /* StringToDateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringToDateExtension.swift; sourceTree = "<group>"; };
 		63A30E791BDC10A5009625D4 /* InfoSettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoSettingsTableViewController.swift; sourceTree = "<group>"; };
 		63A6A3BF1BDA891400110681 /* Watchlist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Watchlist.xcdatamodel; sourceTree = "<group>"; };
+		63A70E9E1C32EE2F001A45D0 /* TVShowDetailTableViewController+PiP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TVShowDetailTableViewController+PiP.swift"; sourceTree = "<group>"; };
+		63A70EA01C32EE76001A45D0 /* MovieDetailTableViewController+PiP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MovieDetailTableViewController+PiP.swift"; sourceTree = "<group>"; };
+		63A70EA21C32FABC001A45D0 /* BackgroundAudio.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundAudio.swift; sourceTree = "<group>"; };
 		63BB33771BDA8AA1009D8407 /* MovieWatchlistItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieWatchlistItem.swift; sourceTree = "<group>"; };
 		63BB33781BDA8AA1009D8407 /* MovieWatchlistItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MovieWatchlistItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		63BB337B1BDA8B81009D8407 /* MovieWatchlistCoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieWatchlistCoreDataHelper.swift; sourceTree = "<group>"; };
@@ -344,6 +350,7 @@
 				632F7CA31BB42553001CF2C9 /* APIRoute.swift */,
 				63535E2F1BAD83B700D7B77F /* AppDelegate.swift */,
 				63535E381BAD83B700D7B77F /* Assets.xcassets */,
+				63A70EA21C32FABC001A45D0 /* BackgroundAudio.swift */,
 				634FA4E81BCE9459002B977D /* CacheFactory.swift */,
 				634FA4E01BCE56B1002B977D /* CacheTableViewController.swift */,
 				637CFB121BC65FAB002AE492 /* CinemaViewController.swift */,
@@ -392,6 +399,7 @@
 				636246ED1BD3E74D0013988B /* Movie+UITableViewData.swift */,
 				63672E0A1BB6DB28005480D8 /* MovieDetailTableViewController.swift */,
 				636246E91BD3E3EA0013988B /* MovieDetailTableViewController+HeaderView.swift */,
+				63A70EA01C32EE76001A45D0 /* MovieDetailTableViewController+PiP.swift */,
 				636246EB1BD3E5B10013988B /* MovieDetailTableViewController+TagListView.swift */,
 				636246E51BD3E1E60013988B /* MovieDetailTableViewController+UICollectionView.swift */,
 				63CD8FE41BD0E0B900B26CCE /* moviegenres.json */,
@@ -442,6 +450,7 @@
 				63BB36E81BC5366800DD0543 /* TopRatedViewController.swift */,
 				6304BD061BD6370F009125BB /* TrailerFunctions.swift */,
 				6369D0A01BB5BA800004E05D /* TVShowDetailTableViewController.swift */,
+				63A70E9E1C32EE2F001A45D0 /* TVShowDetailTableViewController+PiP.swift */,
 				636246F11BD3E9E20013988B /* TVShowDetailTableViewController+HeaderView.swift */,
 				636246F31BD3EA1E0013988B /* TVShowDetailTableViewController+TagListView.swift */,
 				636246EF1BD3E9530013988B /* TVShowDetailTableViewController+UICollectionView.swift */,
@@ -570,6 +579,9 @@
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 6F7546N7G3;
 						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -738,6 +750,7 @@
 				637E159B1BDE394B00EB04D6 /* EpisodeWatchlistItem+CoreDataProperties.swift in Sources */,
 				63053D841BDD94EB00DE4925 /* ShowWatchlistTableViewCell.swift in Sources */,
 				63672E131BB73875005480D8 /* Genre.swift in Sources */,
+				63A70EA31C32FABC001A45D0 /* BackgroundAudio.swift in Sources */,
 				632F7CA21BB42443001CF2C9 /* APIEndpoints.swift in Sources */,
 				639F0C9E1BE7C20F0021CA89 /* ThemeManager.swift in Sources */,
 				637E15931BDE2A2400EB04D6 /* EpisodeGuideWatchlistViewController+UITableView.swift in Sources */,
@@ -750,6 +763,7 @@
 				63887E8F1BDAF50D00810BA9 /* MovieWatchlistTableViewCellDelegate.swift in Sources */,
 				636A95791BDD0C930084A99C /* ShowWatchlistItem.swift in Sources */,
 				637E15971BDE2F1B00EB04D6 /* EpisodeGuideWatchlistViewController+EpisodeWatchlistTableViewCellDelegate.swift in Sources */,
+				63A70EA11C32EE76001A45D0 /* MovieDetailTableViewController+PiP.swift in Sources */,
 				6391C7891BB4212200AAA429 /* APIController.swift in Sources */,
 				635FC7641BE402F7005A7DD6 /* ShowUpdater.swift in Sources */,
 				632F7CA81BB43515001CF2C9 /* MultiSearchResult.swift in Sources */,
@@ -779,6 +793,7 @@
 				634FA4EB1BCE95C2002B977D /* SettingsFactory.swift in Sources */,
 				63D30F791BD7D0FC00BFED9B /* EpisodeGuideViewController+UITableView.swift in Sources */,
 				632F7CAA1BB43DDE001CF2C9 /* JSONParser.swift in Sources */,
+				63A70E9F1C32EE2F001A45D0 /* TVShowDetailTableViewController+PiP.swift in Sources */,
 				63165EF91BE794380095035E /* ShowUpdaterDelegate.swift in Sources */,
 				634FA4E71BCE93E2002B977D /* NSDateExtension.swift in Sources */,
 				63535E301BAD83B700D7B77F /* AppDelegate.swift in Sources */,

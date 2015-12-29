@@ -11,13 +11,22 @@ import AVKit
 import XCDYouTubeKit
 
 class TrailerFunctions {
-    class func playVideoWithIdentifier(identifier:String, from:UIViewController) {
-        let playerViewController = AVPlayerViewController()
+    let playerViewController = AVPlayerViewController()
+    
+    init(from: MovieDetailTableViewController) {
+        playerViewController.delegate = from
+    }
+    
+    init(from: TVShowDetailTableViewController) {
+        playerViewController.delegate = from
+    }
+    
+    func playVideoWithIdentifier(identifier:String, from:UIViewController) {
         playerViewController.showsPlaybackControls = false
         from.presentViewController(playerViewController, animated: true, completion: nil)
         
         XCDYouTubeClient.defaultClient().getVideoWithIdentifier(identifier) { [weak playerViewController] (video: XCDYouTubeVideo?, error: NSError?) in
-            let videoURL = TrailerFunctions.streamURL(video)
+            let videoURL = self.streamURL(video)
             if videoURL != nil {
                 playerViewController?.player = AVPlayer(URL: videoURL!)
                 playerViewController?.showsPlaybackControls = true
@@ -31,7 +40,7 @@ class TrailerFunctions {
         
     }
     
-    private class func streamURL(video:XCDYouTubeVideo?) -> NSURL?{
+    private func streamURL(video:XCDYouTubeVideo?) -> NSURL?{
         var url:NSURL?
         let videoQualityString = SettingsFactory.objectForKey(SettingsFactory.SettingKey.VideoQuality) as! String
         if let videoQuality = SettingsFactory.VideoQuality(rawValue: videoQualityString) {
@@ -52,7 +61,7 @@ class TrailerFunctions {
         return url
     }
     
-    class func showTrailerActionSheet(videos:[Video], from:UIViewController) {
+    func showTrailerActionSheet(videos:[Video], from:UIViewController) {
         let actionSheetController = DOAlertController(title: "trailer".localized, message: "chooseTrailer".localized, preferredStyle: .ActionSheet)
         
         actionSheetController.alertViewBgColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
@@ -71,7 +80,7 @@ class TrailerFunctions {
             if let name = video.name {
                 if let key = video.key {
                     let trailerAction = DOAlertAction(title: name, style: .Default) { action -> Void in
-                        TrailerFunctions.playVideoWithIdentifier(key,from:from)
+                        self.playVideoWithIdentifier(key,from:from)
                     }
                     actionSheetController.addAction(trailerAction)
                 }

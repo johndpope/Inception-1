@@ -32,6 +32,7 @@ class TVShowDetailTableViewController: UITableViewController {
     var activityIndicator:UIActivityIndicatorView!
     
     let showCoreDataHelper = ShowWatchlistCoreDataHelper()
+    var trailerFunctions:TrailerFunctions?
     
     enum Key:String {
         case Overview = "overview"
@@ -41,6 +42,8 @@ class TVShowDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        trailerFunctions = TrailerFunctions(from: self)
         
         self.tableView.estimatedRowHeight = 44.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
@@ -143,11 +146,11 @@ class TVShowDetailTableViewController: UITableViewController {
         if let videos = self.videos {
             if videos.count == 1 {
                 if let key = videos[0].key {
-                    TrailerFunctions.playVideoWithIdentifier(key,from:self)
+                    trailerFunctions?.playVideoWithIdentifier(key,from:self)
                 }
             }
             else {
-                TrailerFunctions.showTrailerActionSheet(videos,from:self)
+                trailerFunctions?.showTrailerActionSheet(videos,from:self)
             }
         }
     }

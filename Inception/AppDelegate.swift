@@ -30,6 +30,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         application.applicationIconBadgeNumber = 0
         
+        BackgroundAudio.setPlaybackCategory()
+        
         return true
     }
     

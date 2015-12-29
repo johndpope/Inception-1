@@ -26,6 +26,7 @@ class MovieDetailTableViewController: UITableViewController {
     var headerMaskLayer:CAShapeLayer!
     
     let movieCoreDataHelper = MovieWatchlistCoreDataHelper()
+    var trailerFunctions:TrailerFunctions?
     
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var playTrailerButton:UIButton!
@@ -43,6 +44,8 @@ class MovieDetailTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.estimatedRowHeight = 100.0;
         self.tableView.rowHeight = UITableViewAutomaticDimension;
+        
+        self.trailerFunctions = TrailerFunctions(from:self)
         
         self.setupHeaderView()
         self.setupActivityIndicator()
@@ -141,11 +144,11 @@ class MovieDetailTableViewController: UITableViewController {
         if let videos = self.videos {
             if videos.count == 1 {
                 if let key = videos[0].key {
-                    TrailerFunctions.playVideoWithIdentifier(key,from:self)
+                    self.trailerFunctions?.playVideoWithIdentifier(key,from:self)
                 }
             }
             else {
-                TrailerFunctions.showTrailerActionSheet(videos,from:self)
+                self.trailerFunctions?.showTrailerActionSheet(videos,from:self)
             }
         }
     }

@@ -9,7 +9,6 @@ To Consider:
 - implement 3d touch
 - delta load for tv show changes
 - primary tint color in light theme might be not readable => change color
-- picture in picture support with avaudioplayer
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 - tests
 - fastlane (configure setup, create screenshots filled with data, etc.)
