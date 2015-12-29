@@ -227,15 +227,20 @@ class ShowWatchlistCoreDataHelper {
     func isShowSeen(show:ShowWatchlistItem) -> Bool {
         if let seasonsSet = show.seasons {
             for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
-                if let episodesSet = seasons.episodes {
-                    for episode in episodesSet.array as! [EpisodeWatchlistItem] {
-                        if let seen = episode.seen {
-                            if Bool(seen) == false {
-                                return false
+                if let seasonNumber = seasons.seasonNumber {
+                    if seasonNumber.integerValue > 0 {
+                        if let episodesSet = seasons.episodes {
+                            for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                                if let seen = episode.seen {
+                                    if Bool(seen) == false {
+                                        return false
+                                    }
+                                }
+                                else {
+                                    return false
+                                }
+                                
                             }
-                        }
-                        else {
-                            return false
                         }
                     }
                 }
@@ -322,12 +327,16 @@ class ShowWatchlistCoreDataHelper {
         if let show = self.showWithId(id) {
             if let seasonsSet = show.seasons {
                 for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
-                    if let episodesSet = seasons.episodes {
-                        for episode in episodesSet.array as! [EpisodeWatchlistItem] {
-                            if episode.seen == true {
-                                seenCount += 1
+                    if let seasonNumber = seasons.seasonNumber {
+                        if seasonNumber.integerValue > 0 {
+                            if let episodesSet = seasons.episodes {
+                                for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                                    if episode.seen == true {
+                                        seenCount += 1
+                                    }
+                                    totalCount += 1
+                                }
                             }
-                            totalCount += 1
                         }
                     }
                 }
