@@ -23,4 +23,8 @@ extension MovieDetailTableViewController : AVPlayerViewControllerDelegate {
         
         completionHandler(true)
     }
+    
+    func playerViewControllerShouldAutomaticallyDismissAtPictureInPictureStart(playerViewController: AVPlayerViewController) -> Bool {
+        return false
+    }
 }
