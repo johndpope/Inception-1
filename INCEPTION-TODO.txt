@@ -8,12 +8,7 @@ Now:
 		- watchlist of a tv-show
 		- statistic screen with values > 0
 	- for every device in english and german
-- refactoring
-- notifications not only on same day but
-	- same day
-	- one day before
-	- two days before
-
+	
 - make hit area bigger for seen button
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 
