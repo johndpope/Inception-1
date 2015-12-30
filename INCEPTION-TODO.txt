@@ -1,6 +1,6 @@
 Now:
 - make hit area bigger for seen button
-- bug: empty season prevents from marking show as seen => also progress is wrong
+- search : trending or last results
 To Consider:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results
@@ -18,3 +18,4 @@ To Consider:
 		- watchlist of a tv-show
 		- statistic screen with values > 0
 	- for every device in english and german
+	

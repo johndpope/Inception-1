@@ -48,6 +48,7 @@ class SettingsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
         self.alarmDateLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        self.alarmDayLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         datePicker.setValue(ThemeManager.sharedInstance.currentTheme.textColor, forKeyPath: "textColor")
         self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
