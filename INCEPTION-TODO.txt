@@ -11,11 +11,4 @@ To Consider:
 - primary tint color in light theme might be not readable => change color
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 - tests
-- fastlane (configure setup, create screenshots filled with data, etc.)
-	- snapshots
-		- searchresults
-		- detailview of a movie
-		- watchlist of a tv-show
-		- statistic screen with values > 0
-	- for every device in english and german
-	
+- make screenshots
