@@ -1,6 +1,8 @@
 Now:
 - make hit area bigger for seen button
-- search : trending or last results
+- make screenshots + frame them + background color
+- write description for app store and upload 
+
 To Consider:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results
@@ -11,4 +13,4 @@ To Consider:
 - primary tint color in light theme might be not readable => change color
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 - tests
-- make screenshots
+- search : trending or last results
