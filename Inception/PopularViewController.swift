@@ -103,7 +103,8 @@ class PopularViewController: UIViewController,UICollectionViewDelegate,UICollect
             }
             return headerView
         default:
-            assert(false, "Unexpected element kind")
+            //assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
         }
     }
     

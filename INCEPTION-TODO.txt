@@ -1,7 +1,5 @@
 Now:
 - make hit area bigger for seen button
-- make screenshots + frame them + background color
-- write description for app store and upload 
 
 To Consider:
 - maybe use language parameter in api calls

@@ -106,7 +106,8 @@ class TopRatedViewController: UIViewController,UICollectionViewDelegate,UICollec
             }
             return headerView
         default:
-            assert(false, "Unexpected element kind")
+            //assert(false, "Unexpected element kind")
+            return UICollectionReusableView()
         }
     }
     
