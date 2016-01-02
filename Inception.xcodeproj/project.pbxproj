@@ -140,13 +140,6 @@
 			remoteGlobalIDString = 63535E2B1BAD83B700D7B77F;
 			remoteInfo = Inception;
 		};
-		63535E4E1BAD83B800D7B77F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 63535E241BAD83B700D7B77F /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 63535E2B1BAD83B700D7B77F;
-			remoteInfo = Inception;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -552,7 +545,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				63535E4F1BAD83B800D7B77F /* PBXTargetDependency */,
 			);
 			name = InceptionUITests;
 			productName = InceptionUITests;
@@ -848,11 +840,6 @@
 			isa = PBXTargetDependency;
 			target = 63535E2B1BAD83B700D7B77F /* Inception */;
 			targetProxy = 63535E431BAD83B700D7B77F /* PBXContainerItemProxy */;
-		};
-		63535E4F1BAD83B800D7B77F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 63535E2B1BAD83B700D7B77F /* Inception */;
-			targetProxy = 63535E4E1BAD83B800D7B77F /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
