@@ -15,7 +15,9 @@ class AlertFactory {
         }
         alertController.addAction(dismissAction)
         dispatch_async(dispatch_get_main_queue(), {
-            from.presentViewController(alertController, animated: true, completion: nil)
+            if from.isViewLoaded() && from.view.window != nil {
+                from.presentViewController(alertController, animated: true, completion: nil)
+            }
         })
     }
 }
