@@ -1,6 +1,6 @@
 Now:
 - make hit area bigger for seen button
-
+- watchlist for persons - observe new/unseen movies/tv shows of a specific person
 To Consider:
 - maybe use language parameter in api calls
 - consider search/multi page to show all search results
@@ -11,4 +11,3 @@ To Consider:
 - primary tint color in light theme might be not readable => change color
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 - tests
-- search : trending or last results

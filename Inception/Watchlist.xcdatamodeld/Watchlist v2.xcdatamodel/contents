@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="15C50" minimumToolsVersion="Xcode 7.0">
+    <entity name="EpisodeWatchlistItem" representedClassName=".EpisodeWatchlistItem" syncable="YES">
+        <attribute name="airDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="episodeNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="seen" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <relationship name="season" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="SeasonWatchlistItem" inverseName="episodes" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
+    </entity>
+    <entity name="LastSearchedItem" representedClassName=".LastSearchedItem" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="mediaType" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="timestamp" attributeType="Date" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="MovieWatchlistItem" representedClassName=".MovieWatchlistItem" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="runtime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="seen" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="PersonCredit" representedClassName=".PersonCredit" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mediaType" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="person" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PersonWatchlistItem" inverseName="credits" inverseEntity="PersonWatchlistItem" syncable="YES"/>
+    </entity>
+    <entity name="PersonWatchlistItem" representedClassName=".PersonWatchlistItem" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profilePath" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="credits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PersonCredit" inverseName="person" inverseEntity="PersonCredit" syncable="YES"/>
+    </entity>
+    <entity name="SeasonWatchlistItem" representedClassName=".SeasonWatchlistItem" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="seasonNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="EpisodeWatchlistItem" inverseName="season" inverseEntity="EpisodeWatchlistItem" syncable="YES"/>
+        <relationship name="show" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ShowWatchlistItem" inverseName="seasons" inverseEntity="ShowWatchlistItem" syncable="YES"/>
+    </entity>
+    <entity name="ShowWatchlistItem" representedClassName=".ShowWatchlistItem" syncable="YES">
+        <attribute name="episodeRuntime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastUpdated" attributeType="Date" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="seasons" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="SeasonWatchlistItem" inverseName="show" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="EpisodeWatchlistItem" positionX="378" positionY="-18" width="128" height="163"/>
+        <element name="MovieWatchlistItem" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="SeasonWatchlistItem" positionX="232" positionY="-18" width="128" height="103"/>
+        <element name="ShowWatchlistItem" positionX="79" positionY="-18" width="128" height="148"/>
+        <element name="PersonWatchlistItem" positionX="-63" positionY="306" width="128" height="103"/>
+        <element name="LastSearchedItem" positionX="-63" positionY="171" width="128" height="133"/>
+        <element name="PersonCredit" positionX="81" positionY="306" width="128" height="133"/>
+    </elements>
+</model>
