@@ -69,6 +69,7 @@
 "compressed" = "Komprimiert";
 "original" = "Original";
 "couldNotUpdateMessage" = "Deine TV-Shows konnten nicht geupdated werden. Schaue nach ob eine Netzwerkverbindung besteht.";
+"couldNotUpdatePersonMessage" = "Die Filme und Serien deiner getrackten Personen konnten nicht geupdated werden. Schaue nach ob eine Netzwerkverbindung besteht.";
 "updatingShows" = "TV Shows updaten ...";
 "dark" = "Dunkel";
 "light" = "Hell";

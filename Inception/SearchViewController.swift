@@ -21,6 +21,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let movieCoreDataHelper = MovieWatchlistCoreDataHelper()
     let showCoreDataHelper = ShowWatchlistCoreDataHelper()
     let searchCoreDataHelper = SearchCoreDataHelper()
+    let personCoreDataHelper = PersonWatchlistCoreDataHelper()
     var isSearching = false
 
     override func viewDidLoad() {
@@ -240,6 +241,26 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                             let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
                                 
                                 self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath,lastUpdated: NSDate())
+                                tableView.setEditing(false, animated: true)
+                            })
+                            watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+                            actions.append(watchlistAction)
+                        }
+                    }
+                case "person":
+                    if let id = result.id {
+                        if self.personCoreDataHelper.hasPerson(id) {
+                            let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                                self.personCoreDataHelper.removePersonWithId(id)
+                                tableView.setEditing(false, animated: true)
+                            })
+                            watchlistAction.backgroundColor = UIColor.redColor()
+                            actions.append(watchlistAction)
+                        }
+                        else {
+                            let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                                
+                                self.personCoreDataHelper.insertPersonItem(id, name: result.name, profilePath: result.imagePath, credits: [])
                                 tableView.setEditing(false, animated: true)
                             })
                             watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor

@@ -58,6 +58,8 @@
 /* Class = "UISegmentedControl"; 7dL-7y-laS.segmentTitles[1] = "TV Shows"; ObjectID = "7dL-7y-laS"; */
 "7dL-7y-laS.segmentTitles[1]" = "TV Serien";
 
+"7dL-7y-laS.segmentTitles[2]" = "Personen";
+
 /* Class = "UILabel"; text = "Label"; ObjectID = "8mt-FI-KAq"; */
 "8mt-FI-KAq.text" = "Label";
 

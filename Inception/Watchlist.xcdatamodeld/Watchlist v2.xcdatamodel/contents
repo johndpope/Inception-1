@@ -36,9 +36,10 @@
     </entity>
     <entity name="PersonWatchlistItem" representedClassName=".PersonWatchlistItem" syncable="YES">
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastUpdated" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePath" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="credits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PersonCredit" inverseName="person" inverseEntity="PersonCredit" syncable="YES"/>
+        <relationship name="credits" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="PersonCredit" inverseName="person" inverseEntity="PersonCredit" syncable="YES"/>
     </entity>
     <entity name="SeasonWatchlistItem" representedClassName=".SeasonWatchlistItem" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
@@ -60,7 +61,7 @@
         <element name="MovieWatchlistItem" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="SeasonWatchlistItem" positionX="232" positionY="-18" width="128" height="103"/>
         <element name="ShowWatchlistItem" positionX="79" positionY="-18" width="128" height="148"/>
-        <element name="PersonWatchlistItem" positionX="-63" positionY="306" width="128" height="103"/>
+        <element name="PersonWatchlistItem" positionX="-63" positionY="306" width="128" height="118"/>
         <element name="LastSearchedItem" positionX="-63" positionY="171" width="128" height="133"/>
         <element name="PersonCredit" positionX="81" positionY="306" width="128" height="133"/>
     </elements>

@@ -17,6 +17,6 @@ extension PersonWatchlistItem {
     @NSManaged var id: NSNumber
     @NSManaged var profilePath: String?
     @NSManaged var name: String?
-    @NSManaged var credits: NSSet?
-
+    @NSManaged var lastUpdated:NSDate
+    @NSManaged var credits: NSOrderedSet?
 }

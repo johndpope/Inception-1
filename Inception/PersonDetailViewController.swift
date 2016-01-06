@@ -15,12 +15,15 @@ class PersonDetailViewController: UIViewController {
     var tableDataKeys:[String] = []
     var knownFor:[MultiSearchResult] = []
     internal var selectedSegmentIndex:Int = 0
+    let personCoreDataHelper = PersonWatchlistCoreDataHelper()
     
     @IBOutlet weak var infoView:UIView!
     @IBOutlet weak var tableView:UITableView!
     @IBOutlet weak var nameLabel:UILabel!
     @IBOutlet weak var personImageView:UIImageView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
+    
+    //TODO: add person to watchlist 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +43,7 @@ class PersonDetailViewController: UIViewController {
                 print(error)
             } else {
                 self.person = JSONParser.parsePerson(data)
+                self.setupBarButtonItem()
                 self.updateUI()
             }
         }
@@ -48,6 +52,38 @@ class PersonDetailViewController: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.updateTheming()
+        self.updateBarButtonColor()
+    }
+    
+    func setupBarButtonItem() {
+        let image = UIImage(named: "watchlist")
+        let barButtonItem = UIBarButtonItem(image: image, style: .Plain, target: self, action: "updateWatchlist:")
+        
+        self.navigationItem.rightBarButtonItem = barButtonItem
+        self.updateBarButtonColor()
+    }
+    
+    func updateBarButtonColor() {
+        if self.navigationItem.rightBarButtonItem != nil {
+            if self.personCoreDataHelper.hasPerson(self.person!.id!) {
+                self.navigationItem.rightBarButtonItem!.tintColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+            }
+            else {
+                self.navigationItem.rightBarButtonItem!.tintColor = ThemeManager.sharedInstance.currentTheme.textColor
+            }
+        }
+    }
+    
+    func updateWatchlist(sender:UIBarButtonItem) {
+        let person = self.person!
+        if self.personCoreDataHelper.hasPerson(person.id!) {
+            self.personCoreDataHelper.removePersonWithId(person.id!)
+            sender.tintColor = ThemeManager.sharedInstance.currentTheme.textColor
+        }
+        else {
+            self.personCoreDataHelper.insertPersonItem(person.id!, name: person.name, profilePath: person.profilePath, credits:self.knownFor)
+            sender.tintColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+        }
     }
     
     func updateTheming() {
