@@ -26,7 +26,7 @@ class func scheduleLocalNotifications() {
                                         let localNotification = UILocalNotification()
                                         localNotification.fireDate = airDate.dateWithTime
                                         if let showName = show.name {
-                                            localNotification.alertBody = "\(showName) " + "hasNewEpisode".localized
+                                            localNotification.alertBody = "aNewEpisode" + " \(showName) " + "airs".localized + " " + airDate.relativeNotificationDate + "."
                                         }
                                         else {
                                             localNotification.alertBody = "thereIsANewEpisode".localized

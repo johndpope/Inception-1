@@ -52,7 +52,8 @@
 "rating" = "Bewertung";
 "country" = "Land";
 "language" = "Sprache";
-"hasNewEpisode" = "hat eine neue Episode !";
+"aNewEpisode" = "Eine neue Episode von";
+"airs" = "läuft";
 "thereIsANewEpisode" = "Es ist eine neue Episode verfügbar !";
 "upcomingEpisodes" = "Kommende Episoden";
 "noTrackedMovies" = "Gespeicherte Filme";
@@ -75,3 +76,6 @@
 "twodaysbefore" = "2 Tage vorher";
 "daybefore" = "1 Tag vorher";
 "sameday" = "Am gleichen Tag";
+"intwodays" = "in zwei Tagen";
+"tomorrow" = "morgen";
+"today" = "heute";

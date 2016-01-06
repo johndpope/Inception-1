@@ -52,7 +52,8 @@
 "rating" = "Rating";
 "country" = "Country";
 "language" = "Language";
-"hasNewEpisode" = "has a new episode !";
+"aNewEpisode" = "A new episode of";
+"airs" = "is airing";
 "thereIsANewEpisode" = "There is a new episode available !";
 "upcomingEpisodes" = "Upcoming Episodes";
 "noTrackedMovies" = "Tracked Movies";
@@ -75,3 +76,6 @@
 "twodaysbefore" = "2 Days before";
 "daybefore" = "1 Day before";
 "sameday" = "Same Day";
+"intwodays" = "in two days";
+"tomorrow" = "tomorrow";
+"today" = "today";

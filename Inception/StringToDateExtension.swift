@@ -65,4 +65,25 @@ extension String {
         }
         return nil
     }
+    
+    var relativeNotificationDate:String {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        if let date = dateFormatter.dateFromString(self) {
+            let calendar = NSCalendar.currentCalendar()
+            let twoDaysDate = calendar.dateByAddingUnit(.Day, value: +2, toDate: NSDate(), options: [])!
+            let tomorrowDate = calendar.dateByAddingUnit(.Day, value: +1, toDate: NSDate(), options: [])!
+            if NSDate.isSameDay(date, date2: twoDaysDate) {
+                return "intwodays".localized
+            }
+            else if NSDate.isSameDay(date, date2: tomorrowDate) {
+                return "tomorrow".localized
+            }
+            else if date.isToday {
+                return "today".localized
+            }
+
+        }
+        return ""
+    }
 }
