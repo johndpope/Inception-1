@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -50,9 +51,18 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchBar.keyboardAppearance = ThemeManager.sharedInstance.currentTheme.keyboardAppearance
         self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "persistentStoreDidChange", name: NSPersistentStoreCoordinatorStoresDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "persistentStoreWillChange:", name: NSPersistentStoreCoordinatorStoresWillChangeNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "recieveICloudChanges:", name: NSPersistentStoreDidImportUbiquitousContentChangesNotification, object: (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.persistentStoreCoordinator)
+        
         isSearching = false
         self.lastSearches = searchCoreDataHelper.searchesFromStore()
         self.tableView.reloadData()
+    }
+    
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -67,6 +77,26 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
 
+    func persistentStoreDidChange () {
+        self.lastSearches = self.searchCoreDataHelper.searchesFromStore()
+        if !isSearching {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func persistentStoreWillChange (notification:NSNotification) {
+        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+    }
+    
+    func recieveICloudChanges (notification:NSNotification){
+        (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.performBlock { () -> Void in
+            (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+            self.lastSearches = self.searchCoreDataHelper.searchesFromStore()
+            if !self.isSearching {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
     /* UITableView Delegate & Datasource */
         
