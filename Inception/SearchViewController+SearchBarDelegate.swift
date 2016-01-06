@@ -15,6 +15,8 @@ extension SearchViewController : UISearchBarDelegate {
         self.searchBar.text = ""
         self.results.removeAll()
         self.searchBar.resignFirstResponder()
+        
+        isSearching = false
         self.tableView.reloadData()
     }
     
@@ -22,7 +24,9 @@ extension SearchViewController : UISearchBarDelegate {
         self.activityIndicator.startAnimating()
         self.results.removeAll()
         self.searchBar.resignFirstResponder()
-
+        
+        isSearching = true
+        
         if let searchText = searchBar.text {
             APIController.request(APIEndpoints.MultiSearch(searchText)) { (data:AnyObject?, error:NSError?) in
                 self.activityIndicator.stopAnimating()
