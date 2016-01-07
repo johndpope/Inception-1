@@ -14,7 +14,7 @@ class PersonWatchlistCoreDataHelper {
     let managedObjectContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let kPersonWatchlistItemEntityName = "PersonWatchlistItem"
     let kPersonCreditEntityName = "PersonCredit"
-
+    
     func personsFromStore() -> [PersonWatchlistItem] {
         let fetchRequest = NSFetchRequest(entityName: kPersonWatchlistItemEntityName)
         var persons:[PersonWatchlistItem] = []
@@ -60,7 +60,7 @@ class PersonWatchlistCoreDataHelper {
                         }
                     }
                     return NSComparisonResult.OrderedSame
-
+                    
                 }
                 person.credits = mutableCredits.copy() as? NSOrderedSet
             }
@@ -68,6 +68,10 @@ class PersonWatchlistCoreDataHelper {
     }
     
     func insertPersonItem(id:Int, name:String?, profilePath:String?, credits:[MultiSearchResult]) {
+        if hasPerson(id) {
+            return
+        }
+        
         let newEntity = NSEntityDescription.insertNewObjectForEntityForName(kPersonWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! PersonWatchlistItem
         newEntity.id = id
         newEntity.name = name
@@ -90,54 +94,14 @@ class PersonWatchlistCoreDataHelper {
             
             newEntity.lastUpdated = NSDate()
             let creditsSet = NSOrderedSet(array:watchlistPersonCredits)
-            let mutableCreditsSet = creditsSet.mutableCopy() as! NSMutableOrderedSet
-            mutableCreditsSet.sortUsingComparator {
-                (obj1, obj2) -> NSComparisonResult in
-                
-                let p1 = obj1 as! PersonCredit
-                let p2 = obj2 as! PersonCredit
-                if let p1sn = p1.year {
-                    if let p2sn = p2.year {
-                        return p2sn.compare(p1sn)
-                    }
-                }
-                
-                if let p1sn = p1.name {
-                    if let p2sn = p2.name {
-                        return p2sn.compare(p1sn)
-                    }
-                }
-                return NSComparisonResult.OrderedSame
-            }
-            
-            newEntity.credits = mutableCreditsSet.copy() as? NSOrderedSet
+            newEntity.credits = creditsSet
             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
             NSNotificationCenter.defaultCenter().postNotificationName("personCreditsDidLoad", object: nil, userInfo: nil)
         }
         else {
             self.loadCredits(id,watchlistPerson:newEntity) {(loadedCredits:[PersonCredit]) in
                 let creditsSet = NSOrderedSet(array:loadedCredits)
-                let mutableCreditsSet = creditsSet.mutableCopy() as! NSMutableOrderedSet
-                mutableCreditsSet.sortUsingComparator {
-                    (obj1, obj2) -> NSComparisonResult in
-                    
-                    let p1 = obj1 as! PersonCredit
-                    let p2 = obj2 as! PersonCredit
-                    if let p1sn = p1.year {
-                        if let p2sn = p2.year {
-                            return p2sn.compare(p1sn)
-                        }
-                    }
-                    
-                    if let p1sn = p1.name {
-                        if let p2sn = p2.name {
-                            return p2sn.compare(p1sn)
-                        }
-                    }
-                    return NSComparisonResult.OrderedSame
-                }
-                
-                newEntity.credits = mutableCreditsSet.copy() as? NSOrderedSet
+                newEntity.credits = creditsSet
                 newEntity.lastUpdated = NSDate()
                 (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
                 NSNotificationCenter.defaultCenter().postNotificationName("personCreditsDidLoad", object: nil, userInfo: nil)
@@ -202,4 +166,3 @@ class PersonWatchlistCoreDataHelper {
         return nil
     }
 }
-
