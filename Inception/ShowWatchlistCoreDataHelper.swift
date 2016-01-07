@@ -16,7 +16,7 @@ class ShowWatchlistCoreDataHelper {
     let kShowWatchlistItemEntityName = "ShowWatchlistItem"
     let kSeasonWatchlistItemEntityName = "SeasonWatchlistItem"
     let kEpisodeWatchlistItemEntityName = "EpisodeWatchlistItem"
-
+    
     func showsFromStore() -> [ShowWatchlistItem] {
         let fetchRequest = NSFetchRequest(entityName: kShowWatchlistItemEntityName)
         var shows:[ShowWatchlistItem] = []
@@ -24,33 +24,33 @@ class ShowWatchlistCoreDataHelper {
             shows = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [ShowWatchlistItem]
             shows.sortInPlace(seenLexFilter)
             self.sortSeasonsAndEpisodesFor(shows)
-			return shows
+            return shows
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
         return shows
     }
-	
-	func seenLexFilter(this:ShowWatchlistItem, that:ShowWatchlistItem) -> Bool {
-		let thisSeen = self.isShowSeen(this)
-		let thatSeen = self.isShowSeen(that)
-		
-		if (thisSeen == thatSeen) {
-			if let thisName = this.name {
-				if let thatName = that.name {
-					return thisName < thatName
-				}
-			}
-			return false
-		}
-		return !thisSeen && thatSeen
-	}
+    
+    func seenLexFilter(this:ShowWatchlistItem, that:ShowWatchlistItem) -> Bool {
+        let thisSeen = self.isShowSeen(this)
+        let thatSeen = self.isShowSeen(that)
+        
+        if (thisSeen == thatSeen) {
+            if let thisName = this.name {
+                if let thatName = that.name {
+                    return thisName < thatName
+                }
+            }
+            return false
+        }
+        return !thisSeen && thatSeen
+    }
     
     func sortSeasonsAndEpisodesFor(shows:[ShowWatchlistItem]) {
         for show in shows {
             if let seasons = show.seasons {
                 let mutableSeasons = seasons.mutableCopy() as! NSMutableOrderedSet
-    
+                
                 mutableSeasons.sortUsingComparator {
                     (obj1, obj2) -> NSComparisonResult in
                     
@@ -87,7 +87,9 @@ class ShowWatchlistCoreDataHelper {
     }
     
     func insertShowItem(id:Int, name:String?, year:Int?, posterPath:String?, lastUpdated:NSDate) {
-        
+        if hasShow(id) {
+            return
+        }
         let newEntity = NSEntityDescription.insertNewObjectForEntityForName(kShowWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! ShowWatchlistItem
         newEntity.id = id
         newEntity.name = name
@@ -101,7 +103,7 @@ class ShowWatchlistCoreDataHelper {
             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
             NSNotificationCenter.defaultCenter().postNotificationName("seasonsAndEpisodesDidLoad", object: nil, userInfo: nil)
         }
-     }
+    }
     
     func insertSeason(id:Int, seasonNumber:Int?, show:ShowWatchlistItem, episodes:[EpisodeWatchlistItem]?) -> SeasonWatchlistItem {
         
@@ -186,7 +188,7 @@ class ShowWatchlistCoreDataHelper {
             }
         }
     }
-
+    
     
     private func loadEpisodes(season:SeasonWatchlistItem, id:Int, completionClosure:NSOrderedSet -> ()) {
         
@@ -216,7 +218,7 @@ class ShowWatchlistCoreDataHelper {
                 }
             }
             else {
-                completionClosure(NSOrderedSet(array:[]))  
+                completionClosure(NSOrderedSet(array:[]))
             }
         }
         else {
@@ -259,7 +261,7 @@ class ShowWatchlistCoreDataHelper {
                 }
             }
         }
-		
+        
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
     }
     
@@ -299,9 +301,9 @@ class ShowWatchlistCoreDataHelper {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-
+        
     }
-
+    
     func updateShowSeenState(seen:Bool, id:Int) {
         let fetchRequest = NSFetchRequest(entityName: kShowWatchlistItemEntityName)
         fetchRequest.predicate = NSPredicate(format: "id = %i", id)
@@ -318,7 +320,7 @@ class ShowWatchlistCoreDataHelper {
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
-
+        
     }
     
     func showProgress(id:Int) -> Float {
@@ -376,4 +378,3 @@ class ShowWatchlistCoreDataHelper {
         return nil
     }
 }
-

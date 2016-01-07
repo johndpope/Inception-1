@@ -21,32 +21,36 @@ class MovieWatchlistCoreDataHelper {
         do {
             movies = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [MovieWatchlistItem]
             movies.sortInPlace(seenLexFilter)
-			return movies
+            return movies
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
         }
         return movies
     }
-	
-	func seenLexFilter(this:MovieWatchlistItem, that:MovieWatchlistItem) -> Bool {
-		if let thisSeen = this.seen {
-			if let thatSeen = that.seen {
-		  	  if (Bool(thisSeen) == Bool(thatSeen)) {
-				  if let thisName = this.name {
-					  if let thatName = that.name {
-		  		  	  	return thisName < thatName
-					  }
-				  }
-				  return false
-		  	  }
-		  	  return !Bool(thisSeen) && Bool(thatSeen)
-			}
-		}
-		return false
-	}
-	
+    
+    func seenLexFilter(this:MovieWatchlistItem, that:MovieWatchlistItem) -> Bool {
+        if let thisSeen = this.seen {
+            if let thatSeen = that.seen {
+                if (Bool(thisSeen) == Bool(thatSeen)) {
+                    if let thisName = this.name {
+                        if let thatName = that.name {
+                            return thisName < thatName
+                        }
+                    }
+                    return false
+                }
+                return !Bool(thisSeen) && Bool(thatSeen)
+            }
+        }
+        return false
+    }
+    
     
     func insertMovieItem(id:Int, name:String?, year:Int?, posterPath:String?,runtime:Int?, seen:Bool) {
+        if hasMovie(id) {
+            return
+        }
+        
         let newEntity = NSEntityDescription.insertNewObjectForEntityForName(kMovieWatchlistItemEntityName, inManagedObjectContext: self.managedObjectContext) as! MovieWatchlistItem
         newEntity.id = id
         newEntity.name = name
@@ -56,7 +60,7 @@ class MovieWatchlistCoreDataHelper {
         if runtime != nil {
             newEntity.runtime = runtime
             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
-
+            
         }
         else {
             APIController.request(APIEndpoints.Movie(id)) { (data:AnyObject?, error:NSError?) in
@@ -72,7 +76,7 @@ class MovieWatchlistCoreDataHelper {
     }
     
     func updateMovieSeenState(seen:Bool,id:Int) {
-       
+        
         let fetchRequest = NSFetchRequest(entityName: kMovieWatchlistItemEntityName)
         fetchRequest.predicate = NSPredicate(format: "id = %i", id)
         
@@ -102,7 +106,7 @@ class MovieWatchlistCoreDataHelper {
     }
     
     func hasMovie(id:Int) -> Bool {
-       return self.movieWithId(id) != nil
+        return self.movieWithId(id) != nil
     }
     
     private func movieWithId(id:Int) -> MovieWatchlistItem? {
@@ -112,7 +116,7 @@ class MovieWatchlistCoreDataHelper {
         do {
             if let fetchResults = try self.managedObjectContext.executeFetchRequest(fetchRequest) as?[MovieWatchlistItem] {
                 if fetchResults.count != 0 {
-                   return fetchResults[0]
+                    return fetchResults[0]
                 }
             }
         } catch let error as NSError {
