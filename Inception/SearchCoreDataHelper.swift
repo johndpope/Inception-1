@@ -30,11 +30,17 @@ class SearchCoreDataHelper {
     func timestampFilter(this:LastSearchedItem, that:LastSearchedItem) -> Bool {
         return this.timestamp.compare(that.timestamp) == NSComparisonResult.OrderedDescending
     }
-
+    
     func insertSearchItem(id:Int, mediaType:String, name:String?, year:Int?, posterPath:String?,timestamp:NSDate) {
         let storedSearches = searchesFromStore()
         if storedSearches.count >= 10 {
             removeSearchItem(oldestSearch(storedSearches))
+        }
+        if hasSearch(id) {
+            let searchItem = searchWithId(id)!
+            searchItem.timestamp = NSDate()
+            (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+            return
         }
         let newEntity = NSEntityDescription.insertNewObjectForEntityForName(kLastSearchedItemEntityName, inManagedObjectContext: self.managedObjectContext) as! LastSearchedItem
         newEntity.id = id
@@ -43,7 +49,7 @@ class SearchCoreDataHelper {
         newEntity.year = year
         newEntity.posterPath = posterPath
         newEntity.timestamp = timestamp
-
+        
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
     }
     
@@ -57,5 +63,24 @@ class SearchCoreDataHelper {
         self.managedObjectContext.deleteObject(searchItem)
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
     }
+    
+    func hasSearch(id:Int) -> Bool {
+        return self.searchWithId(id) != nil
+    }
+    
+    private func searchWithId(id:Int) -> LastSearchedItem? {
+        let fetchRequest = NSFetchRequest(entityName: kLastSearchedItemEntityName)
+        fetchRequest.predicate = NSPredicate(format: "id = %i", id)
+        
+        do {
+            if let fetchResults = try self.managedObjectContext.executeFetchRequest(fetchRequest) as?[LastSearchedItem] {
+                if fetchResults.count != 0 {
+                    return fetchResults[0]
+                }
+            }
+        } catch let error as NSError {
+            print("Fetch failed: \(error.localizedDescription)")
+        }
+        return nil
+    }
 }
-
