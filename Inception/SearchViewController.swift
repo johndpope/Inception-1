@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SearchViewController.swift
 //  Inception
 //
 //  Created by David Ehlen on 19.09.15.
@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator:UIActivityIndicatorView!
@@ -23,7 +23,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let searchCoreDataHelper = SearchCoreDataHelper()
     let personCoreDataHelper = PersonWatchlistCoreDataHelper()
     var isSearching = false
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -39,10 +39,10 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.searchBar.resignFirstResponder()
         self.tableView.reloadData()
     }
-
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         self.navigationController?.navigationBar.barStyle = ThemeManager.sharedInstance.currentTheme.barStyle
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
         self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
@@ -77,7 +77,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             searchCoreDataHelper.insertSearchItem(id, mediaType: result.mediaType, name: result.name, year: result.year, posterPath: result.imagePath, timestamp: NSDate())
         }
     }
-
+    
     func persistentStoreDidChange () {
         self.lastSearches = self.searchCoreDataHelper.searchesFromStore()
         if !isSearching {
@@ -100,7 +100,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     /* UITableView Delegate & Datasource */
-        
+    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if isSearching {
             return self.results.count
@@ -155,7 +155,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         return cell
     }
-
+    
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
@@ -171,34 +171,41 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         if id != nil {
             switch mediaType {
-                case "movie":
-                    dispatch_async(dispatch_get_main_queue(),{
-                        let vc : MovieDetailTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
-                        vc.id = id!
-                        if self.isSearching {
-                            self.insertInLastSearches(self.results[indexPath.row])
-                        }
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    })
-                case "tv":
-                    dispatch_async(dispatch_get_main_queue(),{
-                        let vc : TVShowDetailTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
-                        vc.id = id!
-                        if self.isSearching {
-                            self.insertInLastSearches(self.results[indexPath.row])
-                        }
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    })
-                case "person":
-                    dispatch_async(dispatch_get_main_queue(),{
-                        let vc : PersonDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PersonDetailViewController") as! PersonDetailViewController
-                        vc.id = id!
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    })
-                default:
-                    assert(false, "Unexpected media type")
+            case "movie":
+                dispatch_async(dispatch_get_main_queue(),{
+                    let vc : MovieDetailTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("MovieDetailTableViewController") as! MovieDetailTableViewController
+                    vc.id = id!
+                    if self.isSearching {
+                        self.insertInLastSearches(self.results[indexPath.row])
+                    }
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            case "tv":
+                dispatch_async(dispatch_get_main_queue(),{
+                    let vc : TVShowDetailTableViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TVShowDetailTableViewController") as! TVShowDetailTableViewController
+                    vc.id = id!
+                    if self.isSearching {
+                        self.insertInLastSearches(self.results[indexPath.row])
+                    }
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            case "person":
+                dispatch_async(dispatch_get_main_queue(),{
+                    let vc : PersonDetailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("PersonDetailViewController") as! PersonDetailViewController
+                    vc.id = id!
+                    self.navigationController?.pushViewController(vc, animated: true)
+                })
+            default:
+                assert(false, "Unexpected media type")
             }
         }
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        if isSearching {
+            return .Delete
+        }
+        return .None
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath:NSIndexPath) -> [UITableViewRowAction]? {
@@ -207,70 +214,72 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if isSearching {
             switch result.mediaType {
-                case "movie":
-                    if let id = result.id {
-                        if self.movieCoreDataHelper.hasMovie(id) {
-                            let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
-                                self.movieCoreDataHelper.removeMovieWithId(id)
-                                tableView.setEditing(false, animated: true)
-                            })
-                            watchlistAction.backgroundColor = UIColor.redColor()
-                            actions.append(watchlistAction)
-                        }
-                        else {
-                            let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
-                                
-                                self.movieCoreDataHelper.insertMovieItem(id, name: result.name, year: result.year, posterPath: result.imagePath,runtime:nil, seen: false)
-                                tableView.setEditing(false, animated: true)
-                            })
-                            watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
-                            actions.append(watchlistAction)
-                        }
+            case "movie":
+                if let id = result.id {
+                    if self.movieCoreDataHelper.hasMovie(id) {
+                        let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            self.movieCoreDataHelper.removeMovieWithId(id)
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = UIColor.redColor()
+                        actions.append(watchlistAction)
                     }
-                case "tv":
-                    if let id = result.id {
-                        if self.showCoreDataHelper.hasShow(id) {
-                            let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
-                                self.showCoreDataHelper.removeShowWithId(id)
-                                tableView.setEditing(false, animated: true)
-                            })
-                            watchlistAction.backgroundColor = UIColor.redColor()
-                            actions.append(watchlistAction)
-                        }
-                        else {
-                            let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
-                                
-                                self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath,lastUpdated: NSDate())
-                                tableView.setEditing(false, animated: true)
-                            })
-                            watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
-                            actions.append(watchlistAction)
-                        }
+                    else {
+                        let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            
+                            self.movieCoreDataHelper.insertMovieItem(id, name: result.name, year: result.year, posterPath: result.imagePath,runtime:nil, seen: false)
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+                        actions.append(watchlistAction)
                     }
-                case "person":
-                    if let id = result.id {
-                        if self.personCoreDataHelper.hasPerson(id) {
-                            let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
-                                self.personCoreDataHelper.removePersonWithId(id)
-                                tableView.setEditing(false, animated: true)
-                            })
-                            watchlistAction.backgroundColor = UIColor.redColor()
-                            actions.append(watchlistAction)
-                        }
-                        else {
-                            let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
-                                
-                                self.personCoreDataHelper.insertPersonItem(id, name: result.name, profilePath: result.imagePath, credits: [])
-                                tableView.setEditing(false, animated: true)
-                            })
-                            watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
-                            actions.append(watchlistAction)
-                        }
+                }
+            case "tv":
+                if let id = result.id {
+                    if self.showCoreDataHelper.hasShow(id) {
+                        let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            self.showCoreDataHelper.removeShowWithId(id)
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = UIColor.redColor()
+                        actions.append(watchlistAction)
                     }
-                default: ()
+                    else {
+                        let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            
+                            self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath,lastUpdated: NSDate())
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+                        actions.append(watchlistAction)
+                    }
+                }
+            case "person":
+                if let id = result.id {
+                    if self.personCoreDataHelper.hasPerson(id) {
+                        let watchlistAction = UITableViewRowAction(style: .Normal , title: "removeFromWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            self.personCoreDataHelper.removePersonWithId(id)
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = UIColor.redColor()
+                        actions.append(watchlistAction)
+                    }
+                    else {
+                        let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
+                            
+                            self.personCoreDataHelper.insertPersonItem(id, name: result.name, profilePath: result.imagePath, credits: [])
+                            tableView.setEditing(false, animated: true)
+                        })
+                        watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
+                        actions.append(watchlistAction)
+                    }
+                }
+            default: ()
             }
+        }
+        if actions.count == 0 {
+            return nil
         }
         return actions
     }
 }
-
