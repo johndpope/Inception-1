@@ -1736,7 +1736,7 @@
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="General" footerTitle="If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing" id="Xr2-8A-ErL">
+                            <tableViewSection headerTitle="General" footerTitle="If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing." id="Xr2-8A-ErL">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="lFG-sP-PdI" style="IBUITableViewCellStyleDefault" id="IM4-gw-gaZ">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>
@@ -1890,12 +1890,38 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="0uw-RG-z5f" detailTextLabel="TkG-fL-qQg" rowHeight="44" style="IBUITableViewCellStyleValue1" id="HxD-UX-bq5">
+                                        <rect key="frame" x="0.0" y="468" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HxD-UX-bq5" id="oX3-fP-4eT">
+                                            <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0uw-RG-z5f">
+                                                    <rect key="frame" x="15" y="12" width="58" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TkG-fL-qQg">
+                                                    <rect key="frame" x="523" y="12" width="42" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Quality" footerTitle="Set the image quality for cover images or the quality preferred for trailer videos" id="5dx-8U-xIu">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="sa3-Mn-fGY" style="IBUITableViewCellStyleDefault" id="K7J-Xw-h0c">
-                                        <rect key="frame" x="0.0" y="551" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="595" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="K7J-Xw-h0c" id="c3q-hZ-MaI">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
@@ -1913,7 +1939,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="2E2-MK-esZ" style="IBUITableViewCellStyleDefault" id="Ddi-4c-BdG">
-                                        <rect key="frame" x="0.0" y="595" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="639" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ddi-4c-BdG" id="akq-v4-bcc">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
@@ -1936,7 +1962,7 @@
                                 <string key="footerTitle">Loaded data and images are saved in order to give you quicker results when searching the same data again. You can always delete this saved information to clear your disk space.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="coX-rn-ATg" style="IBUITableViewCellStyleDefault" id="pOx-p1-sTh">
-                                        <rect key="frame" x="0.0" y="706" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="750" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pOx-p1-sTh" id="8Bu-nB-ebc">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
@@ -1956,7 +1982,7 @@
                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="wjI-ix-c6j" style="IBUITableViewCellStyleDefault" id="nQF-Bd-sj2">
-                                        <rect key="frame" x="0.0" y="750" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="794" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nQF-Bd-sj2" id="dwY-pe-IqW">
                                             <rect key="frame" x="0.0" y="0.0" width="567" height="44"/>
@@ -1991,6 +2017,7 @@
                         <outlet property="alarmDayLabel" destination="MpU-zZ-kRZ" id="L0t-w0-DXa"/>
                         <outlet property="datePicker" destination="uQC-Vl-Chd" id="ifB-Pe-blU"/>
                         <outlet property="notificationSwitch" destination="t2c-gC-Zqv" id="8R1-mR-cIE"/>
+                        <outlet property="releaseDateCountryLabel" destination="TkG-fL-qQg" id="ekd-tk-fxE"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LmU-ZW-DBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3073,8 +3100,8 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ok6-Ha-eJB">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <color key="sectionIndexBackgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PersonDetailWatchlistTableViewCell" rowHeight="90" id="rxK-eS-kse" customClass="PersonDetailWatchlistTableViewCell" customModule="Inception" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="90"/>
@@ -3120,7 +3147,7 @@
                                                 <constraint firstItem="BLn-yR-MMi" firstAttribute="leading" secondItem="IyN-eE-gvu" secondAttribute="leading" constant="8" id="mn0-GY-5ar"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="coverImageView" destination="BLn-yR-MMi" id="Okf-yu-FBO"/>
                                             <outlet property="titleLabel" destination="bDj-LJ-vgR" id="4Od-aH-BGB"/>
@@ -3134,7 +3161,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Ok6-Ha-eJB" firstAttribute="top" secondItem="vDg-Ny-GDW" secondAttribute="top" id="301-t0-4D8"/>
                             <constraint firstAttribute="trailing" secondItem="Ok6-Ha-eJB" secondAttribute="trailing" id="V3c-35-8MD"/>
@@ -3188,6 +3215,45 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c36-jZ-g6L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2190" y="3802"/>
+        </scene>
+        <!--Country Releases Table View Controller-->
+        <scene sceneID="a6e-hv-xqk">
+            <objects>
+                <tableViewController storyboardIdentifier="CountryReleasesTableViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OZB-Qj-R8v" customClass="CountryReleasesTableViewController" customModule="Inception" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="xh2-OA-Oll">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CountrySelectionTableViewCell" textLabel="R1S-2A-NYv" style="IBUITableViewCellStyleDefault" id="CoR-K6-TOj">
+                                <rect key="frame" x="0.0" y="50" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="CoR-K6-TOj" id="WYF-xR-OiH">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="R1S-2A-NYv">
+                                            <rect key="frame" x="15" y="0.0" width="570" height="44"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="OZB-Qj-R8v" id="Av6-iG-Fdb"/>
+                            <outlet property="delegate" destination="OZB-Qj-R8v" id="OLQ-fM-b25"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bCP-XY-0jN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2190" y="4452"/>
         </scene>
     </scenes>
     <resources>

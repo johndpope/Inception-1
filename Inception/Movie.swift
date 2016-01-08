@@ -26,6 +26,7 @@ class Movie {
     var title:String?
     var voteAverage:Double?
     
+    var releaseDateCountryCode:String = "US"
     
     init(json:JSON) {
         var genres:[Genre] = []
@@ -42,7 +43,7 @@ class Movie {
         if let items = json["production_companies"].array {
             for item in items {
                 if let name = item["name"].string {
-                   productionCompanies.append(name)
+                    productionCompanies.append(name)
                 }
             }
         }
@@ -55,6 +56,26 @@ class Movie {
             }
         }
         
+        let settingsIsoCode = SettingsFactory.objectForKey(SettingsFactory.SettingKey.ReleaseDateCountry) as! String
+        var usaReleaseDate:String? = nil
+        if let items = json["releases"]["countries"].array {
+            for item in items {
+                if let isoCode = item["iso_3166_1"].string {
+                    if isoCode.lowercaseString == "us" {
+                        usaReleaseDate = item["release_date"].string
+                    }
+                    if isoCode == settingsIsoCode {
+                        self.releaseDate = item["release_date"].string
+                        self.releaseDateCountryCode = isoCode
+                    }
+                }
+            }
+        }
+        
+        if self.releaseDate == nil {
+            self.releaseDate = usaReleaseDate
+        }
+        
         self.backdropPath = json["backdrop_path"].string
         self.budget = json["budget"].int
         self.genres = genres
@@ -63,7 +84,6 @@ class Movie {
         self.posterPath = json["poster_path"].string
         self.productionCompanies = productionCompanies
         self.productionCountries = productionCountries
-        self.releaseDate = json["release_date"].string
         self.revenue = json["revenue"].int
         self.runtime = json["runtime"].int
         self.status = json["status"].string

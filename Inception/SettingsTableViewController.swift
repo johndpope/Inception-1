@@ -9,11 +9,12 @@
 import UIKit
 
 class SettingsTableViewController: UITableViewController {
-
+    
     @IBOutlet weak var alarmDateLabel: UILabel!
     @IBOutlet weak var alarmDayLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var notificationSwitch:UISwitch!
+    @IBOutlet weak var releaseDateCountryLabel: UILabel!
     
     private var datePickerHidden = false
     
@@ -27,7 +28,7 @@ class SettingsTableViewController: UITableViewController {
         self.datePicker.date = SettingsFactory.objectForKey(SettingsFactory.SettingKey.NotificationAlarmDate) as! NSDate
         self.didChangeDate()
         self.toggleDatePicker()
-
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -49,10 +50,12 @@ class SettingsTableViewController: UITableViewController {
         self.navigationController?.navigationBar.translucent = ThemeManager.sharedInstance.currentTheme.navBarTranslucent
         self.alarmDateLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         self.alarmDayLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
+        self.releaseDateCountryLabel.textColor = ThemeManager.sharedInstance.currentTheme.textColor
         datePicker.setValue(ThemeManager.sharedInstance.currentTheme.textColor, forKeyPath: "textColor")
         self.tableView.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
         
+        self.updateReleaseDateCountryLabel()
         self.updateAlarmDayLabel();
     }
     
@@ -68,6 +71,11 @@ class SettingsTableViewController: UITableViewController {
     private func updateAlarmDayLabel() {
         let alarmDayKey = SettingsFactory.objectForKey(SettingsFactory.SettingKey.AlarmDay) as! String
         alarmDayLabel.text = alarmDayKey.localized
+    }
+    
+    private func updateReleaseDateCountryLabel() {
+        let releaseDateCountry = SettingsFactory.objectForKey(SettingsFactory.SettingKey.ReleaseDateCountry) as! String
+        releaseDateCountryLabel.text = releaseDateCountry.countryNameFromCode
     }
     
     private func toggleDatePicker() {
@@ -112,34 +120,37 @@ class SettingsTableViewController: UITableViewController {
         let row = SettingsRow(indexPath: indexPath)
         
         switch (row) {
-            case .Alarm:
-                toggleDatePicker()
-            case .AlarmDay:
-                let vc : AlarmDayTableViewController = storyboard?.instantiateViewControllerWithIdentifier("AlarmDayTableViewController") as! AlarmDayTableViewController
-                self.navigationController?.pushViewController(vc, animated: true)
-            case .Cache :
-                let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
-                vc.showsImageCache = false
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            case .ImageCache :
-                let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
-                vc.showsImageCache = true
-                self.navigationController?.pushViewController(vc, animated: true)
-            case .ImageQuality :
-                let vc : QualityTableViewController = storyboard?.instantiateViewControllerWithIdentifier("QualityTableViewController") as! QualityTableViewController
-                vc.showsImageQuality = true
-                self.navigationController?.pushViewController(vc, animated: true)
+        case .Alarm:
+            toggleDatePicker()
+        case .AlarmDay:
+            let vc : AlarmDayTableViewController = storyboard?.instantiateViewControllerWithIdentifier("AlarmDayTableViewController") as! AlarmDayTableViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .Cache :
+            let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
+            vc.showsImageCache = false
+            self.navigationController?.pushViewController(vc, animated: true)
             
-            case .VideoQuality :
-                let vc : QualityTableViewController = storyboard?.instantiateViewControllerWithIdentifier("QualityTableViewController") as! QualityTableViewController
-                vc.showsImageQuality = false
-                self.navigationController?.pushViewController(vc, animated: true)
-            case .Theme :
-                let vc : ThemeTableViewController = storyboard?.instantiateViewControllerWithIdentifier("ThemeTableViewController") as! ThemeTableViewController
-                self.navigationController?.pushViewController(vc, animated: true)
-            default:
-                ()
-            }
+        case .ImageCache :
+            let vc : CacheTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CacheTableViewController") as! CacheTableViewController
+            vc.showsImageCache = true
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .ImageQuality :
+            let vc : QualityTableViewController = storyboard?.instantiateViewControllerWithIdentifier("QualityTableViewController") as! QualityTableViewController
+            vc.showsImageQuality = true
+            self.navigationController?.pushViewController(vc, animated: true)
+            
+        case .VideoQuality :
+            let vc : QualityTableViewController = storyboard?.instantiateViewControllerWithIdentifier("QualityTableViewController") as! QualityTableViewController
+            vc.showsImageQuality = false
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .Theme :
+            let vc : ThemeTableViewController = storyboard?.instantiateViewControllerWithIdentifier("ThemeTableViewController") as! ThemeTableViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        case .CountryReleases:
+            let vc : CountryReleasesTableViewController = storyboard?.instantiateViewControllerWithIdentifier("CountryReleasesTableViewController") as! CountryReleasesTableViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        default:
+            ()
+        }
     }
 }

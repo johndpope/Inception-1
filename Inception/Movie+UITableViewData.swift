@@ -34,8 +34,8 @@ extension Movie {
             dateFormatter.dateFormat = "yyyy-MM-dd"
             let date:NSDate = dateFormatter.dateFromString(releaseDate)!
             dateFormatter.dateFormat = "dd.MM.yyyy"
-            
-            tableData.append(dateFormatter.stringFromDate(date))
+            let releaseDateString = "\(dateFormatter.stringFromDate(date)) (\(releaseDateCountryCode.countryNameFromCode))";
+            tableData.append(releaseDateString)
             tableKeys.append("releaseDate".localized)
         }
         
