@@ -46,8 +46,8 @@ extension PersonWatchlistViewController : UITableViewDelegate, UITableViewDataSo
                 
                 cell.titleLabel.text = creditsArr[indexPath.row].name
                 
-                if let year = creditsArr[indexPath.row].year {
-                    cell.yearLabel.text = "\(year.integerValue)"
+                if let year = creditsArr[indexPath.row].releaseDate?.string.yearFromEuropeFormat {
+                    cell.yearLabel.text = "\(year)"
                 }
                 
                 if let stillPath = creditsArr[indexPath.row].imagePath {

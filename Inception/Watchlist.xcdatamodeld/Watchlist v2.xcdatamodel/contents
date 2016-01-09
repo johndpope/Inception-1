@@ -22,6 +22,7 @@
         <attribute name="id" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="runtime" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="seen" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
@@ -31,7 +32,7 @@
         <attribute name="imagePath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="mediaType" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="releaseDate" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="person" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="PersonWatchlistItem" inverseName="credits" inverseEntity="PersonWatchlistItem" syncable="YES"/>
     </entity>
     <entity name="PersonWatchlistItem" representedClassName=".PersonWatchlistItem" syncable="YES">
@@ -58,11 +59,11 @@
     </entity>
     <elements>
         <element name="EpisodeWatchlistItem" positionX="378" positionY="-18" width="128" height="163"/>
-        <element name="MovieWatchlistItem" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="LastSearchedItem" positionX="-63" positionY="171" width="128" height="133"/>
+        <element name="MovieWatchlistItem" positionX="-63" positionY="-18" width="128" height="148"/>
+        <element name="PersonCredit" positionX="81" positionY="306" width="128" height="133"/>
+        <element name="PersonWatchlistItem" positionX="-63" positionY="306" width="128" height="118"/>
         <element name="SeasonWatchlistItem" positionX="232" positionY="-18" width="128" height="103"/>
         <element name="ShowWatchlistItem" positionX="79" positionY="-18" width="128" height="148"/>
-        <element name="PersonWatchlistItem" positionX="-63" positionY="306" width="128" height="118"/>
-        <element name="LastSearchedItem" positionX="-63" positionY="171" width="128" height="133"/>
-        <element name="PersonCredit" positionX="81" positionY="306" width="128" height="133"/>
     </elements>
 </model>

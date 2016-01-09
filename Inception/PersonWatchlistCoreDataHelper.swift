@@ -48,9 +48,9 @@ class PersonWatchlistCoreDataHelper {
                     
                     let p1 = obj1 as! PersonCredit
                     let p2 = obj2 as! PersonCredit
-                    if let p1sn = p1.year {
-                        if let p2sn = p2.year {
-                            return p2sn.compare(p1sn)
+                    if let p1sn = p1.releaseDate?.string.yearFromEuropeFormat {
+                        if let p2sn = p2.releaseDate?.string.yearFromEuropeFormat {
+                            return NSNumber(integer: p2sn).compare(NSNumber(integer: p1sn))
                         }
                     }
                     
@@ -85,7 +85,7 @@ class PersonWatchlistCoreDataHelper {
                     personCredit.name = element.name
                     personCredit.id = NSNumber(integer:id)
                     personCredit.imagePath = element.imagePath
-                    personCredit.year = element.year
+                    personCredit.releaseDate = element.releaseDate?.date
                     personCredit.mediaType = element.mediaType
                     personCredit.person = newEntity
                     watchlistPersonCredits.append(personCredit)
@@ -124,7 +124,7 @@ class PersonWatchlistCoreDataHelper {
                         personCredit.name = element.name
                         personCredit.id = NSNumber(integer:id)
                         personCredit.imagePath = element.imagePath
-                        personCredit.year = element.year
+                        personCredit.releaseDate = element.releaseDate?.date
                         personCredit.mediaType = element.mediaType
                         personCredit.person = watchlistPerson
                         watchlistPersonCredits.append(personCredit)

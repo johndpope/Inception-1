@@ -74,7 +74,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func insertInLastSearches(result:MultiSearchResult) {
         if let id = result.id {
-            searchCoreDataHelper.insertSearchItem(id, mediaType: result.mediaType, name: result.name, year: result.year, posterPath: result.imagePath, timestamp: NSDate())
+            searchCoreDataHelper.insertSearchItem(id, mediaType: result.mediaType, name: result.name, year: result.releaseDate?.year, posterPath: result.imagePath, timestamp: NSDate())
         }
     }
     
@@ -134,7 +134,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
             else {
                 cell.coverImageView.image = UIImage(named: ThemeManager.sharedInstance.currentTheme.placeholderImageString)
             }
-            if let year = self.results[indexPath.row].year {
+            if let year = self.results[indexPath.row].releaseDate?.year {
                 cell.yearLabel.text = "\(year)"
             }
             cell.headingLabel.text = self.results[indexPath.row].name
@@ -226,8 +226,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     }
                     else {
                         let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
-                            
-                            self.movieCoreDataHelper.insertMovieItem(id, name: result.name, year: result.year, posterPath: result.imagePath,runtime:nil, seen: false)
+                            self.movieCoreDataHelper.insertMovieItem(id, name: result.name, year: result.releaseDate?.year, posterPath: result.imagePath,releaseDate:nil, runtime:nil, seen: false)
                             tableView.setEditing(false, animated: true)
                         })
                         watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
@@ -247,7 +246,7 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     else {
                         let watchlistAction = UITableViewRowAction(style: .Normal, title: "addToWatchlist".localized, handler: {(rowAction:UITableViewRowAction, indexPath:NSIndexPath) in
                             
-                            self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.year, posterPath: result.imagePath,lastUpdated: NSDate())
+                            self.showCoreDataHelper.insertShowItem(id, name: result.name, year: result.releaseDate?.year, posterPath: result.imagePath,lastUpdated: NSDate())
                             tableView.setEditing(false, animated: true)
                         })
                         watchlistAction.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor

@@ -17,22 +17,24 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     var calendarManager = JTCalendarManager()
     var selectedDate = NSDate()
     
-    struct UpcomingEpisode {
-        var episodeName: String
-        var showName: String
+    struct UpcomingEntry {
+        var description: String
+        var name: String
         var date: NSDate
         
-        init(episodeName: String, showName:String, date:NSDate){
-            self.episodeName = episodeName
-            self.showName = showName
+        init(description: String, name:String, date:NSDate){
+            self.description = description
+            self.name = name
             self.date = date
         }
     }
     
-    var allEpisodes:[UpcomingEpisode] = []
-    var tableEntries:[UpcomingEpisode] = []
+    var allUpcomingEntries:[UpcomingEntry] = []
+    var tableEntries:[UpcomingEntry] = []
     var showCoreDataHelper = ShowWatchlistCoreDataHelper()
-    
+    var movieCoreDataHelper = MovieWatchlistCoreDataHelper()
+    var personCoreDataHelper = PersonWatchlistCoreDataHelper()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -59,6 +61,11 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
         self.view.backgroundColor = ThemeManager.sharedInstance.currentTheme.backgroundColor
     }
     
+    func entryExists(name:String) -> Bool {
+        let results = self.allUpcomingEntries.filter { $0.name == name }
+        return results.isEmpty == false
+    }
+    
     func loadAllData() {
         let shows = self.showCoreDataHelper.showsFromStore()
         for show in shows {
@@ -70,10 +77,38 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
                                 if let shName = show.name {
                                     if let epDate = episode.airDate {
                                         if let date = epDate.date {
-                                            let upcomingEpisode = UpcomingEpisode(episodeName: epName, showName: shName, date: date)
-                                            self.allEpisodes.append(upcomingEpisode)
+                                            let upcomingEpisode = UpcomingEntry(description: epName, name: shName, date: date)
+                                            self.allUpcomingEntries.append(upcomingEpisode)
                                         }
                                     }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        let movies = self.movieCoreDataHelper.moviesFromStore()
+        for movie in movies {
+            if let releaseDate = movie.releaseDate {
+                if let name = movie.name {
+                    let upcomingMovie = UpcomingEntry(description:"", name: name, date:releaseDate)
+                    self.allUpcomingEntries.append(upcomingMovie)
+                }
+            }
+        }
+        
+        let persons = self.personCoreDataHelper.personsFromStore()
+        for person in persons {
+            if let credits = person.credits {
+                for credit in (credits.array as! [PersonCredit]) {
+                    if let releaseDate = credit.releaseDate {
+                        if let creditName = credit.name {
+                            if let mediaType = credit.mediaType where mediaType == "movie" {
+                                if !entryExists(creditName) {
+                                    let upcomingEntry = UpcomingEntry(description: "", name: creditName, date: releaseDate)
+                                    self.allUpcomingEntries.append(upcomingEntry)
                                 }
                             }
                         }
@@ -85,7 +120,7 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     
     func loadEntriesForDate(date:NSDate) {
         self.tableEntries.removeAll()
-        for upcomingEpisode in self.allEpisodes {
+        for upcomingEpisode in self.allUpcomingEntries {
             if NSDate.isSameDay(date, date2: upcomingEpisode.date) {
                 self.tableEntries.append(upcomingEpisode)
             }
@@ -94,7 +129,7 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     }
     
     func hasEntryForDate(date:NSDate) -> Bool {
-        for upcomingEpisode in self.allEpisodes {
+        for upcomingEpisode in self.allUpcomingEntries {
             if NSDate.isSameDay(date, date2: upcomingEpisode.date) {
                 return true
             }
@@ -104,7 +139,7 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     
     func numberOfEpisodesForDate(date:NSDate) -> Int {
         var count = 0
-        for upcomingEpisode in self.allEpisodes {
+        for upcomingEpisode in self.allUpcomingEntries {
             if NSDate.isSameDay(date, date2: upcomingEpisode.date) {
                 count += 1
             }
@@ -131,8 +166,8 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("UpcomingEpisodesTableViewCell", forIndexPath: indexPath) as! UpcomingEpisodesTableViewCell
 
-        cell.episodeNameLabel.text = self.tableEntries[indexPath.row].episodeName
-        cell.showNameLabel.text = self.tableEntries[indexPath.row].showName
+        cell.episodeNameLabel.text = self.tableEntries[indexPath.row].description
+        cell.showNameLabel.text = self.tableEntries[indexPath.row].name
         cell.dateLabel.text = self.tableEntries[indexPath.row].date.string
         
         return cell

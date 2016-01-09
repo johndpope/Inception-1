@@ -135,7 +135,7 @@ class MovieDetailTableViewController: UITableViewController {
             if let releaseDate = movie.releaseDate {
                 year = releaseDate.year
             }
-            self.movieCoreDataHelper.insertMovieItem(movie.id!, name: movie.title, year: year, posterPath: movie.posterPath,runtime:movie.runtime, seen: false)
+            self.movieCoreDataHelper.insertMovieItem(movie.id!, name: movie.title, year: year, posterPath: movie.posterPath,releaseDate:movie.releaseDate, runtime:movie.runtime, seen: false)
             sender.tintColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
         }
     }

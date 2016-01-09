@@ -120,7 +120,7 @@
 "VSj-N5-S4V.text" = "Label";
 
 /* Class = "UITableViewSection"; footerTitle = "If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing"; ObjectID = "Xr2-8A-ErL"; */
-"Xr2-8A-ErL.footerTitle" = "Wenn die Benachrichtigungen eingeschaltet sind, bekommst du immer eine Nachricht wenn neue Episoden deiner TV Serien starten";
+"Xr2-8A-ErL.footerTitle" = "Wenn die Benachrichtigungen eingeschaltet sind, bekommst du immer eine Nachricht wenn neue Episoden deiner TV Serien starten oder ein Film, den du auf deiner Watchlist stehen hast, im Kino anläuft.";
 
 /* Class = "UITableViewSection"; headerTitle = "General"; ObjectID = "Xr2-8A-ErL"; */
 "Xr2-8A-ErL.headerTitle" = "Allgemein";

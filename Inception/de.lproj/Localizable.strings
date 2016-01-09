@@ -77,9 +77,11 @@
 "twodaysbefore" = "2 Tage vorher";
 "daybefore" = "1 Tag vorher";
 "sameday" = "Am gleichen Tag";
-"intwodays" = "in zwei Tagen";
+"intwodays" = "übermorgen";
 "tomorrow" = "morgen";
 "today" = "heute";
 "countries" = "Länder";
 "countrySelection" = "Länderauswahl";
 "countryReleaseDateDescription" = "Filmstarttermine unterscheiden sich von Land zu Land. Daher kannst du hier einstellen für welches Land du gerne die Filmstartinformation beziehen möchtest. Sollten keine Informationen zu diesem Land für einen Film vorliegen wird dir standardmäßig das Datum für die USA angezeigt.";
+"theMovie" = "Der Film";
+"airsInCinema" = "läuft im Kino ab";

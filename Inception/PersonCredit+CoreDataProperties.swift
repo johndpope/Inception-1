@@ -16,7 +16,7 @@ extension PersonCredit {
 
     @NSManaged var id: NSNumber
     @NSManaged var imagePath: String?
-    @NSManaged var year: NSNumber?
+    @NSManaged var releaseDate: NSDate?
     @NSManaged var mediaType: String?
     @NSManaged var name: String?
     @NSManaged var person: NSManagedObject?

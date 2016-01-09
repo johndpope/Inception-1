@@ -46,7 +46,7 @@ class MovieWatchlistCoreDataHelper {
     }
     
     
-    func insertMovieItem(id:Int, name:String?, year:Int?, posterPath:String?,runtime:Int?, seen:Bool) {
+    func insertMovieItem(id:Int, name:String?, year:Int?, posterPath:String?, releaseDate:String?, runtime:Int?, seen:Bool) {
         if hasMovie(id) {
             return
         }
@@ -57,7 +57,8 @@ class MovieWatchlistCoreDataHelper {
         newEntity.year = year
         newEntity.posterPath = posterPath
         newEntity.seen = seen
-        if runtime != nil {
+        newEntity.releaseDate = releaseDate?.date
+        if runtime != nil && releaseDate != nil {
             newEntity.runtime = runtime
             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
             
@@ -69,6 +70,7 @@ class MovieWatchlistCoreDataHelper {
                 } else {
                     let movie = Movie(json: JSON(data!))
                     newEntity.runtime = movie.runtime
+                    newEntity.releaseDate = JSONParser.parseReleases(data)?.date
                 }
                 (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
             }

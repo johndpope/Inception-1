@@ -14,7 +14,7 @@ class MultiSearchResult {
     var name:String?
     var imagePath:String?
     var id:Int?
-    var year:Int?
+    var releaseDate:String?
 
     init(mediaType:String, json:JSON) {
         self.mediaType = mediaType
@@ -22,11 +22,11 @@ class MultiSearchResult {
         switch(mediaType) {
             case "movie":
                 self.name = json["title"].string
-                self.year = json["release_date"].string?.year
+                self.releaseDate = json["release_date"].string
                 self.imagePath = json["poster_path"].string
             case "tv":
                 self.name = json["name"].string
-                self.year = json["first_air_date"].string?.year
+                self.releaseDate = json["first_air_date"].string
                 self.imagePath = json["poster_path"].string
             case "person":
                 self.name = json["name"].string
@@ -36,9 +36,6 @@ class MultiSearchResult {
 
         }
         
-        if self.year == 0 {
-            self.year = nil
-        }
         self.id = json["id"].int
     }
 }

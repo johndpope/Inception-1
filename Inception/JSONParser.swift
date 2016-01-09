@@ -41,6 +41,30 @@ class JSONParser {
         return parsedResults
     }
     
+    class func parseReleases(data:AnyObject?) -> String? {
+        let settingsIsoCode = SettingsFactory.objectForKey(SettingsFactory.SettingKey.ReleaseDateCountry) as! String
+        var usaReleaseDate:String?
+        var releaseDate:String?
+        let json = JSON(data!)
+        if let items = json["releases"]["countries"].array {
+            for item in items {
+                if let isoCode = item["iso_3166_1"].string {
+                    if isoCode.lowercaseString == "us" {
+                        usaReleaseDate = item["release_date"].string
+                    }
+                    if isoCode == settingsIsoCode {
+                        releaseDate = item["release_date"].string
+                    }
+                }
+            }
+        }
+        
+        if releaseDate == nil {
+            releaseDate = usaReleaseDate
+        }
+        return releaseDate
+    }
+    
     class func parseCombinedCredits(data:AnyObject?) -> [MultiSearchResult] {
         var parsedResults:[MultiSearchResult] = []
         
@@ -74,7 +98,7 @@ class JSONParser {
             }
         }
         //Sort after year
-        return parsedResults.sort { $0.year > $1.year }
+        return parsedResults.sort { $0.releaseDate?.year > $1.releaseDate?.year }
     }
     
     //MARK: Genres

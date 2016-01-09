@@ -1736,7 +1736,8 @@
                         <color key="sectionIndexColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <sections>
-                            <tableViewSection headerTitle="General" footerTitle="If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing." id="Xr2-8A-ErL">
+                            <tableViewSection headerTitle="General" id="Xr2-8A-ErL">
+                                <string key="footerTitle">If you switch on notifications you will always get notified when new episodes of shows of your watchlist are airing or a movie you are tracking airs in cinema.</string>
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SettingsCell" textLabel="lFG-sP-PdI" style="IBUITableViewCellStyleDefault" id="IM4-gw-gaZ">
                                         <rect key="frame" x="0.0" y="114" width="600" height="44"/>

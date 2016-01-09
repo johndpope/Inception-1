@@ -22,6 +22,18 @@ extension String {
         return 0
     }
     
+    var yearFromEuropeFormat:Int {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        if let date = dateFormatter.dateFromString(self) {
+            let calendar = NSCalendar.currentCalendar()
+            let components = calendar.components(.Year, fromDate: date)
+            return components.year
+        }
+        return 0
+    }
+
+    
     var isInFutureOrToday:Bool {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd"
