@@ -29,32 +29,26 @@ extension APIEndpoints : APIRoute {
         case .MoviesForGenre(_) : return "/discover/movie"
         case .ShowsForGenre(_) : return "/discover/tv"
         case .SeasonsForShow(let showId, let seasonNumber) : return "/tv/\(showId)/season/\(seasonNumber)"
+        case .Releases(let movieId): return "movie/\(movieId)/releases"
         }
     }
     
     var GETParameters:[String:AnyObject] {
+        var params = ["api_key":APIKEY]
+        
         switch self {
-        case .MultiSearch(let searchString): return ["query":searchString,"api_key":APIKEY]
-        case .Movie(_): return ["api_key":APIKEY, "append_to_response":"releases"]
-        case .Show(_): return ["api_key":APIKEY]
-        case .Person(_): return ["api_key":APIKEY]
-        case .MovieTrailer(_) : return ["api_key":APIKEY]
-        case .SimilarMovies(_) : return ["api_key":APIKEY]
-        case .MovieCredits(_) : return ["api_key":APIKEY]
-        case .PersonCredits(_): return ["api_key":APIKEY]
-        case .ShowTrailer(_) : return ["api_key":APIKEY]
-        case .SimilarShows(_) : return ["api_key":APIKEY]
-        case .ShowCredits(_) : return ["api_key":APIKEY]
-        case .CinemaMovies : return ["api_key":APIKEY]
-        case .PopularMovies : return ["api_key":APIKEY]
-        case .PopularShows : return ["api_key":APIKEY]
-        case .TopRatedMovies : return ["api_key":APIKEY]
-        case .TopRatedShows : return ["api_key":APIKEY]
-        case .MoviesForGenre(let genreId) : return ["api_key":APIKEY,"sort_by":"popularity.desc","with_genres":"\(genreId)"]
-        case .ShowsForGenre(let genreId) : return ["api_key":APIKEY,"sort_by":"popularity.desc","with_genres":"\(genreId)"]
-        case .SeasonsForShow(_, _) : return ["api_key": APIKEY]
+            case .MultiSearch(let searchString):
+                params["query"] = searchString
+            case .Movie(_):
+                params["append_to_response"] = "releases"
+                   case .MoviesForGenre(let genreId) :
+                params["sort_by"] = "popularity.desc"
+                params["with_genres"] = "\(genreId)"
+            case .ShowsForGenre(let genreId) :
+                params["sort_by"] = "popularity.desc"
+                params["with_genres"] = "\(genreId)"
+            default:()
         }
+        return params
     }
-    
-    
 }
