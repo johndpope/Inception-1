@@ -12,6 +12,7 @@
 		6304BD071BD6370F009125BB /* TrailerFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6304BD061BD6370F009125BB /* TrailerFunctions.swift */; };
 		63053D821BDD93CA00DE4925 /* ShowWatchlistCoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63053D811BDD93CA00DE4925 /* ShowWatchlistCoreDataHelper.swift */; };
 		63053D841BDD94EB00DE4925 /* ShowWatchlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63053D831BDD94EB00DE4925 /* ShowWatchlistTableViewCell.swift */; };
+		630F777A1C41EE1A00462A57 /* NSSet+Convertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630F77791C41EE1A00462A57 /* NSSet+Convertible.swift */; };
 		63165EF61BE78DC90095035E /* CWStatusBarNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63165EF41BE78DC90095035E /* CWStatusBarNotification.swift */; };
 		63165EF71BE78DC90095035E /* CWStatusBarNotificationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63165EF51BE78DC90095035E /* CWStatusBarNotificationUtils.swift */; };
 		63165EF91BE794380095035E /* ShowUpdaterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63165EF81BE794380095035E /* ShowUpdaterDelegate.swift */; };
@@ -165,6 +166,7 @@
 		6304BD061BD6370F009125BB /* TrailerFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TrailerFunctions.swift; sourceTree = "<group>"; };
 		63053D811BDD93CA00DE4925 /* ShowWatchlistCoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowWatchlistCoreDataHelper.swift; sourceTree = "<group>"; };
 		63053D831BDD94EB00DE4925 /* ShowWatchlistTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowWatchlistTableViewCell.swift; sourceTree = "<group>"; };
+		630F77791C41EE1A00462A57 /* NSSet+Convertible.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSSet+Convertible.swift"; sourceTree = "<group>"; };
 		63165EF41BE78DC90095035E /* CWStatusBarNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotification.swift; sourceTree = "<group>"; };
 		63165EF51BE78DC90095035E /* CWStatusBarNotificationUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CWStatusBarNotificationUtils.swift; sourceTree = "<group>"; };
 		63165EF81BE794380095035E /* ShowUpdaterDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowUpdaterDelegate.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				63672E0C1BB6EC4A005480D8 /* CurrencyExtension.swift */,
 				63165EF41BE78DC90095035E /* CWStatusBarNotification.swift */,
 				63165EF51BE78DC90095035E /* CWStatusBarNotificationUtils.swift */,
+				630F77791C41EE1A00462A57 /* NSSet+Convertible.swift */,
 				63165EFC1BE7A9280095035E /* DarkTheme.swift */,
 				63672E101BB6FC52005480D8 /* DetailTableViewCell.swift */,
 				63D84D791BB56DB80018B0B6 /* DiscoverViewController.swift */,
@@ -771,6 +774,7 @@
 				63887E911BDAF64600810BA9 /* WatchlistViewController+MovieWatchlistTableViewCellDelegate.swift in Sources */,
 				63672E0D1BB6EC4A005480D8 /* CurrencyExtension.swift in Sources */,
 				63535E6C1BAD9C3700D7B77F /* LocalizableExtension.swift in Sources */,
+				630F777A1C41EE1A00462A57 /* NSSet+Convertible.swift in Sources */,
 				6369D0A51BB5D8D20004E05D /* Movie.swift in Sources */,
 				6328318A1C3D6C5500751E42 /* LastSearchedItem.swift in Sources */,
 				636246FA1BD3EC980013988B /* PersonDetailViewController+UITableView.swift in Sources */,

@@ -21,7 +21,6 @@ class PersonWatchlistCoreDataHelper {
         do {
             persons = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [PersonWatchlistItem]
             persons.sortInPlace(nameFilter)
-            self.sortPersonCreditsFor(persons)
             return persons
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
@@ -36,35 +35,6 @@ class PersonWatchlistCoreDataHelper {
             }
         }
         return false
-    }
-    
-    func sortPersonCreditsFor(persons:[PersonWatchlistItem]) {
-        for person in persons {
-            if let personCredits = person.credits {
-                let mutableCredits = personCredits.mutableCopy() as! NSMutableOrderedSet
-                
-                mutableCredits.sortUsingComparator {
-                    (obj1, obj2) -> NSComparisonResult in
-                    
-                    let p1 = obj1 as! PersonCredit
-                    let p2 = obj2 as! PersonCredit
-                    if let p1sn = p1.releaseDate?.string.yearFromEuropeFormat {
-                        if let p2sn = p2.releaseDate?.string.yearFromEuropeFormat {
-                            return NSNumber(integer: p2sn).compare(NSNumber(integer: p1sn))
-                        }
-                    }
-                    
-                    if let p1sn = p1.name {
-                        if let p2sn = p2.name {
-                            return p2sn.compare(p1sn)
-                        }
-                    }
-                    return NSComparisonResult.OrderedSame
-                    
-                }
-                person.credits = mutableCredits.copy() as? NSOrderedSet
-            }
-        }
     }
     
     func insertPersonItem(id:Int, name:String?, profilePath:String?, credits:[MultiSearchResult]) {
@@ -93,15 +63,13 @@ class PersonWatchlistCoreDataHelper {
             }
             
             newEntity.lastUpdated = NSDate()
-            let creditsSet = NSOrderedSet(array:watchlistPersonCredits)
-            newEntity.credits = creditsSet
+            newEntity.credits = NSSet(array:watchlistPersonCredits)
             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
             NSNotificationCenter.defaultCenter().postNotificationName("personCreditsDidLoad", object: nil, userInfo: nil)
         }
         else {
             self.loadCredits(id,watchlistPerson:newEntity) {(loadedCredits:[PersonCredit]) in
-                let creditsSet = NSOrderedSet(array:loadedCredits)
-                newEntity.credits = creditsSet
+                newEntity.credits = NSSet(array:loadedCredits)
                 newEntity.lastUpdated = NSDate()
                 (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
                 NSNotificationCenter.defaultCenter().postNotificationName("personCreditsDidLoad", object: nil, userInfo: nil)

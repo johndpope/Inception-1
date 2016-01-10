@@ -37,7 +37,7 @@ class PersonUpdater {
             
             self.asyncOperations+=1
             personCoreDataHelper.loadCredits(person.id.integerValue,watchlistPerson:person) { (credits:[PersonCredit]) in
-                person.credits = NSOrderedSet(array: credits)
+                person.credits = NSSet(array: credits)
                 (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
                 if self.asyncOperations == 0 {
                     if let delegate = self.delegate {

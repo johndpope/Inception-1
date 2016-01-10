@@ -16,10 +16,10 @@ extension EpisodeGuideWatchlistViewController : EpisodeWatchlistTableViewCellDel
         if let indexPathUnwrapped = indexPath {
             if let show = self.showWatchlistItem {
                 if let seasons = show.seasons {
-                    let seasonArr = seasons.array as! [SeasonWatchlistItem]
+                    let seasonArr = seasons.sortedSeasonArray as [SeasonWatchlistItem]
                     if let season = seasonArr.seasonWithNumber(self.selectedSeasonNumber) {
                         if let episodes = season.episodes {
-                            let episodeArr = episodes.array as! [EpisodeWatchlistItem]
+                            let episodeArr = episodes.sortedEpisodesArray as [EpisodeWatchlistItem]
                             let episode = episodeArr[indexPathUnwrapped.row]
                             if let seen = episode.seen {
                                 if let id = episode.id {

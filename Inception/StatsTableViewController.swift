@@ -72,9 +72,9 @@ class StatsTableViewController : UITableViewController {
         
         for show in shows {
             if let seasons = show.seasons {
-                for season in seasons.array as! [SeasonWatchlistItem]  {
+                for season in seasons.sortedSeasonArray as [SeasonWatchlistItem]  {
                     if let episodes = season.episodes {
-                        for episode in episodes.array as! [EpisodeWatchlistItem] {
+                        for episode in episodes.sortedEpisodesArray as [EpisodeWatchlistItem] {
                             if let seen = episode.seen {
                                 if seen == true {
                                     seenEpisodesCount += 1

@@ -23,7 +23,6 @@ class ShowWatchlistCoreDataHelper {
         do {
             shows = try self.managedObjectContext.executeFetchRequest(fetchRequest) as! [ShowWatchlistItem]
             shows.sortInPlace(seenLexFilter)
-            self.sortSeasonsAndEpisodesFor(shows)
             return shows
         } catch let error as NSError {
             print("Fetch failed: \(error.localizedDescription)")
@@ -46,45 +45,6 @@ class ShowWatchlistCoreDataHelper {
         return !thisSeen && thatSeen
     }
     
-    func sortSeasonsAndEpisodesFor(shows:[ShowWatchlistItem]) {
-        for show in shows {
-            if let seasons = show.seasons {
-                let mutableSeasons = seasons.mutableCopy() as! NSMutableOrderedSet
-                
-                mutableSeasons.sortUsingComparator {
-                    (obj1, obj2) -> NSComparisonResult in
-                    
-                    let p1 = obj1 as! SeasonWatchlistItem
-                    let p2 = obj2 as! SeasonWatchlistItem
-                    if let p1sn = p1.seasonNumber {
-                        if let p2sn = p2.seasonNumber {
-                            return p1sn.compare(p2sn)
-                        }
-                    }
-                    return NSComparisonResult.OrderedSame
-                }
-                show.seasons = mutableSeasons.copy() as? NSOrderedSet
-                for season in seasons.array as! [SeasonWatchlistItem] {
-                    if let episodes = season.episodes {
-                        let mutableEpisodes = episodes.mutableCopy() as! NSMutableOrderedSet
-                        mutableEpisodes.sortUsingComparator {
-                            (obj1, obj2) -> NSComparisonResult in
-                            
-                            let p1 = obj1 as! EpisodeWatchlistItem
-                            let p2 = obj2 as! EpisodeWatchlistItem
-                            if let p1sn = p1.episodeNumber {
-                                if let p2sn = p2.episodeNumber {
-                                    return p1sn.compare(p2sn)
-                                }
-                            }
-                            return NSComparisonResult.OrderedSame
-                        }
-                        season.episodes = mutableEpisodes.copy() as? NSOrderedSet
-                    }
-                }
-            }
-        }
-    }
     
     func insertShowItem(id:Int, name:String?, year:Int?, posterPath:String?, lastUpdated:NSDate) {
         if hasShow(id) {
@@ -99,7 +59,7 @@ class ShowWatchlistCoreDataHelper {
         newEntity.seasons = nil
         
         self.loadSeasons(id,watchlistShow:newEntity) { (seasons:[SeasonWatchlistItem]) in
-            newEntity.seasons = NSOrderedSet(array: seasons)
+            newEntity.seasons = NSSet(array: seasons)
             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
             NSNotificationCenter.defaultCenter().postNotificationName("seasonsAndEpisodesDidLoad", object: nil, userInfo: nil)
         }
@@ -112,16 +72,16 @@ class ShowWatchlistCoreDataHelper {
         watchlistSeason.seasonNumber = seasonNumber
         watchlistSeason.show = show
         if episodes != nil {
-            watchlistSeason.episodes = NSOrderedSet(array:episodes!)
+            watchlistSeason.episodes = NSSet(array:episodes!)
         }
         
         if let seasons = show.seasons {
-            let mutableSeasons = seasons.mutableCopy() as! NSMutableOrderedSet
+            let mutableSeasons = seasons.mutableCopy() as! NSMutableSet
             mutableSeasons.addObject(watchlistSeason)
-            show.seasons = mutableSeasons.copy() as? NSOrderedSet
+            show.seasons = mutableSeasons.copy() as? NSSet
         }
         else {
-            show.seasons = NSOrderedSet(array: [watchlistSeason])
+            show.seasons = NSSet(array: [watchlistSeason])
         }
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
         
@@ -141,12 +101,12 @@ class ShowWatchlistCoreDataHelper {
         watchlistEpisode.seen = false
         
         if let episodes = season.episodes {
-            let mutableEpisodes = episodes.mutableCopy() as! NSMutableOrderedSet
+            let mutableEpisodes = episodes.mutableCopy() as! NSMutableSet
             mutableEpisodes.addObject(watchlistEpisode)
-            season.episodes = mutableEpisodes.copy() as? NSOrderedSet
+            season.episodes = mutableEpisodes.copy() as? NSSet
         }
         else {
-            season.episodes = NSOrderedSet(array: [watchlistEpisode])
+            season.episodes = NSSet(array: [watchlistEpisode])
         }
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
     }
@@ -171,7 +131,7 @@ class ShowWatchlistCoreDataHelper {
                         watchlistSeason.id = seasons[i].id
                         watchlistSeason.seasonNumber = seasons[i].seasonNumber
                         watchlistSeason.show = watchlistShow
-                        self.loadEpisodes(watchlistSeason, id: id, completionClosure: { (episodes:NSOrderedSet) in
+                        self.loadEpisodes(watchlistSeason, id: id, completionClosure: { (episodes:NSSet) in
                             watchlistSeason.episodes = episodes
                             (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
                             watchlistSeasons.append(watchlistSeason)
@@ -190,7 +150,7 @@ class ShowWatchlistCoreDataHelper {
     }
     
     
-    private func loadEpisodes(season:SeasonWatchlistItem, id:Int, completionClosure:NSOrderedSet -> ()) {
+    private func loadEpisodes(season:SeasonWatchlistItem, id:Int, completionClosure:NSSet -> ()) {
         
         if let seasonNumber = season.seasonNumber {
             if seasonNumber > 0 {
@@ -213,26 +173,26 @@ class ShowWatchlistCoreDataHelper {
                             watchlistEpisode.seen = false
                             watchlistEpisodes.append(watchlistEpisode)
                         }
-                        completionClosure(NSOrderedSet(array: watchlistEpisodes))
+                        completionClosure(NSSet(array: watchlistEpisodes))
                     }
                 }
             }
             else {
-                completionClosure(NSOrderedSet(array:[]))
+                completionClosure(NSSet(array:[]))
             }
         }
         else {
-            completionClosure(NSOrderedSet(array:[]))
+            completionClosure(NSSet(array:[]))
         }
     }
     
     func isShowSeen(show:ShowWatchlistItem) -> Bool {
         if let seasonsSet = show.seasons {
-            for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
+            for seasons in seasonsSet.sortedSeasonArray as [SeasonWatchlistItem] {
                 if let seasonNumber = seasons.seasonNumber {
                     if seasonNumber.integerValue > 0 {
                         if let episodesSet = seasons.episodes {
-                            for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                            for episode in episodesSet.sortedEpisodesArray as [EpisodeWatchlistItem] {
                                 if let seen = episode.seen {
                                     if Bool(seen) == false {
                                         return false
@@ -253,9 +213,9 @@ class ShowWatchlistCoreDataHelper {
     
     func setShowSeenState(show:ShowWatchlistItem,seen:Bool) {
         if let seasonsSet = show.seasons {
-            for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
+            for seasons in seasonsSet.sortedSeasonArray as [SeasonWatchlistItem] {
                 if let episodesSet = seasons.episodes {
-                    for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                    for episode in episodesSet.sortedEpisodesArray as [EpisodeWatchlistItem] {
                         episode.seen = seen
                     }
                 }
@@ -328,11 +288,11 @@ class ShowWatchlistCoreDataHelper {
         var totalCount:Int = 0
         if let show = self.showWithId(id) {
             if let seasonsSet = show.seasons {
-                for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
+                for seasons in seasonsSet.sortedSeasonArray as [SeasonWatchlistItem] {
                     if let seasonNumber = seasons.seasonNumber {
                         if seasonNumber.integerValue > 0 {
                             if let episodesSet = seasons.episodes {
-                                for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                                for episode in episodesSet.sortedEpisodesArray as [EpisodeWatchlistItem] {
                                     if episode.seen == true {
                                         seenCount += 1
                                     }

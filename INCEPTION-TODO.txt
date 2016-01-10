@@ -9,3 +9,4 @@ To Consider:
 - primary tint color in light theme might be not readable => change color
 - progressbar for tv shows in watchlist does not look good on iPad => think of a better design
 - tests
+- make use of the corespotlight api to make the app searchable through spotlight => search for movies, shows, persons etc and open them right in the app

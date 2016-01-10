@@ -18,7 +18,7 @@ extension EpisodeGuideWatchlistViewController : UITableViewDelegate, UITableView
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let show = self.showWatchlistItem {
             if let seasons = show.seasons {
-                let seasonArr = seasons.array as! [SeasonWatchlistItem]
+                let seasonArr = seasons.sortedSeasonArray as [SeasonWatchlistItem]
                 if let season = seasonArr.seasonWithNumber(self.selectedSeasonNumber) {
                     if let episodes = season.episodes {
                         return episodes.count
@@ -34,10 +34,10 @@ extension EpisodeGuideWatchlistViewController : UITableViewDelegate, UITableView
         var text = ""
         if let show = self.showWatchlistItem {
             if let seasons = show.seasons {
-                let seasonArr = seasons.array as! [SeasonWatchlistItem]
+                let seasonArr = seasons.sortedSeasonArray as [SeasonWatchlistItem]
                 if let season = seasonArr.seasonWithNumber(self.selectedSeasonNumber) {
                     if let episodes = season.episodes {
-                        let episodeArr = episodes.array as! [EpisodeWatchlistItem]
+                        let episodeArr = episodes.sortedEpisodesArray as [EpisodeWatchlistItem]
                         let episode = episodeArr[indexPath.row]
                         if let overview = episode.overview {
                             text = overview
@@ -70,10 +70,10 @@ extension EpisodeGuideWatchlistViewController : UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("EpisodeWatchlistTableViewCell", forIndexPath: indexPath) as! EpisodeWatchlistTableViewCell
         if let show = self.showWatchlistItem {
             if let seasons = show.seasons {
-                let seasonArr = seasons.array as! [SeasonWatchlistItem]
+                let seasonArr = seasons.sortedSeasonArray as [SeasonWatchlistItem]
                 if let season = seasonArr.seasonWithNumber(self.selectedSeasonNumber) {
                     if let episodes = season.episodes {
-                        let episodeArr = episodes.array as! [EpisodeWatchlistItem]
+                        let episodeArr = episodes.sortedEpisodesArray as [EpisodeWatchlistItem]
                         let episode = episodeArr[indexPath.row]
                         cell.titleLabel.text = ""
                         cell.overviewLabel.text = ""

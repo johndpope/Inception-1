@@ -40,7 +40,7 @@ extension PersonWatchlistViewController : UITableViewDelegate, UITableViewDataSo
         let cell = tableView.dequeueReusableCellWithIdentifier("PersonDetailWatchlistTableViewCell", forIndexPath: indexPath) as! PersonDetailWatchlistTableViewCell
         if let person = self.personWatchlistItem {
             if let credits = person.credits {
-                var creditsArr = credits.array as! [PersonCredit]
+                var creditsArr = credits.sortedCreditsArray as [PersonCredit]
                 cell.titleLabel.text = ""
                 cell.yearLabel.text = ""
                 
@@ -66,7 +66,7 @@ extension PersonWatchlistViewController : UITableViewDelegate, UITableViewDataSo
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if let person = self.personWatchlistItem {
             if let credits = person.credits {
-                var creditsArr = credits.array as! [PersonCredit]
+                var creditsArr = credits.sortedCreditsArray as [PersonCredit]
                 if let mediaType = creditsArr[indexPath.row].mediaType {
                     switch(mediaType) {
                         case "tv":

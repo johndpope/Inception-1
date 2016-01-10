@@ -18,9 +18,9 @@ class NotificationScheduler {
                 let shows = showCoreDataHelper.showsFromStore()
                 for show in shows {
                     if let seasonsSet = show.seasons {
-                        for seasons in seasonsSet.array as! [SeasonWatchlistItem] {
+                        for seasons in seasonsSet.sortedSeasonArray as [SeasonWatchlistItem] {
                             if let episodesSet = seasons.episodes {
-                                for episode in episodesSet.array as! [EpisodeWatchlistItem] {
+                                for episode in episodesSet.sortedEpisodesArray as [EpisodeWatchlistItem] {
                                     if let airDate = episode.airDate {
                                         if airDate.isInFutureOrToday {
                                             let localNotification = UILocalNotification()
@@ -66,7 +66,7 @@ class NotificationScheduler {
                 let persons = personCoreDataHelper.personsFromStore()
                 for person in persons {
                     if let credits = person.credits {
-                        for credit in (credits.array as! [PersonCredit]) {
+                        for credit in (credits.sortedCreditsArray as [PersonCredit]) {
                             if let releaseDate = credit.releaseDate {
                                 if let creditName = credit.name {
                                     if let mediaType = credit.mediaType where mediaType == "movie" {

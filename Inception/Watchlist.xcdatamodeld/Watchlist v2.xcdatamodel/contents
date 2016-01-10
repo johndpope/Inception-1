@@ -40,12 +40,12 @@
         <attribute name="lastUpdated" attributeType="Date" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="profilePath" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="credits" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="PersonCredit" inverseName="person" inverseEntity="PersonCredit" syncable="YES"/>
+        <relationship name="credits" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PersonCredit" inverseName="person" inverseEntity="PersonCredit" syncable="YES"/>
     </entity>
     <entity name="SeasonWatchlistItem" representedClassName=".SeasonWatchlistItem" syncable="YES">
         <attribute name="id" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <attribute name="seasonNumber" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="EpisodeWatchlistItem" inverseName="season" inverseEntity="EpisodeWatchlistItem" syncable="YES"/>
+        <relationship name="episodes" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="EpisodeWatchlistItem" inverseName="season" inverseEntity="EpisodeWatchlistItem" syncable="YES"/>
         <relationship name="show" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ShowWatchlistItem" inverseName="seasons" inverseEntity="ShowWatchlistItem" syncable="YES"/>
     </entity>
     <entity name="ShowWatchlistItem" representedClassName=".ShowWatchlistItem" syncable="YES">
@@ -55,7 +55,7 @@
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="posterPath" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="seasons" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="SeasonWatchlistItem" inverseName="show" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
+        <relationship name="seasons" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SeasonWatchlistItem" inverseName="show" inverseEntity="SeasonWatchlistItem" syncable="YES"/>
     </entity>
     <elements>
         <element name="EpisodeWatchlistItem" positionX="378" positionY="-18" width="128" height="163"/>

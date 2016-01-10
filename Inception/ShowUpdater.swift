@@ -45,7 +45,7 @@ class ShowUpdater {
             if let showId = show.id {
                 if let seasons = show.seasons {
                     //update episodes for already saved seasons
-                    for season in seasons.array as! [SeasonWatchlistItem] {
+                    for season in seasons.sortedSeasonArray as [SeasonWatchlistItem] {
                         self.loadEpisodesAndInsert(season, id: show.id)
                     }
                 }
@@ -68,7 +68,7 @@ class ShowUpdater {
                         let requestedShow = Show(json: JSON(data!))
                         if let requestedSeasons = requestedShow.seasons {
                             if show.seasons != nil {
-                                self.insertNewSeasons(requestedSeasons, currentData: show.seasons!.array as? [SeasonWatchlistItem], show: show)
+                                self.insertNewSeasons(requestedSeasons, currentData: show.seasons!.sortedSeasonArray, show: show)
                             }
                             else {
                                 self.insertNewSeasons(requestedSeasons, currentData: nil, show: show)
@@ -125,7 +125,7 @@ class ShowUpdater {
                     } else {
                         let episodes = JSONParser.parseEpisodes(data)
                         if season.episodes != nil {
-                            self.insertNewEpisodes(episodes, currentData: season.episodes!.array as? [EpisodeWatchlistItem], season: season)
+                            self.insertNewEpisodes(episodes, currentData: season.episodes!.sortedEpisodesArray, season: season)
                         }
                         else {
                             self.insertNewEpisodes(episodes, currentData:nil, season: season)

@@ -70,9 +70,9 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
         let shows = self.showCoreDataHelper.showsFromStore()
         for show in shows {
             if let seasons = show.seasons {
-                for season in seasons.array as! [SeasonWatchlistItem] {
+                for season in seasons.sortedSeasonArray as [SeasonWatchlistItem] {
                     if let episodes = season.episodes  {
-                        for episode in episodes.array as! [EpisodeWatchlistItem] {
+                        for episode in episodes.sortedEpisodesArray as [EpisodeWatchlistItem] {
                             if let epName = episode.name {
                                 if let shName = show.name {
                                     if let epDate = episode.airDate {
@@ -102,7 +102,7 @@ class UpcomingEpisodesCalendarViewController: UIViewController, UITableViewDeleg
         let persons = self.personCoreDataHelper.personsFromStore()
         for person in persons {
             if let credits = person.credits {
-                for credit in (credits.array as! [PersonCredit]) {
+                for credit in (credits.sortedCreditsArray as [PersonCredit]) {
                     if let releaseDate = credit.releaseDate {
                         if let creditName = credit.name {
                             if let mediaType = credit.mediaType where mediaType == "movie" {
