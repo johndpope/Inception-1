@@ -26,7 +26,7 @@ class NotificationScheduler {
                                             let localNotification = UILocalNotification()
                                             localNotification.fireDate = airDate.dateWithTime
                                             if let showName = show.name {
-                                                localNotification.alertBody = "aNewEpisode" + " \(showName) " + "airs".localized + " " + airDate.relativeNotificationDate + "."
+                                                localNotification.alertBody = "aNewEpisode".localized + " \(showName) " + "airs".localized + " " + airDate.relativeNotificationDate + "."
                                             }
                                             else {
                                                 localNotification.alertBody = "thereIsANewEpisode".localized
@@ -51,7 +51,7 @@ class NotificationScheduler {
                             if releaseDate.isInFutureOrToday {
                                 let localNotification = UILocalNotification()
                                 localNotification.fireDate = releaseDate.dateWithTime
-                                localNotification.alertBody = "theMovie" + " \(name) " + "airsInCinema".localized + " " + releaseDate.relativeNotificationDate + "."
+                                localNotification.alertBody = "theMovie".localized + " \(name) " + "airsInCinema".localized + " " + releaseDate.relativeNotificationDate + "."
                                 localNotification.timeZone = NSTimeZone.defaultTimeZone()
                                 localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
                                 
@@ -73,7 +73,7 @@ class NotificationScheduler {
                                         if releaseDate.isInFutureOrToday {
                                             let localNotification = UILocalNotification()
                                             localNotification.fireDate = releaseDate.dateWithTime
-                                            localNotification.alertBody = "theMovie" + " \(creditName) " + "airsInCinema".localized + " " + releaseDate.relativeNotificationDate + "."
+                                            localNotification.alertBody = "theMovie".localized + " \(creditName) " + "airsInCinema".localized + " " + releaseDate.relativeNotificationDate + "."
                                             localNotification.timeZone = NSTimeZone.defaultTimeZone()
                                             localNotification.applicationIconBadgeNumber = UIApplication.sharedApplication().applicationIconBadgeNumber + 1
                                             
