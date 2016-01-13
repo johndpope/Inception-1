@@ -1,5 +1,9 @@
 Now:
 - make hit area bigger for seen button
+- change from minutes to hour or days for stats bar chart when then numbers get too big
+- make a faq section to describe the functionality better (especially for the calendar view)
+- add functionality to mark a whole season as watched
+
 To Consider:
 - consider search/multi page to show all search results
 	http://stackoverflow.com/questions/28634995/chain-multiple-alamofire-requests
