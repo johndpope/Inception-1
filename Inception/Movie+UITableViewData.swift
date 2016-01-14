@@ -25,7 +25,7 @@ extension Movie {
         }
         
         if let runtime = self.runtime where runtime != 0 {
-            tableData.append("\(runtime)")
+            tableData.append("\(runtime) min")
             tableKeys.append("runtime".localized)
         }
         
