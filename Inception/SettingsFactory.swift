@@ -19,6 +19,10 @@ class SettingsFactory {
         case Theme = "Theme"
         case AlarmDay = "AlarmDay"
         case ReleaseDateCountry = "ReleaseDateCountry"
+        case DidShowSwipeTip = "DidShowSwipeTip"
+        case DidShowSeasonLongPressTip = "DidShowSeasonLongPressTip"
+        case DidShowCalendarTip = "DidShowCalendarTip"
+
     }
     
     enum VideoQuality:String {
@@ -47,7 +51,7 @@ class SettingsFactory {
     
     class func registerDefaults() {
         NSUserDefaults.standardUserDefaults().registerDefaults([SettingKey.ReleaseDateCountry.rawValue:"US", SettingKey.AlarmDay.rawValue:"sameday",SettingKey.Notifications.rawValue:false,SettingKey.DidShowNotificationsToday.rawValue:NSDate.dateWith(2014, month: 1, day: 1, hour: 1, minute: 1, second: 1), SettingKey.NotificationAlarmDate.rawValue:NSDate.dateWith(2015, month: 1, day: 1, hour: 12, minute: 0, second: 0),SettingKey.ImageQuality.rawValue:ImageQuality.Compressed.rawValue,SettingKey.VideoQuality.rawValue:VideoQuality.HD.rawValue,
-            SettingKey.Theme.rawValue:ThemeOption.Dark.rawValue])
+            SettingKey.Theme.rawValue:ThemeOption.Dark.rawValue, SettingKey.DidShowSwipeTip.rawValue:false, SettingKey.DidShowSeasonLongPressTip.rawValue:false, SettingKey.DidShowCalendarTip.rawValue:false])
     }
     
     class func boolForKey(key:SettingKey) -> Bool? {

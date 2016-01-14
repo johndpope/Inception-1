@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import EasyTipView
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
@@ -31,6 +32,15 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.tableFooterView = UIView(frame: CGRectZero)
         self.searchBar.keyboardAppearance = UIKeyboardAppearance.Dark
         self.searchBar.autocapitalizationType = .None
+        
+        if SettingsFactory.boolForKey(SettingsFactory.SettingKey.DidShowSwipeTip) == false {
+            EasyTipView.showAnimated(true,
+                forView: self.searchBar,
+                withinSuperview: self.view,
+                text: "addViaSwipeExplanation".localized,
+                delegate: nil)
+            SettingsFactory.setBoolForKey(SettingsFactory.SettingKey.DidShowSwipeTip, value: true)
+        }
     }
     
     override func viewWillDisappear(animated: Bool) {

@@ -1,5 +1,4 @@
 Now:
-- make a faq section to describe the functionality better (especially for the calendar view)
 
 To Consider:
 - consider search/multi page to show all search results

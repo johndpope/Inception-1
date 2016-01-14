@@ -11,6 +11,7 @@ pod "SKTagView"
 pod 'AIFlatSwitch', '~> 0.0.1'
 pod 'JTCalendar', '~> 2.0'
 pod 'Charts'
+pod 'EasyTipView', '~> 0.1.3'
 end
 
 target 'InceptionTests' do

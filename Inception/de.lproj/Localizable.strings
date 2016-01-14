@@ -87,3 +87,6 @@
 "countryReleaseDateDescription" = "Filmstarttermine unterscheiden sich von Land zu Land. Daher kannst du hier einstellen für welches Land du gerne die Filmstartinformation beziehen möchtest. Sollten keine Informationen zu diesem Land für einen Film vorliegen wird dir standardmäßig das Datum für die USA angezeigt.";
 "theMovie" = "Der Film";
 "airsInCinema" = "läuft im Kino ab";
+"addViaSwipeExplanation" = "Du kannst nach links wischen, um Suchergebnisse schnell zu deiner Liste hinzuzufügen.";
+"longPressForSeasonExplanation" = "Halte kurz gedrückt auf einer der Staffeln, um alle Episoden dieser zu markieren.";
+"calendarExplanation" = "Der Kalendar zeigt dir an wann neue Episoden deiner getrackten Serien ausgestrahlt werden.";

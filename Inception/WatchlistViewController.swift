@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-
+import EasyTipView
 class WatchlistViewController: UIViewController,UITableViewDelegate, UITableViewDataSource, ShowUpdaterDelegate, PersonUpdaterDelegate {
     
     var movies:[MovieWatchlistItem] = []
@@ -23,6 +23,7 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl:UISegmentedControl!
+    @IBOutlet weak var calendarBarButtonItem:UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,17 @@ class WatchlistViewController: UIViewController,UITableViewDelegate, UITableView
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLoadSeasonsAndEpisodes", name: "seasonsAndEpisodesDidLoad", object: nil)
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLoadPersonCredits", name: "personCreditsDidLoad", object: nil)
+        showTip();
+    }
+    
+    func showTip() {
+        if SettingsFactory.boolForKey(SettingsFactory.SettingKey.DidShowCalendarTip) == false {
+            EasyTipView.showAnimated(true,
+                forItem: self.calendarBarButtonItem,
+                text: "calendarExplanation".localized,
+                delegate: nil)
+            SettingsFactory.setBoolForKey(SettingsFactory.SettingKey.DidShowCalendarTip, value: true)
+        }
     }
     
     deinit {

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EasyTipView
 
 class EpisodeGuideWatchlistViewController: UIViewController {
     
@@ -31,6 +32,19 @@ class EpisodeGuideWatchlistViewController: UIViewController {
         = UILongPressGestureRecognizer(target:self, action:"toggleSeasonSeenState:")
         longPressGestureRecognizer.delaysTouchesBegan = true
         self.seasonNavigator.addGestureRecognizer(longPressGestureRecognizer)
+        
+        showTip()
+    }
+    
+    func showTip() {
+        if SettingsFactory.boolForKey(SettingsFactory.SettingKey.DidShowSeasonLongPressTip) == false {
+            EasyTipView.showAnimated(true,
+                forView: self.seasonNavigator,
+                withinSuperview: self.view,
+                text: "longPressForSeasonExplanation".localized,
+                delegate: nil)
+            SettingsFactory.setBoolForKey(SettingsFactory.SettingKey.DidShowSeasonLongPressTip, value: true)
+        }
     }
     
     override func viewWillAppear(animated: Bool) {

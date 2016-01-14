@@ -87,3 +87,7 @@
 "countryReleaseDateDescription" = "Movie release dates differ from countries. Therefore you can select a country you want to get information about the release dates from. If there is no information for a specific movie in your country available the release date for the US will be set by default.";
 "airsInCinema" = "airs in cinema";
 "theMovie" = "The movie";
+"addViaSwipeExplanation" = "You can swipe left on search results to quickly add them to your watchlist !";
+"longPressForSeasonExplanation" = "You can also long-press on one season to mark all episodes of it.";
+"calendarExplanation" = "The calendar shows you when new episodes of your tracked shows are airing.";
+

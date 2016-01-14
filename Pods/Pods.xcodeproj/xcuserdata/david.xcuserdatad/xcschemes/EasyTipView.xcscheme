@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '001DD144FF11D05E7F7F1EA5'
-               BlueprintName = 'Alamofire'
+               BlueprintIdentifier = '1E75697543401E5CBFB80D7F'
+               BlueprintName = 'EasyTipView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'Alamofire.framework'>
+               BuildableName = 'EasyTipView.framework'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

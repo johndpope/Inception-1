@@ -1456,6 +1456,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="calendarBarButtonItem" destination="q3P-WU-fhh" id="JfJ-Ug-L2N"/>
                         <outlet property="segmentedControl" destination="7dL-7y-laS" id="h9r-RJ-zbk"/>
                         <outlet property="tableView" destination="UMS-Ih-9MI" id="o1F-1u-P0Y"/>
                     </connections>
