@@ -1,3 +1,7 @@
 - You can now add persons to your watchlist to keep track of your favorite actors
 - The updated search functionality now shows you some of your last searches. Of course these are also synched with all your iOS devices
 - Release dates for movies are now country-specific. You can go to your settings to set the country you want to get release date information from. If there is now information for your country available the application automatically defaults to the US release date.
+
+- Du kannst nun Personen zu deiner Liste hinzufügen, um auch deine Lieblingsschauspieler zu tracken
+- Die verbesserte Suche zeigt dir nun deine letzten Suchergebnisse an. Diese synchronisieren natürlich auch mit all deinen Geräten
+- Das Veröffentlichungsdatum eines Filmes ist nun länderspezifisch. Du kannst in den Einstellungen einstellen für welches Land du Kinostarts beziehen möchtest. Sollte keine Information für dieses Land für einen bestimmten Film vorliegen wird standardmäßig das Datum der USA genommen

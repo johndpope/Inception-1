@@ -1,0 +1,12 @@
+- The button to mark a episode as seen is now bigger
+- The statistics bar graph now switches from minutes to hours or days if the number of minutes is too high to display
+- Added unit to the runtime information of TV Shows or movies
+- Added ability to mark a season as watched not only specific episodes or a whole show
+- Added little popups which only pop up once and will show you some hidden or new features of iCineast
+
+
+- Die Schaltfläche um Serien oder Episoden abzuhaken ist nun größer
+- Der Statistik Bar-Graph wechselt nun von Minuten zu Stunden oder Tagen, falls die Anzahl an Minuten zu groß ist um sinnvol angezeigt zu werden
+- Die Einheit für Film und Serien Laufzeiten wurde ergänzt
+- Es ist nun möglich nicht nur einzelne Episoden oder ganze Serien abzuhaken sondern auch einzelne Staffeln, in dem kurz gehalten wird auf der jeweiligen Staffel
+- Kleine Helfernachrichten wurden eingebaut, die nur das erste Mal dem Benutzer eine kleine Hilfe geben oder neue, versteckte Funktionen von iCineast anzeigen
