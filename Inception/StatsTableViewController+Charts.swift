@@ -49,13 +49,13 @@ extension StatsTableViewController : ChartViewDelegate {
         self.horizontalBarChart.animate(yAxisDuration: 2.5)
     }
 
-    func setChartData(keyLabels:[String], yValues:[Int]) {
+    func setChartData(keyLabels:[String], yValues:[Double], timeSpentLabel:String) {
         var yVals:[BarChartDataEntry] = []
         for i in 0..<yValues.count {
-            let entry = BarChartDataEntry(value:Double(yValues[i]), xIndex: i)
+            let entry = BarChartDataEntry(value:yValues[i], xIndex: i)
             yVals.append(entry)
         }
-        let set = BarChartDataSet(yVals: yVals, label: "timeSpent".localized)
+        let set = BarChartDataSet(yVals: yVals, label: timeSpentLabel)
         set.barSpace = 0.2
         set.colors = [ThemeManager.sharedInstance.currentTheme.primaryTintColor]
         

@@ -59,7 +59,9 @@
 "noTrackedMovies" = "Gespeicherte Filme";
 "noTrackedShows" = "Gespeicherte TV Serien";
 "noSeenEpisodes" = "Gesehene Episoden";
-"timeSpent" = "Verbrachte Zeit (min)";
+"daysSpent" = "Verbrachte Zeit (Tage)";
+"minutesSpent" = "Verbrachte Zeit (Minuten)";
+"hoursSpent" = "Verbrachte Zeit (Stunden)";
 "quality" = "Qualität";
 "imageQuality" = "Bild Qualität";
 "videoQuality" = "Video Qualität";

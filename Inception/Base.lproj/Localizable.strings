@@ -59,7 +59,9 @@
 "noTrackedMovies" = "Tracked Movies";
 "noTrackedShows" = "Tracked TV Shows";
 "noSeenEpisodes" = "Seen Episodes";
-"timeSpent" = "Time Spent (min)";
+"daysSpent" = "Time Spent (days)";
+"minutesSpent" = "Time Spent (min)";
+"hoursSpent" = "Time Spent (hours)";
 "quality" = "Quality";
 "imageQuality" = "Image Quality";
 "videoQuality" = "Video Quality";

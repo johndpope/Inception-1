@@ -13,6 +13,9 @@ class StatsTableViewController : UITableViewController {
     
     @IBOutlet weak var horizontalBarChart:HorizontalBarChartView!
     
+    private let hourThreshold = 999
+    private let dayThreshold = 59940 //999h
+    
     struct Stats{
         var key: String
         var value: String
@@ -103,8 +106,37 @@ class StatsTableViewController : UITableViewController {
         }
         
         let totalTimeSpent = movieTimeSpent + showTimeSpent
-        self.setChartData(["Total","shows".localized, "movies".localized], yValues: [totalTimeSpent,showTimeSpent, movieTimeSpent])
+        
+        if totalTimeSpent > dayThreshold {
+            self.setChartData(["Total","shows".localized, "movies".localized], yValues: convertToDays([totalTimeSpent,showTimeSpent, movieTimeSpent]), timeSpentLabel: "daysSpent".localized)
+        }
+        else if totalTimeSpent > hourThreshold {
+            self.setChartData(["Total","shows".localized, "movies".localized], yValues: convertToHours([totalTimeSpent,showTimeSpent, movieTimeSpent]), timeSpentLabel: "hoursSpent".localized)
+        }
+        else {
+            let yValuesInDoubles = [totalTimeSpent,showTimeSpent, movieTimeSpent].map({Double($0)})
+            self.setChartData(["Total","shows".localized, "movies".localized], yValues: yValuesInDoubles, timeSpentLabel: "minutesSpent".localized)
+        }
     }
+    
+    func convertToDays(yValues:[Int]) -> [Double] {
+        var yValuesInDays:[Double] = []
+        
+        for value in yValues {
+            yValuesInDays.append(Double(value)/60.0/24.0);
+        }
+        return yValuesInDays
+    }
+    
+    func convertToHours(yValues:[Int]) -> [Double] {
+        var yValuesInHours:[Double] = []
+        
+        for value in yValues {
+            yValuesInHours.append(Double(value)/60.0);
+        }
+        return yValuesInHours
+    }
+    
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 2
