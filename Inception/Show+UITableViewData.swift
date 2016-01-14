@@ -61,7 +61,9 @@ extension Show {
         
         
         if let episodeRunTime = self.episodeRunTime where episodeRunTime.count != 0 {
-            tableData.append(episodeRunTime.map{String($0)}.joinWithSeparator(", "))
+            let episodeRuntimeString = episodeRunTime.map{String($0)}.joinWithSeparator(", ")
+            episodeRuntimeString += " min"
+            tableData.append(episodeRuntimeString)
             tableKeys.append("episodeRuntime".localized)
         }
         
