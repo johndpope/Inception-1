@@ -210,7 +210,7 @@ class ShowWatchlistCoreDataHelper {
         }
         return true
     }
-    
+
     func setShowSeenState(show:ShowWatchlistItem,seen:Bool) {
         if let seasonsSet = show.seasons {
             for seasons in seasonsSet.sortedSeasonArray as [SeasonWatchlistItem] {
@@ -222,6 +222,48 @@ class ShowWatchlistCoreDataHelper {
             }
         }
         
+        (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
+    }
+    
+    func isSeasonSeen(season:SeasonWatchlistItem) -> Bool {
+        if let seasonNumber = season.seasonNumber {
+            if seasonNumber.integerValue > 0 {
+                if let episodesSet = season.episodes {
+                    for episode in episodesSet.sortedEpisodesArray as [EpisodeWatchlistItem] {
+                        if let seen = episode.seen {
+                            if Bool(seen) == false {
+                                return false
+                            }
+                        }
+                        else {
+                            return false
+                        }
+                        
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
+    func setSeasonSeenState(show:ShowWatchlistItem, seasonNumber:Int) {
+        if let seasonsSet = show.seasons {
+            for season in seasonsSet.sortedSeasonArray as [SeasonWatchlistItem] {
+                if let seasonNum = season.seasonNumber {
+                    if seasonNum.integerValue == seasonNumber {
+                        let isSeen = isSeasonSeen(season)
+                        if let episodesSet = season.episodes {
+                            for episode in episodesSet.sortedEpisodesArray as [EpisodeWatchlistItem] {
+                                if let id = episode.id {
+                                    setEpisodeSeenState(!isSeen, id: id.integerValue)
+                                }
+                            }
+                        }
+                        break
+                    }
+                }
+            }
+        }
         (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext()
     }
     

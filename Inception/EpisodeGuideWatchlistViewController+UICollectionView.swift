@@ -74,5 +74,23 @@ extension EpisodeGuideWatchlistViewController : UICollectionViewDelegate, UIColl
             cell.roundedView.backgroundColor = ThemeManager.sharedInstance.currentTheme.primaryTintColor
             }, completion: nil)
     }
+    
+    func toggleSeasonSeenState(gestureRecognizer:UIGestureRecognizer) {
+        if gestureRecognizer.state != .Ended {
+            return
+        }
+        let point = gestureRecognizer.locationInView(self.seasonNavigator)
+        let indexPath = self.seasonNavigator.indexPathForItemAtPoint(point)
+        if indexPath == nil {
+            print("Could not find indexpath in seasonNavigator.")
+        } else {
+            let seasonNumber = indexPath!.row+1;
+            if let show = self.showWatchlistItem {
+                self.showCoreDataHelper.setSeasonSeenState(show, seasonNumber: seasonNumber)
+                self.seasonNavigator.reloadData()
+                self.tableView.reloadData()
+            }
+        }
+    }
 }
 

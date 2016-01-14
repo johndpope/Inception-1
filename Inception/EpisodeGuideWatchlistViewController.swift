@@ -26,6 +26,11 @@ class EpisodeGuideWatchlistViewController: UIViewController {
         self.title = "showSeasons".localized
         self.tableView.tableFooterView = UIView(frame:CGRectZero)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "didLoadSeasonsAndEpisodes", name: "seasonsAndEpisodesDidLoad", object: nil)
+        
+        let longPressGestureRecognizer
+        = UILongPressGestureRecognizer(target:self, action:"toggleSeasonSeenState:")
+        longPressGestureRecognizer.delaysTouchesBegan = true
+        self.seasonNavigator.addGestureRecognizer(longPressGestureRecognizer)
     }
     
     override func viewWillAppear(animated: Bool) {
