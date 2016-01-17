@@ -15,7 +15,7 @@ extension Movie {
         var tableKeys:[String] = []
         
         if let voteAverage = self.voteAverage where voteAverage != 0.0 {
-            tableData.append("\(voteAverage)")
+            tableData.append("\(voteAverage)/10.0")
             tableKeys.append("voteAverage".localized)
         }
         
