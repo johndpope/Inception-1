@@ -8,4 +8,4 @@
 
 import Foundation
 
-let APIKEY = "6b612def21b8d0ca52884859d46f1e64"
+let APIKEY = "" //TODO: ADD APIKEY from tmdb.org
